@@ -311,7 +311,7 @@ var Backend = {
      * var backend = require('backend');
      * var clients = backend.getClients();
      * clients.forEach(function(client) {
-     *     client.chat('Hello ', + client.Name() + '. I'm a SinusBot!');
+     *     client.chat('Hello ', + client.Name() + '. I\'m a SinusBot!');
      * });
      */
     getClients: function() {},
