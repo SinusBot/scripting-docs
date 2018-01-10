@@ -724,6 +724,12 @@ var Helpers = /** @lends Helpers */ {
      */
     getRandom: function(max) {},
     /**
+     * Gets the string representation of an object
+     * @param {object} input
+     * @returns {string}
+     */
+    toString: function(input) {},
+    /**
      * Encodes a string to base64
      * @param {string} input
      * @returns {string}
@@ -787,6 +793,7 @@ var Helpers = /** @lends Helpers */ {
  * @fires event#serverGroupAdded
  * @fires event#serverGroupRemoved
  * @fires event#clientNick 
+ * @fires event#api:$eventName
  * @fires event#clientIPAddress
  * @fires event#clientAway
  * @fires event#clientBack
