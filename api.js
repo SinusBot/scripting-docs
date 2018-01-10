@@ -1824,8 +1824,8 @@ APIEvent.prototype = /** @lends APIEvent.prototype */ {
 }
 
 /**
- * @event APIEvent#api:$eventName
- * @memberof APIEvent
+ * @event event#api:$eventName
+ * @memberof Event
  * @param {APIEvent}
  */
 /**
