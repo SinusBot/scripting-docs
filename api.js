@@ -768,6 +768,55 @@ var Helpers = /** @lends Helpers */ {
 }
 
 
+ /**
+ * @mixin Event
+ * @fires event#chat
+ * @fires event#typing
+ * @fires event#poke
+ * @fires event#track
+ * @fires event#trackInfo
+ * @fires event#trackEnd
+ * @fires event#connect
+ * @fires event#connectionFailed
+ * @fires event#disconnect
+ * @fires event#clientMove
+ * @fires event#clientVisible
+ * @fires event#clientInvisible
+ * @fires event#clientKicked
+ * @fires event#clientKickedFromChannel
+ * @fires event#serverGroupAdded
+ * @fires event#serverGroupRemoved
+ * @fires event#clientNick 
+ * @fires event#clientIPAddress
+ * @fires event#clientAway
+ * @fires event#clientBack
+ * @fires event#clientRecord
+ * @fires event#clientRecordStop
+ * @fires event#clientMute
+ * @fires event#clientUnmute
+ * @fires event#clientDeaf
+ * @fires event#clientUndeaf
+ * @fires event#channelCreate
+ * @fires event#channelUpdate
+ * @fires event#channelDelete
+ * @fires event#talkerCount
+ * @fires event#unload
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * event.on('chat', function(ev) {
+ *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
+ * })
+ */
+var Event = /** @lends Event */ {
+    /**
+     * @param {string} event name to listen
+     * @param {function} callback gets called when the given event gets triggered
+     */
+    on: function(event, callback) {}
+};
+
+
 /**
  * @class Client
  * Warning: if the client is inivisible to the bot, some fields might not be available
@@ -1400,6 +1449,9 @@ function ConnectParams() {}
 /**
  * @class NetClient
  * @version 0.9.16
+ * @fires NetClient#error
+ * @fires NetClient#close
+ * @fires NetClient#data
  */
 function NetClient() {}
 NetClient.prototype = /** @lends NetClient.prototype */ {
@@ -1419,22 +1471,29 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
 };
 
 /**
- * @method NetClient#data
+ * @event NetClient#data
+ * @memberof NetClient
  * @param {Bytes}
  */
 
 /**
- * @method NetClient#close
+ * @event NetClient#close
+ * @memberof NetClient
  */
 
 /**
- * @method NetClient#error
+ * @event NetClient#error
+ * @memberof NetClient
  * @param {string} error
  */
 
 /**
  * @mixin Websockets
  * @version 0.9.20
+ * @fires Websockets#ws.connect
+ * @fires Websockets#ws.close
+ * @fires Websockets#ws.error
+ * @fires Websockets#ws.data
  * @example
  * var ws = require('ws');
  * var engine = require('engine');
@@ -1633,88 +1692,105 @@ function ClientServergroupEvent() {
 function MoveInfo() {}
 
 /**
- * @method event#chat
+ * @event event#chat
+ * @memberof Event
  * @param {Message} msg a message
  */
 /**
- * @method event#typing
+ * @event event#typing
+ * @memberof Event
  * @param {Client} client the client that started typing
  */
 /**
- * @method event#poke
+ * @event event#poke
+ * @memberof Event
  * @param {Message} msg a message
  */
 /**
  * fired, whenever a new track starts
- * @method event#track
+ * @event event#track
+ * @memberof Event
  * @param {Track} track the track in question
  */
 
 /**
  * fired, whenever a track changes its information (like radio stations)
- * @method event#trackInfo
+ * @event event#trackInfo
+ * @memberof Event
  * @param {Track} track the track in question
  */
 
 /**
  * fired, whenever a track has stopped playing
- * @method event#trackEnd
+ * @event event#trackEnd
+ * @memberof Event
  * @param {Track} track the track in question
  * @param {string} callback a callback string
  */
 
 /**
  * fired, when a connection with the server has been established
- * @method event#connect
+ * @event event#connect
+ * @memberof Event
  */
 /**
  * fired, when a the client could not connect to the server
- * @method event#connectionFailed
+ * @event event#connectionFailed
+ * @memberof Event
  * @param string reason
  */
 /**
  * fired, when a connection with the server has been closed
- * @method event#disconnect
+ * @event event#disconnect
+ * @memberof Event
  */
 
 /**
  * fired, whenever a client moves
- * @method event#clientMove
+ * @event event#clientMove
+ * @memberof Event
  * @param {MoveInfo} moveInfo
  */
 /**
  * fired, whenever a client becomes visible
- * @method event#clientVisible
+ * @event event#clientVisible
+ * @memberof Event
  * @param {MoveInfo} moveInfo
  */
 /**
  * fired, whenever a client becomes invisible
- * @method event#clientInvisible
+ * @event event#clientInvisible
+ * @memberof Event
  * @param {MoveInfo} moveInfo
  */
 /**
  * fired, whenever a client gets kicked (from the server)
- * @method event#clientKicked
+ * @event event#clientKicked
+ * @memberof Event
  * @param {MoveInfo} moveInfo
  */
 /**
  * fired, whenever a client gets kicked from a channel
- * @method event#clientKickedFromChannel
+ * @event event#clientKickedFromChannel
+ * @memberof Event
  * @param {MoveInfo} moveInfo
  */
 /**
  * fired, whenever a client got added to a server group
- * @method event#serverGroupAdded
+ * @event event#serverGroupAdded
+ * @memberof Event
  * @param {ClientServerGroupEvent} event
  */
 /**
  * fired, whenever a client got removed from a server group
- * @method event#serverGroupRemoved
+ * @event event#serverGroupRemoved
+ * @memberof Event
  * @param {ClientServerGroupEvent} event
  */
 
 /**
- * @method event#clientNick
+ * @event event#clientNick
+ * @memberof Event
  * @param {Client}
  * @param {string} oldNick
  */
@@ -1748,90 +1824,109 @@ APIEvent.prototype = /** @lends APIEvent.prototype */ {
 }
 
 /**
- * @method event#api:$eventName
+ * @event APIEvent#api:$eventName
+ * @memberof APIEvent
  * @param {APIEvent}
  */
 /**
  * emitted, whenever the clients' IP address changes or has initially been fetched
- * @method event#clientIPAddress
+ * @event event#clientIPAddress
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientAway
+ * @event event#clientAway
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientBack
+ * @event event#clientBack
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientRecord
+ * @event event#clientRecord
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientRecordStop
+ * @event event#clientRecordStop
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientMute
+ * @event event#clientMute
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientUnmute
+ * @event event#clientUnmute
+ * @memberof Event
  * @param {Client}
  */
 /**
- * @method event#clientDeaf
+ * @event event#clientDeaf
+ * @memberof Event
  * @version 0.9.18
  * @param {Client}
  */
 /**
- * @method event#clientUndeaf
+ * @event event#clientUndeaf
+ * @memberof Event
  * @version 0.9.18
  * @param {Client}
  */
 
 /**
- * @method event#channelCreate
+ * @event event#channelCreate
+ * @memberof Event
  * @param {Channel}
  * @param {Client} invoker
  */
 /**
- * @method event#channelUpdate
+ * @event event#channelUpdate
+ * @memberof Event
  * @param {Channel}
  * @param {Client} invoker
  */
 /**
- * @method event#channelDelete
+ * @event event#channelDelete
+ * @memberof Event
  * @param {Channel}
  * @param {Client} invoker
  */
 /**
- * @method event#talkerCount
+ * @event event#talkerCount
+ * @memberof Event
  * @param {number} number of users that are currently talking in the channel
  */
 /**
  * gets called whenever a script is going to be unloaded / reloaded; use this to clean up or save stuff
- * @method event#unload
+ * @memberof Event
+ * @event event#unload
  */
 /**
- * @method event#ws.connect
+ * @event websockets#ws.connect
+ * @memberof Websockets
  * @param {string} id of the new connection
  */
 /**
- * @method event#ws.close
+ * @event websockets#ws.close
  * @version 0.9.20
+ * @memberof Websockets
  * @param {string} id of the closed connection
  */
 /**
- * @method event#ws.error
+ * @event websockets#ws.error
  * @version 0.9.20
+ * @memberof Websockets
  * @param {string} id of the connection
  * @param {string} error string
  */
 /**
- * @method event#ws.data
+ * @event websockets#ws.data
  * @version 0.9.20
+ * @memberof Websockets
  * @param {string} id of the connection
  * @param {int} type of the message
  * @param {Bytes} data a data object
