@@ -1,10 +1,6 @@
 /*
 TODO:
-client.getTotalConnectionsCount()
-client.firstSeen()
-
 complaints
-
 */
 
 /**
@@ -40,7 +36,7 @@ var Engine = {
      * 4 | ...
      * 10 | most verbose
      * 11 | most verbose + external backends
-     * @param {number} level the log level to set
+     * @param {number} level - the log level to set
      * @returns {Boolean}
      * 
      */
@@ -57,7 +53,7 @@ var Engine = {
      * 4 | ...
      * 10 | most verbose
      * 11 | most verbose + external backends
-     * @param {number} level the log level to set
+     * @param {number} level - the log level to set
      * @returns {Boolean}
      */
     setBotLogLevel: function(level) {},
@@ -83,7 +79,7 @@ var Engine = {
     getNick: function() {},
     /**
      * sets the nick to a new value and updates it on the server
-     * @param {string} nick the new nick
+     * @param {string} nick - the new nick
      * @returns {Boolean}
      */
     setNick: function(nick) {},
@@ -100,7 +96,7 @@ var Engine = {
     isRunning: function() {},
     /**
      * sends a notification to all users that are currently using the webinterface; use this for startup errors
-     * @param {string} message the message to send
+     * @param {string} message - the message to send
      */
     notify: function(message) {},
     /**
@@ -111,9 +107,38 @@ var Engine = {
     saveConfig: function() {},
     /**
      * logs to stdout / instance log
-     * @param {Object} obj
+     * @param {any} log
      */
-    log: function(obj) {},
+    log: function(log) {},
+    /**
+     * Exports an Object, so other Scripts are able to use functions or values of the Script
+     * @param {object} obj - the object which should get exported
+     * @example
+     * //scriptname: exportscript.js
+     * var engine = require('engine');
+     * var publicvariable = 'I get exportet!';
+     * engine.export({
+     *     //returns the value of 'publicvariable'
+     *     get: function get() {
+     *         return publicvariable;
+     *     },
+     *     //modifies the value of 'publicvariable'
+     *     set: function set(value) {
+     *         publicvariable = value;
+     *     }
+     * })
+     * @example
+     * var event = require('event');
+     * var engine = require('engine');
+     * event.on('load', function() {
+     *     //must always be loaded AFTER the 'load' event
+     *     var script = require('exportscript.js');
+     *     engine.log(script.get()); //logs 'I get exportet!'
+     *     script.set('New Value');
+     *     engine.log(script.get()); //logs 'New Value'
+     * });
+     */
+    export: function(obj) {}
 };
 
 
@@ -128,23 +153,23 @@ var Store = {
      * stores a variable under the given key
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
-     * @param {any} value the value to be stored; must be JSON.stringify()-able
+     * @param {any} value - the value to be stored; must be JSON.stringify()-able
      * @returns {bool} 
      */
-    set: function() {},
+    set: function(key, value) {},
     /**
      * gets a variable that has been stored previously by set()
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
      * @returns {any} the stored value - or undefined, if not found 
      */
-    get: function() {},
+    get: function(key) {},
     /**
      * deletes a stored variable by its key
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
      */
-    unset: function() {},
+    unset: function(key) {},
     /**
      * returns an array of all set keys
      * the values stored are only available for the current script, but shared between instances of it
@@ -161,23 +186,23 @@ var Store = {
      * stores a variable under the given key
      * the values stored are available for every script of every instance
      * @param {string} key
-     * @param {any} value the value to be stored; must be JSON.stringify()-able
+     * @param {any} value - the value to be stored; must be JSON.stringify()-able
      * @returns {bool} 
      */
-    setGlobal: function() {},
+    setGlobal: function(key, value) {},
     /**
      * gets a variable that has been stored previously by set()
      * the values stored are available for every script of every instance
      * @param {string} key
      * @returns {any} the stored value - or undefined, if not found 
      */
-    getGlobal: function() {},
+    getGlobal: function(key) {},
     /**
      * deletes a stored variable by its key
      * the values stored are available for every script of every instance
      * @param {string} key
      */
-    unsetGlobal: function() {},
+    unsetGlobal: function(key) {},
     /**
      * returns an array of all set keys
      * the values stored are available for every script of every instance
@@ -194,23 +219,23 @@ var Store = {
      * stores a variable under the given key
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
-     * @param {any} value the value to be stored; must be JSON.stringify()-able
+     * @param {any} value - the value to be stored; must be JSON.stringify()-able
      * @returns {bool} 
      */
-    setInstance: function() {},
+    setInstance: function(key, value) {},
     /**
      * gets a variable that has been stored previously by set()
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      * @returns {any} the stored value - or undefined, if not found 
      */
-    getInstance: function() {},
+    getInstance: function(key) {},
     /**
      * deletes a stored variable by its key
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      */
-    unsetInstance: function() {},
+    unsetInstance: function(key) {},
     /**
      * returns an array of all set keys
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
@@ -323,31 +348,31 @@ var Backend = {
     getClientByID: function(id) {},
     /**
      * returns a client by its name/nickname
-     * @param {string} name/nickname
+     * @param {string} name
      * @returns {Client}
      */
     getClientByName: function(name) {},
     /**
      * alias of getClientByName
-     * @param {string} name/nickname
+     * @param {string} name
      * @returns {Client}
      */
     getClientByNick: function(name) {},
     /**
      * returns an (online) client by its permanent id
-     * @param {string} unique id
+     * @param {string} uniqueID
      * @returns {Client}
      */
     getClientByUniqueID: function(uniqueID) {},
     /**
      * alias of getClientByUniqueID
-     * @param {string} unique id
+     * @param {string} uniqueID
      * @returns {Client}
      */
     getClientByUID: function(uniqueID) {},
     /**
      * sends a message to the server
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      * @example
      * backend.chat('Hello from SinusBot!');
      */
@@ -360,11 +385,13 @@ var Backend = {
     createChannel: function(channelParams) {},
     /**
      * returns a servergroup by its ID
+     * @param {number} id - The ServerGroup ID
      * @returns {ServerGroup}
      */
     getServerGroupByID: function(id) {},
     /**
      * returns a channelgroup by its ID
+     * @param {number} id - The ServerGroup ID
      * @returns {ChannelGroup}
      */
     getChannelGroupByID: function(id) {}
@@ -376,7 +403,7 @@ var Backend = {
 var Media = {
     /**
      * plays a try by internal url
-     * @param {string} url the internal url (like track://...)
+     * @param {string} url - the internal url (like track://...)
      * @returns {Boolean}
      */
     playURL: function(url) {},
@@ -463,7 +490,7 @@ var Media = {
     getActivePlaylist: function(id) {},
     /**
      * removes a track at the given position from the queue (0 being the first entry)
-     * @param {number} index of the track that should be removed from the queue (0 = first track, ...)
+     * @param {number} index - of the track that should be removed from the queue (0 = first track, ...)
      * @returns {Boolean}
      */
     removeFromQueue: function(index) {},
@@ -479,23 +506,23 @@ var Media = {
     clearPlaylist: function() {},
     /**
      * stream a file via youtube-dl
-     * @param {string} url an url that youtube-dl understands
+     * @param {string} url - an url that youtube-dl understands
      */
     yt: function(url) {},
     /**
      * download a file via youtube-dl, optionally play it
-     * @param {string} url an url that youtube-dl understands
-     * @param {Boolean} play set to true to play after download
+     * @param {string} url - an url that youtube-dl understands
+     * @param {Boolean} play - set to true to play after download
      */
     ytdl: function(url, play) {},
     /**
      * enqueue a stream via youtube-dl
-     * @param {string} url an url that youtube-dl understands
+     * @param {string} url - an url that youtube-dl understands
      */
     enqueueYt: function(url) {},
     /**
      * download a file via youtube-dl, then enqueue it
-     * @param {string} url an url that youtube-dl understands
+     * @param {string} url - an url that youtube-dl understands
      */
     enqueueYtdl: function(url) {},
 }
@@ -506,7 +533,7 @@ var Media = {
 var Audio = /** @lends Audio */{
     /**
      * applies an audiofilter to the audio output
-     * @param {string} filter a ffmpeg compatible filter string
+     * @param {string} filter - a ffmpeg compatible filter string
      * @returns {Boolean}
      */
     setAudioFilter: function(filter) {},
@@ -528,9 +555,9 @@ var Audio = /** @lends Audio */{
     stopRecording: function() {},
     /**
      * streams audio output to an icecast-server
-     * @param {string} url the endpoint to stream to
-     * @param {string} username the username used for authentication
-     * @param {string} password the corresponding password
+     * @param {string} url - the endpoint to stream to
+     * @param {string} username - the username used for authentication
+     * @param {string} password - the corresponding password
      * @returns {Boolean}
      */
     streamToServer: function(url, username, password) {},
@@ -556,7 +583,7 @@ var Audio = /** @lends Audio */{
     isShuffle: function() {},
     /**
      * sets the state of shuffle-mode
-     * @param {Boolean} bool val
+     * @param {Boolean} val
      */
     setShuffle: function(val) {},
     /**
@@ -576,7 +603,7 @@ var Audio = /** @lends Audio */{
     getTrackPosition: function() {},
     /**
      * seeks to a specific position (in seconds)
-     * @param {number} pos the new position (in seconds)
+     * @param {number} pos - the new position (in seconds)
      */
     seek: function(pos) {},
     /**
@@ -596,8 +623,8 @@ var Audio = /** @lends Audio */{
     isPlaying: function() {},
     /**
      * play audio returned from the text-to-speech engine
-     * @param {string} text the text to say
-     * @param {string} locale the locale to use (optional)
+     * @param {string} text - the text to say
+     * @param {string} [locale] - the locale to use
      */
     say: function(text, locale) {},
 }
@@ -608,14 +635,14 @@ var Audio = /** @lends Audio */{
 var Format = /** @lends Format */ {
     /**
      * returns a colored string if the backend supports it
-     * @param {string} text the text that should be colored
-     * @param {string} color the color to apply (in hex)
+     * @param {string} text - the text that should be colored
+     * @param {string} color - the color to apply (in hex)
      * @returns {string} the colored string
      * @example
      * // Sends a red-colored message to the server chat (requires permission to do so)
      * var backend = require('backend');
      * var format = require('format');
-     * backend.chat('This is SinusBot writing in ' + engine.formatColor('red', '#aa0000'));
+     * backend.chat('This is SinusBot writing in ' + format.formatColor('red', '#aa0000'));
      */
     color: function(text, color) {},
     /**
@@ -808,6 +835,7 @@ var Helpers = /** @lends Helpers */ {
  * @fires event#channelDelete
  * @fires event#talkerCount
  * @fires event#unload
+ * @fires event#load
  * @example
  * var event = require('event');
  * var engine = require('engine');
@@ -828,9 +856,7 @@ var Event = /** @lends Event */ {
  * @class Client
  * Warning: if the client is inivisible to the bot, some fields might not be available
  */
-function Client() {
-}
-
+function Client() {}
 Client.prototype = /** @lends Client.prototype */ {
     /**
      * returns the name/nickname of the client
@@ -879,6 +905,15 @@ Client.prototype = /** @lends Client.prototype */ {
      * @version 0.9.19
      */
     setDescription: function(description) {},
+    /**
+     * @returns {number} number of times the client has connected
+     */
+    getTotalConnectionsCount: function() {},
+    /**
+     * @returns {number} timestamp in seconds? when the client has been seen the first time
+     * @todo evaluate what exactly it returns
+     */
+    firstSeen: function() {},
     /**
      * returns true when this client is the bot itself
      */
@@ -986,7 +1021,7 @@ Client.prototype = /** @lends Client.prototype */ {
     equals: function(otherClient) {},
     /**
      * sends a message to the client
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
@@ -995,7 +1030,7 @@ Client.prototype = /** @lends Client.prototype */ {
     chat: function(msg) {},
     /**
      * sends a message to the client as poke
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
@@ -1004,8 +1039,8 @@ Client.prototype = /** @lends Client.prototype */ {
     poke: function(msg) {},
     /**
      * bans a client
-     * @param {number} time amount of time the ban should last
-     * @param {string} msg the message to send
+     * @param {number} time - amount of time the ban should last
+     * @param {string} msg - the message to send
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
@@ -1014,33 +1049,33 @@ Client.prototype = /** @lends Client.prototype */ {
     ban: function(time, msg) {},
     /**
      * kicks the client from the server 
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      */
     kick: function(msg) {},
     /**
      * kicks the client from the server
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      */
     kickFromServer: function(msg) {},
     /**
      * kicks the client from the channel
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      */
     kickFromChannel: function(msg) {},
     /**
      * adds a client to a specific ServerGroup
-     * @param {ServerGroup} group the servergroup the client should be added to; also allowed is: serverGroupID as string / int
+     * @param {ServerGroup} group - the servergroup the client should be added to; also allowed is: serverGroupID as string / int
      */
     addToServerGroup: function(group) {},
     /**
      * removes a client from a specific ServerGroup
-     * @param {ServerGroup} group the servergroup the client should be removed from; also allowed is: serverGroupID as string / int
+     * @param {ServerGroup} group - the servergroup the client should be removed from; also allowed is: serverGroupID as string / int
      */
     removeFromServerGroup: function(id) {},
     /**
      * moves a client to another channel
-     * @param {Channel} target the channel the client should be moved to
-     * @param {string} [password] password for the target channel, if required
+     * @param {Channel} target - the channel the client should be moved to
+     * @param {string} [password] - password for the target channel, if required
      */
     moveTo: function(target, password) {},
     /**
@@ -1053,9 +1088,7 @@ Client.prototype = /** @lends Client.prototype */ {
 /**
  * @class Channel
  */
-function Channel() {
-}
-
+function Channel() {}
 Channel.prototype = /** @lends Channel.prototype */ {
     /**
      * returns the ID of the channel
@@ -1136,18 +1169,16 @@ Channel.prototype = /** @lends Channel.prototype */ {
      * @version 0.9.16
      */
     setCodecQuality: function(quality) {},
-
     /**
      * returns the configured number of clients the channel can hold (-1 if unlimited)
      * @returns {number}
      */
     maxClients: function() {},
     /**
-     * @param {Boolean} maxClients; -1 = unlimited
+     * @param {Boolean} maxClients - -1 = unlimited
      * @version 0.9.16
      */
     setMaxClients: function(maxClients) {},
-
     /**
      * returns whether the channel is permanent or not
      * @returns {Boolean}
@@ -1188,7 +1219,6 @@ Channel.prototype = /** @lends Channel.prototype */ {
      * @version 0.9.16
      */
     setEncrypted: function(encrypted) {},
-
     /**
      * compares two channels
      * @param {Channel} otherChannel
@@ -1197,7 +1227,7 @@ Channel.prototype = /** @lends Channel.prototype */ {
     equals: function(otherChannel) {},
     /**
      * sends a chat message to the channel
-     * @param {string} msg the message to send
+     * @param {string} msg - the message to send
      */
     chat: function(msg) {},
     /**
@@ -1230,9 +1260,7 @@ Channel.prototype = /** @lends Channel.prototype */ {
 /**
  * @class ServerGroup
  */
-function ServerGroup() {
-}
-
+function ServerGroup() {}
 ServerGroup.prototype = /** @lends ServerGroup.prototype */ {
     /**
      * returns the id of the servergroup
@@ -1249,9 +1277,7 @@ ServerGroup.prototype = /** @lends ServerGroup.prototype */ {
 /**
  * @class ChannelGroup
  */
-function ChannelGroup() {
-}
-
+function ChannelGroup() {}
 ChannelGroup.prototype = /** @lends ChannelGroup.prototype */ {
     /**
      * returns the id of the channelgroup
@@ -1344,9 +1370,9 @@ Track.prototype = /** @lends Track.prototype */ {
     // playNext: function() {},
     /**
      * downloads a thumbnail from the internet and stores it for the given track
-     * @param {string} url the url to download the thumbnail from (limited to X MB)
+     * @param {string} url - the url to download the thumbnail from (limited to X MB)
      */
-    setThumbnailFromURL: function() {},
+    setThumbnailFromURL: function(url) {},
     /**
      * removes the thumbnail of a track
      */
@@ -1439,8 +1465,8 @@ PlaylistTrack.prototype = /** @lends PlaylistTrack.prototype */ {
  */
 var Net = /** @lends Net */ {
     /**
-     * @param {ConnectParams} params connection parameters
-     * @param {function} callback the callback gets called on success / error; if an error occured, exactly one parameter containing the error will be handed to the callback
+     * @param {ConnectParams} params - connection parameters
+     * @param {function} callback - the callback gets called on success / error; if an error occured, exactly one parameter containing the error will be handed to the callback
      * @returns {NetClient} client connection, or null if failed to setup a connection (e.g. wrong parameters; null does not mean that the connection failed, instead that is handled in the callback)
      */
     connect: function(params, callback) {},
@@ -1448,8 +1474,8 @@ var Net = /** @lends Net */ {
 
 /**
  * @class
- * @property {string} [host] the host to connect to, required for mysql / postgres
- * @property {number} [port] the port to use
+ * @property {string} [host] - the host to connect to, required for mysql / postgres
+ * @property {number} [port] - the port to use
  */
 function ConnectParams() {}
 
@@ -1465,13 +1491,13 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
     /**
      * @description
      * send some data over the connection
-     * @param {string} bytes the data that should be sent over the socket; one can also send an array of ints / bytes like [0, 255, 1, 1]
-     * @param {string} format (optional) - "hex" / "base64"; if given, bytes will be decoded prior to sending
+     * @param {string} bytes - the data that should be sent over the socket; one can also send an array of ints / bytes like [0, 255, 1, 1]
+     * @param {string} format - (optional) - "hex" / "base64"; if given, bytes will be decoded prior to sending
      */
-    write: function(bytes) {},
+    write: function(bytes, format) {},
     /**
      * Registers a new event handler
-     * @param {string} event the name of the event to listen to
+     * @param {string} event - the name of the event to listen to
      * @param {function} callback
      */
     on: function(event, callback) {},
@@ -1482,12 +1508,10 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
  * @memberof NetClient
  * @param {Bytes}
  */
-
 /**
  * @event NetClient#close
  * @memberof NetClient
  */
-
 /**
  * @event NetClient#error
  * @memberof NetClient
@@ -1530,14 +1554,14 @@ Websockets.prototype = /** @lends Websockets.prototype */ {
      * send some data over the connection with give given connectionId
      * @param {string} connectionId
      * @param {int} messageType
-     * @param {object} message the actual message; can be given as string or byteshelper
+     * @param {object} message - the actual message; can be given as string or byteshelper
      */
     write: function(connectionId, messageType, message) {},
     /**
      * @description
      * broadcasts some data to all connected clients
      * @param {int} messageType
-     * @param {object} message the actual message; can be given as string or byteshelper
+     * @param {object} message - the actual message; can be given as string or byteshelper
      */
     broadcast: function(messageType, message) {},
     /**
@@ -1545,7 +1569,7 @@ Websockets.prototype = /** @lends Websockets.prototype */ {
      * closes the given connection
      * @param {string} connectionId
      */
-    close: function(event, callback) {},
+    close: function(connectionId) {},
 };
 
 /**
@@ -1585,8 +1609,8 @@ Bytes.prototype = /** @lends Bytes.prototype */ {
  */
 var DB = /** @lends DB */ {
     /**
-     * @param {DBParams} params connection parameters
-     * @params {function} callback the callback gets called on success / error; if an error occured, exactly one parameter containing the error will be handed to the callback
+     * @param {DBParams} params - connection parameters
+     * @params {function} callback - the callback gets called on success / error; if an error occured, exactly one parameter containing the error will be handed to the callback
      * @returns {DBConn} database connection, or null if failed
      */
     connect: function(params, callback) {},
@@ -1602,16 +1626,16 @@ DBConn.prototype = /** @lends DBConn.prototype */ {
      * @description
      * use this, if you expect a result set; note: strings will be returned as byte arrays to be binary safe; to convert to actual strings, please use helpers.toString(column)
      * @param {string} queryString
-     * @param {parameter1} any zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
-     * @param {parameter2} any
-     * @param {callback} callback the callback gets called after the query has finished; it gets called with two parameters, err and result - both are mutually exclusive. Result contains an array of rows, each containing an object with the column names as key.
+     * @param {any} parameter1 - zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
+     * @param {any} parameter2
+     * @param {callback} callback - the callback gets called after the query has finished; it gets called with two parameters, err and result - both are mutually exclusive. Result contains an array of rows, each containing an object with the column names as key.
      */
     query: function(queryString, parameter1, parameter2, callback) {},
     /**
      * @param {string} queryString
      * use this, if you don't expect a result
-     * @param {parameter1} [any]
-     * @param {parameter2} [any]
+     * @param {any} [parameter1]
+     * @param {any} [parameter2]
      */
     exec: function(queryString, parameter1, parameter2, callback) {},
 };
@@ -1619,8 +1643,8 @@ DBConn.prototype = /** @lends DBConn.prototype */ {
 /**
  * @class
  * @version 0.9.16
- * @property {string} driver the database driver to use, currently sqlite3, mysql or postgres
- * @property {string} [host] the database server to connect to, required for mysql / postgres
+ * @property {string} driver - the database driver to use, currently sqlite3, mysql or postgres
+ * @property {string} [host] - the database server to connect to, required for mysql / postgres
  * @property {string} [username]
  * @property {string} [password]
  * @property {number} [port]
@@ -1632,10 +1656,10 @@ function DBParams() {}
 
 /**
  * @class
- * @property {string} text the text of the message
- * @property {Channel} channel the channel (if given) this message has been sent on
- * @property {Client} client the sending client
- * @property {number} mode a number representing the way this message has been sent
+ * @property {string} text - the text of the message
+ * @property {Channel} channel - the channel (if given) this message has been sent on
+ * @property {Client} client - the sending client
+ * @property {number} mode - a number representing the way this message has been sent
  * @description
  * This event gets triggered whenever a chat message has been received. This also counts for messages from the bot itself, so make sure to check. 
  * @example
@@ -1652,21 +1676,21 @@ function Message() {}
  * @class
  * used to update / create a channel; on create, parent and name are mandatory for TS3, on update, parent will be ignored (use moveTo instead)
  * @property {string} name the displayname of the channel; mandatory on create
- * @property {Channel} parent the parent channel of the newly created channel (you can also use the channelId as either string or int); ignored on update, mandatory on create
+ * @property {Channel} parent - the parent channel of the newly created channel (you can also use the channelId as either string or int); ignored on update, mandatory on create
  * @property {string} description
  * @property {string} topic
  * @property {string} password
- * @property {number} codec (see codec types for explanation)
+ * @property {number} codec - see codec types for explanation
  * @property {number} codecQuality
- * @property {Boolean} encrypted; defaults to true
+ * @property {Boolean} encrypted - defaults to true
  * @property {Boolean} permanent
  * @property {Boolean} semiPermanent
  * @property {number} position
- * @property {number} maxClients; set -1 for unlimited
- * @property {Boolean} default will flag the channel as default channel 
- * @property {number} neededTalkPower (TS only); 0.9.19+
- * @property {number} deleteDelay (TS only); 0.9.19+
- * @property {number} icon (TS only); 0.9.19+
+ * @property {number} maxClients - set -1 for unlimited
+ * @property {Boolean} default - will flag the channel as default channel 
+ * @property {number} neededTalkPower - TS only 0.9.19+
+ * @property {number} deleteDelay - TS only 0.9.19+
+ * @property {number} icon - TS only 0.9.19+
  * @description
  * This event gets triggered whenever a chat message has been received. This also counts for messages from the bot itself, so make sure to check. 
  * @example
@@ -1681,9 +1705,9 @@ function ChannelParams() {}
 
 /**
  * @class
- * @property {client} client the client that has been added / removed
- * @property {client} invoker the client that added client to the group
- * @property {serverGroup} serverGroup the group
+ * @property {client} client - the client that has been added / removed
+ * @property {client} invoker - the client that added client to the group
+ * @property {serverGroup} serverGroup - the group
  */
 function ClientServergroupEvent() {
 
@@ -1691,50 +1715,47 @@ function ClientServergroupEvent() {
 
 /**
  * @class
- * @property {Channel} fromChannel the old channel (or null if the client just got online / changed visibility)
- * @property {Channel} toChannel the new channel (or null if the client just went offline / changed visibility)
- * @property {Client} client the moving client
- * @property {Client} invoker the client that invoked the move
+ * @property {Channel} fromChannel - the old channel (or null if the client just got online / changed visibility)
+ * @property {Channel} toChannel - the new channel (or null if the client just went offline / changed visibility)
+ * @property {Client} client - the moving client
+ * @property {Client} invoker - the client that invoked the move
  */
 function MoveInfo() {}
 
 /**
  * @event event#chat
  * @memberof Event
- * @param {Message} msg a message
+ * @param {Message} msg - a message
  */
 /**
  * @event event#typing
  * @memberof Event
- * @param {Client} client the client that started typing
+ * @param {Client} client - the client that started typing
  */
 /**
  * @event event#poke
  * @memberof Event
- * @param {Message} msg a message
+ * @param {Message} msg - a message
  */
 /**
  * fired, whenever a new track starts
  * @event event#track
  * @memberof Event
- * @param {Track} track the track in question
+ * @param {Track} track - the track in question
  */
-
 /**
  * fired, whenever a track changes its information (like radio stations)
  * @event event#trackInfo
  * @memberof Event
- * @param {Track} track the track in question
+ * @param {Track} track - the track in question
  */
-
 /**
  * fired, whenever a track has stopped playing
  * @event event#trackEnd
  * @memberof Event
- * @param {Track} track the track in question
- * @param {string} callback a callback string
+ * @param {Track} track - the track in question
+ * @param {string} callback - a callback string
  */
-
 /**
  * fired, when a connection with the server has been established
  * @event event#connect
@@ -1744,14 +1765,13 @@ function MoveInfo() {}
  * fired, when a the client could not connect to the server
  * @event event#connectionFailed
  * @memberof Event
- * @param string reason
+ * @param {string} reason
  */
 /**
  * fired, when a connection with the server has been closed
  * @event event#disconnect
  * @memberof Event
  */
-
 /**
  * fired, whenever a client moves
  * @event event#clientMove
@@ -1794,7 +1814,6 @@ function MoveInfo() {}
  * @memberof Event
  * @param {ClientServerGroupEvent} event
  */
-
 /**
  * @event event#clientNick
  * @memberof Event
@@ -1883,7 +1902,6 @@ APIEvent.prototype = /** @lends APIEvent.prototype */ {
  * @version 0.9.18
  * @param {Client}
  */
-
 /**
  * @event event#channelCreate
  * @memberof Event
@@ -1905,12 +1923,17 @@ APIEvent.prototype = /** @lends APIEvent.prototype */ {
 /**
  * @event event#talkerCount
  * @memberof Event
- * @param {number} number of users that are currently talking in the channel
+ * @param {number} number - number of users that are currently talking in the channel
  */
 /**
  * gets called whenever a script is going to be unloaded / reloaded; use this to clean up or save stuff
  * @memberof Event
  * @event event#unload
+ */
+/**
+ * gets fired when all scripts have been loaded
+ * @memberof Event
+ * @event event#load
  */
 /**
  * @event websockets#ws.connect
