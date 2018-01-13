@@ -1594,11 +1594,17 @@ Bytes.prototype = /** @lends Bytes.prototype */ {
  * var engine = require('engine');
  * var helpers = require('helpers');
  * var dbc = db.connect({ driver: 'mysql', host: '127.0.0.1', username: 'demo', password: 'blah', database: 'foo' }, function(err) {
- *     if (err) { engine.log(err); }
+ *     if (err) {
+ *          engine.log(err);
+ *     }
  * });
- * if (dbc) dbc.exec("INSERT INTO blah (foo) VALUES ('bar')");
+ * if (dbc) dbc.exec("INSERT INTO blah (foo, foo2) VALUES (?)", 'bar', 'bar2');
  * if (dbc) dbc.query("SELECT * FROM blah", function(err, res) {
- *  if (!err) { res.forEach(function(row) { engine.log(helpers.toString(row.foo)); }); }
+ *     if (!err) {
+ *          res.forEach(function(row) {
+ *              engine.log(helpers.toString(row.foo));
+ *          });
+ *     }
  * });
  * @description
  * The database module is protected, it needs the following entry per script in your config.ini:
@@ -1606,6 +1612,8 @@ Bytes.prototype = /** @lends Bytes.prototype */ {
  * [Scripts.Privileges]
  * scriptname = ["db"]
  * ```
+ * 
+ * Use additional parameters to exec / query whenever you use untrusted/unknown data, as those will automatically be escaped and avoid SQL injection.
  */
 var DB = /** @lends DB */ {
     /**
