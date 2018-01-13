@@ -1660,21 +1660,11 @@ function DBParams() {}
  * @property {Channel} channel - the channel (if given) this message has been sent on
  * @property {Client} client - the sending client
  * @property {number} mode - a number representing the way this message has been sent
- * @description
- * This event gets triggered whenever a chat message has been received. This also counts for messages from the bot itself, so make sure to check. 
- * @example
- * var event = require('event');
- * event.on('chat', function(ev) {
- *     if (!ev.client.isSelf()) {
- *         ev.client.chat('Hi, ' + ev.client.name() + ', you just wrote: ' + ev.text);
- *     }
- * });
  */
 function Message() {}
 
 /**
  * @class
- * used to update / create a channel; on create, parent and name are mandatory for TS3, on update, parent will be ignored (use moveTo instead)
  * @property {string} name the displayname of the channel; mandatory on create
  * @property {Channel} parent - the parent channel of the newly created channel (you can also use the channelId as either string or int); ignored on update, mandatory on create
  * @property {string} description
@@ -1692,14 +1682,8 @@ function Message() {}
  * @property {number} deleteDelay - TS only 0.9.19+
  * @property {number} icon - TS only 0.9.19+
  * @description
- * This event gets triggered whenever a chat message has been received. This also counts for messages from the bot itself, so make sure to check. 
- * @example
- * var event = require('event');
- * event.on('chat', function(ev) {
- *     if (!ev.client.isSelf()) {
- *         ev.client.chat('Hi, ' + ev.client.name() + ', you just wrote: ' + ev.text);
- *     }
- * });
+ * Used to update or create a channel;
+ * on create, parent and name are mandatory for TS3, on update, parent will be ignored (use moveTo instead)
  */
 function ChannelParams() {}
 
@@ -1726,6 +1710,8 @@ function MoveInfo() {}
  * @event event#chat
  * @memberof Event
  * @param {Message} msg - a message
+ * @description
+ * This event gets triggered whenever a chat message has been received. This also counts for messages from the bot itself, so make sure to check.
  */
 /**
  * @event event#typing
@@ -1738,87 +1724,88 @@ function MoveInfo() {}
  * @param {Message} msg - a message
  */
 /**
- * fired, whenever a new track starts
  * @event event#track
  * @memberof Event
  * @param {Track} track - the track in question
+ * @description fired, whenever a new track starts
  */
 /**
- * fired, whenever a track changes its information (like radio stations)
  * @event event#trackInfo
  * @memberof Event
  * @param {Track} track - the track in question
+ * @description fired, whenever a track changes its information (like radio stations)
  */
 /**
- * fired, whenever a track has stopped playing
  * @event event#trackEnd
  * @memberof Event
  * @param {Track} track - the track in question
  * @param {string} callback - a callback string
+ * @description fired, whenever a track has stopped playing
  */
 /**
- * fired, when a connection with the server has been established
  * @event event#connect
  * @memberof Event
+ * @description fired, when a connection with the server has been established
  */
 /**
- * fired, when a the client could not connect to the server
  * @event event#connectionFailed
  * @memberof Event
  * @param {string} reason
+ * @description fired, when a the client could not connect to the server
  */
 /**
- * fired, when a connection with the server has been closed
  * @event event#disconnect
  * @memberof Event
+ * @description fired, when a connection with the server has been closed
  */
 /**
- * fired, whenever a client moves
  * @event event#clientMove
  * @memberof Event
  * @param {MoveInfo} moveInfo
+ * @description fired, whenever a client moves
  */
 /**
- * fired, whenever a client becomes visible
  * @event event#clientVisible
  * @memberof Event
  * @param {MoveInfo} moveInfo
+ * @description fired, whenever a client becomes visible
  */
 /**
- * fired, whenever a client becomes invisible
  * @event event#clientInvisible
  * @memberof Event
  * @param {MoveInfo} moveInfo
+ * @description fired, whenever a client becomes invisible
  */
 /**
- * fired, whenever a client gets kicked (from the server)
  * @event event#clientKicked
  * @memberof Event
  * @param {MoveInfo} moveInfo
+ * @description fired, whenever a client gets kicked (from the server)
  */
 /**
- * fired, whenever a client gets kicked from a channel
  * @event event#clientKickedFromChannel
  * @memberof Event
  * @param {MoveInfo} moveInfo
+ * @description fired, whenever a client gets kicked from a channel
  */
 /**
- * fired, whenever a client got added to a server group
  * @event event#serverGroupAdded
  * @memberof Event
  * @param {ClientServerGroupEvent} event
+ * @description fired, whenever a client got added to a server group
  */
 /**
- * fired, whenever a client got removed from a server group
  * @event event#serverGroupRemoved
  * @memberof Event
  * @param {ClientServerGroupEvent} event
+ * @description fired, whenever a client got removed from a server group
  */
 /**
  * @event event#clientNick
  * @memberof Event
  * @param {Client}
  * @param {string} oldNick
+ * @description fired, whenever a clients nickname is changed
  */
 
  /**
