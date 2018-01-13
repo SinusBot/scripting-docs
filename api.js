@@ -1598,7 +1598,7 @@ Bytes.prototype = /** @lends Bytes.prototype */ {
  *          engine.log(err);
  *     }
  * });
- * if (dbc) dbc.exec("INSERT INTO blah (foo, foo2) VALUES (?)", 'bar', 'bar2');
+ * if (dbc) dbc.exec("INSERT INTO blah (foo, foo2) VALUES (?, ?)", 'bar', 'bar2');
  * if (dbc) dbc.query("SELECT * FROM blah", function(err, res) {
  *     if (!err) {
  *          res.forEach(function(row) {
