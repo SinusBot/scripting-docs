@@ -4,6 +4,7 @@ node_js:
 script:
   - npm install -g documentation
   - documentation build api.js --project-name "SinusBot Scripting Engine v2" -f html -o out
+  - sed -f after_building.sed -i out/index.html
 deploy:
   provider: pages
   github-token: $GITHUB_TOKEN
