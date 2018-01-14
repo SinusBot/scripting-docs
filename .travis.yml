@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - node
+script:
+  - npm install -g documentation
+  - documentation build api.js --project-name "SinusBot Scripting Engine v2" -f html -o out
+deploy:
+  provider: pages
+  skip-cleanup: true
+  keep-history: true
+  github-token: $GITHUB_TOKEN
+  local-dir: out
+branches:
+    only:
+    - master
