@@ -908,11 +908,11 @@ Client.prototype = /** @lends Client.prototype */ {
     uniqueId: function() {},
     // TODO: Add dbID to scripting engine!
     // TODO: change ID to Id; Support for both versions!
-    /**
-     * Alias of databaseID()
-     * @returns {string} TeamSpeak database ID of the client
-     */
-    //dbID: function() {},
+    // /**
+    //  * Alias of databaseID()
+    //  * @returns {string} TeamSpeak database ID of the client
+    //  */
+    //  dbID: function() {},
     // TODO: change ID to Id; Support for both versions!
     /**
      * @returns {string} TeamSpeak database ID of the client
