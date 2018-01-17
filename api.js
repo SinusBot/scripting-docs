@@ -394,14 +394,14 @@ var Backend = {
      * @param {ChannelParams} channelParams
      */
     createChannel: function(channelParams) {},
-    // TODO: change ID to Id? Support for both types!
+    // TODO: change ID to Id; Support for both versions!
     /**
      * Returns a servergroup by its ID
      * @param {string} id ServerGroup ID
      * @returns {ServerGroup}
      */
     getServerGroupByID: function(id) {},
-    // TODO: change ID to Id? Support for both types!
+    // TODO: change ID to Id; Support for both versions!
     /**
      * Returns a channelgroup by its ID
      * @param {string} id - ChannelGroup ID
@@ -906,15 +906,18 @@ Client.prototype = /** @lends Client.prototype */ {
      * @returns {string} Unique ID of the client
      */
     uniqueId: function() {},
+    // TODO: Add dbID to scripting engine!
+    // TODO: change ID to Id; Support for both versions!
     /**
-     * Alias of databaseId()
+     * Alias of databaseID()
      * @returns {string} TeamSpeak database ID of the client
      */
-    dbId: function() {},
+    //dbID: function() {},
+    // TODO: change ID to Id; Support for both versions!
     /**
      * @returns {string} TeamSpeak database ID of the client
      */
-    databaseId: function() {},
+    databaseID: function() {},
     /**
      * @returns {string} Country of the client
      */
