@@ -1492,9 +1492,9 @@ function ConnectParams() { }
 /**
  * @class NetClient
  * @version 0.9.16
- * @fires error
- * @fires close
- * @fires data
+ * @fires NetClient#error
+ * @fires NetClient#close
+ * @fires NetClient#data
  */
 function NetClient() { }
 NetClient.prototype = /** @lends NetClient.prototype */ {
@@ -1513,18 +1513,18 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
 };
 
 /**
- * @event data
+ * @event NetClient#data
  * @memberof NetClient
  * @param {Bytes}
  * @description Gets fired whenever data is received
  */
 /**
- * @event close
+ * @event NetClient#close
  * @memberof NetClient
  * @description Gets fired whenever the connection is closed
  */
 /**
- * @event error
+ * @event NetClient#error
  * @memberof NetClient
  * @param {string} error
  * @description Gets fired whenever an error occurred
@@ -1533,10 +1533,10 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
 /**
  * @mixin Websockets
  * @version 0.9.20
- * @fires connect
- * @fires close
- * @fires error
- * @fires data
+ * @fires Websockets#ws.connect
+ * @fires Websockets#ws.close
+ * @fires Websockets#ws.error
+ * @fires Websockets#ws.data
  * @example
  * var ws = require('ws');
  * var engine = require('engine');
@@ -1969,25 +1969,25 @@ APIEvent.prototype = /** @lends APIEvent.prototype */ {
  * @description Gets fired when all scripts have been loaded
  */
 /**
- * @event connect
+ * @event websockets#ws.connect
  * @memberof Websockets
  * @param {string} id - ID of the new connection
  */
 /**
- * @event close
+ * @event websockets#ws.close
  * @version 0.9.20
  * @memberof Websockets
  * @param {string} id - ID of the closed connection
  */
 /**
- * @event error
+ * @event websockets#ws.error
  * @version 0.9.20
  * @memberof Websockets
  * @param {string} id - ID of the connection
  * @param {string} error - Error
  */
 /**
- * @event data
+ * @event websockets#ws.data
  * @version 0.9.20
  * @memberof Websockets
  * @param {string} id - ID of the connection
