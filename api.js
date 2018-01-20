@@ -2,6 +2,7 @@
 TODO:
 
 complaints
+User object
 
 Event:
 ✓ Emit
@@ -131,7 +132,7 @@ class Engine {
     /**
      * Stores the given object as configuration for the current script
      * @param {Object} config
-     * @returns {bool}
+     * @returns {Boolean}
      */
     saveConfig() { }
     /**
@@ -141,7 +142,7 @@ class Engine {
     log(log) { }
     /**
      * Exports an Object, so other Scripts are able to use functions or values of the Script
-     * @param {object} obj - Object which should get exported
+     * @param {Object} obj - Object which should get exported
      * @example
      * //scriptname: exportscript.js
      * var engine = require('engine');
@@ -210,7 +211,7 @@ class Store {
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {bool}
+     * @returns {Boolean}
      * @example
      * var store = require('store');
      * store.set('foo', 'bar');
@@ -249,7 +250,7 @@ class Store {
      * the values stored are available for every script of every instance
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {bool} 
+     * @returns {Boolean} 
      */
     setGlobal(key, value) { }
     /**
@@ -282,7 +283,7 @@ class Store {
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {bool} 
+     * @returns {Boolean} 
      */
     setInstance(key, value) { }
     /**
@@ -713,7 +714,7 @@ class Audio {
     say(text, locale) { }
     /**
      * @description Returns the client count of the connected server
-     * @returns {Int} client count
+     * @returns {Number} client count
      */
     getClientCount() { }
     /**
@@ -841,19 +842,19 @@ class Helpers {
     // TODO: check if this is correct
     /**
      * @description Returns a random object interpreted as string
-     * @param {...object} objects
+     * @param {...Object} objects
      * @returns {string} Random object interpreted as string
      */
     getRandom(objects) { }
     /**
      * @description Returns a random integer between zero and <max>
-     * @param {int} max
-     * @returns {int} Random integer
+     * @param {Number} max
+     * @returns {Number} Random integer
      */
     getRandom(max) { }
     /**
      * @description Gets the string representation of an object
-     * @param {object} input
+     * @param {Object} input
      * @returns {string}
      */
     toString(input) { }
@@ -1237,7 +1238,7 @@ class Channel {
      * @description Moves the channel to a new parent with a new position value
      * @version 0.9.16.3
      * @param {string/Channel} parent - New parent channel
-     * @param {int} order - New order value
+     * @param {Number} order - New order value
      */
     moveTo(parent, order) { }
     /**
@@ -1246,7 +1247,7 @@ class Channel {
      */
     setName(name) { }
     /**
-     * @returns {int} Type (0 = voice, 1 = text)
+     * @returns {Number} Type (0 = voice, 1 = text)
      */
     type() { }
     /**
@@ -1455,7 +1456,7 @@ class Track {
      */
     duration() { }
     /**
-     * @returns {int} Tracknumber of the track
+     * @returns {Number} Tracknumber of the track
      * @version 0.9.16
      */
     trackNumber() { }
@@ -1665,14 +1666,14 @@ class Websockets {
     /**
      * @description Writes some data to the connection with given connectionId
      * @param {string} connectionId
-     * @param {int} messageType
-     * @param {object} message - Actual message; can be given as string or byteshelper
+     * @param {Number} messageType
+     * @param {Object} message - Actual message; can be given as string or byteshelper
      */
     write(connectionId, messageType, message) { }
     /**
      * @description Broadcasts some data to all connected clients
-     * @param {int} messageType
-     * @param {object} message - Actual message; can be given as string or byteshelper
+     * @param {Number} messageType
+     * @param {Object} message - Actual message; can be given as string or byteshelper
      */
     broadcast(messageType, message) { }
     /**
@@ -2088,6 +2089,6 @@ class APIEvent {
  * @version 0.9.20
  * @memberof Websockets
  * @param {string} id - ID of the connection
- * @param {int} type - Type of the message
+ * @param {Number} type - Type of the message
  * @param {Bytes} data - Data object
  */
