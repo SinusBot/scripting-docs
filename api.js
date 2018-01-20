@@ -143,16 +143,16 @@ class Engine {
      * Exports an Object, so other Scripts are able to use functions or values of the Script
      * @param {Object} obj - Object which should get exported
      * @example
-     * //scriptname: exportscript.js
+     * // scriptname: exportscript.js
      * var engine = require('engine');
      * var publicvariable = 'I get exportet!';
      * engine.export({
-     *     //returns the value of 'publicvariable'
-     *     getget() {
+     *     // returns the value of 'publicvariable'
+     *     get() {
      *         return publicvariable;
      *     },
-     *     //modifies the value of 'publicvariable'
-     *     setset(value) {
+     *     // modifies the value of 'publicvariable'
+     *     set(value) {
      *         publicvariable = value;
      *     }
      * })
@@ -160,11 +160,11 @@ class Engine {
      * var event = require('event');
      * var engine = require('engine');
      * event.on('load', function() {
-     *     //must always be loaded AFTER the 'load' event
+     *     // must always be loaded AFTER the 'load' event
      *     var script = require('exportscript.js');
-     *     engine.log(script.get()); //logs 'I get exportet!'
+     *     engine.log(script.get()); // logs 'I get exportet!'
      *     script.set('New Value');
-     *     engine.log(script.get()); //logs 'New Value'
+     *     engine.log(script.get()); // logs 'New Value'
      * });
      */
     export(obj) { }
