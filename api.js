@@ -1,6 +1,35 @@
 /*
 TODO:
+
 complaints
+
+Event:
+- Emit
+Engine:
+- Broadcast
+- RemoveAvatar
+- SetAvatarFromTrack
+- SetDefaultAvatar
+Backend:
+- GetServerGroups
+- GetClientCount
+- GetChannelGroups
+Audio:
+- Stop
+- SetStreamVolume
+- PlayPrevious
+- PlayNext
+Helpers:
+- NewBytes (notwendig?)
+(- TypeOf)
+Client:
+- GetPlatform
+- GetVersion
+(- MarshalJSON)
+- Subscribe
+(- String)
+- Type
+Event == Engine
 */
 
 /**
@@ -811,7 +840,7 @@ var Helpers = /** @lends Helpers */ {
      * @param {string} input
      * @returns {string}
      */
-    SHASum: function (input) { },
+    SHA1Sum: function (input) { },
     /**
      * @description Generate a hex-encoded SHA256 checksum of the given input
      * @param {string} input
@@ -906,13 +935,6 @@ Client.prototype = /** @lends Client.prototype */ {
      * @returns {string} Unique ID of the client
      */
     uniqueId: function () { },
-    // TODO: Add dbID to scripting engine!
-    // TODO: change ID to Id; Support for both versions!
-    // /**
-    //  * Alias of databaseID()
-    //  * @returns {string} TeamSpeak database ID of the client
-    //  */
-    //  dbID: function() {},
     // TODO: change ID to Id; Support for both versions!
     /**
      * @returns {string} TeamSpeak database ID of the client
