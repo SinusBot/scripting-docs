@@ -11,4 +11,4 @@ This repository contains the [JSDoc](http://usejsdoc.org) based javascript file 
 
 ### Generate html file
 
-    documentation build api.js --project-name "SinusBot Scripting Engine v2" -f html -o documentation
+    documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o documentation

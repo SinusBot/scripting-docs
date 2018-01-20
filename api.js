@@ -39,20 +39,20 @@ Event == Engine
  * var engine = require('engine');
  * engine.log('Hello from a script!');
  */
-var Engine = {
+class Engine {
     /**
      * @returns {string} Current instances' unique identifier
      */
-    getInstanceID: function () { },
+    getInstanceID() { }
     /**
      * @returns {string} Current bots' unique identifier
      */
-    getBotID: function () { },
+    getBotID() { }
     /**
      * Returns the name of the used backend (e.g. "ts3" or "discord")
      * @returns {string} Backend
      */
-    getBackend: function () { },
+    getBackend() { }
     /**
      * @description
      * sets the log level of the instance
@@ -69,7 +69,7 @@ var Engine = {
      * @returns {Boolean}
      * 
      */
-    setInstanceLogLevel: function (level) { },
+    setInstanceLogLevel(level) { }
     /**
      * @description
      * Sets the log level of the bot
@@ -85,60 +85,60 @@ var Engine = {
      * @param {number} level - Log level to set
      * @returns {Boolean}
      */
-    setBotLogLevel: function (level) { },
+    setBotLogLevel(level) { }
     /**
      * Returns the log level of the instance
      * @returns {number} The set loglevel
      */
-    getInstanceLogLevel: function () { },
+    getInstanceLogLevel() { }
     /**
      * Returns the log level of the bot
      * @returns {number} The set loglevel
      */
-    getBotLogLevel: function () { },
+    getBotLogLevel() { }
     /**
      * Reloads all scripts; requires the corresponding setting in the config.ini to be enabled
      * @returns {Boolean}
      */
-    reloadScripts: function () { },
+    reloadScripts() { }
     /**
      * Returns the configured nickname - to get the actual nickname, use the backend module
      * @returns {string}
      */
-    getNick: function () { },
+    getNick() { }
     /**
      * Sets the nick to a new value and updates it on the server
      * @param {string} nick - New nick
      * @returns {Boolean}
      */
-    setNick: function (nick) { },
+    setNick(nick) { }
     /**
      * Sets the default channel by its ID
      * @param {string} channelID
      * @returns {Boolean}
      */
-    setDefaultChannelID: function (channelID) { },
+    setDefaultChannelID(channelID) { }
     /**
      * Returns true if the backend of this instance has been started
      * @returns {Boolean}
      */
-    isRunning: function () { },
+    isRunning() { }
     /**
      * Sends a notification to all users that are currently using the webinterface; use this for startup errors
      * @param {string} message - Message to send
      */
-    notify: function (message) { },
+    notify(message) { }
     /**
      * Stores the given object as configuration for the current script
      * @param {Object} config
      * @returns {bool}
      */
-    saveConfig: function () { },
+    saveConfig() { }
     /**
      * Logs to stdout / instance log
      * @param {any} log
      */
-    log: function (log) { },
+    log(log) { }
     /**
      * Exports an Object, so other Scripts are able to use functions or values of the Script
      * @param {object} obj - Object which should get exported
@@ -148,11 +148,11 @@ var Engine = {
      * var publicvariable = 'I get exportet!';
      * engine.export({
      *     //returns the value of 'publicvariable'
-     *     get: function get() {
+     *     getget() {
      *         return publicvariable;
      *     },
      *     //modifies the value of 'publicvariable'
-     *     set: function set(value) {
+     *     setset(value) {
      *         publicvariable = value;
      *     }
      * })
@@ -167,26 +167,26 @@ var Engine = {
      *     engine.log(script.get()); //logs 'New Value'
      * });
      */
-    export: function (obj) { },
+    export(obj) { }
     /**
      * @description
      * removes the current avatar image
      * @returns {Boolean}
      */
-    removeAvatar: function() { },
+    removeAvatar() { }
     /**
      * @description
      * sets the avatar image to the album art of a given track
      * @param {Track} track - Track to extract the album art from
      * @returns {Boolean}
      */
-    setAvatarFromTrack: function(track) {},
+    setAvatarFromTrack(track) { }
     /**
      * @description
      * sets the avatar image to the manually uploaded image
      * @returns {Boolean}
      */
-    setDefaultAvatar: function() {},
+    setDefaultAvatar() { }
     /**
      * @description
      * sets the avatar to the rendered output of a banner template
@@ -194,7 +194,7 @@ var Engine = {
      * @returns {Boolean}
      * @version 0.12.0
      */
-    setAvatarFromBanner: function(bannerName) {},
+    setAvatarFromBanner(bannerName) { }
 };
 
 
@@ -204,7 +204,7 @@ var Engine = {
  * var store = require('store');
  * store.set('foo', 'bar');
  */
-var Store = {
+class Store {
     /**
      * Stores a variable under the given key
      * the values stored are only available for the current script, but shared between instances of it
@@ -215,7 +215,7 @@ var Store = {
      * var store = require('store');
      * store.set('foo', 'bar');
      */
-    set: function (key, value) { },
+    set(key, value) { }
     /**
      * Gets a variable that has been stored previously by set()
      * the values stored are only available for the current script, but shared between instances of it
@@ -225,25 +225,25 @@ var Store = {
      * var store = require('store');
      * var foo = store.get('foo');
      */
-    get: function (key) { },
+    get(key) { }
     /**
      * Deletes a stored variable by its key
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
      */
-    unset: function (key) { },
+    unset(key) { }
     /**
      * Returns an array of all set keys
      * the values stored are only available for the current script, but shared between instances of it
      * @returns {string[]} Array of all stored keys
      */
-    getKeys: function () { },
+    getKeys() { }
     /**
      * Returns all stored items
      * the values stored are only available for the current script, but shared between instances of it
      * @returns {Object} Keys of this object are the keys of each entry
      */
-    getAll: function () { },
+    getAll() { }
     /**
      * Stores a variable under the given key
      * the values stored are available for every script of every instance
@@ -251,32 +251,32 @@ var Store = {
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
      * @returns {bool} 
      */
-    setGlobal: function (key, value) { },
+    setGlobal(key, value) { }
     /**
      * Gets a variable that has been stored previously by set()
      * the values stored are available for every script of every instance
      * @param {string} key
      * @returns {any} Stored value - or undefined, if not found 
      */
-    getGlobal: function (key) { },
+    getGlobal(key) { }
     /**
      * Deletes a stored variable by its key
      * the values stored are available for every script of every instance
      * @param {string} key
      */
-    unsetGlobal: function (key) { },
+    unsetGlobal(key) { }
     /**
      * Returns an array of all set keys
      * the values stored are available for every script of every instance
      * @returns {string[]} Array of all stored keys
      */
-    getKeysGlobal: function () { },
+    getKeysGlobal() { }
     /**
      * Returns all stored items
      * the values stored are available for every script of every instance
      * @returns {Object} Keys of this object are the keys of each entry
      */
-    getAllGlobal: function () { },
+    getAllGlobal() { }
     /**
      * Stores a variable under the given key
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
@@ -284,66 +284,66 @@ var Store = {
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
      * @returns {bool} 
      */
-    setInstance: function (key, value) { },
+    setInstance(key, value) { }
     /**
      * Gets a variable that has been stored previously by set()
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      * @returns {any} Stored value - or undefined, if not found 
      */
-    getInstance: function (key) { },
+    getInstance(key) { }
     /**
      * Deletes a stored variable by its key
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      */
-    unsetInstance: function (key) { },
+    unsetInstance(key) { }
     /**
      * Returns an array of all set keys
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @returns {string[]} Array of all stored keys
      */
-    getKeysInstance: function () { },
+    getKeysInstance() { }
     /**
      * Returns all stored items
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @returns {Object} Keys of this object are the keys of each entry
      */
-    getAllInstance: function () { },
+    getAllInstance() { }
 }
 
 /**
  * @mixin Backend
  */
-var Backend = {
+class Backend {
     /**
      * @description Connects to the server
      * @returns {Boolean}
      */
-    connect: function () { },
+    connect() { }
     /**
      * @description Disconnects from the server
      * @returns {Boolean}
      */
-    disconnect: function () { },
+    disconnect() { }
     /**
      * Returns true if the backend is connected to a server
      * @returns {Boolean}
      */
-    isConnected: function () { },
+    isConnected() { }
     /**
      * @returns {string} Current bots' unique identifier
      */
-    getBotClientID: function () { },
+    getBotClientID() { }
     /**
      * @returns {Client} Client of the bot
      */
-    getBotClient: function () { },
+    getBotClient() { }
     /**
      * Returns the actual nickname; To get the configured nickname, use engine.getNick() instead.
      * @returns {string}
      */
-    getNick: function () { },
+    getNick() { }
     /**
      * Returns a channel if found
      * @param {string} id
@@ -352,7 +352,7 @@ var Backend = {
      * var backend = require('backend');
      * var channel = backend.getChannelByID('6');
      */
-    getChannelByID: function (id) { },
+    getChannelByID(id) { }
     /**
      * Returns the (primary) channel the bot is in
      * @returns {Channel}
@@ -360,7 +360,7 @@ var Backend = {
      * var backend = require('backend');
      * var channel = backend.getCurrentChannel();
      */
-    getCurrentChannel: function () { },
+    getCurrentChannel() { }
     /**
      * Returns a channel if found
      * @param {string} name
@@ -369,7 +369,7 @@ var Backend = {
      * var backend = require('backend');
      * var channel = backend.getChannelByName('Welcome Channel');
      */
-    getChannelByName: function (name) { },
+    getChannelByName(name) { }
     /**
      * Returns the total number of channels
      * @returns {number}
@@ -377,7 +377,7 @@ var Backend = {
      * var backend = require('backend');
      * var count = backend.getChannelCount();
      */
-    getChannelCount: function () { },
+    getChannelCount() { }
     /**
      * Returns all channels
      * @returns {Channel[]}
@@ -392,7 +392,7 @@ var Backend = {
      *     engine.log(channel.name);
      * });
      */
-    getChannels: function () { },
+    getChannels() { }
     /**
      * Returns all clients
      * @returns {Client[]}
@@ -406,37 +406,37 @@ var Backend = {
      *     client.chat('Hello ', + client.Name() + '. I\'m a SinusBot!');
      * });
      */
-    getClients: function () { },
+    getClients() { }
     /**
      * Returns a client by its temporary ID (changes when the client reconnects)
      * @param {string} id
      * @returns {Client}
      */
-    getClientByID: function (id) { },
+    getClientByID(id) { }
     /**
      * Returns a client by its name/nickname
      * @param {string} name
      * @returns {Client}
      */
-    getClientByName: function (name) { },
+    getClientByName(name) { }
     /**
      * Alias of getClientByName
      * @param {string} name
      * @returns {Client}
      */
-    getClientByNick: function (name) { },
+    getClientByNick(name) { }
     /**
      * Returns an (online) client by its permanent id
      * @param {string} uniqueID
      * @returns {Client}
      */
-    getClientByUniqueID: function (uniqueID) { },
+    getClientByUniqueID(uniqueID) { }
     /**
      * Alias of getClientByUniqueID
      * @param {string} uniqueID
      * @returns {Client}
      */
-    getClientByUID: function (uniqueID) { },
+    getClientByUID(uniqueID) { }
     /**
      * @description Sends a message to the server
      * @param {string} msg - Message to send
@@ -444,59 +444,59 @@ var Backend = {
      * var backend = require('backend');
      * backend.chat('Hello from SinusBot!');
      */
-    chat: function (msg) { },
+    chat(msg) { }
     /**
      * @description Creates a new channel
      * @version 0.9.16.3
      * @param {ChannelParams} channelParams
      */
-    createChannel: function (channelParams) { },
+    createChannel(channelParams) { }
     // TODO: change ID to Id; Support for both versions!
     /**
      * Returns a servergroup by its ID
      * @param {string} id ServerGroup ID
      * @returns {ServerGroup}
      */
-    getServerGroupByID: function (id) { },
+    getServerGroupByID(id) { }
     // TODO: change ID to Id; Support for both versions!
     /**
      * Returns a channelgroup by its ID
      * @param {string} id - ChannelGroup ID
      * @returns {ChannelGroup}
      */
-    getChannelGroupByID: function (id) { },
+    getChannelGroupByID(id) { }
     /**
      * Returns an array of all known server groups
      * @returns {ServerGroup[]}
      */
-    getServerGroups: function () { },
+    getServerGroups() { }
     /**
      * Returns an array of all known channel groups
      * @returns {ChannelGroup[]}
      */
-    getChannelGroups: function () { },
+    getChannelGroups() { }
 };
 
 /**
  * @mixin Media
  */
-var Media = {
+class Media {
     /**
      * @description Plays a track via internal url
      * @param {string} url - Internal url (like track://...)
      * @returns {Boolean}
      */
-    playURL: function (url) { },
+    playURL(url) { }
     /**
      * Returns the current track
      * @returns {Track}
      */
-    getCurrentTrack: function () { },
+    getCurrentTrack() { }
     /**
      * Returns the track with the given ID (or null if none was found)
      * @returns {Track}
      */
-    getTrackByID: function (id) { },
+    getTrackByID(id) { }
     /**
      * @description Searches for tracks matching the search term, returns 20 entries at most
      * @param {string} searchString
@@ -523,119 +523,119 @@ var Media = {
      *     }
      * });
      */
-    search: function (searchString) { },
+    search(searchString) { }
     /**
      * @description Adds the given url to the queue
      * @param {string} url
      * @returns {Boolean}
      */
-    enqueue: function (url) { },
+    enqueue(url) { }
     /**
      * @description Adds the given url as the first entry in the queue
      * @param {string} url
      * @returns {Boolean}
      * @version 0.12.0
      */
-    playAsNext: function (url) { },
+    playAsNext(url) { }
     /**
      * @description Plays the next track of the queue / playlist
      */
-    playNext: function () { },
+    playNext() { }
     /**
      * @description Plays the next previous of the queue / playlist
      */
-    playPrevious: function () { },
+    playPrevious() { }
     /**
      * @description Stops playback completely
      * @param {string} trackID - (optional) the track to stop; if not present, all tracks will be stopped
      * @returns {Boolean}
      */
-    stop: function (trackID) { },
+    stop(trackID) { }
     /**
      * Returns all tracks of the queue
      * @returns {Track[]}
      */
-    getQueue: function () { },
+    getQueue() { }
     /**
      * Returns all playlists
      * @returns {Playlist[]}
      */
-    getPlaylists: function () { },
+    getPlaylists() { }
     /**
      * Returns the playlists with the given id
      * @returns {Playlist}
      */
-    getPlaylistByID: function (id) { },
+    getPlaylistByID(id) { }
     /**
      * Returns the currently active playlist
      * @returns {Playlist}
      */
-    getActivePlaylist: function (id) { },
+    getActivePlaylist(id) { }
     /**
      * @description Removes the track at a given position from the queue
      * @param {number} index - Index of the track that should be removed from the queue (0 being the first entry)
      * @returns {Boolean}
      */
-    removeFromQueue: function (index) { },
+    removeFromQueue(index) { }
     /**
      * @description Removes all entries from the queue
      * @returns {Boolean}
      */
-    clearQueue: function () { },
+    clearQueue() { }
     /**
      * @description Clears the current playlist (if set) so that playback won't continue inside that playlist
      * @returns {Boolean}
      */
-    clearPlaylist: function () { },
+    clearPlaylist() { }
     /**
      * @description Streams a file via youtube-dl
      * @param {string} url - Url that youtube-dl supports
      */
-    yt: function (url) { },
+    yt(url) { }
     /**
      * @description Downloads a file via youtube-dl, optionally plays it
      * @param {string} url - Url that youtube-dl supports
      * @param {Boolean} play - Set to true to play after download
      */
-    ytdl: function (url, play) { },
+    ytdl(url, play) { }
     /**
      * @description Enqueues a stream via youtube-dl
      * @param {string} url - Url that youtube-dl supports
      */
-    enqueueYt: function (url) { },
+    enqueueYt(url) { }
     /**
      * @description Downloads a file via youtube-dl, then enqueues it
      * @param {string} url - Url that youtube-dl supports
      */
-    enqueueYtdl: function (url) { },
+    enqueueYtdl(url) { }
 }
 
 /**
  * @mixin Audio
  */
-var Audio = /** @lends Audio */{
+class Audio {
     /**
      * @description Applies an audiofilter to the audio output
      * @param {string} filter - ffmpeg compatible filter string
      * @returns {Boolean}
      */
-    setAudioFilter: function (filter) { },
+    setAudioFilter(filter) { }
     /**
      * @description Enables or disables audio return channel; required for speech recognition engine / recording
      * @param {Boolean} enable
      * @returns {Boolean}
      */
-    setAudioReturnChannel: function (enable) { },
+    setAudioReturnChannel(enable) { }
     /**
      * @description Starts recording to a file
      * @returns {Boolean}
      */
-    startRecording: function () { },
+    startRecording() { }
     /**
      * @description Stops recording to a file
      * @returns {Boolean}
      */
-    stopRecording: function () { },
+    stopRecording() { }
     /**
      * @description Streams audio output to an icecast-server
      * @param {string} url - Endpoint to stream to
@@ -643,92 +643,92 @@ var Audio = /** @lends Audio */{
      * @param {string} password - Password
      * @returns {Boolean}
      */
-    streamToServer: function (url, username, password) { },
+    streamToServer(url, username, password) { }
     /**
      * @description Stops streaming started with streamToServer 
      * @returns {Boolean}
      */
-    stopStream: function () { },
+    stopStream() { }
     /**
      * Returns the state of repeat-mode
      * @returns {Boolean}
      */
-    isRepeat: function () { },
+    isRepeat() { }
     /**
      * @description Sets the state of repeat-mode
      * @param {Boolean} val
      */
-    setRepeat: function (val) { },
+    setRepeat(val) { }
     /**
      * Returns the state of shuffle-mode
      * @returns {Boolean}
      */
-    isShuffle: function () { },
+    isShuffle() { }
     /**
      * @description Sets the state of shuffle-mode
      * @param {Boolean} val
      */
-    setShuffle: function (val) { },
+    setShuffle(val) { }
     /**
      * Returns the current volume (0-100)
      * @returns {number} volume
      */
-    getVolume: function () { },
+    getVolume() { }
     /**
      * @description Sets the volume (0-100)
      * @param {number} volume
      * @returns {Boolean}
      */
-    setVolume: function (volume) { },
+    setVolume(volume) { }
     /**
      * Returns the position of the current track
      * @returns {number} position (in seconds)
      */
-    getTrackPosition: function () { },
+    getTrackPosition() { }
     /**
      * @description Seeks to a specific position
      * @param {number} pos - New position (in seconds)
      */
-    seek: function (pos) { },
+    seek(pos) { }
     /**
      * Returns if the audio output has been muted
      * @returns {Boolean}
      */
-    isMute: function () { },
+    isMute() { }
     /**
      * @description Enables/disables mute
      * @param {Boolean} mute
      * @returns {Boolean}
      */
-    setMute: function () { },
+    setMute() { }
     /**
      * @returns {Boolean} Whether the bot is playing music
      */
-    isPlaying: function () { },
+    isPlaying() { }
     /**
      * @description Plays audio returned from the text-to-speech engine
      * @param {string} text - Text to say
      * @param {string} [locale] - Locale to use
      */
-    say: function (text, locale) { },
+    say(text, locale) { }
     /**
      * @description Returns the client count of the connected server
      * @returns {Int} client count
      */
-    getClientCount: function () { },
+    getClientCount() { }
     /**
      * @description Sets the volume of a specific stream (0-100)
      * @param {string} streamID - name or alias of the stream(s) to modify
      * @param {number} volume
      * @returns {Boolean}
      */
-    setStreamVolume: function(streamID, volume) { }
+    setStreamVolume(streamID, volume) { }
 }
 
 /**
  * @mixin Format
  */
-var Format = /** @lends Format */ {
+class Format {
     /**
      * @description Apply color if the backend supports it
      * @param {string} text - Text that should be colored
@@ -740,7 +740,7 @@ var Format = /** @lends Format */ {
      * var format = require('format');
      * backend.chat('This is SinusBot writing in ' + format.formatColor('red', '#aa0000'));
      */
-    color: function (text, color) { },
+    color(text, color) { }
     /**
      * @description Apply italic formatting to text
      * @param {string} text
@@ -751,7 +751,7 @@ var Format = /** @lends Format */ {
      * var format = require('format');
      * backend.chat('Part of this message is ' + format.italic('italic')); 
      */
-    italic: function (text) { },
+    italic(text) { }
     /**
      * @description Apply bold formatting to text
      * @param {string} text
@@ -762,7 +762,7 @@ var Format = /** @lends Format */ {
      * var format = require('format');
      * backend.chat('Part of this message is ' + format.bold('bold')); 
      */
-    bold: function (text) { },
+    bold(text) { }
     /**
      * @description Apply underlined formatting to text
      * @param {string} text
@@ -773,13 +773,13 @@ var Format = /** @lends Format */ {
      * var format = require('format');
      * backend.chat('Part of this message is ' + format.underline('underlined')); 
      */
-    underline: function (text) { },
+    underline(text) { }
     /**
      * @description Formats text as code
      * @param {string} text
      * @returns {string} Formatted string
      */
-    code: function (text) { }
+    code(text) { }
 }
 
 // TODO: fix this
@@ -837,68 +837,68 @@ var Format = /** @lends Format */ {
 /**
  * @mixin Helpers
  */
-var Helpers = /** @lends Helpers */ {
+class Helpers {
     // TODO: check if this is correct
     /**
      * @description Returns a random object interpreted as string
      * @param {...object} objects
      * @returns {string} Random object interpreted as string
      */
-    getRandom: function (objects) { },
+    getRandom(objects) { }
     /**
      * @description Returns a random integer between zero and <max>
      * @param {int} max
      * @returns {int} Random integer
      */
-    getRandom: function (max) { },
+    getRandom(max) { }
     /**
      * @description Gets the string representation of an object
      * @param {object} input
      * @returns {string}
      */
-    toString: function (input) { },
+    toString(input) { }
     /**
      * @description Encodes a string to base64
      * @param {string} input
      * @returns {string}
      */
-    base64Encode: function (input) { },
+    base64Encode(input) { }
     /**
      * @description Decodes a string from base64
      * @param {string} input
      * @returns {string}
      */
-    base64Decode: function (input) { },
+    base64Decode(input) { }
     /**
      * @description Encodes a string to hex
      * @param {string} input
      * @returns {string}
      */
-    hexEncode: function (input) { },
+    hexEncode(input) { }
     /**
      * @description Decodes a string from hex
      * @param {string} input
      * @returns {string}
      */
-    hexDecode: function (input) { },
+    hexDecode(input) { }
     /**
      * @description Generate a hex-encoded MD5 checksum of the given input
      * @param {string} input
      * @returns {string}
      */
-    MD5Sum: function (input) { },
+    MD5Sum(input) { }
     /**
      * @description Generate a hex-encoded SHA1 checksum of the given input
      * @param {string} input
      * @returns {string}
      */
-    SHA1Sum: function (input) { },
+    SHA1Sum(input) { }
     /**
      * @description Generate a hex-encoded SHA256 checksum of the given input
      * @param {string} input
      * @returns {string}
      */
-    SHA256Sum: function (input) { },
+    SHA256Sum(input) { }
 }
 
 
@@ -945,25 +945,25 @@ var Helpers = /** @lends Helpers */ {
 *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
 * })
 */
-var Event = /** @lends Event */ {
+class Event {
     /**
      * @description Registers an event listener
      * @param {string} eventName - Event to listen to
      * @param {function} callback - Gets called when the given event is triggered
      */
-    on: function (eventName, callback) { },
+    on(eventName, callback) { }
     /**
      * @description Emits an event to the current instance
      * @param {string} eventName - Name of the event to be emitted
      * @param {Object} data - A data object to be sent with the event
      */
-    emit: function (eventName, data) { },
+    emit(eventName, data) { }
     /**
      * @description Emits an event to all instances
      * @param {string} eventName - Name of the event to be emitted
      * @param {Object} data - A data object to be sent with the event
      */
-    broadcast: function (eventName, data) { },
+    broadcast(eventName, data) { }
 };
 
 
@@ -971,166 +971,165 @@ var Event = /** @lends Event */ {
  * @class Client
  * @description Note: if the client is inivisible to the bot, some fields might not be available.
  */
-function Client() { }
-Client.prototype = /** @lends Client.prototype */ {
+class Client {
     /**
      * @returns {string} Name/nickname of the client
      */
-    name: function () { },
+    name() { }
     /**
      * Alias of name()
      * @returns {string} Name/nickname of the client
      */
-    nick: function () { },
+    nick() { }
     /**
      * @returns {string} Phonetic name of the client; useful for tts
      */
-    phoneticName: function () { },
+    phoneticName() { }
     /**
      * @returns {string} Temporary ID of the client
      */
-    id: function () { },
+    id() { }
     /**
      * Alias of uniqueId()
      * @returns {string} Unique ID of the client
      */
-    uid: function () { },
+    uid() { }
     /**
      * @returns {string} Unique ID of the client
      */
-    uniqueId: function () { },
+    uniqueId() { }
     // TODO: change ID to Id; Support for both versions!
     /**
      * @returns {string} TeamSpeak database ID of the client
      */
-    databaseID: function () { },
+    databaseID() { }
     /**
      * @returns {string} Country of the client
      */
-    country: function () { },
+    country() { }
     /**
      * @returns {string} Description of the client
      */
-    description: function () { },
+    description() { }
     /**
      * @param {string} description
      * @version 0.9.19
      */
-    setDescription: function (description) { },
+    setDescription(description) { }
     /**
      * @returns {number} Number of times the client has connected
      */
-    getTotalConnectionsCount: function () { },
+    getTotalConnectionsCount() { }
     /**
      * @returns {number} Timestamp in milliseconds when the client has been seen the first time
      */
-    firstSeen: function () { },
+    firstSeen() { }
     /**
      * Returns true when this client is the bot itself
      * @returns {Boolean}
      */
-    isSelf: function () { },
+    isSelf() { }
     /**
      * Returns if the client is recording the conversation
      * @returns {string}
      */
-    isRecording: function () { },
+    isRecording() { }
     /**
      * Returns if the client is muted (has its microphone disabled)
      * @returns {Boolean}
      */
-    isMuted: function () { },
+    isMuted() { }
     /**
      * Returns if the client is deaf (has its loudspeakers disabled)
      * @returns {Boolean}
      */
-    isDeaf: function () { },
+    isDeaf() { }
     /**
      * Returns if the client is away
      * @returns {Boolean}
      */
-    isAway: function () { },
+    isAway() { }
     /**
      * Returns the clients' servergroups
      * @returns {ServerGroup[]}
      */
-    getServerGroups: function () { },
+    getServerGroups() { }
     /**
      * Returns the clients' channelgroups
      * @returns {ChannelGroup[]}
      */
-    getChannelGroups: function () { },
+    getChannelGroups() { }
     /**
      * Returns the clients' away message (if set)
      * @returns {string}
      */
-    getAwayMessage: function () { },
+    getAwayMessage() { }
     /**
      * Returns the clients' last ping time (latency)
      * @returns {number}
      */
-    getPing: function () { },
+    getPing() { }
     /**
      * Returns the clients' ip address (if available)
      * @returns {string}
      */
-    getIPAddress: function () { },
+    getIPAddress() { }
     /**
      * Returns the clients' online time (requires special permissions)
      * @returns {number} in milliseconds
      */
-    getOnlineTime: function () { },
+    getOnlineTime() { }
     /**
      * Returns the clients' current idle time (requires special permissions)
      * @returns {number} in milliseconds
      */
-    getIdleTime: function () { },
+    getIdleTime() { }
     /**
      * Returns the clients' packet loss percentage (requires special permissions)
      * @returns {number}
      */
-    getPacketLoss: function () { },
+    getPacketLoss() { }
     /**
      * Returns the clients' amount of received data (requires special permissions)
      * @returns {number}
      */
-    getBytesReceived: function () { },
+    getBytesReceived() { }
     /**
      * Returns the clients' amount of sent data (requires special permissions)
      * @returns {number}
      */
-    getBytesSent: function () { },
+    getBytesSent() { }
 
     /**
      * Returns the total number of connections from that client
      * On TS3, this information has to be actively requested from the server. If the bot is unable to get it or hasn't received an answer in time, it will return <= 0 here.
      * @returns {number}
      */
-    getTotalConnections: function () { },
+    getTotalConnections() { }
 
     /**
      * Returns the time the client has been created / was first seen by the server
      * On TS3, this information has to be actively requested from the server. If the bot is unable to get it or hasn't received an answer in time, it will return <= 0 here.
      * @returns {number}
      */
-    getCreationTime: function () { },
+    getCreationTime() { }
 
     /**
      * Returns an array of all channels the client is in; even if TS only uses one channel for a client at a time, other backends might provide several
      * @returns {Channel[]} Array of channels
      */
-    getChannels: function () { },
+    getChannels() { }
     /**
      * @returns {Channel} Current audio channel the client is in
      */
-    getAudioChannel: function () { },
+    getAudioChannel() { }
 
     /**
      * @description Compares two clients
      * @param {Client} otherClient
      * @returns {Boolean} true, if both clients are the same
      */
-    equals: function (otherClient) { },
+    equals(otherClient) { }
     /**
      * @description Sends a message to the client
      * @param {string} msg - Message to send
@@ -1139,7 +1138,7 @@ Client.prototype = /** @lends Client.prototype */ {
      * var client = backend.getClientByName('Bob');
      * client.chat('Hello, ' + client.Name());
      */
-    chat: function (msg) { },
+    chat(msg) { }
     /**
      * @description Pokes the client with a message
      * @param {string} msg - Message to send
@@ -1148,7 +1147,7 @@ Client.prototype = /** @lends Client.prototype */ {
      * var client = backend.getClientByName('Bob');
      * client.chat('Pokeypoke, ' + client.Name() + '!');
      */
-    poke: function (msg) { },
+    poke(msg) { }
     /**
      * @description Bans a client
      * @param {number} time - Amount of time the ban should last
@@ -1158,330 +1157,326 @@ Client.prototype = /** @lends Client.prototype */ {
      * var client = backend.getClientByName('Bob');
      * client.ban(100, 'See you in 100 seconds, ' + client.Name() + '!');
      */
-    ban: function (time, msg) { },
+    ban(time, msg) { }
     /**
      * @description Kicks the client from the server 
      * @param {string} msg - Message to send
      */
-    kick: function (msg) { },
+    kick(msg) { }
     /**
      * @description Kicks the client from the server
      * @param {string} msg - Message to send
      */
-    kickFromServer: function (msg) { },
+    kickFromServer(msg) { }
     /**
      * @description Kicks the client from the channel
      * @param {string} msg - Message to send
      */
-    kickFromChannel: function (msg) { },
+    kickFromChannel(msg) { }
     /**
      * @description Adds a client to a specific ServerGroup
      * @param {(ServerGroup|string|number)} group - Servergroup the client should be added to
      */
-    addToServerGroup: function (group) { },
+    addToServerGroup(group) { }
     /**
      * @description Removes a client from a specific ServerGroup
      * @param {(ServerGroup|string|number)} group - Servergroup the client should be removed from
      */
-    removeFromServerGroup: function (id) { },
+    removeFromServerGroup(id) { }
     /**
      * @description Moves a client to another channel
      * @param {Channel} target - Channel the client should be moved to
      * @param {string} [password] - Password for the target channel, if required
      */
-    moveTo: function (target, password) { },
+    moveTo(target, password) { }
     /**
      * @description Enables / disables subscription for this client; requires subscription mode
      * @param {Boolean} val
      */
-    setSubscription: function (val) { },
+    setSubscription(val) { }
     /**
      * @description Returns the platform of the client (Windows, Linux, MacOS)
      * @returns {string} platform
      */
-    getPlatform: function () { },
+    getPlatform() { }
     /**
      * @description Returns the version of the client
      * @returns {string} version
      */
-    getVersion: function () { },
+    getVersion() { }
     /**
      * @description Returns the client type (Query=0; Normal=1)
      * @returns {string} client type
      */
-    type: function () { }
+    type() { }
 }
 
 /**
  * @class Channel
  */
-function Channel() { }
-Channel.prototype = /** @lends Channel.prototype */ {
+class Channel {
     /**
      * @returns {string} ID
      */
-    id: function () { },
+    id() { }
     /**
      * @returns {string} Name
      */
-    name: function () { },
+    name() { }
     /**
      * @returns {Channel} Parent of channel or null if none is set
      */
-    parent: function () { },
+    parent() { }
     /**
      * @version 0.9.16.3
      * @returns {number} Order / position of this channel.
      * For ts3 this is a numeric value determining the order in which channels are displayed below their parent. To set a new value, please use moveTo.
      */
-    position: function () { },
+    position() { }
     /**
      * @description Moves the channel to a new parent with a new position value
      * @version 0.9.16.3
      * @param {string/Channel} parent - New parent channel
      * @param {int} order - New order value
      */
-    moveTo: function (parent, order) { },
+    moveTo(parent, order) { }
     /**
      * @param {string} name
      * @version 0.9.16
      */
-    setName: function (name) { },
+    setName(name) { }
     /**
      * @returns {int} Type (0 = voice, 1 = text)
      */
-    type: function () { },
+    type() { }
     /**
      * @returns {string} Topic
      */
-    topic: function () { },
+    topic() { }
     /**
      * @param {string} topic
      * @version 0.9.16
      */
-    setTopic: function (topic) { },
+    setTopic(topic) { }
     /**
      * @version 0.9.19
      * @returns {string} Description
      */
-    description: function () { },
+    description() { }
     /**
      * @param {string} description
      * @version 0.9.16
      */
-    setDescription: function (description) { },
+    setDescription(description) { }
     /**
      * @returns {number} Codec
      */
-    codec: function () { },
+    codec() { }
     /**
      * @param {number} quality
      * @version 0.9.16
      */
-    setCodec: function (codec) { },
+    setCodec(codec) { }
     /**
      * @returns {number} Codec quality
      */
-    codecQuality: function () { },
+    codecQuality() { }
     /**
      * @param {number} quality
      * @version 0.9.16
      */
-    setCodecQuality: function (quality) { },
+    setCodecQuality(quality) { }
     /**
      * @returns {number} Configured number of clients the channel can hold (-1 if unlimited)
      */
-    maxClients: function () { },
+    maxClients() { }
     /**
      * @param {Boolean} maxClients Set to -1 for unlimited clients
      * @version 0.9.16
      */
-    setMaxClients: function (maxClients) { },
+    setMaxClients(maxClients) { }
     /**
      * @returns {Boolean} Whether channel is permanent or not
      */
-    isPermanent: function () { },
+    isPermanent() { }
     /**
      * @param {Boolean} permanent
      * @version 0.9.16
      */
-    setPermanent: function (permanent) { },
+    setPermanent(permanent) { }
     /**
      * @returns {Boolean} Whether channel is semi-permanent or not
      */
-    isSemiPermanent: function () { },
+    isSemiPermanent() { }
     /**
      * @param {Boolean} permanent
      * @version 0.9.16
      */
-    setSemiPermanent: function (permanent) { },
+    setSemiPermanent(permanent) { }
     /**
      * @returns {Boolean} Whether channel is the default one
      */
-    isDefault: function () { },
+    isDefault() { }
     /**
      * @returns {Boolean} Whether channel is password-protected or not
      */
-    isPassworded: function () { },
+    isPassworded() { }
     /**
      * @returns {Boolean} Whether channel is encrypted or not
      */
-    isEncrypted: function () { },
+    isEncrypted() { }
     /**
      * @param {Boolean} encrypted
      * @version 0.9.16
      */
-    setEncrypted: function (encrypted) { },
+    setEncrypted(encrypted) { }
     /**
      * @description Compares two channels
      * @param {Channel} otherChannel
      * @returns {Boolean} True, if both channels are the same
      */
-    equals: function (otherChannel) { },
+    equals(otherChannel) { }
     /**
      * @description Sends a chat message to the channel
      * @param {string} msg - Message to send
      */
-    chat: function (msg) { },
+    chat(msg) { }
     /**
      * @returns {Client[]} Clients that are in this channel
      */
-    getClients: function () { },
+    getClients() { }
     /**
      * @returns {number} Number of clients that are in the channel 
      */
-    getClientCount: function () { },
+    getClientCount() { }
     /**
      * @description enables / disables subscription for this channel; requires subscription mode
      * @param {Boolean} val
      */
-    setSubscription: function (val) { },
+    setSubscription(val) { }
     /**
      * @description Updates multiple channel parameters at once
      * @version 0.9.16.3
      * @param {ChannelParams} channelParams
      */
-    update: function (channelParams) { },
+    update(channelParams) { }
     /**
      * @description Assigns a client to a channel group
      * @version 0.9.18
      * @param {Client} client
      * @param {ChannelGroup} channelGroup
      */
-    setChannelGroup: function (client, channelGroup) { }
+    setChannelGroup(client, channelGroup) { }
 }
 
 /**
  * @class ServerGroup
  */
-function ServerGroup() { }
-ServerGroup.prototype = /** @lends ServerGroup.prototype */ {
+class ServerGroup {
     /**
      * @returns {string} ID of the server group
      */
-    id: function () { },
+    id() { }
     /**
      * @returns {string} Name of the server group
      */
-    name: function () { },
+    name() { }
     /**
      * @returns {string} ID of the icon used for the channel group
      * @version 0.12.0
      */
-    icon: function() { },
+    icon() { }
 }
 
 /**
  * @class ChannelGroup
  */
-function ChannelGroup() { }
-ChannelGroup.prototype = /** @lends ChannelGroup.prototype */ {
+class ChannelGroup {
     /**
      * @returns {string} ID of the channel group
      */
-    id: function () { },
+    id() { }
     /**
      * @returns {string} Name of the channel group
      */
-    name: function () { },
+    name() { }
     /**
      * @returns {string} ID of the icon used for the channel group
      * @version 0.12.0
      */
-    icon: function() { },
+    icon() { }
 }
 
 
 /**
  * @class Track
  */
-function Track() { }
-Track.prototype = /** @lends Track.prototype */ {
+class Track {
     /**
      * @returns {string} Unique ID of the track
      */
-    id: function () { },
+    id() { }
     /**
      * @returns {string} Unique url for the track
      */
-    url: function () { },
+    url() { }
     /**
      * @returns {string} Type of the file
      */
-    type: function () { },
+    type() { }
     /**
      * @returns {string} Title of the track
      */
-    title: function () { },
+    title() { }
     /**
      * @returns {string} Artist of the track
      */
-    artist: function () { },
+    artist() { }
     /**
      * @returns {string} Temporary title of the track; e.g. when playing radio stations
      */
-    tempTitle: function () { },
+    tempTitle() { }
     /**
      * @returns {string} Temporary artist of the track; e.g. when playing radio stations
      */
-    tempArtist: function () { },
+    tempArtist() { }
     /**
      * @returns {string} Album of the track
      */
-    album: function () { },
+    album() { }
     /**
      * @returns {string} Genre of the track
      * @version 0.9.16
      */
-    genre: function () { },
+    genre() { }
     /**
      * @returns {number} Duration of the track
      * @version 0.9.16
      */
-    duration: function () { },
+    duration() { }
     /**
      * @returns {int} Tracknumber of the track
      * @version 0.9.16
      */
-    trackNumber: function () { },
+    trackNumber() { }
     /**
      * @returns {string} Path to the thumbnail, if any
      */
-    thumbnail: function () { },
+    thumbnail() { }
     /**
      * @returns {string} Original filename
      */
-    filename: function () { },
+    filename() { }
     /**
      * @description Starts playback of the track
      * @returns {Boolean}
      */
-    play: function () { },
+    play() { }
     /**
      * @description Adds the track to the queue
      * @returns {Boolean}
      */
-    enqueue: function () { },
+    enqueue() { }
     // /**
     //  * @description Adds the track as the first entry in the queue
     //  * @returns {Boolean}
@@ -1491,64 +1486,61 @@ Track.prototype = /** @lends Track.prototype */ {
      * @description Downloads a thumbnail from the internet and stores it for the given track
      * @param {string} url - Url to download the thumbnail from (limited to X MB)
      */
-    setThumbnailFromURL: function (url) { },
+    setThumbnailFromURL(url) { }
     /**
      * @description Removes the thumbnail of a track
      */
-    removeThumbnail: function () { }
+    removeThumbnail() { }
 }
 
 /**
  * @class Playlist
  */
-function Playlist() { }
-
-Playlist.prototype = /** @lends Playlist.prototype */ {
+class Playlist {
     /**
      * @returns {string} Unique identifier of the playlist
      */
-    id: function () { },
+    id() { }
     /**
      * @returns {string} Name of the playlist
      */
-    name: function () { },
+    name() { }
     /**
      * @returns {PlaylistTrack[]} List of all tracks inside the given playlist
      */
-    getTracks: function () { },
+    getTracks() { }
     /**
      * @description Sets the playlist to active; will continue playing songs from this playlist
      * @returns {Boolean}
      */
-    setActive: function () { },
+    setActive() { }
 }
 
 /**
  * @class PlaylistTrack
  */
-function PlaylistTrack() { }
-PlaylistTrack.prototype = /** @lends PlaylistTrack.prototype */ {
+class PlaylistTrack {
     /**
      * @returns {string} Title of the track
      */
-    title: function () { },
+    title() { }
     /**
      * @returns {string} Artist of the track
      */
-    artist: function () { },
+    artist() { }
     /**
      * @returns {string} Album of the track
      */
-    album: function () { },
+    album() { }
     /**
      * @returns {string} Url of the track (internal or external)
      */
-    url: function () { },
+    url() { }
     /**
      * @description Starts playback of the track
      * @returns {Boolean} success
      */
-    play: function () { },
+    play() { }
     // /**
     //  * adds the track to the queue
     //  * @returns {Boolean}
@@ -1590,7 +1582,7 @@ var Net = /** @lends Net */ {
      * @returns {NetClient} Client connection, or null if failed to setup a connection
      * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
      */
-    connect: function (params, callback) { },
+    connect(params, callback) { }
 };
 
 /**
@@ -1607,20 +1599,19 @@ function ConnectParams() { }
  * @fires close
  * @fires data
  */
-function NetClient() { }
-NetClient.prototype = /** @lends NetClient.prototype */ {
+class NetClient {
     /**
      * @description Sends data over the connection
      * @param {(string|number[])} bytes - Data that should be sent over the socket; one can also send an array of ints / bytes like [0, 255, 1, 1]
      * @param {string} [format] - Optional, if given bytes will be decoded prior to sending; Can be either "hex" or "base64".
      */
-    write: function (bytes, format) { },
+    write(bytes, format) { }
     /**
      * @description Registers a new event handler
      * @param {string} event - Name of the event to listen to
      * @param {function} callback
      */
-    on: function (event, callback) { },
+    on(event, callback) { }
 };
 
 /**
@@ -1670,38 +1661,36 @@ NetClient.prototype = /** @lends NetClient.prototype */ {
  * scriptname = ["ws"]
  * ```
  */
-function Websockets() { }
-Websockets.prototype = /** @lends Websockets.prototype */ {
+class Websockets {
     /**
      * @description Writes some data to the connection with given connectionId
      * @param {string} connectionId
      * @param {int} messageType
      * @param {object} message - Actual message; can be given as string or byteshelper
      */
-    write: function (connectionId, messageType, message) { },
+    write(connectionId, messageType, message) { }
     /**
      * @description Broadcasts some data to all connected clients
      * @param {int} messageType
      * @param {object} message - Actual message; can be given as string or byteshelper
      */
-    broadcast: function (messageType, message) { },
+    broadcast(messageType, message) { }
     /**
      * @description Closes the connection
      * @param {string} connectionId
      */
-    close: function (connectionId) { },
+    close(connectionId) { }
 };
 
 /**
  * @class Bytes
  * @version 0.9.16
  */
-function Bytes() { }
-Bytes.prototype = /** @lends Bytes.prototype */ {
+class Bytes {
     /**
      * @returns {string} String representation of the bytes
      */
-    toString: function () { },
+    toString() { }
 };
 
 /**
@@ -1740,7 +1729,7 @@ var DB = /** @lends DB */ {
      * If an error occured, exactly one parameter containing the error will be handed to the callback
      * @returns {DBConn} Database connection or null if failed
      */
-    connect: function (params, callback) { },
+    connect(params, callback) { }
 };
 
 // TODO: improve parameter and callback documentation
@@ -1748,8 +1737,7 @@ var DB = /** @lends DB */ {
  * @class DBConn
  * @version 0.9.16.4
  */
-function DBConn() { }
-DBConn.prototype = /** @lends DBConn.prototype */ {
+class DBConn {
     /**
      * @description
      * Use this, if you expect a result set;
@@ -1761,14 +1749,14 @@ DBConn.prototype = /** @lends DBConn.prototype */ {
      * gets called with two parameters, err and result - both are mutually exclusive.
      * Result contains an array of rows, each containing an object with the column names as key.
      */
-    query: function (queryString, parameter1, parameter2, callback) { },
+    query(queryString, parameter1, parameter2, callback) { }
     /**
      * @description Use this insted of query if you don't expect a result
      * @param {string} queryString
      * @param {any} [parameter1]
      * @param {any} [parameter2]
      */
-    exec: function (queryString, parameter1, parameter2, callback) { },
+    exec(queryString, parameter1, parameter2, callback) { }
 };
 
 /**
@@ -1816,7 +1804,7 @@ function Message() { }
  * When creating a channel parent and name are mandatory for TS3;
  * When updating a channel parent will be ignored (use moveTo instead)
  */
-function ChannelParams() { }
+class ChannelParams { }
 
 /**
  * @class
@@ -1824,7 +1812,7 @@ function ChannelParams() { }
  * @property {client} invoker - Client that added client to the group
  * @property {serverGroup} serverGroup - Server Group
  */
-function ClientServergroupEvent() {
+class ClientServergroupEvent {
 
 }
 
@@ -1835,7 +1823,7 @@ function ClientServergroupEvent() {
  * @property {Client} client - Client that was moved
  * @property {Client} invoker - Client that invoked the move
  */
-function MoveInfo() { }
+class MoveInfo { }
 
 /**
  * @event chat
@@ -1959,25 +1947,23 @@ function MoveInfo() { }
 /**
 * @class
 */
-function APIEvent() { }
-
-APIEvent.prototype = /** @lends APIEvent.prototype */ {
+class APIEvent {
     /**
      * @returns {string} Name of the event
      */
-    name: function () { },
+    name() { }
     /**
      * @returns {Object} Json body
      */
-    data: function () { },
+    data() { }
     /**
      * @returns {User} User that called the event (or null, if unset)
      */
-    user: function () { },
+    user() { }
     /**
      * @returns {string} Remote address that triggered the call
      */
-    remoteAddr: function () { },
+    remoteAddr() { }
 }
 
 /**
