@@ -12,7 +12,7 @@ Engine:
 - SetDefaultAvatar
 Backend:
 - GetServerGroups
-- GetClientCount
+✓ GetClientCount
 - GetChannelGroups
 Audio:
 - Stop
@@ -23,13 +23,14 @@ Helpers:
 - NewBytes (notwendig?)
 (- TypeOf)
 Client:
-- GetPlatform
-- GetVersion
+✓ GetPlatform
+✓ GetVersion
 (- MarshalJSON)
 - Subscribe
 (- String)
-- Type
+✓ Type
 Event == Engine
+
 */
 
 /**
@@ -671,6 +672,11 @@ var Audio = /** @lends Audio */{
      * @param {string} [locale] - Locale to use
      */
     say: function (text, locale) { },
+    /**
+     * @description Returns the client count of the connected server
+     * @returns {Int} client count
+     */
+    getClientCount: function () { }
 }
 
 /**
@@ -1131,6 +1137,21 @@ Client.prototype = /** @lends Client.prototype */ {
      * @param {Boolean} val
      */
     setSubscription: function (val) { },
+    /**
+     * @description Returns the platform of the client (Windows, Linux, MacOS)
+     * @returns {string} platform
+     */
+    getPlatform: function () { },
+    /**
+     * @description Returns the version of the client
+     * @returns {string} version
+     */
+    getVersion: function () { },
+    /**
+     * @description Returns the client type (Query=0; Normal=1)
+     * @returns {string} client type
+     */
+    type: function () { }
 }
 
 /**
