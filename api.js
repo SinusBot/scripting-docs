@@ -4,12 +4,12 @@ TODO:
 complaints
 
 Event:
-- Emit
+✓ Emit
+✓ Broadcast
 Engine:
-- Broadcast
-- RemoveAvatar
-- SetAvatarFromTrack
-- SetDefaultAvatar
+✓ RemoveAvatar
+✓ SetAvatarFromTrack
+✓ SetDefaultAvatar
 Backend:
 - GetServerGroups
 ✓ GetClientCount
@@ -167,7 +167,33 @@ var Engine = {
      *     engine.log(script.get()); //logs 'New Value'
      * });
      */
-    export: function (obj) { }
+    export: function (obj) { },
+    /**
+     * @description
+     * removes the current avatar image
+     * @returns {Boolean}
+     */
+    removeAvatar: function() { },
+    /**
+     * @description
+     * sets the avatar image to the album art of a given track
+     * @param {Track} track - Track to extract the album art from
+     * @returns {Boolean}
+     */
+    setAvatarFromTrack: function(track) {},
+    /**
+     * @description
+     * sets the avatar image to the manually uploaded image
+     * @returns {Boolean}
+     */
+    setDefaultAvatar: function() {},
+    /**
+     * @description
+     * sets the avatar to the rendered output of a banner template
+     * @param {string} bannerName - banner template to use
+     * @returns {Boolean}
+     */
+    setAvatarFromBanner: function(bannerName) {},
 };
 
 
@@ -902,10 +928,22 @@ var Helpers = /** @lends Helpers */ {
 var Event = /** @lends Event */ {
     /**
      * @description Registers an event listener
-     * @param {string} event - Event to listen to
+     * @param {string} eventName - Event to listen to
      * @param {function} callback - Gets called when the given event is triggered
      */
-    on: function (event, callback) { }
+    on: function (eventName, callback) { },
+    /**
+     * @description Emits an event to the current instance
+     * @param {string} eventName - Name of the event to be emitted
+     * @param {Object} data - A data object to be sent with the event
+     */
+    emit: function (eventName, data) { },
+    /**
+     * @description Emits an event to all instances
+     * @param {string} eventName - Name of the event to be emitted
+     * @param {Object} data - A data object to be sent with the event
+     */
+    broadcast: function (eventName, data) { },
 };
 
 
