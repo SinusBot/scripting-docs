@@ -17,20 +17,19 @@ Backend:
 ✓ GetChannelGroups
 Audio:
 - Stop => also in Media (preferred)
-- SetStreamVolume
+- SetStreamVolume (outdated?)
 - PlayPrevious => also in Media (preferred)
 - PlayNext => also in Media (preferred)
 Helpers:
 - NewBytes (notwendig?)
-(- TypeOf)
+- TypeOf (unnecessary? reflect internal types)
 Client:
 ✓ GetPlatform
 ✓ GetVersion
-(- MarshalJSON)
-- Subscribe
-(- String)
 ✓ Type
-Event == Engine
+- Subscribe
+- MarshalJSON => unnecessary?
+- String => unnecessary?
 
 */
 
@@ -196,7 +195,7 @@ class Engine {
      * @version 0.12.0
      */
     setAvatarFromBanner(bannerName) { }
-};
+}
 
 
 /**
@@ -476,7 +475,7 @@ class Backend {
      * @returns {ChannelGroup[]}
      */
     getChannelGroups() { }
-};
+}
 
 /**
  * @mixin Media
@@ -965,7 +964,7 @@ class Event {
      * @param {Object} data - A data object to be sent with the event
      */
     broadcast(eventName, data) { }
-};
+}
 
 
 /**
@@ -1584,7 +1583,7 @@ var Net = /** @lends Net */ {
      * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
      */
     connect(params, callback) { }
-};
+}
 
 /**
  * @class
@@ -1613,7 +1612,7 @@ class NetClient {
      * @param {function} callback
      */
     on(event, callback) { }
-};
+}
 
 /**
  * @event data
@@ -1681,7 +1680,7 @@ class Websockets {
      * @param {string} connectionId
      */
     close(connectionId) { }
-};
+}
 
 /**
  * @class Bytes
@@ -1692,7 +1691,7 @@ class Bytes {
      * @returns {string} String representation of the bytes
      */
     toString() { }
-};
+}
 
 /**
  * @mixin DB
@@ -1731,7 +1730,7 @@ var DB = /** @lends DB */ {
      * @returns {DBConn} Database connection or null if failed
      */
     connect(params, callback) { }
-};
+}
 
 // TODO: improve parameter and callback documentation
 /**
@@ -1758,7 +1757,7 @@ class DBConn {
      * @param {any} [parameter2]
      */
     exec(queryString, parameter1, parameter2, callback) { }
-};
+}
 
 /**
  * @class
