@@ -148,11 +148,11 @@ class Engine {
      * var publicvariable = 'I get exportet!';
      * engine.export({
      *     // returns the value of 'publicvariable'
-     *     get() {
+     *     get: function get() {
      *         return publicvariable;
      *     },
      *     // modifies the value of 'publicvariable'
-     *     set(value) {
+     *     set: function get(value) {
      *         publicvariable = value;
      *     }
      * })
