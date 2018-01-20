@@ -11,14 +11,14 @@ Engine:
 ✓ SetAvatarFromTrack
 ✓ SetDefaultAvatar
 Backend:
-- GetServerGroups
+✓ GetServerGroups
 ✓ GetClientCount
-- GetChannelGroups
+✓ GetChannelGroups
 Audio:
-- Stop
+- Stop => also in Media (preferred)
 - SetStreamVolume
-- PlayPrevious
-- PlayNext
+- PlayPrevious => also in Media (preferred)
+- PlayNext => also in Media (preferred)
 Helpers:
 - NewBytes (notwendig?)
 (- TypeOf)
@@ -192,6 +192,7 @@ var Engine = {
      * sets the avatar to the rendered output of a banner template
      * @param {string} bannerName - banner template to use
      * @returns {Boolean}
+     * @version 0.12.0
      */
     setAvatarFromBanner: function(bannerName) {},
 };
@@ -463,7 +464,17 @@ var Backend = {
      * @param {string} id - ChannelGroup ID
      * @returns {ChannelGroup}
      */
-    getChannelGroupByID: function (id) { }
+    getChannelGroupByID: function (id) { },
+    /**
+     * Returns an array of all known server groups
+     * @returns {ServerGroup[]}
+     */
+    getServerGroups: function () { },
+    /**
+     * Returns an array of all known channel groups
+     * @returns {ChannelGroup[]}
+     */
+    getChannelGroups: function () { },
 };
 
 /**
@@ -523,8 +534,9 @@ var Media = {
      * @description Adds the given url as the first entry in the queue
      * @param {string} url
      * @returns {Boolean}
+     * @version 0.12.0
      */
-    addNext: function (url) { },
+    playAsNext: function (url) { },
     /**
      * @description Plays the next track of the queue / playlist
      */
@@ -535,9 +547,10 @@ var Media = {
     playPrevious: function () { },
     /**
      * @description Stops playback completely
+     * @param {string} trackID - (optional) the track to stop; if not present, all tracks will be stopped
      * @returns {Boolean}
      */
-    stop: function () { },
+    stop: function (trackID) { },
     /**
      * Returns all tracks of the queue
      * @returns {Track[]}
@@ -702,7 +715,14 @@ var Audio = /** @lends Audio */{
      * @description Returns the client count of the connected server
      * @returns {Int} client count
      */
-    getClientCount: function () { }
+    getClientCount: function () { },
+    /**
+     * @description Sets the volume of a specific stream (0-100)
+     * @param {string} streamID - name or alias of the stream(s) to modify
+     * @param {number} volume
+     * @returns {Boolean}
+     */
+    setStreamVolume: function(streamID, volume) { }
 }
 
 /**
@@ -1364,6 +1384,11 @@ ServerGroup.prototype = /** @lends ServerGroup.prototype */ {
      * @returns {string} Name of the server group
      */
     name: function () { },
+    /**
+     * @returns {string} ID of the icon used for the channel group
+     * @version 0.12.0
+     */
+    icon: function() { },
 }
 
 /**
@@ -1379,6 +1404,11 @@ ChannelGroup.prototype = /** @lends ChannelGroup.prototype */ {
      * @returns {string} Name of the channel group
      */
     name: function () { },
+    /**
+     * @returns {string} ID of the icon used for the channel group
+     * @version 0.12.0
+     */
+    icon: function() { },
 }
 
 
