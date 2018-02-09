@@ -1433,7 +1433,7 @@ class User {
     name() { }
     /**
      * @description Returns the privileges of the user
-     * @returns {int} Privileges of the user 
+     * @returns {Number} Privileges of the user 
      * @version 0.13.0
      */
     privileges() { }
@@ -1451,48 +1451,48 @@ class User {
     tsGroupId() { }
     /**
      * @description Checks if an user is an admin
-     * @returns {bool} Admin status of the user 
+     * @returns {Boolean} Admin status of the user 
      * @version 0.13.0
      */
     isAdmin() { }
     /**
      * @description Sets a new password to the user
-     * @returns {bool} Success or not 
+     * @returns {Boolean} Success or not 
      * @param {string} password - new password of the user
      * @version 0.13.0
      */
     setPassword(password) { }
     /**
      * @description Sets the teamspeak unique ID to the user
-     * @returns {bool} Success or not
+     * @returns {Boolean} Success or not
      * @param {string} tsUid - teamspeak unique ID of the clinet 
      * @version 0.13.0
      */
     setTSUid(tsUid) { }
     /**
      * @description Sets the privileges to an user
-     * @returns {bool} Success or not
-     * @param {int} privileges - New privileges of the user
+     * @returns {Boolean} Success or not
+     * @param {Number} privileges - New privileges of the user
      * @version 0.13.0
      */
     setPrivileges(privileges) { }
     /**
      * @description Adds an privilege to an user
-     * @returns {bool} Success or not 
-     * @param {int} privilege - New privilege which should be added
+     * @returns {Boolean} Success or not 
+     * @param {Number} privilege - New privilege which should be added
      * @version 0.13.0
      */
     addPrivilege(privilege) { }
     /**
      * @description Removes an privilege from an user
-     * @returns {bool} Success or not 
-     * @param {int} privilege - Privilege which should be removed
+     * @returns {Boolean} Success or not 
+     * @param {Number} privilege - Privilege which should be removed
      * @version 0.13.0
      */
     removePrivilege(privilege) { }
     /**
      * @description Deletes an user
-     * @returns {bool} Success or not 
+     * @returns {Boolean} Success or not 
      * @version 0.13.0
      */
     delete() { }
