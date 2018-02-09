@@ -1439,7 +1439,7 @@ class User {
     privileges() { }
     /**
      * @description Returns the teamspeak unique ID of the bind client
-     * @returns {string} teamspeak unique ID of the linked ts client 
+     * @returns {string} teamspeak unique ID of the bind ts client 
      * @version 0.13.0
      */
     tsUid() { }
@@ -1465,7 +1465,7 @@ class User {
     /**
      * @description Sets the teamspeak unique ID to the user
      * @returns {Boolean} Success or not
-     * @param {string} tsUid - teamspeak unique ID of the clinet 
+     * @param {string} tsUid - teamspeak unique ID of the client 
      * @version 0.13.0
      */
     setTSUid(tsUid) { }
