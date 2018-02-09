@@ -195,6 +195,26 @@ class Engine {
      * @version 0.12.0
      */
     setAvatarFromBanner(bannerName) { }
+    /**
+     * @description Gets the users of the SinusBot
+     * @version 0.13.0
+     * @returns {[]User}
+     */
+    getUsers() { }
+    /**
+     * @description Gets a SinusBot user by his ID
+     * @version 0.13.0
+     * @param {string} id - ID of the SinusBot user
+     * @returns {(User|null)}
+     */
+    getUserById(id) { }
+    /**
+     * @description Gets a Sinusbot user by his name.
+     * @version 0.13.0
+     * @param {string} name - Name of the user
+     * @returns {(User|null)}
+     */
+    getUserByName(name) { }
 }
 
 
@@ -1386,6 +1406,96 @@ class ServerGroup {
      * @version 0.12.0
      */
     icon() { }
+    /**
+     * @description Adds a client by database ID to the servergroup
+     * @returns {Boolean} status if the request was successful
+     * @version 0.13.0
+     * @param {Object} client - The client can be a client object, string, int or float
+     */
+    addClientByDatabaseId(client) { }
+}
+
+/**
+ * @class User
+ */
+class User {
+    /**
+     * @description Returns the ID of the user
+     * @returns {string} ID of the User
+     * @version 0.13.0
+     */
+    id() { }
+    /**
+     * @description Returns the name of the user
+     * @returns {string} Name of the User
+     * @version 0.13.0
+     */
+    name() { }
+    /**
+     * @description Returns the privileges of the user
+     * @returns {int} Privileges of the user 
+     * @version 0.13.0
+     */
+    privileges() { }
+    /**
+     * @description Returns the teamspeak unique ID of the bind client
+     * @returns {string} teamspeak unique ID of the linked ts client 
+     * @version 0.13.0
+     */
+    tsUid() { }
+    /**
+     * @description Returns the teamspeak group ID
+     * @returns {string} ID of the bind teamspeak group
+     * @version 0.13.0
+     */
+    tsGroupId() { }
+    /**
+     * @description Checks if an user is an admin
+     * @returns {bool} Admin status of the user 
+     * @version 0.13.0
+     */
+    isAdmin() { }
+    /**
+     * @description Sets a new password to the user
+     * @returns {bool} Success or not 
+     * @param {string} password - new password of the user
+     * @version 0.13.0
+     */
+    setPassword(password) { }
+    /**
+     * @description Sets the teamspeak unique ID to the user
+     * @returns {bool} Success or not
+     * @param {string} tsUid - teamspeak unique ID of the clinet 
+     * @version 0.13.0
+     */
+    setTSUid(tsUid) { }
+    /**
+     * @description Sets the privileges to an user
+     * @returns {bool} Success or not
+     * @param {int} privileges - New privileges of the user
+     * @version 0.13.0
+     */
+    setPrivileges(privileges) { }
+    /**
+     * @description Adds an privilege to an user
+     * @returns {bool} Success or not 
+     * @param {int} privilege - New privilege which should be added
+     * @version 0.13.0
+     */
+    addPrivilege(privilege) { }
+    /**
+     * @description Removes an privilege from an user
+     * @returns {bool} Success or not 
+     * @param {int} privilege - Privilege which should be removed
+     * @version 0.13.0
+     */
+    removePrivilege(privilege) { }
+    /**
+     * @description Deletes an user
+     * @returns {bool} Success or not 
+     * @version 0.13.0
+     */
+    delete() { }
 }
 
 /**

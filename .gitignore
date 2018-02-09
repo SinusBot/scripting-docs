@@ -1,2 +1,4 @@
 # ignore built documentation files
 documentation/
+out
+node_modules
