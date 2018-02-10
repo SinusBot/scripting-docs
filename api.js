@@ -1399,7 +1399,7 @@ class Channel {
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
-    addPermissions(id) { }
+    addPermission(id) { }
 }
 
 /**
@@ -1438,7 +1438,7 @@ class ServerGroup {
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
-    addPermissions(id) { }
+    addPermission(id) { }
 }
 
 /**
@@ -1553,7 +1553,7 @@ class ChannelGroup {
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
-    addPermissions(id) { }
+    addPermission(id) { }
 }
 
 
@@ -2117,6 +2117,8 @@ class APIEvent {
 
 /**
 * @class
+* @description handles channel, channelgroup and servergroup permissions; mainly for TS3
+* @version 0.13
 */
 class Permission {
     /**
