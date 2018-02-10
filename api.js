@@ -1387,6 +1387,19 @@ class Channel {
      * @param {ChannelGroup} channelGroup
      */
     setChannelGroup(client, channelGroup) { }
+    /**
+     * @description Gets the permissions for the channel from the server - this is an expensive call as the permissions are _not_ cached
+     * @param 0.13
+     * @returns {Permission[]}
+     */
+    getPermissions() { }
+    /**
+     * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @param 0.13
+     * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
+     * @returns {Permission}
+     */
+    addPermissions(id) { }
 }
 
 /**
@@ -1413,6 +1426,19 @@ class ServerGroup {
      * @param {Object} client - The client can be a client object, string, int or float
      */
     addClientByDatabaseId(client) { }
+    /**
+     * @description Gets the permissions for the servergroup from the server - this is an expensive call as the permissions are _not_ cached
+     * @param 0.13
+     * @returns {Permission[]}
+     */
+    getPermissions() { }
+    /**
+     * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @param 0.13
+     * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
+     * @returns {Permission}
+     */
+    addPermissions(id) { }
 }
 
 /**
@@ -1515,6 +1541,19 @@ class ChannelGroup {
      * @version 0.12.0
      */
     icon() { }
+    /**
+     * @description Gets the permissions for the channelgroup from the server - this is an expensive call as the permissions are _not_ cached
+     * @param 0.13
+     * @returns {Permission[]}
+     */
+    getPermissions() { }
+    /**
+     * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @param 0.13
+     * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
+     * @returns {Permission}
+     */
+    addPermissions(id) { }
 }
 
 
@@ -2074,6 +2113,61 @@ class APIEvent {
      * @returns {string} Remote address that triggered the call
      */
     remoteAddr() { }
+}
+
+/**
+* @class
+*/
+class Permission {
+    /**
+     * @returns {string} ID of the permission
+     */
+    id() { }
+    /**
+     * @returns {string} Name of the permission
+     */
+    name() { }
+    /**
+     * @returns {number} permission value
+     */
+    value() { }
+    /**
+     * @returns {Boolean} true, if skip flag has been set - only applicable for ServerGroups
+     */
+    skip() { }
+    /**
+     * @returns {string} true, if negated flag has been set - only applicable for ServerGroups
+     */
+    negated() { }
+    /**
+     * @description sets the value of the permission; you need to call save() to apply changes
+     * @param {Boolean} val - true, if permission should be negated, false otherwise
+     * @returns {Boolean}
+     */
+    setNegated() { }
+    /**
+     * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
+     * @param {Boolean} val - true, if permission should be skipped, false otherwise
+     * @returns {Boolean}
+     */
+    setSkip(value) { }
+    /**
+     * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
+     * @version 0.13.0
+     * @param {number} val - new value for the permission
+     * @returns {Boolean}
+     */
+    setValue(val) { }
+    /**
+     * @description applies the changed settings
+     * @returns {Boolean}
+     */
+    save() { }
+    /**
+     * @description delete the current permission
+     * @returns {Boolean}
+     */
+    delete() { }
 }
 
 /**
