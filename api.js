@@ -1317,6 +1317,15 @@ class Channel {
      */
     setMaxClients(maxClients) { }
     /**
+     * @returns {number}
+     */
+    maxFamilyClients() { }
+    /**
+     * @param {Boolean} maxFamilyClients
+     * @version 0.9.16
+     */
+    setMaxFamilyClients(maxFamilyClients) { }
+    /**
      * @returns {Boolean} Whether channel is permanent or not
      */
     isPermanent() { }
@@ -1945,6 +1954,7 @@ function Message() { }
  * @property {Boolean} semiPermanent
  * @property {number} position
  * @property {number} maxClients - Set to -1 for unlimited clients
+ * @property {number} maxFamilyClients
  * @property {Boolean} default - Whether the channel is the default channel 
  * @property {number} neededTalkPower - TS only; 0.9.19+
  * @property {number} deleteDelay - TS only; 0.9.19+
