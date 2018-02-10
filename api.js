@@ -642,10 +642,11 @@ class Audio {
     setAudioFilter(filter) { }
     /**
      * @description Enables or disables audio return channel; required for speech recognition engine / recording
-     * @param {Boolean} enable
+     * @param {number} flags - bitmask; use 0x01 for general audio return (recording) or 0x02 for separated audio (for speech recognition) - 0x03 for both
      * @returns {Boolean}
+     * @version 0.13
      */
-    setAudioReturnChannel(enable) { }
+    setAudioReturnChannel(flags) { }
     /**
      * @description Starts recording to a file
      * @returns {Boolean}
