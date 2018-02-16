@@ -197,20 +197,20 @@ class Engine {
     setAvatarFromBanner(bannerName) { }
     /**
      * @description Gets the users of the SinusBot
-     * @version 0.13.0
+     * @version 0.13.37
      * @returns {[]User}
      */
     getUsers() { }
     /**
      * @description Gets a SinusBot user by his ID
-     * @version 0.13.0
+     * @version 0.13.37
      * @param {string} id - ID of the SinusBot user
      * @returns {(User|null)}
      */
     getUserById(id) { }
     /**
      * @description Gets a Sinusbot user by his name.
-     * @version 0.13.0
+     * @version 0.13.37
      * @param {string} name - Name of the user
      * @returns {(User|null)}
      */
@@ -644,7 +644,7 @@ class Audio {
      * @description Enables or disables audio return channel; required for speech recognition engine / recording
      * @param {number} flags - bitmask; use 0x01 for general audio return (recording) or 0x02 for separated audio (for speech recognition) - 0x03 for both
      * @returns {Boolean}
-     * @version 0.13
+     * @version 0.13.37
      */
     setAudioReturnChannel(flags) { }
     /**
@@ -1399,13 +1399,13 @@ class Channel {
     setChannelGroup(client, channelGroup) { }
     /**
      * @description Gets the permissions for the channel from the server - this is an expensive call as the permissions are _not_ cached
-     * @param 0.13
+     * @version 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
-     * @param 0.13
+     * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -1432,19 +1432,19 @@ class ServerGroup {
     /**
      * @description Adds a client by database ID to the servergroup
      * @returns {Boolean} status if the request was successful
-     * @version 0.13.0
+     * @version 0.13.37
      * @param {Object} client - The client can be a client object, string, int or float
      */
     addClientByDatabaseId(client) { }
     /**
      * @description Gets the permissions for the servergroup from the server - this is an expensive call as the permissions are _not_ cached
-     * @param 0.13
+     * @version 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
-     * @param 0.13
+     * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -1458,78 +1458,78 @@ class User {
     /**
      * @description Returns the ID of the user
      * @returns {string} ID of the User
-     * @version 0.13.0
+     * @version 0.13.37
      */
     id() { }
     /**
      * @description Returns the name of the user
      * @returns {string} Name of the User
-     * @version 0.13.0
+     * @version 0.13.37
      */
     name() { }
     /**
      * @description Returns the privileges of the user
      * @returns {Number} Privileges of the user 
-     * @version 0.13.0
+     * @version 0.13.37
      */
     privileges() { }
     /**
      * @description Returns the teamspeak unique ID of the bind client
      * @returns {string} teamspeak unique ID of the bind ts client 
-     * @version 0.13.0
+     * @version 0.13.37
      */
     tsUid() { }
     /**
      * @description Returns the teamspeak group ID
      * @returns {string} ID of the bind teamspeak group
-     * @version 0.13.0
+     * @version 0.13.37
      */
     tsGroupId() { }
     /**
      * @description Checks if an user is an admin
      * @returns {Boolean} Admin status of the user 
-     * @version 0.13.0
+     * @version 0.13.37
      */
     isAdmin() { }
     /**
      * @description Sets a new password to the user
      * @returns {Boolean} Success or not 
      * @param {string} password - new password of the user
-     * @version 0.13.0
+     * @version 0.13.37
      */
     setPassword(password) { }
     /**
      * @description Sets the teamspeak unique ID to the user
      * @returns {Boolean} Success or not
      * @param {string} tsUid - teamspeak unique ID of the client 
-     * @version 0.13.0
+     * @version 0.13.37
      */
     setTSUid(tsUid) { }
     /**
      * @description Sets the privileges to an user
      * @returns {Boolean} Success or not
      * @param {Number} privileges - New privileges of the user
-     * @version 0.13.0
+     * @version 0.13.37
      */
     setPrivileges(privileges) { }
     /**
      * @description Adds an privilege to an user
      * @returns {Boolean} Success or not 
      * @param {Number} privilege - New privilege which should be added
-     * @version 0.13.0
+     * @version 0.13.37
      */
     addPrivilege(privilege) { }
     /**
      * @description Removes an privilege from an user
      * @returns {Boolean} Success or not 
      * @param {Number} privilege - Privilege which should be removed
-     * @version 0.13.0
+     * @version 0.13.37
      */
     removePrivilege(privilege) { }
     /**
      * @description Deletes an user
      * @returns {Boolean} Success or not 
-     * @version 0.13.0
+     * @version 0.13.37
      */
     delete() { }
 }
@@ -1553,13 +1553,13 @@ class ChannelGroup {
     icon() { }
     /**
      * @description Gets the permissions for the channelgroup from the server - this is an expensive call as the permissions are _not_ cached
-     * @param 0.13
+     * @version 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
-     * @param 0.13
+     * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -2129,55 +2129,64 @@ class APIEvent {
 /**
 * @class
 * @description handles channel, channelgroup and servergroup permissions; mainly for TS3
-* @version 0.13
+* @version 0.13.37
 */
 class Permission {
     /**
+     * @version 0.13.37
      * @returns {string} ID of the permission
      */
     id() { }
     /**
+     * @version 0.13.37
      * @returns {string} Name of the permission
      */
     name() { }
     /**
+     * @version 0.13.37
      * @returns {number} permission value
      */
     value() { }
     /**
+     * @version 0.13.37
      * @returns {Boolean} true, if skip flag has been set - only applicable for ServerGroups
      */
     skip() { }
     /**
+     * @version 0.13.37
      * @returns {string} true, if negated flag has been set - only applicable for ServerGroups
      */
     negated() { }
     /**
      * @description sets the value of the permission; you need to call save() to apply changes
+     * @version 0.13.37
      * @param {Boolean} val - true, if permission should be negated, false otherwise
      * @returns {Boolean}
      */
     setNegated() { }
     /**
      * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
+     * @version 0.13.37
      * @param {Boolean} val - true, if permission should be skipped, false otherwise
      * @returns {Boolean}
      */
     setSkip(value) { }
     /**
      * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
-     * @version 0.13.0
+     * @version 0.13.37
      * @param {number} val - new value for the permission
      * @returns {Boolean}
      */
     setValue(val) { }
     /**
      * @description applies the changed settings
+     * @version 0.13.37
      * @returns {Boolean}
      */
     save() { }
     /**
      * @description delete the current permission
+     * @version 0.13.37
      * @returns {Boolean}
      */
     delete() { }
