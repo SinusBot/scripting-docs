@@ -1,35 +1,6 @@
 /*
 TODO:
-
-complaints
-User object
-
-Event:
-✓ Emit
-✓ Broadcast
-Engine:
-✓ RemoveAvatar
-✓ SetAvatarFromTrack
-✓ SetDefaultAvatar
-Backend:
-✓ GetServerGroups
-✓ GetClientCount
-✓ GetChannelGroups
-Audio:
-- Stop => also in Media (preferred)
-- SetStreamVolume (outdated?)
-- PlayPrevious => also in Media (preferred)
-- PlayNext => also in Media (preferred)
-Helpers:
-- NewBytes (notwendig?)
-- TypeOf (unnecessary? reflect internal types)
-Client:
-✓ GetPlatform
-✓ GetVersion
-✓ Type
-- Subscribe
-- MarshalJSON => unnecessary?
-- String => unnecessary?
+- turn 
 
 */
 
@@ -802,58 +773,6 @@ class Format {
      */
     code(text) { }
 }
-
-// TODO: fix this
-
-// /**
-//  * @mixin Net
-//  * @description This module provides lower level network access. As this affects security heavily, it has to be enabled in the config.ini.
-//  * @example
-//  * var net = require('net');
-//  */
-// var Net = {
-//     // SinusBot specific stuff
-//     /**
-//      * @param {ConnectOptions} options - Options to use for the connection
-//      * @param {function} connectCallback - Callback that gets called if a connection succeeded or failed; in the latter case the callback will be called with one parameter, which is the error message 
-//      * @returns {Connection} a tcp connection handler
-//      */
-//     connect: function(options, connectCallback) {},
-// }
-
-// /**
-//  * @class
-//  * @property {string} host - Hostname of the server to connect to
-//  * @property {number} port - Port of the server to connect to 
-//  */
-// function ConnectOptions() {}
-
-// /**
-//  * @class
-//  */
-// var Connection = {
-//     /**
-//      * Registers a new event handler
-//      * @param {string} event - Name of the event to listen to
-//      * @param {function} callback
-//      */
-//     on: function(event, callback) {},
-//     /**
-//      * Sends data over the connection, optionally decoded
-//      * @param {string} data - Data to be sent
-//      * @param {string} encoding - Can be "hex" or "base64"
-//      */
-//     write: function(data, encoding) {}
-// };
-
-// /**
-//  * @method Connection#data
-//  * @param {Object} data - Data object
-//  */
-
-// /**
-//  * @method Connection#close
-//  */
 
 /**
  * @mixin Helpers
@@ -1733,7 +1652,7 @@ class PlaylistTrack {
  * scriptname = ["net"]
  * ```
  */
-var Net = /** @lends Net */ {
+class Net {
     /**
      * @param {ConnectParams} params - Connection parameters
      * @param {function} callback - Callback gets called on success / error;
@@ -1745,11 +1664,11 @@ var Net = /** @lends Net */ {
 }
 
 /**
- * @class
+ * @class ConnectParams
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
  */
-function ConnectParams() { }
+class ConnectParams { }
 
 /**
  * @class NetClient
@@ -1881,7 +1800,7 @@ class Bytes {
  * 
  * Use additional parameters to exec / query whenever you use untrusted/unknown data, as those will automatically be escaped and avoid SQL injection.
  */
-var DB = /** @lends DB */ {
+class DB {
     /**
      * @param {DBParams} params - Connection parameters
      * @param {function} callback - Callback gets called on success / error;
