@@ -837,48 +837,49 @@ class Helpers {
 
 
 /**
-* @mixin Event
-* @fires api:$eventName
-* @fires chat
-* @fires poke
-* @fires typing
-* @fires track
-* @fires trackInfo
-* @fires trackEnd
-* @fires connect
-* @fires connectionFailed
-* @fires disconnect
-* @fires clientMove
-* @fires clientNick
-* @fires clientVisible
-* @fires clientInvisible
-* @fires clientKicked
-* @fires clientKickedFromChannel
-* @fires clientIPAddress
-* @fires clientAway
-* @fires clientBack
-* @fires clientRecord
-* @fires clientRecordStop
-* @fires clientMute
-* @fires clientUnmute
-* @fires clientDeaf
-* @fires clientUndeaf
-* @fires serverGroupAdded
-* @fires serverGroupRemoved
-* @fires channelCreate
-* @fires channelUpdate
-* @fires channelDelete
-* @fires talkerCount
-* @fires unload
-* @fires load
-* @example
-* var event = require('event');
-* var engine = require('engine');
-* 
-* event.on('chat', function(ev) {
-*     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
-* })
-*/
+ * @class
+ * @mixin
+ * @fires api:$eventName
+ * @fires chat
+ * @fires poke
+ * @fires typing
+ * @fires track
+ * @fires trackInfo
+ * @fires trackEnd
+ * @fires connect
+ * @fires connectionFailed
+ * @fires disconnect
+ * @fires clientMove
+ * @fires clientNick
+ * @fires clientVisible
+ * @fires clientInvisible
+ * @fires clientKicked
+ * @fires clientKickedFromChannel
+ * @fires clientIPAddress
+ * @fires clientAway
+ * @fires clientBack
+ * @fires clientRecord
+ * @fires clientRecordStop
+ * @fires clientMute
+ * @fires clientUnmute
+ * @fires clientDeaf
+ * @fires clientUndeaf
+ * @fires serverGroupAdded
+ * @fires serverGroupRemoved
+ * @fires channelCreate
+ * @fires channelUpdate
+ * @fires channelDelete
+ * @fires talkerCount
+ * @fires unload
+ * @fires load
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * 
+ * event.on('chat', function(ev) {
+ *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
+ * })
+ */
 class Event {
     /**
      * @description Registers an event listener
@@ -1120,7 +1121,8 @@ class Event {
 
 
 /**
- * @class Client
+ * @class
+ * @mixin
  * @description Note: if the client is inivisible to the bot, some fields might not be available.
  */
 class Client {
@@ -1364,7 +1366,8 @@ class Client {
 }
 
 /**
- * @class Channel
+ * @class
+ * @mixin
  */
 class Channel {
     /**
@@ -1544,7 +1547,8 @@ class Channel {
 }
 
 /**
- * @class ServerGroup
+ * @class
+ * @mixin
  */
 class ServerGroup {
     /**
@@ -1583,7 +1587,8 @@ class ServerGroup {
 }
 
 /**
- * @class User
+ * @class
+ * @mixin
  */
 class User {
     /**
@@ -1666,7 +1671,8 @@ class User {
 }
 
 /**
- * @class ChannelGroup
+ * @class
+ * @mixin
  */
 class ChannelGroup {
     /**
@@ -1699,7 +1705,8 @@ class ChannelGroup {
 
 
 /**
- * @class Track
+ * @class
+ * @mixin
  */
 class Track {
     /**
@@ -1784,7 +1791,8 @@ class Track {
 }
 
 /**
- * @class Playlist
+ * @class
+ * @mixin
  */
 class Playlist {
     /**
@@ -1807,7 +1815,8 @@ class Playlist {
 }
 
 /**
- * @class PlaylistTrack
+ * @class
+ * @mixin
  */
 class PlaylistTrack {
     /**
@@ -1844,7 +1853,7 @@ class PlaylistTrack {
 }
 
 /**
- * @mixin Net
+ * @mixin
  * @version 0.9.16
  * @example
  * var net = require('net');
@@ -1876,14 +1885,16 @@ class Net {
 }
 
 /**
- * @class ConnectParams
+ * @class
+ * @mixin
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
  */
 class ConnectParams { }
 
 /**
- * @class NetClient
+ * @class
+ * @mixin
  * @version 0.9.16
  * @fires error
  * @fires close
@@ -1924,7 +1935,7 @@ class NetClient {
 
 
 /**
- * @mixin Websockets
+ * @mixin
  * @version 0.9.20
  * @fires ws.connect
  * @fires ws.close
@@ -2002,7 +2013,8 @@ class Websockets {
 
 
 /**
- * @class Bytes
+ * @class
+ * @mixin
  * @version 0.9.16
  */
 class Bytes {
@@ -2013,7 +2025,7 @@ class Bytes {
 }
 
 /**
- * @mixin DB
+ * @mixin
  * @version 0.9.16.4
  * @example
  * var db = require('db');
@@ -2053,7 +2065,8 @@ class DB {
 
 // TODO: improve parameter and callback documentation
 /**
- * @class DBConn
+ * @class
+ * @mixin
  * @version 0.9.16.4
  */
 class DBConn {
@@ -2080,6 +2093,7 @@ class DBConn {
 
 /**
  * @class
+ * @mixin
  * @version 0.9.16
  * @property {string} driver - Database driver to use, currently sqlite3 (currently in-memory only), mysql or postgres
  * @property {string} [host] - Database server to connect to, required for mysql / postgres
@@ -2092,6 +2106,7 @@ function DBParams() { }
 
 /**
  * @class
+ * @mixin
  * @property {string} text - Text of the message
  * @property {Channel} channel - Channel (if given) this message has been sent on
  * @property {Client} client - Client that sent the message
@@ -2102,6 +2117,7 @@ function Message() { }
 
 /**
  * @class
+ * @mixin
  * @property {string} name - Displayname of the channel; mandatory on create
  * @property {(Channel|number|string)} parent - Parent channel (you can also use the channelId); ignored on update, mandatory on create
  * @property {string} description
@@ -2128,16 +2144,16 @@ class ChannelParams { }
 
 /**
  * @class
+ * @mixin
  * @property {client} client - Client that has been added / removed
  * @property {client} invoker - Client that added client to the group
  * @property {serverGroup} serverGroup - Server Group
  */
-class ClientServergroupEvent {
-
-}
+class ClientServergroupEvent { }
 
 /**
  * @class
+ * @mixin
  * @property {Channel} fromChannel - Old channel (or null if the client just got online / changed visibility)
  * @property {Channel} toChannel - New channel (or null if the client just went offline / changed visibility)
  * @property {Client} client - Client that was moved
@@ -2146,8 +2162,9 @@ class ClientServergroupEvent {
 class MoveInfo { }
 
 /**
-* @class
-*/
+ * @class
+ * @mixin
+ */
 class APIEvent {
     /**
      * @returns {string} Name of the event
@@ -2168,10 +2185,11 @@ class APIEvent {
 }
 
 /**
-* @class
-* @description handles channel, channelgroup and servergroup permissions; mainly for TS3
-* @version 0.13.37
-*/
+ * @class
+ * @mixin
+ * @description handles channel, channelgroup and servergroup permissions; mainly for TS3
+ * @version 0.13.37
+ */
 class Permission {
     /**
      * @version 0.13.37
