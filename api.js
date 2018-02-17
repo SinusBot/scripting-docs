@@ -1119,6 +1119,49 @@ class Event {
  * @description Gets fired when all scripts have been loaded
  */
 
+/**
+ * @class
+ * @mixin
+ */
+class APIEvent {
+    /**
+     * @returns {string} Name of the event
+     */
+    name() { }
+    /**
+     * @returns {Object} Json body
+     */
+    data() { }
+    /**
+     * @returns {User} User that called the event (or null, if unset)
+     */
+    user() { }
+    /**
+     * @returns {string} Remote address that triggered the call
+     */
+    remoteAddr() { }
+}
+
+/**
+ * @class
+ * @mixin
+ * @property {string} text - Text of the message
+ * @property {Channel} channel - Channel (if given) this message has been sent on
+ * @property {Client} client - Client that sent the message
+ * @property {number} mode - Number representing the way this message has been sent
+ * (1 = private, 2 = channel, 3 = server)
+ */
+function Message() { }
+
+/**
+ * @class
+ * @mixin
+ * @property {Channel} fromChannel - Old channel (or null if the client just got online / changed visibility)
+ * @property {Channel} toChannel - New channel (or null if the client just went offline / changed visibility)
+ * @property {Client} client - Client that was moved
+ * @property {Client} invoker - Client that invoked the move
+ */
+class MoveInfo { }
 
 /**
  * @class
@@ -1368,6 +1411,15 @@ class Client {
 /**
  * @class
  * @mixin
+ * @property {client} client - Client that has been added / removed
+ * @property {client} invoker - Client that added client to the group
+ * @property {serverGroup} serverGroup - Server Group
+ */
+class ClientServergroupEvent { }
+
+/**
+ * @class
+ * @mixin
  */
 class Channel {
     /**
@@ -1549,6 +1601,33 @@ class Channel {
 /**
  * @class
  * @mixin
+ * @property {string} name - Displayname of the channel; mandatory on create
+ * @property {(Channel|number|string)} parent - Parent channel (you can also use the channelId); ignored on update, mandatory on create
+ * @property {string} description
+ * @property {string} topic
+ * @property {string} password
+ * @property {number} codec - See codec types for explanation
+ * @property {number} codecQuality
+ * @property {Boolean} encrypted - True by default
+ * @property {Boolean} permanent
+ * @property {Boolean} semiPermanent
+ * @property {number} position
+ * @property {number} maxClients - Set to -1 for unlimited clients
+ * @property {number} maxFamilyClients
+ * @property {Boolean} default - Whether the channel is the default channel 
+ * @property {number} neededTalkPower - TS only; 0.9.19+
+ * @property {number} deleteDelay - TS only; 0.9.19+
+ * @property {number} icon - TS only; 0.9.19+
+ * @description
+ * Used to update or create a channel;
+ * When creating a channel parent and name are mandatory for TS3;
+ * When updating a channel parent will be ignored (use moveTo instead)
+ */
+class ChannelParams { }
+
+/**
+ * @class
+ * @mixin
  */
 class ServerGroup {
     /**
@@ -1579,6 +1658,39 @@ class ServerGroup {
     getPermissions() { }
     /**
      * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @version 0.13.37
+     * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
+     * @returns {Permission}
+     */
+    addPermission(id) { }
+}
+
+/**
+ * @class
+ * @mixin
+ */
+class ChannelGroup {
+    /**
+     * @returns {string} ID of the channel group
+     */
+    id() { }
+    /**
+     * @returns {string} Name of the channel group
+     */
+    name() { }
+    /**
+     * @returns {string} ID of the icon used for the channel group
+     * @version 0.12.0
+     */
+    icon() { }
+    /**
+     * @description Gets the permissions for the channelgroup from the server - this is an expensive call as the permissions are _not_ cached
+     * @version 0.13.37
+     * @returns {Permission[]}
+     */
+    getPermissions() { }
+    /**
+     * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
      * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
@@ -1673,36 +1785,69 @@ class User {
 /**
  * @class
  * @mixin
+ * @description handles channel, channelgroup and servergroup permissions; mainly for TS3
+ * @version 0.13.37
  */
-class ChannelGroup {
+class Permission {
     /**
-     * @returns {string} ID of the channel group
+     * @version 0.13.37
+     * @returns {string} ID of the permission
      */
     id() { }
     /**
-     * @returns {string} Name of the channel group
+     * @version 0.13.37
+     * @returns {string} Name of the permission
      */
     name() { }
     /**
-     * @returns {string} ID of the icon used for the channel group
-     * @version 0.12.0
-     */
-    icon() { }
-    /**
-     * @description Gets the permissions for the channelgroup from the server - this is an expensive call as the permissions are _not_ cached
      * @version 0.13.37
-     * @returns {Permission[]}
+     * @returns {number} permission value
      */
-    getPermissions() { }
+    value() { }
     /**
-     * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
      * @version 0.13.37
-     * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
-     * @returns {Permission}
+     * @returns {Boolean} true, if skip flag has been set - only applicable for ServerGroups
      */
-    addPermission(id) { }
+    skip() { }
+    /**
+     * @version 0.13.37
+     * @returns {string} true, if negated flag has been set - only applicable for ServerGroups
+     */
+    negated() { }
+    /**
+     * @description sets the value of the permission; you need to call save() to apply changes
+     * @version 0.13.37
+     * @param {Boolean} val - true, if permission should be negated, false otherwise
+     * @returns {Boolean}
+     */
+    setNegated() { }
+    /**
+     * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
+     * @version 0.13.37
+     * @param {Boolean} val - true, if permission should be skipped, false otherwise
+     * @returns {Boolean}
+     */
+    setSkip(value) { }
+    /**
+     * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
+     * @version 0.13.37
+     * @param {number} val - new value for the permission
+     * @returns {Boolean}
+     */
+    setValue(val) { }
+    /**
+     * @description applies the changed settings
+     * @version 0.13.37
+     * @returns {Boolean}
+     */
+    save() { }
+    /**
+     * @description delete the current permission
+     * @version 0.13.37
+     * @returns {Boolean}
+     */
+    delete() { }
 }
-
 
 /**
  * @class
@@ -2102,151 +2247,3 @@ class DBConn {
  * @property {number} [port]
  */
 function DBParams() { }
-
-
-/**
- * @class
- * @mixin
- * @property {string} text - Text of the message
- * @property {Channel} channel - Channel (if given) this message has been sent on
- * @property {Client} client - Client that sent the message
- * @property {number} mode - Number representing the way this message has been sent
- * (1 = private, 2 = channel, 3 = server)
- */
-function Message() { }
-
-/**
- * @class
- * @mixin
- * @property {string} name - Displayname of the channel; mandatory on create
- * @property {(Channel|number|string)} parent - Parent channel (you can also use the channelId); ignored on update, mandatory on create
- * @property {string} description
- * @property {string} topic
- * @property {string} password
- * @property {number} codec - See codec types for explanation
- * @property {number} codecQuality
- * @property {Boolean} encrypted - True by default
- * @property {Boolean} permanent
- * @property {Boolean} semiPermanent
- * @property {number} position
- * @property {number} maxClients - Set to -1 for unlimited clients
- * @property {number} maxFamilyClients
- * @property {Boolean} default - Whether the channel is the default channel 
- * @property {number} neededTalkPower - TS only; 0.9.19+
- * @property {number} deleteDelay - TS only; 0.9.19+
- * @property {number} icon - TS only; 0.9.19+
- * @description
- * Used to update or create a channel;
- * When creating a channel parent and name are mandatory for TS3;
- * When updating a channel parent will be ignored (use moveTo instead)
- */
-class ChannelParams { }
-
-/**
- * @class
- * @mixin
- * @property {client} client - Client that has been added / removed
- * @property {client} invoker - Client that added client to the group
- * @property {serverGroup} serverGroup - Server Group
- */
-class ClientServergroupEvent { }
-
-/**
- * @class
- * @mixin
- * @property {Channel} fromChannel - Old channel (or null if the client just got online / changed visibility)
- * @property {Channel} toChannel - New channel (or null if the client just went offline / changed visibility)
- * @property {Client} client - Client that was moved
- * @property {Client} invoker - Client that invoked the move
- */
-class MoveInfo { }
-
-/**
- * @class
- * @mixin
- */
-class APIEvent {
-    /**
-     * @returns {string} Name of the event
-     */
-    name() { }
-    /**
-     * @returns {Object} Json body
-     */
-    data() { }
-    /**
-     * @returns {User} User that called the event (or null, if unset)
-     */
-    user() { }
-    /**
-     * @returns {string} Remote address that triggered the call
-     */
-    remoteAddr() { }
-}
-
-/**
- * @class
- * @mixin
- * @description handles channel, channelgroup and servergroup permissions; mainly for TS3
- * @version 0.13.37
- */
-class Permission {
-    /**
-     * @version 0.13.37
-     * @returns {string} ID of the permission
-     */
-    id() { }
-    /**
-     * @version 0.13.37
-     * @returns {string} Name of the permission
-     */
-    name() { }
-    /**
-     * @version 0.13.37
-     * @returns {number} permission value
-     */
-    value() { }
-    /**
-     * @version 0.13.37
-     * @returns {Boolean} true, if skip flag has been set - only applicable for ServerGroups
-     */
-    skip() { }
-    /**
-     * @version 0.13.37
-     * @returns {string} true, if negated flag has been set - only applicable for ServerGroups
-     */
-    negated() { }
-    /**
-     * @description sets the value of the permission; you need to call save() to apply changes
-     * @version 0.13.37
-     * @param {Boolean} val - true, if permission should be negated, false otherwise
-     * @returns {Boolean}
-     */
-    setNegated() { }
-    /**
-     * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
-     * @version 0.13.37
-     * @param {Boolean} val - true, if permission should be skipped, false otherwise
-     * @returns {Boolean}
-     */
-    setSkip(value) { }
-    /**
-     * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
-     * @version 0.13.37
-     * @param {number} val - new value for the permission
-     * @returns {Boolean}
-     */
-    setValue(val) { }
-    /**
-     * @description applies the changed settings
-     * @version 0.13.37
-     * @returns {Boolean}
-     */
-    save() { }
-    /**
-     * @description delete the current permission
-     * @version 0.13.37
-     * @returns {Boolean}
-     */
-    delete() { }
-}
