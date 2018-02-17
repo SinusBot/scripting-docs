@@ -1,9 +1,3 @@
-/*
-TODO:
-- turn 
-
-*/
-
 /**
  * @mixin Engine
  * @example
@@ -844,9 +838,10 @@ class Helpers {
 
 /**
 * @mixin Event
+* @fires api:$eventName
 * @fires chat
-* @fires typing
 * @fires poke
+* @fires typing
 * @fires track
 * @fires trackInfo
 * @fires trackEnd
@@ -854,14 +849,11 @@ class Helpers {
 * @fires connectionFailed
 * @fires disconnect
 * @fires clientMove
+* @fires clientNick
 * @fires clientVisible
 * @fires clientInvisible
 * @fires clientKicked
 * @fires clientKickedFromChannel
-* @fires serverGroupAdded
-* @fires serverGroupRemoved
-* @fires clientNick 
-* @fires api:$eventName
 * @fires clientIPAddress
 * @fires clientAway
 * @fires clientBack
@@ -871,6 +863,8 @@ class Helpers {
 * @fires clientUnmute
 * @fires clientDeaf
 * @fires clientUndeaf
+* @fires serverGroupAdded
+* @fires serverGroupRemoved
 * @fires channelCreate
 * @fires channelUpdate
 * @fires channelDelete
@@ -905,6 +899,224 @@ class Event {
      */
     broadcast(eventName, data) { }
 }
+
+/**
+ * @event api:$eventName
+ * @memberof Event
+ * @param {APIEvent}
+ * @description Gets fired whenever api:$eventName is triggered by via the web api
+ */
+/**
+ * @event chat
+ * @memberof Event
+ * @param {Message} msg - Message
+ * @description
+ * This event gets triggered whenever a chat message has been received.
+ * This also counts for messages from the bot itself, so make sure to check.
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * 
+ * event.on('chat', function(ev) {
+ *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
+ * });
+ */
+/**
+ * @event poke
+ * @memberof Event
+ * @param {Message} msg - Message
+ * @description Gets fired whenever the bot is poked
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * 
+ * event.on('poke', function(ev) {
+ *     engine.log('Got poke message "'+ev.text +'" from '+ ev.client.name());
+ * });
+ */
+/**
+ * @event typing
+ * @memberof Event
+ * @param {Client} client - Client that started typing
+ * @description Gets fired whenever a client starts typing in a chat with the bot
+ */
+/**
+ * @event track
+ * @memberof Event
+ * @param {Track} track
+ * @description Gets fired whenever a new track starts
+ */
+/**
+ * @event trackInfo
+ * @memberof Event
+ * @param {Track} track
+ * @description Gets fired whenever a track changes its information (like radio stations)
+ */
+/**
+ * @event trackEnd
+ * @memberof Event
+ * @param {Track} track
+ * @param {string} callback - Callback string
+ * @description Gets fired whenever a track has stopped playing
+ */
+/**
+ * @event connect
+ * @memberof Event
+ * @description Gets fired whenever a connection with the server has been established
+ */
+/**
+ * @event connectionFailed
+ * @memberof Event
+ * @param {string} reason
+ * @description Gets fired whenever the client is unable to connect to a server
+ */
+/**
+ * @event disconnect
+ * @memberof Event
+ * @description Gets fired whenever the bots connection to the server is closed
+ */
+/**
+ * @event clientMove
+ * @memberof Event
+ * @param {MoveInfo} moveInfo
+ * @description Gets fired whenever a client moves, joins or disconnects
+ */
+/**
+ * @event clientNick
+ * @memberof Event
+ * @param {Client} client
+ * @param {string} oldNick
+ * @description Gets fired whenever a clients nickname is changed
+ */
+/**
+ * @event clientVisible
+ * @memberof Event
+ * @param {MoveInfo} moveInfo
+ * @description Gets fired whenever a client becomes visible to the bot
+ */
+/**
+ * @event clientInvisible
+ * @memberof Event
+ * @param {MoveInfo} moveInfo
+ * @description Gets fired whenever a client becomes invisible to the bot
+ */
+/**
+ * @event clientKicked
+ * @memberof Event
+ * @param {MoveInfo} moveInfo
+ * @description Gets fired whenever a client gets kicked from the server
+ */
+/**
+ * @event clientKickedFromChannel
+ * @memberof Event
+ * @param {MoveInfo} moveInfo
+ * @description Gets fired whenever a client gets kicked from a channel
+ */
+/**
+ * @event clientIPAddress
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a clients IP address changes or has initially been fetched
+ */
+/**
+ * @event clientAway
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client sets himself as away
+ */
+/**
+ * @event clientBack
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client removes himself as away
+ */
+/**
+ * @event clientRecord
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client starts recording
+ */
+/**
+ * @event clientRecordStop
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client stops recording
+ */
+/**
+ * @event clientMute
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client mutes his microphone
+ */
+/**
+ * @event clientUnmute
+ * @memberof Event
+ * @param {Client} client
+ * @description Gets fired whenever a client unmutes his microphone
+ */
+/**
+ * @event clientDeaf
+ * @memberof Event
+ * @version 0.9.18
+ * @param {Client} client
+ * @description Gets fired whenever a client mutes his sound
+ */
+/**
+ * @event clientUndeaf
+ * @memberof Event
+ * @version 0.9.18
+ * @param {Client} client
+ * @description Gets fired whenever a client unmutes his sound
+ */
+/**
+ * @event serverGroupAdded
+ * @memberof Event
+ * @param {ClientServerGroupEvent} event
+ * @description Gets fired whenever a client got added to a server group
+ */
+/**
+ * @event serverGroupRemoved
+ * @memberof Event
+ * @param {ClientServerGroupEvent} event
+ * @description Gets fired whenever a client got removed from a server group
+ */
+/**
+ * @event channelCreate
+ * @memberof Event
+ * @param {Channel} channel - Channel that got created
+ * @param {Client} invoker - Client that created the channel
+ * @description Gets fired whenever a channel is created
+ */
+/**
+ * @event channelUpdate
+ * @memberof Event
+ * @param {Channel} channel - Channel that got updated
+ * @param {Client} invoker - Client that updated the channel
+ * @description Gets fired whenever a channel is updated
+ */
+/**
+ * @event channelDelete
+ * @memberof Event
+ * @param {Channel} channel - Channel that got deleted
+ * @param {Client} invoker - Client that deleted the channel
+ * @description Gets fired whenever a channel is deleted
+ */
+/**
+ * @event talkerCount
+ * @memberof Event
+ * @param {number} number - Number of users that are currently talking in the channel
+ * @description Gets fired whenever the number of users that are currently talking in the channel changes
+ */
+/**
+ * @memberof Event
+ * @event unload
+ * @description Gets fired whenever the script is going to be unloaded or reloaded; use this to clean up or save stuff
+ */
+/**
+ * @memberof Event
+ * @event load
+ * @description Gets fired when all scripts have been loaded
+ */
 
 
 /**
@@ -1710,6 +1922,7 @@ class NetClient {
  * @description Gets fired whenever an error occurred
  */
 
+
 /**
  * @mixin Websockets
  * @version 0.9.20
@@ -1759,6 +1972,34 @@ class Websockets {
      */
     close(connectionId) { }
 }
+
+/**
+ * @event ws.connect
+ * @memberof Websockets
+ * @param {string} id - ID of the new connection
+ */
+/**
+ * @event ws.close
+ * @version 0.9.20
+ * @memberof Websockets
+ * @param {string} id - ID of the closed connection
+ */
+/**
+ * @event ws.error
+ * @version 0.9.20
+ * @memberof Websockets
+ * @param {string} id - ID of the connection
+ * @param {string} error - Error
+ */
+/**
+ * @event ws.data
+ * @version 0.9.20
+ * @memberof Websockets
+ * @param {string} id - ID of the connection
+ * @param {Number} type - Type of the message
+ * @param {Bytes} data - Data object
+ */
+
 
 /**
  * @class Bytes
@@ -1905,125 +2146,6 @@ class ClientServergroupEvent {
 class MoveInfo { }
 
 /**
- * @event chat
- * @memberof Event
- * @param {Message} msg - Message
- * @description
- * This event gets triggered whenever a chat message has been received.
- * This also counts for messages from the bot itself, so make sure to check.
- * @example
- * var event = require('event');
- * var engine = require('engine');
- * 
- * event.on('chat', function(ev) {
- *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
- * });
- */
-/**
- * @event typing
- * @memberof Event
- * @param {Client} client - Client that started typing
- * @description Gets fired whenever a client starts typing in a chat with the bot
- */
-/**
- * @event poke
- * @memberof Event
- * @param {Message} msg - Message
- * @description Gets fired whenever the bot is poked
- * @example
- * var event = require('event');
- * var engine = require('engine');
- * 
- * event.on('poke', function(ev) {
- *     engine.log('Got poke message "'+ev.text +'" from '+ ev.client.name());
- * });
- */
-/**
- * @event track
- * @memberof Event
- * @param {Track} track
- * @description Gets fired whenever a new track starts
- */
-/**
- * @event trackInfo
- * @memberof Event
- * @param {Track} track
- * @description Gets fired whenever a track changes its information (like radio stations)
- */
-/**
- * @event trackEnd
- * @memberof Event
- * @param {Track} track
- * @param {string} callback - Callback string
- * @description Gets fired whenever a track has stopped playing
- */
-/**
- * @event connect
- * @memberof Event
- * @description Gets fired whenever a connection with the server has been established
- */
-/**
- * @event connectionFailed
- * @memberof Event
- * @param {string} reason
- * @description Gets fired whenever the client is unable to connect to a server
- */
-/**
- * @event disconnect
- * @memberof Event
- * @description Gets fired whenever the bots connection to the server is closed
- */
-/**
- * @event clientMove
- * @memberof Event
- * @param {MoveInfo} moveInfo
- * @description Gets fired whenever a client moves, joins or disconnects
- */
-/**
- * @event clientVisible
- * @memberof Event
- * @param {MoveInfo} moveInfo
- * @description Gets fired whenever a client becomes visible to the bot
- */
-/**
- * @event clientInvisible
- * @memberof Event
- * @param {MoveInfo} moveInfo
- * @description Gets fired whenever a client becomes invisible to the bot
- */
-/**
- * @event clientKicked
- * @memberof Event
- * @param {MoveInfo} moveInfo
- * @description Gets fired whenever a client gets kicked from the server
- */
-/**
- * @event clientKickedFromChannel
- * @memberof Event
- * @param {MoveInfo} moveInfo
- * @description Gets fired whenever a client gets kicked from a channel
- */
-/**
- * @event serverGroupAdded
- * @memberof Event
- * @param {ClientServerGroupEvent} event
- * @description Gets fired whenever a client got added to a server group
- */
-/**
- * @event serverGroupRemoved
- * @memberof Event
- * @param {ClientServerGroupEvent} event
- * @description Gets fired whenever a client got removed from a server group
- */
-/**
- * @event clientNick
- * @memberof Event
- * @param {Client} client
- * @param {string} oldNick
- * @description Gets fired whenever a clients nickname is changed
- */
-
-/**
 * @class
 */
 class APIEvent {
@@ -2110,129 +2232,3 @@ class Permission {
      */
     delete() { }
 }
-
-/**
- * @event api:$eventName
- * @memberof Event
- * @param {APIEvent}
- * @description Gets fired whenever api:$eventName is triggered by via the web api
- */
-/**
- * @event clientIPAddress
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a clients IP address changes or has initially been fetched
- */
-/**
- * @event clientAway
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client sets himself as away
- */
-/**
- * @event clientBack
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client removes himself as away
- */
-/**
- * @event clientRecord
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client starts recording
- */
-/**
- * @event clientRecordStop
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client stops recording
- */
-/**
- * @event clientMute
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client mutes his microphone
- */
-/**
- * @event clientUnmute
- * @memberof Event
- * @param {Client} client
- * @description Gets fired whenever a client unmutes his microphone
- */
-/**
- * @event clientDeaf
- * @memberof Event
- * @version 0.9.18
- * @param {Client} client
- * @description Gets fired whenever a client mutes his sound
- */
-/**
- * @event clientUndeaf
- * @memberof Event
- * @version 0.9.18
- * @param {Client} client
- * @description Gets fired whenever a client unmutes his sound
- */
-/**
- * @event channelCreate
- * @memberof Event
- * @param {Channel} channel - Channel that got created
- * @param {Client} invoker - Client that created the channel
- * @description Gets fired whenever a channel is created
- */
-/**
- * @event channelUpdate
- * @memberof Event
- * @param {Channel} channel - Channel that got updated
- * @param {Client} invoker - Client that updated the channel
- * @description Gets fired whenever a channel is updated
- */
-/**
- * @event channelDelete
- * @memberof Event
- * @param {Channel} channel - Channel that got deleted
- * @param {Client} invoker - Client that deleted the channel
- * @description Gets fired whenever a channel is deleted
- */
-/**
- * @event talkerCount
- * @memberof Event
- * @param {number} number - Number of users that are currently talking in the channel
- * @description Gets fired whenever the number of users that are currently talking in the channel changes
- */
-/**
- * @memberof Event
- * @event unload
- * @description Gets fired whenever the script is going to be unloaded or reloaded; use this to clean up or save stuff
- */
-/**
- * @memberof Event
- * @event load
- * @description Gets fired when all scripts have been loaded
- */
-/**
- * @event ws.connect
- * @memberof Websockets
- * @param {string} id - ID of the new connection
- */
-/**
- * @event ws.close
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the closed connection
- */
-/**
- * @event ws.error
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the connection
- * @param {string} error - Error
- */
-/**
- * @event ws.data
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the connection
- * @param {Number} type - Type of the message
- * @param {Bytes} data - Data object
- */
