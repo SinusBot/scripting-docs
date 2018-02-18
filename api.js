@@ -1122,7 +1122,7 @@ class Event {
 /**
  * @event discord:$eventName
  * @memberof Event
- * @param {Object} - Discord event data
+ * @param {Object} ev - Discord event data
  * @description
  * This event gets triggered whenever a discord event got received.
  * Every event will be emitted in uppercase and the spaces will be replaced by underscores.
