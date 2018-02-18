@@ -840,6 +840,7 @@ class Helpers {
  * @class
  * @mixin
  * @fires api:$eventName
+ * @fires discord:$eventName
  * @fires chat
  * @fires poke
  * @fires typing
@@ -1117,6 +1118,22 @@ class Event {
  * @memberof Event
  * @event load
  * @description Gets fired when all scripts have been loaded
+ */
+/**
+ * @event discord:$eventName
+ * @memberof Event
+ * @param {Object} - Discord event data
+ * @description
+ * This event gets triggered whenever a discord event got received.
+ * Every event will be emitted in uppercase and the spaces will be replaced by underscores.
+ * All available discord events are documentated here: https://discordapp.com/developers/docs/topics/gateway#events
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * 
+ * event.on('discord:GUILD_CREATE', function (ev) {
+ *   engine.log('GUILD_CREATE' + JSON.stringify(ev));
+ * });
  */
 
 /**
