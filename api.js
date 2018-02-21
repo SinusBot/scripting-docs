@@ -2121,7 +2121,7 @@ class NetClient {
  *     ws.write(id, type, data.toString());
  * });
  * @example
- * Client side e.g. via served html files per enableWeb script option:
+ * Client Side (served html files via the enableWeb script option):
  * var proto = (window.location.protocol == 'https:') ? 'wss' : 'ws';
  * var conn = new WebSocket(proto + "://" + document.location.host + "/api/v1/b/" + botId + "/i/" + instanceId + "/ws");
  * conn.onclose = function (evt) {
