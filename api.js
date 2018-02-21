@@ -2119,6 +2119,7 @@ class NetClient {
  *     ws.write(id, type, data.toString());
  * });
  * @description
+ * Websocket Server:
  * The ws module is protected, it needs the following entry per script in your config.ini:
  * ```
  * [Scripts.Privileges]
