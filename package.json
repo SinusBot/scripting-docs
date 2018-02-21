@@ -1,0 +1,12 @@
+{
+  "name": "scripting-docs",
+  "version": "1.0.0",
+  "description": "JSDoc based SinusBot scripting engine documentation.",
+  "main": "index.js",
+  "repository": "https://github.com/SinusBot/scripting-docs",
+  "author": "SinusBot",
+  "license": "MIT",
+  "dependencies": {
+    "tsd-jsdoc": "^2.0.0-beta.3"
+  }
+}
