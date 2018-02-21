@@ -2104,12 +2104,14 @@ class NetClient {
  * @fires ws.error
  * @fires ws.data
  * @example
+ * SinusBot script:
  * var ws = require('ws');
  * var engine = require('engine');
  * var event = require('event');
  * 
  * event.on('ws.connect', function(id) {
  *     engine.log('new websocket connection; id ' + id);
+ *     ws.broadcast(1, { blubb: 'blubb' });
  * });
  * event.on('ws.disconnect', function(id) {
  *     engine.log('websocket connection disconnected; id ' + id);
@@ -2118,6 +2120,18 @@ class NetClient {
  *     engine.log('ws.data: id ' + id + '; data: ' + data.toString());
  *     ws.write(id, type, data.toString());
  * });
+ * @example
+ * Client side e.g. via served html files per enableWeb script option:
+ * var proto = (window.location.protocol == 'https:') ? 'wss' : 'ws';
+ * var conn = new WebSocket(proto + "://" + document.location.host + "/api/v1/b/" + botId + "/i/" + instanceId + "/ws");
+ * conn.onclose = function (evt) {
+ * console.log('close', evt);
+ *     alert('Closed.');
+ * };
+ * conn.send(JSON.stringify({ type: 'ping' }));
+ * conn.onmessage = function (evt) {
+ *     var data = JSON.parse(evt.data);
+ * };
  * @description
  * Websocket Server:
  * The ws module is protected, it needs the following entry per script in your config.ini:
