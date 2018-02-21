@@ -1110,6 +1110,7 @@ class Event {
  * @param {Object} ev - Event data
  * @param {Client} ev.client - Client
  * @param {String} ev.text - Recognized text
+ * @version 0.13.37
  * @description
  * This event gets triggered whenever the bot recognizes a voice command that the script registered, assuming:
  * 1) SpeechRecognition was installed
