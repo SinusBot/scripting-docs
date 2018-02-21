@@ -870,6 +870,7 @@ class Helpers {
  * @fires channelCreate
  * @fires channelUpdate
  * @fires channelDelete
+ * @fires speech
  * @fires talkerCount
  * @fires unload
  * @fires load
@@ -1102,6 +1103,29 @@ class Event {
  * @param {Channel} channel - Channel that got deleted
  * @param {Client} invoker - Client that deleted the channel
  * @description Gets fired whenever a channel is deleted
+ */
+/**
+ * @event speech
+ * @memberof Event
+ * @param {Message} msg - Message
+ * @description
+ * This event gets triggered whenever the bot recognizes a voice command that the script registered, assuming:
+ * 1) SpeechRecognition was installed
+ * 2) SpeechRecognition is enabled in the config.ini
+ * 3) The voice command was registered by the script in registerPlugin
+ * 4) AudioReturnChannel is set to 2
+ * 
+ * Check out the wiki for more the complete list of reqirements and instructions on how to install it: https://wiki.sinusbot.com/en:guides:features:speechrecognition
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * var audio = require('audio');
+ * 
+ * audio.setAudioReturnChannel(2)
+ * 
+ * event.on('speech', function(ev) {
+ *     engine.log('Got speech command "' + ev.text + '" from ' + ev.client.name());
+ * });
  */
 /**
  * @event talkerCount
