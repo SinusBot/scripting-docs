@@ -1168,7 +1168,7 @@ class Event {
  * 3) The voice command was registered by the script in registerPlugin
  * 4) AudioReturnChannel is set to 2
  * 
- * Check out the wiki for more the complete list of reqirements and instructions on how to install it: https://wiki.sinusbot.com/en:guides:features:speechrecognition
+ * Check out [the wiki article](https://wiki.sinusbot.com/en:guides:features:speechrecognition) for more the complete list of reqirements and instructions on how to install it.
  * @example
  * var event = require('event');
  * var engine = require('engine');
