@@ -213,7 +213,7 @@ class Engine {
     /**
      * @description Gets the users of the SinusBot
      * @version 0.13.37
-     * @returns {[]User}
+     * @returns {User[]}
      */
     getUsers() { }
     /**
