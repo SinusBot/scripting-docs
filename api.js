@@ -1,4 +1,54 @@
 /**
+ * @description
+ * This is the first and only top-level function that should be called in your script,
+ * everything else will be done in the function that is passed to it.
+ * @example
+ * registerPlugin({
+ *     name: 'Demo Script',
+ *     version: '1.0',
+ *     description: 'This example actually does nothing',
+ *     author: 'Author <author@example.com>',
+ *     vars: []
+ * }, function(sinusbot, config) {
+ *     // your code goes here
+ * });
+ * @param {Object} manifest
+ * The manifest determines which features are available to the script and
+ * contains metadata and variables that will be shown in the web interface.
+ * @param {string} manifest.name - Short name of your script
+ * @param {string} manifest.author - Your name and your email address in the form of: `your name <your-email@example.com>`
+ * @param {string} manifest.description - A longer description - tell the user what exactly your script does
+ * @param {string} manifest.version - Start with something like 1.0 and increase it with every release
+ * @param {Boolean} [manifest.autorun] - Set to true, if you want the script to be run on every instance, without the option to disable it.
+ * @param {string[]} [manifest.backends]
+ * Per default scripts will only be available on TS3 instances.
+ * If your script supports Discord (or in the future maybe other backends) as well, you have to specify this explicitly by setting this variable to an array containing all backends: `backends: ["ts3", "discord"]`
+ * @param {Boolean} [manifest.enableWeb]
+ * If your script required own web content, you can set enableWeb to true and put files into the ./scripts/scriptname/html directory.
+ * After restart, the script title will be clickable and lead to an index.html inside that html-directory you just created.
+ * 
+ * From there you have access to the localStorage variables containing the login and may communicate with the bot api from your own pages.
+ * @param {string} [manifest.engine] - Sets the required engine version (bot version). This uses [Semantic Versioning](https://semver.org). Example: `engine: ">= 0.9.16"`
+ * @param {Boolean} [manifest.hidden]
+ * Hides the script from the settings page. Should be used together with autorun.
+ * 
+ * Hidden scripts can not have variables (vars), since they'd never be shown and thus not configurable.
+ * @param {string[]} [manifest.requiredModules]
+ * Using this, you can define which restricted modules the script wants to use. If it's not allowed via the config, the script will not load at all but instead return an error on startup.
+ * If you only optionally use features from restricted modules, don't use this but provide a fallback in your script.
+ * @param {Object[]} [manifest.vars] - More information about the usage of variables can be found [here](https://wiki.sinusbot.com/en:guides:features:scripts:variables).
+ * @param {string[]} [manifest.voiceCommands]
+ * This parameter is only used for the speech recognition feature and may contain one or more strings that are to be detected for the given script.
+ * You can find more details on how to use it here: [Speech Recognition](https://wiki.sinusbot.com/en:guides:features:speechrecognition)
+ * @param {function} setupFunction
+ * Called upon activation with two or more parameters.
+ * The first one, sinusbot, should **not** be used anymore.
+ * The second one will hold the configuration of the plugin that the user set from within the web interface
+ * (given you have added anything to the vars field of your script manifest).
+ */
+function registerPlugin(manifest, setupFunction) { }
+
+/**
  * @mixin Engine
  * @example
  * var engine = require('engine');
