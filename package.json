@@ -1,13 +1,14 @@
 {
-  "name": "scripting-docs",
-  "version": "1.0.0",
+  "name": "sinusbot-scripting-engine",
+  "version": "1.0.1",
   "description": "JSDoc based SinusBot scripting engine documentation.",
   "main": "index.js",
   "repository": "https://github.com/SinusBot/scripting-docs",
   "author": "SinusBot",
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "jsdoc": "^3.5.5",
     "tsd-jsdoc": "^2.0.0-beta.3"
-  }
+  },
+  "typings": "./tsd/types.d.ts"
 }
