@@ -5,6 +5,7 @@
 This repository contains the [JSDoc](http://usejsdoc.org) based javascript file from which the [scripting engine documentation](https://www.sinusbot.com/docs/scripting/) will be generated. 
 
 ## Build
+
 ### Install [documentation.js](https://github.com/documentationjs/documentation)
 
     npm install -g documentation

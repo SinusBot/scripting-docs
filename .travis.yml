@@ -6,6 +6,7 @@ script:
   - documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o out
   - sed -f after_building.sed -i out/index.html
   - jsdoc -c config.json || true
+  - node generate.js
   - cp tsd/types.d.ts out
 deploy:
   provider: pages
