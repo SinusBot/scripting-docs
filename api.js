@@ -30,17 +30,17 @@ function registerPlugin(manifest, setupFunction) { }
  * @param {string} author - Your name and your email address in the form of: `your name <your-email@example.com>`
  * @param {string} description - A longer description - tell the user what exactly your script does
  * @param {string} version - Start with something like 1.0 and increase it with every release
- * @param {Boolean} [autorun] - Set to true, if you want the script to be run on every instance, without the option to disable it.
+ * @param {boolean} [autorun] - Set to true, if you want the script to be run on every instance, without the option to disable it.
  * @param {string[]} [backends]
  * Per default scripts will only be available on TS3 instances.
  * If your script supports Discord (or in the future maybe other backends) as well, you have to specify this explicitly by setting this variable to an array containing all backends: `backends: ["ts3", "discord"]`
- * @param {Boolean} [enableWeb]
+ * @param {boolean} [enableWeb]
  * If your script required own web content, you can set enableWeb to true and put files into the ./scripts/scriptname/html directory.
  * After restart, the script title will be clickable and lead to an index.html inside that html-directory you just created.
  * 
  * From there you have access to the localStorage variables containing the login and may communicate with the bot api from your own pages.
  * @param {string} [engine] - Sets the required engine version (bot version). This uses [Semantic Versioning](https://semver.org). Example: `engine: ">= 0.9.16"`
- * @param {Boolean} [hidden]
+ * @param {boolean} [hidden]
  * Hides the script from the settings page. Should be used together with autorun.
  * 
  * Hidden scripts can not have variables (vars), since they'd never be shown and thus not configurable.
@@ -87,7 +87,7 @@ class Engine {
      * 10 | most verbose
      * 11 | most verbose + external backends
      * @param {number} level - Log level to set
-     * @returns {Boolean}
+     * @returns {boolean}
      * 
      */
     setInstanceLogLevel(level) { }
@@ -104,7 +104,7 @@ class Engine {
      * 10 | most verbose
      * 11 | most verbose + external backends
      * @param {number} level - Log level to set
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setBotLogLevel(level) { }
     /**
@@ -119,7 +119,7 @@ class Engine {
     getBotLogLevel() { }
     /**
      * Reloads all scripts; requires the corresponding setting in the config.ini to be enabled
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     reloadScripts() { }
     /**
@@ -130,18 +130,18 @@ class Engine {
     /**
      * Sets the nick to a new value and updates it on the server
      * @param {string} nick - New nick
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setNick(nick) { }
     /**
      * Sets the default channel by its ID
      * @param {string} channelID
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setDefaultChannelID(channelID) { }
     /**
      * Returns true if the backend of this instance has been started
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isRunning() { }
     /**
@@ -152,7 +152,7 @@ class Engine {
     /**
      * Stores the given object as configuration for the current script
      * @param {Object} config
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     saveConfig() { }
     /**
@@ -192,27 +192,27 @@ class Engine {
     /**
      * @description
      * removes the current avatar image
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     removeAvatar() { }
     /**
      * @description
      * sets the avatar image to the album art of a given track
      * @param {Track} track - Track to extract the album art from
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setAvatarFromTrack(track) { }
     /**
      * @description
      * sets the avatar image to the manually uploaded image
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setDefaultAvatar() { }
     /**
      * @description
      * sets the avatar to the rendered output of a banner template
      * @param {string} bannerName - banner template to use
-     * @returns {Boolean}
+     * @returns {boolean}
      * @version 0.12.0
      */
     setAvatarFromBanner(bannerName) { }
@@ -251,7 +251,7 @@ class Store {
      * the values stored are only available for the current script, but shared between instances of it
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {Boolean}
+     * @returns {boolean}
      * @example
      * var store = require('store');
      * store.set('foo', 'bar');
@@ -290,7 +290,7 @@ class Store {
      * the values stored are available for every script of every instance
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {Boolean} 
+     * @returns {boolean} 
      */
     setGlobal(key, value) { }
     /**
@@ -323,7 +323,7 @@ class Store {
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
      * @param {string} key
      * @param {any} value - Value to be stored; must be JSON.stringify()-able
-     * @returns {Boolean} 
+     * @returns {boolean} 
      */
     setInstance(key, value) { }
     /**
@@ -359,17 +359,17 @@ class Store {
 class Backend {
     /**
      * @description Connects to the server
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     connect() { }
     /**
      * @description Disconnects from the server
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     disconnect() { }
     /**
      * Returns true if the backend is connected to a server
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isConnected() { }
     /**
@@ -525,7 +525,7 @@ class Media {
     /**
      * @description Plays a track via internal url
      * @param {string} url - Internal url (like track://...)
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     playURL(url) { }
     /**
@@ -568,13 +568,13 @@ class Media {
     /**
      * @description Adds the given url to the queue
      * @param {string} url
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     enqueue(url) { }
     /**
      * @description Adds the given url as the first entry in the queue
      * @param {string} url
-     * @returns {Boolean}
+     * @returns {boolean}
      * @version 0.12.0
      */
     playAsNext(url) { }
@@ -589,7 +589,7 @@ class Media {
     /**
      * @description Stops playback completely
      * @param {string} trackID - (optional) the track to stop; if not present, all tracks will be stopped
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     stop(trackID) { }
     /**
@@ -615,17 +615,17 @@ class Media {
     /**
      * @description Removes the track at a given position from the queue
      * @param {number} index - Index of the track that should be removed from the queue (0 being the first entry)
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     removeFromQueue(index) { }
     /**
      * @description Removes all entries from the queue
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     clearQueue() { }
     /**
      * @description Clears the current playlist (if set) so that playback won't continue inside that playlist
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     clearPlaylist() { }
     /**
@@ -636,7 +636,7 @@ class Media {
     /**
      * @description Downloads a file via youtube-dl, optionally plays it
      * @param {string} url - Url that youtube-dl supports
-     * @param {Boolean} play - Set to true to play after download
+     * @param {boolean} play - Set to true to play after download
      */
     ytdl(url, play) { }
     /**
@@ -658,24 +658,24 @@ class Audio {
     /**
      * @description Applies an audiofilter to the audio output
      * @param {string} filter - ffmpeg compatible filter string
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setAudioFilter(filter) { }
     /**
      * @description Enables or disables audio return channel; required for speech recognition engine / recording
      * @param {number} flags - bitmask; use 0x01 for general audio return (recording) or 0x02 for separated audio (for speech recognition) - 0x03 for both
-     * @returns {Boolean}
+     * @returns {boolean}
      * @version 0.13.37
      */
     setAudioReturnChannel(flags) { }
     /**
      * @description Starts recording to a file
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     startRecording() { }
     /**
      * @description Stops recording to a file
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     stopRecording() { }
     /**
@@ -683,32 +683,32 @@ class Audio {
      * @param {string} url - Endpoint to stream to
      * @param {string} username - Username used for authentication
      * @param {string} password - Password
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     streamToServer(url, username, password) { }
     /**
      * @description Stops streaming started with streamToServer 
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     stopStream() { }
     /**
      * Returns the state of repeat-mode
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isRepeat() { }
     /**
      * @description Sets the state of repeat-mode
-     * @param {Boolean} val
+     * @param {boolean} val
      */
     setRepeat(val) { }
     /**
      * Returns the state of shuffle-mode
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isShuffle() { }
     /**
      * @description Sets the state of shuffle-mode
-     * @param {Boolean} val
+     * @param {boolean} val
      */
     setShuffle(val) { }
     /**
@@ -719,7 +719,7 @@ class Audio {
     /**
      * @description Sets the volume (0-100)
      * @param {number} volume
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setVolume(volume) { }
     /**
@@ -734,17 +734,17 @@ class Audio {
     seek(pos) { }
     /**
      * Returns if the audio output has been muted
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isMute() { }
     /**
      * @description Enables/disables mute
-     * @param {Boolean} mute
-     * @returns {Boolean}
+     * @param {boolean} mute
+     * @returns {boolean}
      */
     setMute() { }
     /**
-     * @returns {Boolean} Whether the bot is playing music
+     * @returns {boolean} Whether the bot is playing music
      */
     isPlaying() { }
     /**
@@ -755,14 +755,14 @@ class Audio {
     say(text, locale) { }
     /**
      * @description Returns the client count of the connected server
-     * @returns {Number} client count
+     * @returns {number} client count
      */
     getClientCount() { }
     /**
      * @description Sets the volume of a specific stream (0-100)
      * @param {string} streamID - name or alias of the stream(s) to modify
      * @param {number} volume
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setStreamVolume(streamID, volume) { }
 }
@@ -830,8 +830,8 @@ class Format {
 class Helpers {
     /**
      * @description Returns a random integer between zero and <max>
-     * @param {Number} max
-     * @returns {Number} Random integer
+     * @param {number} max
+     * @returns {number} Random integer
      */
     getRandom(max) { }
     /**
@@ -1316,7 +1316,7 @@ class Client {
     firstSeen() { }
     /**
      * Returns true when this client is the bot itself
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isSelf() { }
     /**
@@ -1326,17 +1326,17 @@ class Client {
     isRecording() { }
     /**
      * Returns if the client is muted (has its microphone disabled)
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isMuted() { }
     /**
      * Returns if the client is deaf (has its loudspeakers disabled)
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isDeaf() { }
     /**
      * Returns if the client is away
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     isAway() { }
     /**
@@ -1417,7 +1417,7 @@ class Client {
     /**
      * @description Compares two clients
      * @param {Client} otherClient
-     * @returns {Boolean} true, if both clients are the same
+     * @returns {boolean} true, if both clients are the same
      */
     equals(otherClient) { }
     /**
@@ -1481,7 +1481,7 @@ class Client {
     moveTo(target, password) { }
     /**
      * @description Enables / disables subscription for this client; requires subscription mode
-     * @param {Boolean} val
+     * @param {boolean} val
      */
     setSubscription(val) { }
     /**
@@ -1537,7 +1537,7 @@ class Channel {
      * @description Moves the channel to a new parent with a new position value
      * @version 0.9.16.3
      * @param {string/Channel} parent - New parent channel
-     * @param {Number} order - New order value
+     * @param {number} order - New order value
      */
     moveTo(parent, order) { }
     /**
@@ -1546,7 +1546,7 @@ class Channel {
      */
     setName(name) { }
     /**
-     * @returns {Number} Type (0 = voice, 1 = text)
+     * @returns {number} Type (0 = voice, 1 = text)
      */
     type() { }
     /**
@@ -1591,7 +1591,7 @@ class Channel {
      */
     maxClients() { }
     /**
-     * @param {Boolean} maxClients Set to -1 for unlimited clients
+     * @param {boolean} maxClients Set to -1 for unlimited clients
      * @version 0.9.16
      */
     setMaxClients(maxClients) { }
@@ -1600,49 +1600,49 @@ class Channel {
      */
     maxFamilyClients() { }
     /**
-     * @param {Boolean} maxFamilyClients
+     * @param {boolean} maxFamilyClients
      * @version 0.9.16
      */
     setMaxFamilyClients(maxFamilyClients) { }
     /**
-     * @returns {Boolean} Whether channel is permanent or not
+     * @returns {boolean} Whether channel is permanent or not
      */
     isPermanent() { }
     /**
-     * @param {Boolean} permanent
+     * @param {boolean} permanent
      * @version 0.9.16
      */
     setPermanent(permanent) { }
     /**
-     * @returns {Boolean} Whether channel is semi-permanent or not
+     * @returns {boolean} Whether channel is semi-permanent or not
      */
     isSemiPermanent() { }
     /**
-     * @param {Boolean} permanent
+     * @param {boolean} permanent
      * @version 0.9.16
      */
     setSemiPermanent(permanent) { }
     /**
-     * @returns {Boolean} Whether channel is the default one
+     * @returns {boolean} Whether channel is the default one
      */
     isDefault() { }
     /**
-     * @returns {Boolean} Whether channel is password-protected or not
+     * @returns {boolean} Whether channel is password-protected or not
      */
     isPassworded() { }
     /**
-     * @returns {Boolean} Whether channel is encrypted or not
+     * @returns {boolean} Whether channel is encrypted or not
      */
     isEncrypted() { }
     /**
-     * @param {Boolean} encrypted
+     * @param {boolean} encrypted
      * @version 0.9.16
      */
     setEncrypted(encrypted) { }
     /**
      * @description Compares two channels
      * @param {Channel} otherChannel
-     * @returns {Boolean} True, if both channels are the same
+     * @returns {boolean} True, if both channels are the same
      */
     equals(otherChannel) { }
     /**
@@ -1660,7 +1660,7 @@ class Channel {
     getClientCount() { }
     /**
      * @description enables / disables subscription for this channel; requires subscription mode
-     * @param {Boolean} val
+     * @param {boolean} val
      */
     setSubscription(val) { }
     /**
@@ -1701,13 +1701,13 @@ class Channel {
  * @property {string} password
  * @property {number} codec - See codec types for explanation
  * @property {number} codecQuality
- * @property {Boolean} encrypted - True by default
- * @property {Boolean} permanent
- * @property {Boolean} semiPermanent
+ * @property {boolean} encrypted - True by default
+ * @property {boolean} permanent
+ * @property {boolean} semiPermanent
  * @property {number} position
  * @property {number} maxClients - Set to -1 for unlimited clients
  * @property {number} maxFamilyClients
- * @property {Boolean} default - Whether the channel is the default channel 
+ * @property {boolean} default - Whether the channel is the default channel 
  * @property {number} neededTalkPower - TS only; 0.9.19+
  * @property {number} deleteDelay - TS only; 0.9.19+
  * @property {number} icon - TS only; 0.9.19+
@@ -1738,7 +1738,7 @@ class ServerGroup {
     icon() { }
     /**
      * @description Adds a client by database ID to the servergroup
-     * @returns {Boolean} status if the request was successful
+     * @returns {boolean} status if the request was successful
      * @version 0.13.37
      * @param {Object} client - The client can be a client object, string, int or float
      */
@@ -1810,7 +1810,7 @@ class User {
     name() { }
     /**
      * @description Returns the privileges of the user
-     * @returns {Number} Privileges of the user 
+     * @returns {number} Privileges of the user 
      * @version 0.13.37
      */
     privileges() { }
@@ -1828,48 +1828,48 @@ class User {
     tsGroupId() { }
     /**
      * @description Checks if an user is an admin
-     * @returns {Boolean} Admin status of the user 
+     * @returns {boolean} Admin status of the user 
      * @version 0.13.37
      */
     isAdmin() { }
     /**
      * @description Sets a new password to the user
-     * @returns {Boolean} Success or not 
+     * @returns {boolean} Success or not 
      * @param {string} password - new password of the user
      * @version 0.13.37
      */
     setPassword(password) { }
     /**
      * @description Sets the teamspeak unique ID to the user
-     * @returns {Boolean} Success or not
+     * @returns {boolean} Success or not
      * @param {string} tsUid - teamspeak unique ID of the client 
      * @version 0.13.37
      */
     setTSUid(tsUid) { }
     /**
      * @description Sets the privileges to an user
-     * @returns {Boolean} Success or not
-     * @param {Number} privileges - New privileges of the user
+     * @returns {boolean} Success or not
+     * @param {number} privileges - New privileges of the user
      * @version 0.13.37
      */
     setPrivileges(privileges) { }
     /**
      * @description Adds an privilege to an user
-     * @returns {Boolean} Success or not 
-     * @param {Number} privilege - New privilege which should be added
+     * @returns {boolean} Success or not 
+     * @param {number} privilege - New privilege which should be added
      * @version 0.13.37
      */
     addPrivilege(privilege) { }
     /**
      * @description Removes an privilege from an user
-     * @returns {Boolean} Success or not 
-     * @param {Number} privilege - Privilege which should be removed
+     * @returns {boolean} Success or not 
+     * @param {number} privilege - Privilege which should be removed
      * @version 0.13.37
      */
     removePrivilege(privilege) { }
     /**
      * @description Deletes an user
-     * @returns {Boolean} Success or not 
+     * @returns {boolean} Success or not 
      * @version 0.13.37
      */
     delete() { }
@@ -1899,7 +1899,7 @@ class Permission {
     value() { }
     /**
      * @version 0.13.37
-     * @returns {Boolean} true, if skip flag has been set - only applicable for ServerGroups
+     * @returns {boolean} true, if skip flag has been set - only applicable for ServerGroups
      */
     skip() { }
     /**
@@ -1910,34 +1910,34 @@ class Permission {
     /**
      * @description sets the value of the permission; you need to call save() to apply changes
      * @version 0.13.37
-     * @param {Boolean} val - true, if permission should be negated, false otherwise
-     * @returns {Boolean}
+     * @param {boolean} val - true, if permission should be negated, false otherwise
+     * @returns {boolean}
      */
     setNegated() { }
     /**
      * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
      * @version 0.13.37
-     * @param {Boolean} val - true, if permission should be skipped, false otherwise
-     * @returns {Boolean}
+     * @param {boolean} val - true, if permission should be skipped, false otherwise
+     * @returns {boolean}
      */
     setSkip(value) { }
     /**
      * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
      * @version 0.13.37
      * @param {number} val - new value for the permission
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setValue(val) { }
     /**
      * @description applies the changed settings
      * @version 0.13.37
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     save() { }
     /**
      * @description delete the current permission
      * @version 0.13.37
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     delete() { }
 }
@@ -1990,7 +1990,7 @@ class Track {
      */
     duration() { }
     /**
-     * @returns {Number} Tracknumber of the track
+     * @returns {number} Tracknumber of the track
      * @version 0.9.16
      */
     trackNumber() { }
@@ -2004,17 +2004,17 @@ class Track {
     filename() { }
     /**
      * @description Starts playback of the track
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     play() { }
     /**
      * @description Adds the track to the queue
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     enqueue() { }
     // /**
     //  * @description Adds the track as the first entry in the queue
-    //  * @returns {Boolean}
+    //  * @returns {boolean}
     //  */
     // playNext: function() {},
     /**
@@ -2047,7 +2047,7 @@ class Playlist {
     getTracks() { }
     /**
      * @description Sets the playlist to active; will continue playing songs from this playlist
-     * @returns {Boolean}
+     * @returns {boolean}
      */
     setActive() { }
 }
@@ -2075,17 +2075,17 @@ class PlaylistTrack {
     url() { }
     /**
      * @description Starts playback of the track
-     * @returns {Boolean} success
+     * @returns {boolean} success
      */
     play() { }
     // /**
     //  * adds the track to the queue
-    //  * @returns {Boolean}
+    //  * @returns {boolean}
     //  */
     // enqueue: function() {},
     // /**
     //  * adds the track as the first entry in the queue
-    //  * @returns {Boolean}
+    //  * @returns {boolean}
     //  */
     // playNext: function() {}
 }
@@ -2220,13 +2220,13 @@ class Websockets {
     /**
      * @description Writes some data to the connection with given connectionId
      * @param {string} connectionId
-     * @param {Number} messageType
+     * @param {number} messageType
      * @param {Object} message - Actual message; can be given as string or byteshelper
      */
     write(connectionId, messageType, message) { }
     /**
      * @description Broadcasts some data to all connected clients
-     * @param {Number} messageType
+     * @param {number} messageType
      * @param {Object} message - Actual message; can be given as string or byteshelper
      */
     broadcast(messageType, message) { }
@@ -2260,7 +2260,7 @@ class Websockets {
  * @version 0.9.20
  * @memberof Websockets
  * @param {string} id - ID of the connection
- * @param {Number} type - Type of the message
+ * @param {number} type - Type of the message
  * @param {Bytes} data - Data object
  */
 
