@@ -828,13 +828,6 @@ class Format {
  * @mixin Helpers
  */
 class Helpers {
-    // TODO: check if this is correct
-    /**
-     * @description Returns a random object interpreted as string
-     * @param {...Object} objects
-     * @returns {string} Random object interpreted as string
-     */
-    getRandom(objects) { }
     /**
      * @description Returns a random integer between zero and <max>
      * @param {Number} max
