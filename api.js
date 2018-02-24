@@ -226,14 +226,14 @@ class Engine {
      * @description Gets a SinusBot user by his ID
      * @version 0.13.37
      * @param {string} id - ID of the SinusBot user
-     * @returns {(User|null)}
+     * @returns {?User}
      */
     getUserById(id) { }
     /**
      * @description Gets a Sinusbot user by his name.
      * @version 0.13.37
      * @param {string} name - Name of the user
-     * @returns {(User|null)}
+     * @returns {?User}
      */
     getUserByName(name) { }
 }
@@ -535,7 +535,7 @@ class Media {
     getCurrentTrack() { }
     /**
      * Returns the track with the given ID (or null if none was found)
-     * @returns {Track}
+     * @returns {?Track}
      */
     getTrackByID(id) { }
     /**
@@ -1226,7 +1226,7 @@ class APIEvent {
      */
     data() { }
     /**
-     * @returns {User} User that called the event (or null, if unset)
+     * @returns {?User} User that called the event (or null, if unset)
      */
     user() { }
     /**
@@ -1249,8 +1249,8 @@ function Message() { }
 /**
  * @class
  * @mixin
- * @property {Channel} fromChannel - Old channel (or null if the client just got online / changed visibility)
- * @property {Channel} toChannel - New channel (or null if the client just went offline / changed visibility)
+ * @property {?Channel} fromChannel - Old channel (or null if the client just got online / changed visibility)
+ * @property {?Channel} toChannel - New channel (or null if the client just went offline / changed visibility)
  * @property {Client} client - Client that was moved
  * @property {Client} invoker - Client that invoked the move
  */
@@ -1524,7 +1524,7 @@ class Channel {
      */
     name() { }
     /**
-     * @returns {Channel} Parent of channel or null if none is set
+     * @returns {?Channel} Parent of channel or null if none is set
      */
     parent() { }
     /**
@@ -2116,7 +2116,7 @@ class Net {
      * @param {ConnectParams} params - Connection parameters
      * @param {function} callback - Callback gets called on success / error;
      * if an error occured, exactly one parameter containing the error will be handed to the callback
-     * @returns {NetClient} Client connection, or null if failed to setup a connection
+     * @returns {?NetClient} Client connection, or null if failed to setup a connection
      * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
      */
     connect(params, callback) { }
@@ -2311,7 +2311,7 @@ class DB {
      * @param {DBParams} params - Connection parameters
      * @param {function} callback - Callback gets called on success / error;
      * If an error occured, exactly one parameter containing the error will be handed to the callback
-     * @returns {DBConn} Database connection or null if failed
+     * @returns {?DBConn} Database connection or null if failed
      */
     connect(params, callback) { }
 }
