@@ -14,7 +14,8 @@ let modules = [
     "helpers"
 ]
 
-let appendix = "";
+let appendix = `declare var require: any
+`;
 modules.forEach(moduleName => {
     appendix += `declare var ${moduleName}: ${moduleName[0].toUpperCase() + moduleName.substr(1)};
 

@@ -2,4 +2,4 @@
 documentation/
 out
 node_modules
-tsd
+tsd/types.d.ts
