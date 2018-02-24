@@ -1,4 +1,5 @@
 const fs = require("fs")
+const os = require('os')
 
 let modules = [
     "backend",
@@ -16,8 +17,8 @@ let modules = [
 
 let appendix = "declare var require: any;"
 modules.forEach(moduleName => {
-    appendix += "\n\n" +
-`declare var ${moduleName}: ${moduleName[0].toUpperCase() + moduleName.substr(1)};
+    appendix += os.EOL + os.EOL +
+        `declare var ${moduleName}: ${moduleName[0].toUpperCase() + moduleName.substr(1)};
 declare module "${moduleName}" {
     export = ${moduleName};
 }`
