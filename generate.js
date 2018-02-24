@@ -14,21 +14,19 @@ let modules = [
     "helpers"
 ]
 
-let appendix = `declare var require: any
-`;
+let appendix = "declare var require: any;"
 modules.forEach(moduleName => {
-    appendix += `declare var ${moduleName}: ${moduleName[0].toUpperCase() + moduleName.substr(1)};
-
+    appendix += "\n\n" +
+`declare var ${moduleName}: ${moduleName[0].toUpperCase() + moduleName.substr(1)};
 declare module "${moduleName}" {
     export = ${moduleName};
-}
-`
+}`
 })
 
 fs.appendFile("tsd/types.d.ts", appendix, err => {
     if (err) {
-        console.error(`Failed to append appendix to file: ${err.message}`)
+        console.error(`Failed to append module exports: ${err.message}`)
         return
     }
-    console.log("Successfully appended to file")
+    console.log("Successfully appended module exports")
 })
