@@ -1536,7 +1536,7 @@ class Channel {
     /**
      * @description Moves the channel to a new parent with a new position value
      * @version 0.9.16.3
-     * @param {string/Channel} parent - New parent channel
+     * @param {(string|Channel)} parent - New parent channel
      * @param {number} order - New order value
      */
     moveTo(parent, order) { }
@@ -1740,7 +1740,7 @@ class ServerGroup {
      * @description Adds a client by database ID to the servergroup
      * @returns {boolean} status if the request was successful
      * @version 0.13.37
-     * @param {Object} client - The client can be a client object, string, int or float
+     * @param {(Client|string|number)} client - The client can be a client object, string or number
      */
     addClientByDatabaseId(client) { }
     /**
@@ -2221,13 +2221,13 @@ class Websockets {
      * @description Writes some data to the connection with given connectionId
      * @param {string} connectionId
      * @param {number} messageType
-     * @param {Object} message - Actual message; can be given as string or byteshelper
+     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
      */
     write(connectionId, messageType, message) { }
     /**
      * @description Broadcasts some data to all connected clients
      * @param {number} messageType
-     * @param {Object} message - Actual message; can be given as string or byteshelper
+     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
      */
     broadcast(messageType, message) { }
     /**
