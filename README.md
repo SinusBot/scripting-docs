@@ -22,6 +22,9 @@ There are Typescript Typings available which are generated out of the docs. You 
 
 ### Visual Studio Code
 
+![Visual Studio Code IntelliSense demo](intellisense-demo.gif)
+
+
 First of all, you need to install these typings by executing: `npm install sinusbot-scripting-engine` or `yarn add sinusbot-scripting-engine`. Now you have the typings installed, to give the Typescript interpreter some parameters in, you need to create a `jsconfig.json`:
 
 ```json
