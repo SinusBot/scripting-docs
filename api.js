@@ -1311,10 +1311,6 @@ class Client {
      */
     getTotalConnectionsCount() { }
     /**
-     * @returns {number} Timestamp in milliseconds when the client has been seen the first time
-     */
-    firstSeen() { }
-    /**
      * Returns true when this client is the bot itself
      * @returns {boolean}
      */
