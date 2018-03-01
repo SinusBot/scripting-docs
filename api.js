@@ -76,8 +76,8 @@ class Engine {
     getBackend() { }
     /**
      * @description
-     * ```
      * sets the log level of the instance
+     * ```
      * level | what gets logged
      * ---|---
      * 0 | no log messages
@@ -96,6 +96,7 @@ class Engine {
     /**
      * @description
      * Sets the log level of the bot
+     * ```
      * level | what gets logged
      * ---|---
      * 0 | no log messages
@@ -105,6 +106,7 @@ class Engine {
      * 4 | ...
      * 10 | most verbose
      * 11 | most verbose + external backends
+     * ```
      * @param {number} level - Log level to set
      * @returns {boolean}
      */
