@@ -490,6 +490,7 @@ class Backend {
      * @description Creates a new channel
      * @version 0.9.16.3
      * @param {ChannelParams} channelParams
+     * @returns {Channel} - Channel which was created
      */
     createChannel(channelParams) { }
     // TODO: change ID to Id; Support for both versions!
