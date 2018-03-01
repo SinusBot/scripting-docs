@@ -76,6 +76,7 @@ class Engine {
     getBackend() { }
     /**
      * @description
+     * ```
      * sets the log level of the instance
      * level | what gets logged
      * ---|---
@@ -86,6 +87,7 @@ class Engine {
      * 4 | ...
      * 10 | most verbose
      * 11 | most verbose + external backends
+     * ```
      * @param {number} level - Log level to set
      * @returns {boolean}
      * 
@@ -1680,7 +1682,7 @@ class Channel {
      */
     getPermissions() { }
     /**
-     * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
      * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
@@ -1747,7 +1749,7 @@ class ServerGroup {
      */
     getPermissions() { }
     /**
-     * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
      * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
@@ -1780,7 +1782,7 @@ class ChannelGroup {
      */
     getPermissions() { }
     /**
-     * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by remove() afterwards
+     * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
      * @version 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
