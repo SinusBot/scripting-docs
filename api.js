@@ -1535,6 +1535,12 @@ class Channel {
      */
     position() { }
     /**
+     * @description delete the current channel
+     * @version 0.9.17
+     * @returns {boolean}
+     */
+    delete() { }
+    /**
      * @description Moves the channel to a new parent with a new position value
      * @version 0.9.16.3
      * @param {(string|Channel)} parent - New parent channel
