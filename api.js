@@ -1580,7 +1580,7 @@ class Channel {
      */
     codec() { }
     /**
-     * @param {number} quality
+     * @param {number} codec
      * @version 0.9.16
      */
     setCodec(codec) { }
