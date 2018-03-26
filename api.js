@@ -1412,8 +1412,8 @@ class Client {
      */
     getAudioChannel() { }
     /**
-     * Returns a TS3 client URL string of the client
-     * @returns {String} client URL String
+     * Returns the TS3 client URL in the format `client://0/uid~nickname`
+     * @returns {string} Client URL
      */
     getURL() { }
     /**
