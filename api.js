@@ -1346,10 +1346,10 @@ class Client {
      */
     getServerGroups() { }
     /**
-     * Returns the clients' channelgroups
-     * @returns {ChannelGroup[]}
+     * Returns the clients' channelgroup
+     * @returns {ChannelGroup}
      */
-    getChannelGroups() { }
+    getChannelGroup() { }
     /**
      * Returns the clients' away message (if set)
      * @returns {string}
