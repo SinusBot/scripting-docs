@@ -1390,21 +1390,18 @@ class Client {
      * @returns {number}
      */
     getBytesSent() { }
-
     /**
      * Returns the total number of connections from that client
      * On TS3, this information has to be actively requested from the server. If the bot is unable to get it or hasn't received an answer in time, it will return <= 0 here.
      * @returns {number}
      */
     getTotalConnections() { }
-
     /**
      * Returns the time the client has been created / was first seen by the server
      * On TS3, this information has to be actively requested from the server. If the bot is unable to get it or hasn't received an answer in time, it will return <= 0 here.
      * @returns {number}
      */
     getCreationTime() { }
-
     /**
      * Returns an array of all channels the client is in; even if TS only uses one channel for a client at a time, other backends might provide several
      * @returns {Channel[]} Array of channels
@@ -1414,7 +1411,11 @@ class Client {
      * @returns {Channel} Current audio channel the client is in
      */
     getAudioChannel() { }
-
+    /**
+     * Returns a TS3 client URL string of the client
+     * @returns {String} client URL String
+     */
+    getURL() { }
     /**
      * @description Compares two clients
      * @param {Client} otherClient
