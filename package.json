@@ -7,7 +7,7 @@
   "license": "MIT",
   "devDependencies": {
     "jsdoc": "^3.5.5",
-    "tsd-jsdoc": "^2.0.0-beta.3"
+    "tsd-jsdoc": "=2.0.0-beta.3"
   },
   "typings": "./tsd/types.d.ts"
 }
