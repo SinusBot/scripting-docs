@@ -431,7 +431,7 @@ class Backend {
      * 
      * var backend = require('backend');
      * var engine = require('engine');
-     * var channels = backend.getClients();
+     * var channels = backend.getChannels();
      * 
      * channels.forEach(function(channel) {
      *     engine.log(channel.name);
