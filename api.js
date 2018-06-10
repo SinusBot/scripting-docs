@@ -1912,30 +1912,30 @@ class Permission {
     skip() { }
     /**
      * @version 0.13.37
-     * @returns {string} true, if negated flag has been set - only applicable for ServerGroups
+     * @returns {boolean} true, if negated flag has been set - only applicable for ServerGroups
      */
     negated() { }
     /**
      * @description sets the value of the permission; you need to call save() to apply changes
      * @version 0.13.37
-     * @param {boolean} val - true, if permission should be negated, false otherwise
+     * @param {boolean} value - true, if permission should be negated, false otherwise
      * @returns {boolean}
      */
-    setNegated() { }
+    setNegated(value) { }
     /**
      * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
      * @version 0.13.37
-     * @param {boolean} val - true, if permission should be skipped, false otherwise
+     * @param {boolean} value - true, if permission should be skipped, false otherwise
      * @returns {boolean}
      */
     setSkip(value) { }
     /**
      * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
      * @version 0.13.37
-     * @param {number} val - new value for the permission
+     * @param {number} value - new value for the permission
      * @returns {boolean}
      */
-    setValue(val) { }
+    setValue(value) { }
     /**
      * @description applies the changed settings
      * @version 0.13.37
