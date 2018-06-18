@@ -421,12 +421,23 @@ class Backend {
     /**
      * Returns a channel if found
      * @param {string} name
-     * @returns {Channel}
+     * @returns {Channel?}
+     * @see getChannelsByName()
      * @example
      * var backend = require('backend');
      * var channel = backend.getChannelByName('Welcome Channel');
      */
     getChannelByName(name) { }
+    /**
+     * Returns a channels if found
+     * @param {string} name
+     * @returns {Channel[]}
+     * @version 0.14.0
+     * @example
+     * var backend = require('backend');
+     * var channels = backend.getChannelsByName('foobar');
+     */
+    getChannelsByName(name) { }
     /**
      * Returns the total number of channels
      * @returns {number}
