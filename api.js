@@ -901,6 +901,8 @@ class Helpers {
  * @fires track
  * @fires trackInfo
  * @fires trackEnd
+ * @fires ytdl.success
+ * @fires ytdl.error
  * @fires connect
  * @fires connectionFailed
  * @fires disconnect
@@ -1015,6 +1017,22 @@ class Event {
  * @param {Track} track
  * @param {string} callback - Callback string
  * @description Gets fired whenever a track has stopped playing
+ */
+/**
+ * @event ytdl.success
+ * @memberof Event
+ * @param {string} url
+ * @param {string} jobId
+ * @param {string} trackId
+ * @description Gets fired whenever a track was successfully downloaded via ytdl
+ */
+/**
+ * @event ytdl.error
+ * @memberof Event
+ * @param {string} url
+ * @param {string} jobId
+ * @param {string} trackId
+ * @description Gets fired whenever a download via ytdl fails
  */
 /**
  * @event connect
