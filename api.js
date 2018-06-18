@@ -240,6 +240,18 @@ class Engine {
      * @returns {?User}
      */
     getUserByName(name) { }
+    /**
+     * @description Sets the command prefix.
+     * @version 0.14.0
+     * @param {string} prefix - Command prefix
+     */
+    setCommandPrefix(prefix) { }
+    /**
+     * @description Gets the command prefix.
+     * @version 0.14.0
+     * @returns {string} Command prefix
+     */
+    getCommandPrefix() { }
 }
 
 
