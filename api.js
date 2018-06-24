@@ -457,7 +457,7 @@ class Backend {
      * var channels = backend.getChannels();
      * 
      * channels.forEach(function(channel) {
-     *     engine.log(channel.name);
+     *     engine.log(channel.name());
      * });
      */
     getChannels() { }
@@ -471,7 +471,7 @@ class Backend {
      * var clients = backend.getClients();
      * 
      * clients.forEach(function(client) {
-     *     client.chat('Hello ', + client.Name() + '. I\'m a SinusBot!');
+     *     client.chat('Hello ', + client.name() + '. I\'m a SinusBot!');
      * });
      */
     getClients() { }
@@ -1469,7 +1469,7 @@ class Client {
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
-     * client.chat('Hello, ' + client.Name());
+     * client.chat('Hello, ' + client.name());
      */
     chat(msg) { }
     /**
@@ -1478,7 +1478,7 @@ class Client {
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
-     * client.chat('Pokeypoke, ' + client.Name() + '!');
+     * client.chat('Pokeypoke, ' + client.name() + '!');
      */
     poke(msg) { }
     /**
@@ -1488,7 +1488,7 @@ class Client {
      * @example
      * var backend = require('backend');
      * var client = backend.getClientByName('Bob');
-     * client.ban(100, 'See you in 100 seconds, ' + client.Name() + '!');
+     * client.ban(100, 'See you in 100 seconds, ' + client.name() + '!');
      */
     ban(time, msg) { }
     /**
