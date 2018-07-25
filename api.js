@@ -419,7 +419,7 @@ class Backend {
      */
     getCurrentChannel() { }
     /**
-     * Returns a channel if found
+     * Returns the matching channel if found
      * @param {string} name
      * @returns {Channel?}
      * @see getChannelsByName()
@@ -429,7 +429,7 @@ class Backend {
      */
     getChannelByName(name) { }
     /**
-     * Returns a channels if found
+     * Returns an array of channels matching the name
      * @param {string} name
      * @returns {Channel[]}
      * @version 0.14.0
@@ -793,6 +793,26 @@ class Audio {
      * @returns {boolean}
      */
     setStreamVolume(streamID, volume) { }
+}
+
+/**
+ * @mixin http
+ */
+class http {
+    /**
+     * @version 0.14.2
+     * @description creates a http request
+     * @param {object} config - http configuration object
+     * @param {string} config.method - Request Method to use (eg GET, POST, PUT, ...)
+     * @param {string} config.url - The URL endpoint which should be called
+     * @param {number} config.timeout - timeout in milliseconds
+     * @param {string} [config.body] - request body
+     * @param {object} [config.headers] - request header
+     * @param {function} callback - callback function with the error and response
+     * if an error occured, the first parameter will contain the error inside the Callback
+     * the second parameter inside the callback contains the http response
+     */
+    simpleRequest(config, callback) { }
 }
 
 /**
@@ -2176,6 +2196,8 @@ class Net {
  * @mixin
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
+ * @property {string} [url] - WebSocket URL to use
+ * @property {string} [protocol=tcp] - can be udp, tcp or ws (websocket)
  */
 class ConnectParams { }
 
@@ -2200,6 +2222,10 @@ class NetClient {
      * @param {function} callback
      */
     on(event, callback) { }
+    /**
+     * @description Closes the current connection
+     */
+    close() { }
 }
 
 /**
