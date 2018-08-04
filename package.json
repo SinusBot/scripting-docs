@@ -1,7 +1,7 @@
 {
   "name": "sinusbot-scripting-engine",
   "version": "1.0.4",
-  "description": "JSDoc based SinusBot scripting engine documentation.",
+  "description": "SinusBot JavaScript based Scripting Engine documentation with examples.",
   "repository": "https://github.com/SinusBot/scripting-docs",
   "author": "SinusBot",
   "license": "MIT",
