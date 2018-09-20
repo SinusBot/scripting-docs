@@ -221,6 +221,14 @@ class Engine {
      */
     setAvatarFromBanner(bannerName) { }
     /**
+     * @description
+     * sets the avatar to the given image as URL
+     * @param {string} url - image url
+     * @returns {boolean}
+     * @version 0.14.0
+     */
+    setAvatarFromURL(url) { }
+    /**
      * @description Gets the users of the SinusBot
      * @version 0.13.37
      * @returns {User[]}
