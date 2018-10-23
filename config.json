@@ -1,6 +1,6 @@
 {
     "opts": {
-        "template": "./node_modules/tsd-jsdoc",
+        "template": "./node_modules/tsd-jsdoc/dist",
         "destination": "./tsd"
     },
     "source": {
