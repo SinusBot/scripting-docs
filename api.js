@@ -818,6 +818,7 @@ class http {
      * @param {object} [config.headers] - request header
      * @param {simpleRequestCallback} callback - Callback function with error and response
      * @example
+     * var engine = require('engine');
      * var http = require('http');
      * 
      * http.simpleRequest({
