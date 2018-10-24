@@ -15,17 +15,15 @@
  * @param {Manifest} manifest
  * The manifest determines which features are available to the script and
  * contains metadata and variables that will be shown in the web interface.
- * @param {function} setupFunction
- * Called upon activation with two or more parameters.
- * The first one, sinusbot, should **not** be used anymore.
- * The second one will hold the configuration of the plugin that the user set from within the web interface
- * (given you have added anything to the vars field of your script manifest).
+ * @param {mainFunction} mainFunction
+ * If the script is activated this function is called when the scripts are loaded.
+ * The function receives three parameters, the first one (`sinusbot`) is deprecated and should **not** be used anymore.
  */
-function registerPlugin(manifest, setupFunction) { }
+function registerPlugin(manifest, mainFunction) { }
 
 /**
- * @class
- * @mixin
+ * @mixin Manifest
+ * @see registerPlugin
  * @param {string} name - Short name of your script
  * @param {string} author - Your name and your email address in the form of: `your name <your-email@example.com>`
  * @param {string} description - A longer description - tell the user what exactly your script does
@@ -53,6 +51,17 @@ function registerPlugin(manifest, setupFunction) { }
  * You can find more details on how to use it here: [Speech Recognition](https://wiki.sinusbot.com/en:guides:features:speechrecognition)
  */
 class Manifest { }
+
+/**
+ * @callback mainFunction
+ * @mixin mainFunction
+ * @see registerPlugin
+ * @param {object} [sinusbot] - This is **deprecated** and should **not** be used anymore.
+ * @param {object} config - Configuration of the plugin that the user set from within the web interface
+ * (given you have added anything to the vars field of your script manifest).
+ * @param {object} manifest - Manifest as specified in registerPlugin.
+ */
+function mainFunction(sinusbot, config, manifest) {}
 
 /**
  * @mixin Engine
