@@ -2376,9 +2376,7 @@ class DBConn {
      * @param {string} queryString
      * @param {any} parameter1 - Zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
      * @param {any} parameter2
-     * @param {callback} callback - Callback gets called after the query has finished;
-     * gets called with two parameters, err and result - both are mutually exclusive.
-     * Result contains an array of rows, each containing an object with the column names as key.
+     * @param {DBConn#queryCallback} callback - Callback is called after the query has finished.
      */
     query(queryString, parameter1, parameter2, callback) { }
     /**
@@ -2386,9 +2384,22 @@ class DBConn {
      * @param {string} queryString
      * @param {any} [parameter1]
      * @param {any} [parameter2]
+     * @param {function} [callback]
      */
     exec(queryString, parameter1, parameter2, callback) { }
 }
+/**
+ * @callback queryCallback
+ * @memberof DBConn
+ * @instance
+ * @see DBConn#query
+ * @see DBConn#exec
+ * @version 0.9.16.4
+ * @description Gets called with two parameters, err and result - both are mutually exclusive.
+ * Result contains an array of rows, each containing an object with the column names as key.
+ * @param {string} [error]
+ * @param {object[]} [result]
+ */
 
 /**
  * @class
