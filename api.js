@@ -1308,18 +1308,21 @@ class APIEvent {
  * @event ws.connect
  * @memberof Event
  * @version 0.9.20
+ * @see WS
  * @param {string} id - ID of the new connection
  */
 /**
  * @event ws.close
  * @memberof Event
  * @version 0.9.20
+ * @see WS
  * @param {string} id - ID of the closed connection
  */
 /**
  * @event ws.error
  * @memberof Event
  * @version 0.9.20
+ * @see WS
  * @param {string} id - ID of the connection
  * @param {string} error - Error
  */
@@ -1327,6 +1330,7 @@ class APIEvent {
  * @event ws.data
  * @memberof Event
  * @version 0.9.20
+ * @see WS
  * @param {string} id - ID of the connection
  * @param {number} type - Type of the message
  * @param {Bytes} data - Data object
