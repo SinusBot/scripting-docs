@@ -46,7 +46,7 @@ function registerPlugin(manifest, mainFunction) { }
  * @param {string[]} [requiredModules]
  * Using this, you can define which restricted modules the script wants to use. If it's not allowed via the config, the script will not load at all but instead return an error on startup.
  * If you only optionally use features from restricted modules, don't use this but provide a fallback in your script.
- * @param {Object[]} [vars] - More information about the usage of variables can be found [here](https://wiki.sinusbot.com/en:guides:features:scripts:variables).
+ * @param {object[]} [vars] - More information about the usage of variables can be found [here](https://wiki.sinusbot.com/en:guides:features:scripts:variables).
  * @param {string[]} [voiceCommands]
  * This parameter is only used for the speech recognition feature and may contain one or more strings that are to be detected for the given script.
  * You can find more details on how to use it here: [Speech Recognition](https://wiki.sinusbot.com/en:guides:features:speechrecognition)
@@ -165,7 +165,7 @@ class Engine {
     notify(message) { }
     /**
      * Stores the given object as configuration for the current script
-     * @param {Object} config
+     * @param {object} config
      * @returns {boolean}
      */
     saveConfig() { }
@@ -175,8 +175,8 @@ class Engine {
      */
     log(log) { }
     /**
-     * Exports an Object, so other Scripts are able to use functions or values of the Script
-     * @param {Object} obj - Object which should get exported
+     * Exports an object, so other Scripts are able to use functions or values of the Script
+     * @param {object} obj - object which should get exported
      * @example
      * // scriptname: exportscript.js
      * var engine = require('engine');
@@ -317,7 +317,7 @@ class Store {
     /**
      * Returns all stored items
      * the values stored are only available for the current script, but shared between instances of it
-     * @returns {Object} Keys of this object are the keys of each entry
+     * @returns {object} Keys of this object are the keys of each entry
      */
     getAll() { }
     /**
@@ -350,7 +350,7 @@ class Store {
     /**
      * Returns all stored items
      * the values stored are available for every script of every instance
-     * @returns {Object} Keys of this object are the keys of each entry
+     * @returns {object} Keys of this object are the keys of each entry
      */
     getAllGlobal() { }
     /**
@@ -383,7 +383,7 @@ class Store {
     /**
      * Returns all stored items
      * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
-     * @returns {Object} Keys of this object are the keys of each entry
+     * @returns {object} Keys of this object are the keys of each entry
      */
     getAllInstance() { }
 }
@@ -888,7 +888,7 @@ class Helpers {
     getRandom(max) { }
     /**
      * @description Gets the string representation of an object
-     * @param {Object} input
+     * @param {object} input
      * @returns {string}
      */
     toString(input) { }
@@ -994,13 +994,13 @@ class Event {
     /**
      * @description Emits an event to the current instance
      * @param {string} eventName - Name of the event to be emitted
-     * @param {Object} data - A data object to be sent with the event
+     * @param {object} data - A data object to be sent with the event
      */
     emit(eventName, data) { }
     /**
      * @description Emits an event to all instances
      * @param {string} eventName - Name of the event to be emitted
-     * @param {Object} data - A data object to be sent with the event
+     * @param {object} data - A data object to be sent with the event
      */
     broadcast(eventName, data) { }
 }
@@ -1249,7 +1249,7 @@ class APIEvent {
 /**
  * @event speech
  * @memberof Event
- * @param {Object} ev - Event data
+ * @param {object} ev - Event data
  * @param {Client} ev.client - Client
  * @param {String} ev.text - Recognized text
  * @version 0.13.37
@@ -1291,7 +1291,7 @@ class APIEvent {
 /**
  * @event discord:$eventName
  * @memberof Event
- * @param {Object} ev - Discord event data
+ * @param {object} ev - Discord event data
  * @description
  * This event gets triggered whenever a discord event got received.
  * Every event will be emitted in uppercase and the spaces will be replaced by underscores.
