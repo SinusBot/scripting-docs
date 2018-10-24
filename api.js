@@ -22,7 +22,8 @@
 function registerPlugin(manifest, mainFunction) { }
 
 /**
- * @mixin Manifest
+ * @class
+ * @mixin
  * @see registerPlugin
  * @param {string} name - Short name of your script
  * @param {string} author - Your name and your email address in the form of: `your name <your-email@example.com>`
@@ -54,7 +55,6 @@ class Manifest { }
 
 /**
  * @callback mainFunction
- * @mixin mainFunction
  * @see registerPlugin
  * @param {object} [sinusbot] - This is **deprecated** and should **not** be used anymore.
  * @param {object} config - Configuration of the plugin that the user set from within the web interface
@@ -64,7 +64,8 @@ class Manifest { }
 function mainFunction(sinusbot, config, manifest) {}
 
 /**
- * @mixin Engine
+ * @class
+ * @mixin
  * @example
  * var engine = require('engine');
  * engine.log('Hello from a script!');
@@ -273,7 +274,8 @@ class Engine {
 
 
 /**
- * @mixin Store
+ * @class
+ * @mixin
  * @example
  * var store = require('store');
  * store.set('foo', 'bar');
@@ -387,7 +389,8 @@ class Store {
 }
 
 /**
- * @mixin Backend
+ * @class
+ * @mixin
  */
 class Backend {
     /**
@@ -439,7 +442,7 @@ class Backend {
      * Returns the matching channel if found
      * @param {string} name
      * @returns {Channel?}
-     * @see getChannelsByName()
+     * @see Backend#getChannelsByName()
      * @example
      * var backend = require('backend');
      * var channel = backend.getChannelByName('Welcome Channel');
@@ -564,7 +567,8 @@ class Backend {
 }
 
 /**
- * @mixin Media
+ * @class
+ * @mixin
  */
 class Media {
     /**
@@ -697,7 +701,8 @@ class Media {
 }
 
 /**
- * @mixin Audio
+ * @class
+ * @mixin
  */
 class Audio {
     /**
@@ -813,61 +818,8 @@ class Audio {
 }
 
 /**
- * @mixin http
- */
-class http {
-    /**
-     * @version 0.14.2
-     * @description Creates an http request
-     * @param {object} config - http configuration object
-     * @param {string} [config.method] - Request Method to use (eg GET, POST, PUT, ...)
-     * @param {string} config.url - The URL endpoint which should be called
-     * @param {number} [config.timeout] - timeout in milliseconds
-     * @param {string} [config.body] - request body
-     * @param {object} [config.headers] - request header
-     * @param {simpleRequestCallback} callback - Callback function with error and response
-     * @example
-     * var engine = require('engine');
-     * var http = require('http');
-     * 
-     * http.simpleRequest({
-     *     method: 'GET',
-     *     url: 'https://example.com',
-     *     timeout: 10 * 1000
-     * }, function(error, response) {
-     *     if (error) {
-     *         engine.log("Error: " + error);
-     *         return;
-     *     }
-     * 
-     *     if (response.statusCode != 200) {
-     *         engine.log("HTTP Error: " + response.status);
-     *         return;
-     *     }
-     * 
-     *     // success!
-     *     engine.log("Response: " + response.data.toString());
-     * });
-     */
-    simpleRequest(config, callback) { }
-
-    /**
-     * @callback simpleRequestCallback
-     * @mixin simpleRequestCallback
-     * @memberof http
-     * @see http.simpleRequest
-     * @version 0.14.2
-     * @param {string} [error]
-     * @param {object} [response]
-     * @param {Bytes} response.data - Data; Needs to be converted to a string first, e.g. `response.data.toString()`.
-     * @param {object} response.headers - Headers
-     * @param {string} response.status - Status
-     * @param {number} response.statusCode - Status Code
-     */
-}
-
-/**
- * @mixin Format
+ * @class
+ * @mixin
  */
 class Format {
     /**
@@ -924,7 +876,8 @@ class Format {
 }
 
 /**
- * @mixin Helpers
+ * @class
+ * @mixin
  */
 class Helpers {
     /**
@@ -983,12 +936,11 @@ class Helpers {
     SHA256Sum(input) { }
 }
 
-
 /**
  * @class
  * @mixin
- * @fires api:$eventName
- * @fires discord:$eventName
+ * @fires api:eventName
+ * @fires discord:eventName
  * @fires chat
  * @fires poke
  * @fires typing
@@ -1051,6 +1003,30 @@ class Event {
      * @param {Object} data - A data object to be sent with the event
      */
     broadcast(eventName, data) { }
+}
+
+/**
+ * @class
+ * @mixin
+ * @description This type is passed to the `api:$eventName`-event, see {@link Event.api:eventName} for more.
+ */
+class APIEvent {
+    /**
+     * @returns {string} Name of the event
+     */
+    name() { }
+    /**
+     * @returns {object} Json body
+     */
+    data() { }
+    /**
+     * @returns {User} User that called the event (or null, if unset)
+     */
+    user() { }
+    /**
+     * @returns {string} Remote address that triggered the call
+     */
+    remoteAddr() { }
 }
 
 /**
@@ -1303,13 +1279,13 @@ class Event {
  * @description Gets fired whenever the number of users that are currently talking in the channel changes
  */
 /**
- * @memberof Event
  * @event unload
+ * @memberof Event
  * @description Gets fired whenever the script is going to be unloaded or reloaded; use this to clean up or save stuff
  */
 /**
- * @memberof Event
  * @event load
+ * @memberof Event
  * @description Gets fired when all scripts have been loaded
  */
 /**
@@ -1328,29 +1304,33 @@ class Event {
  *   engine.log('GUILD_CREATE' + JSON.stringify(ev));
  * });
  */
-
 /**
- * @class
- * @mixin
+ * @event ws.connect
+ * @memberof Event
+ * @version 0.9.20
+ * @param {string} id - ID of the new connection
  */
-class APIEvent {
-    /**
-     * @returns {string} Name of the event
-     */
-    name() { }
-    /**
-     * @returns {Object} Json body
-     */
-    data() { }
-    /**
-     * @returns {?User} User that called the event (or null, if unset)
-     */
-    user() { }
-    /**
-     * @returns {string} Remote address that triggered the call
-     */
-    remoteAddr() { }
-}
+/**
+ * @event ws.close
+ * @memberof Event
+ * @version 0.9.20
+ * @param {string} id - ID of the closed connection
+ */
+/**
+ * @event ws.error
+ * @memberof Event
+ * @version 0.9.20
+ * @param {string} id - ID of the connection
+ * @param {string} error - Error
+ */
+/**
+ * @event ws.data
+ * @memberof Event
+ * @version 0.9.20
+ * @param {string} id - ID of the connection
+ * @param {number} type - Type of the message
+ * @param {Bytes} data - Data object
+ */
 
 /**
  * @class
@@ -1361,7 +1341,7 @@ class APIEvent {
  * @property {number} mode - Number representing the way this message has been sent
  * (1 = private, 2 = channel, 3 = server)
  */
-function Message() { }
+class Message { }
 
 /**
  * @class
@@ -2175,6 +2155,7 @@ class Playlist {
 /**
  * @class
  * @mixin
+ * @description Track in a Playlist
  */
 class PlaylistTrack {
     /**
@@ -2211,40 +2192,75 @@ class PlaylistTrack {
 }
 
 /**
+ * @class
  * @mixin
  * @version 0.9.16
- * @example
- * var net = require('net');
- * var engine = require('engine');
- * var conn = net.connect({ host: '127.0.0.1', port: 80 }, function(err) {
- *     if (err) { engine.log(err); }
- * });
- * conn.on('data', function(x) {
- *     engine.log('got data');
- *     engine.log(x.toString());
- * })
- * if (conn) conn.write("GET / HTTP/1.1\r\nHost: localhost\r\n\r\n");
- * @description
- * The net module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["net"]
- * ```
  */
-class Net {
+class Bytes {
     /**
-     * @param {ConnectParams} params - Connection parameters
-     * @param {function} callback - Callback gets called on success / error;
-     * if an error occured, exactly one parameter containing the error will be handed to the callback
-     * @returns {?NetClient} Client connection, or null if failed to setup a connection
-     * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
+     * @returns {string} String representation of the bytes
      */
-    connect(params, callback) { }
+    toString() { }
 }
 
 /**
  * @class
  * @mixin
+ */
+class Http {
+    /**
+     * @version 0.14.2
+     * @description Creates an http request
+     * @param {object} config - http configuration object
+     * @param {string} [config.method] - Request Method to use (eg GET, POST, PUT, ...)
+     * @param {string} config.url - The URL endpoint which should be called
+     * @param {number} [config.timeout] - timeout in milliseconds
+     * @param {string} [config.body] - request body
+     * @param {object} [config.headers] - request header
+     * @param {Http#SimpleRequestCallback} callback - Callback function with error and response
+     * @example
+     * var engine = require('engine');
+     * var http = require('http');
+     * 
+     * http.simpleRequest({
+     *     method: 'GET',
+     *     url: 'https://example.com',
+     *     timeout: 10 * 1000
+     * }, function(error, response) {
+     *     if (error) {
+     *         engine.log("Error: " + error);
+     *         return;
+     *     }
+     * 
+     *     if (response.statusCode != 200) {
+     *         engine.log("HTTP Error: " + response.status);
+     *         return;
+     *     }
+     * 
+     *     // success!
+     *     engine.log("Response: " + response.data.toString());
+     * });
+     */
+    simpleRequest(config, callback) { }
+}
+/**
+ * @callback simpleRequestCallback
+ * @memberof Http
+ * @instance
+ * @see Http#simpleRequest
+ * @version 0.14.2
+ * @param {string} [error]
+ * @param {object} [response]
+ * @param {Bytes} response.data - Data; Needs to be converted to a string first, e.g. `response.data.toString()`.
+ * @param {object} response.headers - Headers
+ * @param {string} response.status - Status
+ * @param {number} response.statusCode - Status Code
+ */
+
+/**
+ * @class
+ * @mixin
+ * @version 0.9.16
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
  * @property {string} [url] - WebSocket URL to use
@@ -2280,6 +2296,39 @@ class NetClient {
 }
 
 /**
+ * @class
+ * @mixin
+ * @version 0.9.16
+ * @example
+ * var net = require('net');
+ * var engine = require('engine');
+ * var conn = net.connect({ host: '127.0.0.1', port: 80 }, function(err) {
+ *     if (err) { engine.log(err); }
+ * });
+ * conn.on('data', function(x) {
+ *     engine.log('got data');
+ *     engine.log(x.toString());
+ * })
+ * if (conn) conn.write("GET / HTTP/1.1\r\nHost: localhost\r\n\r\n");
+ * @description
+ * The net module is protected, it needs the following entry per script in your config.ini:
+ * ```
+ * [Scripts.Privileges]
+ * scriptname = ["net"]
+ * ```
+ */
+class Net {
+    /**
+     * @param {ConnectParams} params - Connection parameters
+     * @param {function} callback - Callback gets called on success / error;
+     * if an error occured, exactly one parameter containing the error will be handed to the callback
+     * @returns {?NetClient} Client connection, or null if failed to setup a connection
+     * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
+     */
+    connect(params, callback) { }
+}
+
+/**
  * @event data
  * @memberof NetClient
  * @param {Bytes}
@@ -2297,113 +2346,48 @@ class NetClient {
  * @description Gets fired whenever an error occurred
  */
 
-
-/**
- * @mixin
- * @version 0.9.20
- * @fires ws.connect
- * @fires ws.close
- * @fires ws.error
- * @fires ws.data
- * @example
- * SinusBot script:
- * var ws = require('ws');
- * var engine = require('engine');
- * var event = require('event');
- * 
- * event.on('ws.connect', function(id) {
- *     engine.log('new websocket connection; id ' + id);
- *     ws.broadcast(1, { blubb: 'blubb' });
- * });
- * event.on('ws.disconnect', function(id) {
- *     engine.log('websocket connection disconnected; id ' + id);
- * });
- * event.on('ws.data', function(id, type, data) {
- *     engine.log('ws.data: id ' + id + '; data: ' + data.toString());
- *     ws.write(id, type, data.toString());
- * });
- * @example
- * Client Side (served html files via the enableWeb script option):
- * var proto = (window.location.protocol == 'https:') ? 'wss' : 'ws';
- * var conn = new WebSocket(proto + "://" + document.location.host + "/api/v1/b/" + botId + "/i/" + instanceId + "/ws");
- * conn.onclose = function (evt) {
- * console.log('close', evt);
- *     alert('Closed.');
- * };
- * conn.send(JSON.stringify({ type: 'ping' }));
- * conn.onmessage = function (evt) {
- *     var data = JSON.parse(evt.data);
- * };
- * @description
- * Websocket Server:
- * The ws module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["ws"]
- * ```
- */
-class Websockets {
-    /**
-     * @description Writes some data to the connection with given connectionId
-     * @param {string} connectionId
-     * @param {number} messageType
-     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
-     */
-    write(connectionId, messageType, message) { }
-    /**
-     * @description Broadcasts some data to all connected clients
-     * @param {number} messageType
-     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
-     */
-    broadcast(messageType, message) { }
-    /**
-     * @description Closes the connection
-     * @param {string} connectionId
-     */
-    close(connectionId) { }
-}
-
-/**
- * @event ws.connect
- * @memberof Websockets
- * @param {string} id - ID of the new connection
- */
-/**
- * @event ws.close
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the closed connection
- */
-/**
- * @event ws.error
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the connection
- * @param {string} error - Error
- */
-/**
- * @event ws.data
- * @version 0.9.20
- * @memberof Websockets
- * @param {string} id - ID of the connection
- * @param {number} type - Type of the message
- * @param {Bytes} data - Data object
- */
-
-
 /**
  * @class
  * @mixin
  * @version 0.9.16
+ * @property {string} driver - Database driver to use, currently sqlite3 (currently in-memory only), mysql or postgres
+ * @property {string} [host] - Database server to connect to, required for mysql / postgres
+ * @property {string} [username]
+ * @property {string} [password]
+ * @property {number} [port]
  */
-class Bytes {
+class DBParams { }
+
+// TODO: improve parameter and callback documentation
+/**
+ * @class
+ * @mixin
+ * @version 0.9.16.4
+ */
+class DBConn {
     /**
-     * @returns {string} String representation of the bytes
+     * @description
+     * Use this, if you expect a result set;
+     * Note: strings will be returned as byte arrays to be binary safe; to convert to actual strings, please use helpers.toString(column)
+     * @param {string} queryString
+     * @param {any} parameter1 - Zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
+     * @param {any} parameter2
+     * @param {callback} callback - Callback gets called after the query has finished;
+     * gets called with two parameters, err and result - both are mutually exclusive.
+     * Result contains an array of rows, each containing an object with the column names as key.
      */
-    toString() { }
+    query(queryString, parameter1, parameter2, callback) { }
+    /**
+     * @description Use this insted of query if you don't expect a result
+     * @param {string} queryString
+     * @param {any} [parameter1]
+     * @param {any} [parameter2]
+     */
+    exec(queryString, parameter1, parameter2, callback) { }
 }
 
 /**
+ * @class
  * @mixin
  * @version 0.9.16.4
  * @example
@@ -2442,42 +2426,68 @@ class DB {
     connect(params, callback) { }
 }
 
-// TODO: improve parameter and callback documentation
 /**
  * @class
  * @mixin
- * @version 0.9.16.4
+ * @version 0.9.20
+ * @fires Event~ws.connect
+ * @fires Event~ws.close
+ * @fires Event~ws.error
+ * @fires Event~ws.data
+ * @description
+ * Websocket Server:
+ * The ws module is protected, it needs the following entry per script in your config.ini:
+ * ```
+ * [Scripts.Privileges]
+ * scriptname = ["ws"]
+ * ```
+ * @example
+ * SinusBot script:
+ * var ws = require('ws');
+ * var engine = require('engine');
+ * var event = require('event');
+ * 
+ * event.on('ws.connect', function(id) {
+ *     engine.log('new websocket connection; id ' + id);
+ *     ws.broadcast(1, { blubb: 'blubb' });
+ * });
+ * event.on('ws.disconnect', function(id) {
+ *     engine.log('websocket connection disconnected; id ' + id);
+ * });
+ * event.on('ws.data', function(id, type, data) {
+ *     engine.log('ws.data: id ' + id + '; data: ' + data.toString());
+ *     ws.write(id, type, data.toString());
+ * });
+ * @example
+ * Client Side (served html files via the enableWeb script option):
+ * var proto = (window.location.protocol == 'https:') ? 'wss' : 'ws';
+ * var conn = new WebSocket(proto + "://" + document.location.host + "/api/v1/b/" + botId + "/i/" + instanceId + "/ws");
+ * conn.onclose = function (evt) {
+ * console.log('close', evt);
+ *     alert('Closed.');
+ * };
+ * conn.send(JSON.stringify({ type: 'ping' }));
+ * conn.onmessage = function (evt) {
+ *     var data = JSON.parse(evt.data);
+ * };
  */
-class DBConn {
+class WS {
     /**
-     * @description
-     * Use this, if you expect a result set;
-     * Note: strings will be returned as byte arrays to be binary safe; to convert to actual strings, please use helpers.toString(column)
-     * @param {string} queryString
-     * @param {any} parameter1 - Zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
-     * @param {any} parameter2
-     * @param {callback} callback - Callback gets called after the query has finished;
-     * gets called with two parameters, err and result - both are mutually exclusive.
-     * Result contains an array of rows, each containing an object with the column names as key.
+     * @description Writes some data to the connection with given connectionId
+     * @param {string} connectionId
+     * @param {number} messageType
+     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
      */
-    query(queryString, parameter1, parameter2, callback) { }
+    write(connectionId, messageType, message) { }
     /**
-     * @description Use this insted of query if you don't expect a result
-     * @param {string} queryString
-     * @param {any} [parameter1]
-     * @param {any} [parameter2]
+     * @description Broadcasts some data to all connected clients
+     * @param {number} messageType
+     * @param {(string|Bytes)} message - Actual message; can be given as string or byteshelper
      */
-    exec(queryString, parameter1, parameter2, callback) { }
+    broadcast(messageType, message) { }
+    /**
+     * @description Closes the connection
+     * @param {string} connectionId
+     */
+    close(connectionId) { }
 }
-
-/**
- * @class
- * @mixin
- * @version 0.9.16
- * @property {string} driver - Database driver to use, currently sqlite3 (currently in-memory only), mysql or postgres
- * @property {string} [host] - Database server to connect to, required for mysql / postgres
- * @property {string} [username]
- * @property {string} [password]
- * @property {number} [port]
- */
-function DBParams() { }
