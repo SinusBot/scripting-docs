@@ -2324,14 +2324,21 @@ class NetClient {
 class Net {
     /**
      * @param {ConnectParams} params - Connection parameters
-     * @param {function} callback - Callback gets called on success / error;
-     * if an error occured, exactly one parameter containing the error will be handed to the callback
+     * @param {Net#connectCallback} callback - Callback gets called on success/error.
      * @returns {?NetClient} Client connection, or null if failed to setup a connection
      * (e.g. wrong parameters; null does not mean that the connection failed, instead that it is handled in the callback)
      */
     connect(params, callback) { }
 }
-
+/**
+ * @callback connectCallback
+ * @memberof Net
+ * @instance
+ * @see Net#connect
+ * @version 0.9.16
+ * @description If an error occured, exactly one parameter containing the error will be handed to the callback.
+ * @param {string} [error]
+ */
 /**
  * @event data
  * @memberof NetClient
@@ -2362,7 +2369,7 @@ class Net {
  */
 class DBParams { }
 
-// TODO: improve parameter and callback documentation
+// TODO: improve parameter documentation
 /**
  * @class
  * @mixin
@@ -2405,6 +2412,14 @@ class DBConn {
  * @class
  * @mixin
  * @version 0.9.16.4
+ * @description
+ * The database module is protected, it needs the following entry per script in your config.ini:
+ * ```
+ * [Scripts.Privileges]
+ * scriptname = ["db"]
+ * ```
+ * 
+ * Use additional parameters to exec / query whenever you use untrusted/unknown data, as those will automatically be escaped and avoid SQL injection.
  * @example
  * var db = require('db');
  * var engine = require('engine');
@@ -2422,14 +2437,6 @@ class DBConn {
  *          });
  *     }
  * });
- * @description
- * The database module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["db"]
- * ```
- * 
- * Use additional parameters to exec / query whenever you use untrusted/unknown data, as those will automatically be escaped and avoid SQL injection.
  */
 class DB {
     /**
