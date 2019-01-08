@@ -1,0 +1,45 @@
+toc:
+  - name: generic
+  - registerPlugin
+  - Manifest
+  - mainFunction
+  - name: require
+    description: |
+      classes which can be required via `require()`
+  - Engine
+  - Store
+  - Backend
+  - Media
+  - Audio
+  - Format
+  - Helpers
+  - Event
+  - Http
+  - Net
+  - WS
+  - DB
+  - name: classes
+    description: |
+      classes which are not directly accessible
+  - Client
+  - Channel
+  - User
+  - Permission
+  - ChannelGroup
+  - ServerGroup
+  - Bytes
+  - PlaylistTrack
+  - Track
+  - APIEvent
+  - Playlist
+  - NetClient
+  - DBConn
+  - name: types
+    description: |
+      type definitions
+  - ClientServergroupEvent
+  - Message
+  - DBParams
+  - MoveInfo
+  - ChannelParams
+  - ConnectParams

@@ -3,7 +3,7 @@ node_js:
 - node
 script:
 - npm install -g documentation jsdoc
-- documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o out
+- documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o out -c documentation.yml
 - sed -f after_building.sed -i out/index.html
 - jsdoc -c config.json || true
 - node generate.js
