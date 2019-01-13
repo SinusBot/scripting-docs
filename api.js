@@ -2518,3 +2518,31 @@ class WS {
      */
     close(connectionId) { }
 }
+
+/**
+ * @class
+ * @mixin
+ * @version 0.14.2
+ * @example
+ * var graphics = require('graphics');
+ */
+class Graphics {
+    /**
+     * 
+     */
+    RemoveBanner() { };
+    /**
+     * 
+     * @example 
+     * graphics.setBanner('banner', {
+     *      "format": "png",
+     *      "width": 260,
+     *      "height": 120,
+     *      "layers": layers[]
+     * }, function() { engine.setAvatarFromBanner('banner.png'); });
+     * @param {string} filename - filename without ending
+     * @param {object} graphicsSettings
+     * @param {Function} functions
+     */
+    setBanner(filename, graphicsSettings, functions);
+}
