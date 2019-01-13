@@ -1577,7 +1577,10 @@ class Client {
      */
     removeFromServerGroup(id) { }
     /**
-     * @description Moves a client to another channel
+     * @description
+     * Moves a client to another channel
+     * 
+     * *Note: This can also be used to disconnect a discord bot-instance from the voice chat with `backend.getBotClient().moveTo('')`.
      * @param {Channel} target - Channel the client should be moved to
      * @param {string} [password] - Password for the target channel, if required
      */
