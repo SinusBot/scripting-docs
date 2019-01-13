@@ -3,9 +3,9 @@ toc:
   - registerPlugin
   - Manifest
   - mainFunction
-  - name: require
+  - name: modules
     description: |
-      classes which can be required via `require()`
+      Modules which can be imported via `require(<module name>)`
   - Engine
   - Store
   - Backend
@@ -18,9 +18,10 @@ toc:
   - Net
   - WS
   - DB
+  - Graphics
   - name: classes
     description: |
-      classes which are not directly accessible
+      Classes which get returned by functions and are not directly accessible
   - Client
   - Channel
   - User
@@ -36,7 +37,7 @@ toc:
   - DBConn
   - name: types
     description: |
-      type definitions
+      Type definitions
   - ClientServergroupEvent
   - Message
   - DBParams
