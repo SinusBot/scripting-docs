@@ -18,6 +18,7 @@ toc:
   - Net
   - WS
   - DB
+  - FS
   - Graphics
   - name: classes
     description: |
@@ -35,6 +36,9 @@ toc:
   - Playlist
   - NetClient
   - DBConn
+  - DBConn
+  - FileInfo
+#  - BytesWriter
   - name: types
     description: |
       Type definitions
