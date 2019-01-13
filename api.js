@@ -2531,7 +2531,7 @@ class Graphics {
      * @description Removes the banner.
      * @return {boolean} success
      */
-    RemoveBanner() { };
+    removeBanner() { }
     /**
      * @description Setbanner sets the avatar of the sinusbot client.
      * @example 
@@ -2546,5 +2546,5 @@ class Graphics {
      * @param {Function} callback
      * @return {boolean} success
      */
-    setBanner(filename, graphicsSettings, callback);
+    setBanner(filename, graphicsSettings, callback) { }
 }
