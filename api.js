@@ -9,7 +9,7 @@
  *     description: 'This example actually does nothing',
  *     author: 'Author <author@example.com>',
  *     vars: []
- * }, function(sinusbot, config) {
+ * }, function(_, config, meta) {
  *     // your code goes here
  * });
  * @param {Manifest} manifest
@@ -17,7 +17,7 @@
  * contains metadata and variables that will be shown in the web interface.
  * @param {mainFunction} mainFunction
  * If the script is activated this function is called when the scripts are loaded.
- * The function receives three parameters, the first one (`sinusbot`) is deprecated and should **not** be used anymore.
+ * The function receives three parameters, the first one (`_`) is deprecated and should **not** be used anymore.
  */
 function registerPlugin(manifest, mainFunction) { }
 
@@ -56,12 +56,12 @@ class Manifest { }
 /**
  * @callback mainFunction
  * @see registerPlugin
- * @param {object} [sinusbot] - This is **deprecated** and should **not** be used anymore.
+ * @param {object} [_] - This is **deprecated** and should **not** be used anymore.
  * @param {object} config - Configuration of the plugin that the user set from within the web interface
  * (given you have added anything to the vars field of your script manifest).
- * @param {object} manifest - Manifest as specified in registerPlugin.
+ * @param {object} meta - Manifest as specified in registerPlugin.
  */
-function mainFunction(sinusbot, config, manifest) {}
+function mainFunction(_, config, meta) {}
 
 /**
  * @class
@@ -89,14 +89,14 @@ class Engine {
      * sets the log level of the instance
      * ```
      * level | what gets logged
-     * ---|---
-     * 0 | no log messages
-     * 1 | errors only
-     * 2 | errors and warnings
-     * 3 | errors, warnings, information
-     * 4 | ...
-     * 10 | most verbose
-     * 11 | most verbose + external backends
+     * ------|-----------------
+     *   0   | no log messages
+     *   1   | errors only
+     *   2   | errors and warnings
+     *   3   | errors, warnings, information
+     *   4   | ...
+     *  10   | most verbose
+     *  11   | most verbose + external backends
      * ```
      * @param {number} level - Log level to set
      * @returns {boolean}
@@ -108,14 +108,14 @@ class Engine {
      * Sets the log level of the bot
      * ```
      * level | what gets logged
-     * ---|---
-     * 0 | no log messages
-     * 1 | errors only
-     * 2 | errors and warnings
-     * 3 | errors, warnings, information
-     * 4 | ...
-     * 10 | most verbose
-     * 11 | most verbose + external backends
+     * ------|-----------------
+     *   0   | no log messages
+     *   1   | errors only
+     *   2   | errors and warnings
+     *   3   | errors, warnings, information
+     *   4   | ...
+     *  10   | most verbose
+     *  11   | most verbose + external backends
      * ```
      * @param {number} level - Log level to set
      * @returns {boolean}
@@ -1027,6 +1027,11 @@ class APIEvent {
      * @returns {string} Remote address that triggered the call
      */
     remoteAddr() { }
+    /**
+     * @version 0.14
+     * @returns {object} Key/Value map of the query parameters in the url
+     */
+    queryParams() { }
 }
 
 /**
