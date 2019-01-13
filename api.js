@@ -2528,11 +2528,12 @@ class WS {
  */
 class Graphics {
     /**
-     * 
+     * @description Removes the banner.
+     * @return {boolean} success
      */
     RemoveBanner() { };
     /**
-     * 
+     * @description Setbanner sets the avatar of the sinusbot client.
      * @example 
      * graphics.setBanner('banner', {
      *      "format": "png",
@@ -2542,7 +2543,8 @@ class Graphics {
      * }, function() { engine.setAvatarFromBanner('banner.png'); });
      * @param {string} filename - filename without ending
      * @param {object} graphicsSettings
-     * @param {Function} functions
+     * @param {Function} callback
+     * @return {boolean} success
      */
-    setBanner(filename, graphicsSettings, functions);
+    setBanner(filename, graphicsSettings, callback);
 }
