@@ -881,17 +881,41 @@ class Format {
  */
 class Helpers {
     /**
-     * @description Returns a random integer between zero and <max>
+     * @description Returns a random numbers between zero and <max>
      * @param {number} max
-     * @returns {number} Random integer
+     * @returns {number} Random numbers
      */
     getRandom(max) { }
     /**
-     * @description Gets the string representation of an object
-     * @param {object} input
-     * @returns {string}
+     * @description Returns a random permutation of numbers between zero and <max>
+     * @param {number} max
+     * @returns {number[]} A random permutation of numbers between zero and <max>
      */
-    toString(input) { }
+    getRandPerm(max) { }
+    // TODO: Provide examples how this can be used
+    // /**
+    //  * @description Creates a new BytesWriter
+    //  * @returns {BytesWriter}
+    //  */
+    // newBytes() { }
+    /**
+     * @description Returns a BytesWriter for a given string
+     * @param {string} value String
+     * @returns {BytesWriter}
+     */
+    bytesFromString(value) { }
+    /**
+     * @description Returns a BytesWriter for a given hex-string
+     * @param {string} value Hex-string
+     * @returns {BytesWriter}
+     */
+    bytesFromHex(value) { }
+    /**
+     * @description Returns a BytesWriter for a given base64-string
+     * @param {string} value Base64-string
+     * @returns {BytesWriter}
+     */
+    bytesFromBase64(value) { }
     /**
      * @description Encodes a string to base64
      * @param {string} input
@@ -934,6 +958,28 @@ class Helpers {
      * @returns {string}
      */
     SHA256Sum(input) { }
+    /**
+     * @description Gets the string representation of an object
+     * @deprecated This function should not be used anymore, if possible.
+     * @param input
+     * @returns {string}
+     */
+    toString(input) { }
+    
+    // Semi-undocumented stuff:
+    // /**
+    //  * @description Returns the documentation of a function
+    //  * @deprecated Probably doesn't work anymore
+    //  * @returns {string} JSDoc String
+    //  */
+    // document() { }
+    // /**
+    //  * @description Returns the internal type of an object
+    //  * @deprecated Shouldn't be used
+    //  * @param input
+    //  * @returns {string} Internal type
+    //  */
+    // typeOf(input) { }
 }
 
 /**
