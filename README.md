@@ -4,6 +4,10 @@
 
 This repository contains the [JSDoc](http://usejsdoc.org) based javascript file from which the [scripting engine documentation](https://sinusbot.github.io/scripting-docs/) is generated.
 
+## Introduction
+
+Check out our guide in the [SinusBot Documentation](https://sinusbot.github.io/docs/scripts/) for explanations on how to get started.
+
 ## Build
 
 ### Install [documentation.js](https://github.com/documentationjs/documentation)
@@ -15,7 +19,13 @@ npm install -g documentation
 ### Generate html file
 
 ```bash
-documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o documentation
+documentation build api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
+```
+
+### Serve locally
+
+```bash
+documentation serve api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -w
 ```
 
 ## IntelliSense

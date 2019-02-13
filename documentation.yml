@@ -1,4 +1,12 @@
 toc:
+  - name: Introduction
+    description: |
+      This scripting-documentation lists all available modules and their methods implemented in the current SinusBot Scripting Engine.<br/>
+      **Check out our guide in the [SinusBot Documentation](https://sinusbot.github.io/docs/scripts/) for explanations on how to get started.**
+
+      The code used to generate this documentation can be found [here on GitHub](https://github.com/SinusBot/scripting-docs). Contributions are welcome!
+
+      There is also a [documentation](https://multivit4min.github.io/Sinusbot-Command/) available for the [command-library](https://github.com/Multivit4min/Sinusbot-Command) that was introduced with sinusbot-1.0.0-alpha.
   - name: generic
   - registerPlugin
   - Manifest

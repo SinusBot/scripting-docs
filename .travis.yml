@@ -3,7 +3,7 @@ node_js:
 - node
 script:
 - npm install -g documentation jsdoc
-- documentation build api.js --project-name "SinusBot Scripting Engine" -f html -o out -c documentation.yml
+- documentation build api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
 - sed -f after_building.sed -i out/index.html
 - jsdoc -c config.json || true
 - node generate.js
@@ -19,7 +19,6 @@ deploy:
     api_key:
       secure: TSpSpNN+JsiNRpMsLSBQLTS7Dp4XKqDexWBC/sh/4FBTJy4aafTtgKVR1+YyLD8z8wzsVt01Nl4o2RFw2JYgRClYKqeXWl789bMYxNtPc9Z+v/1Rc0EsAZbKq+xihmN35IbaYu2xHLGGFGbM2ltBdqMF026v2HjPqNKkgVy28Dhapsrsr2upRy+uS1flvlvBrZxL0KsBjBwbiDfPKSs6k1RJkXc0tj/P+GISmUVLu9CA8bYRoH38fCY6C4px2JseBkyhtuGFjTf4vLevI5se8AoTBMKdfc11LW/OTcewyXQx8mgLnxI7QJW9ZeW2UlL/LT4DxC+Bq7x/UQJSApNzCQ2luaxfa9b9K2D7FwboKYVQ4aYiwA7NMV7Ri+FapCPA6to1s9VaO/vXKaP4RsRTcaMlB992IA2IIwDYwU7MibGn0FfVe6IB9eLpIT5qebzGxkNHd6Aqwq2+5M/ZpKzzMBi+Fay9U5OYAl1z1SZts6cXVkRK352dqcurJQrBuP3gHVXSUgcDzGZ3NzqzuQdkfxL7idnMv1XX5D4kI2oK3Ucl0lmSUd4O3tzvezAnOAqajyR4SwHSFWM3+hP1eWMZXbclx1PyOHzkUfO/m03DXzhQCbpyRc4X+BxgVOYVKR5pRHPa0uKkROsUV8yzzFx63byNUF8KeJefdIYAzStfcqM=
     on:
-      tags: true
       repo: SinusBot/scripting-docs
       branch: master
     skip_cleanup: true

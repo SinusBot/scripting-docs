@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "SinusBot JavaScript based Scripting Engine documentation with examples.",
   "repository": "https://github.com/SinusBot/scripting-docs",
+  "homepage": "https://github.com/SinusBot/scripting-docs",
   "author": "SinusBot",
   "license": "MIT",
   "devDependencies": {
