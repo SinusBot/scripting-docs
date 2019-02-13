@@ -4,15 +4,15 @@ node_js:
 script:
 - npm install -g documentation jsdoc
 - documentation build api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
-- sed -f after_building.sed -i out/index.html
+- sed -f after_building.sed -i documentation/index.html
 - jsdoc -c config.json || true
 - node generate.js
-- cp tsd/types.d.ts out
+- cp tsd/types.d.ts documentation
 deploy:
   - provider: pages
     github-token: $GITHUB_TOKEN
     skip-cleanup: true
-    local-dir: out
+    local-dir: documentation
   - provider: npm
     email:
       secure: GBOh+TKTCfMd2/2zaullR5G/QbXlSSKBI7GPWV5QM5PR640gLmwgx9AzQUMvHZCkFIibeKtE48nuVK6HdburAA42kvkuBjQe3buHVVD7FU6FySnX96F2ZRx+SQoAUSeO/DRrTkHpMLyJRauLEM8yNsf/PICoiBpHnh8TK//ssZlI59hvDqEtg3D0lafEKLkfeQjVlqu9y+trBwhPd4DZquZKsfDbU4NpKuxZnQ4iVgW4XLS3LuZ4X3g5PDH+aWutWacpTrMLo5rCJhj6nKxlTGOhPfpkLbcSsDkY+BWUJ8qR/Hn7NSLkAmcDDuJS7KXeP0QvWeMYusxbqmlbl5+HY0SbZ+k5AGT9FfAjXhMIxmxcIU+8Ch+DomFe1i468IY3AmN3hpZXDoCCsYLentgY/xwUkUzv7haMS8y6XaAq90+jCqupyvkY52ms4Vl3NpRWvAhpEKrYnx609PZZBlY3fT7u68ayiuoda3damiQsNjNO7zM5AqJ3vzeDZTsmmOdlR9VPzgSiWfzEKCrSfw/VCkMzB+qs6vqeZNOxVZsjsRBUJZ5koFE09EsCRj0hrkXc1HMCBTz+SY/qGX3KbE13vMrICOAUi5eSJHd1d7DN3YzbMj7bbMmnDAXGMHWsBURtqrtvnwWkeOEk5m2kZ7glOV9qz+Z5lzLsC5oqtpdzosk=
