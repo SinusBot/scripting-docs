@@ -11,7 +11,6 @@ script:
 - node generate.js
 - cp tsd/types.d.ts documentation
 deploy:
-  matrix:
   - provider: pages
     github-token: "$GITHUB_TOKEN"
     skip-cleanup: true
