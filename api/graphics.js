@@ -8,7 +8,7 @@
  */
 
 /**
- * TODO: Document Layer Parameters!
+ * @todo TODO: Document Layer Parameters!
  * @typedef {object} BannerLayer
  * @since 0.14.2
  */

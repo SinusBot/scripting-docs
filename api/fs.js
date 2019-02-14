@@ -13,9 +13,9 @@ class FileInfo {
      * @returns {string} Length in bytes for regular files; system-dependent for others
      */
     size() { }
-    // FIXME: Either document FileMode or change to number
     /**
      * @since 1.0.0
+     * @todo FIXME: Document FileMode or change to number
      * @returns {FileMode} File mode bits
      */
     mode() { }
