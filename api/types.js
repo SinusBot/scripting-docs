@@ -25,7 +25,7 @@ class ApiEvent {
      */
     remoteAddr() { }
     /**
-     * @version 0.14
+     * @since 0.14
      * @returns {object} Key/Value map of the query parameters in the url
      */
     queryParams() { }
@@ -77,7 +77,7 @@ class Client {
     description() { }
     /**
      * @param {string} description
-     * @version 0.9.19
+     * @since 0.9.19
      */
     setDescription(description) { }
     /**
@@ -292,27 +292,27 @@ class Channel {
      */
     parent() { }
     /**
-     * @version 0.9.16.3
+     * @since 0.9.16.3
      * @returns {number} Order / position of this channel.
      * For ts3 this is a numeric value determining the order in which channels are displayed below their parent. To set a new value, please use moveTo.
      */
     position() { }
     /**
      * @description delete the current channel
-     * @version 0.9.17
+     * @since 0.9.17
      * @returns {boolean}
      */
     delete() { }
     /**
      * @description Moves the channel to a new parent with a new position value
-     * @version 0.9.16.3
+     * @since 0.9.16.3
      * @param {(string|Channel)} parent - New parent channel
      * @param {number} order - New order value
      */
     moveTo(parent, order) { }
     /**
      * @param {string} name
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setName(name) { }
     /**
@@ -325,17 +325,17 @@ class Channel {
     topic() { }
     /**
      * @param {string} topic
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setTopic(topic) { }
     /**
-     * @version 0.9.19
+     * @since 0.9.19
      * @returns {string} Description
      */
     description() { }
     /**
      * @param {string} description
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setDescription(description) { }
     /**
@@ -344,7 +344,7 @@ class Channel {
     codec() { }
     /**
      * @param {number} codec
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setCodec(codec) { }
     /**
@@ -353,7 +353,7 @@ class Channel {
     codecQuality() { }
     /**
      * @param {number} quality
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setCodecQuality(quality) { }
     /**
@@ -362,7 +362,7 @@ class Channel {
     maxClients() { }
     /**
      * @param {boolean} maxClients Set to -1 for unlimited clients
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setMaxClients(maxClients) { }
     /**
@@ -371,7 +371,7 @@ class Channel {
     maxFamilyClients() { }
     /**
      * @param {boolean} maxFamilyClients
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setMaxFamilyClients(maxFamilyClients) { }
     /**
@@ -380,7 +380,7 @@ class Channel {
     isPermanent() { }
     /**
      * @param {boolean} permanent
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setPermanent(permanent) { }
     /**
@@ -389,7 +389,7 @@ class Channel {
     isSemiPermanent() { }
     /**
      * @param {boolean} permanent
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setSemiPermanent(permanent) { }
     /**
@@ -406,7 +406,7 @@ class Channel {
     isEncrypted() { }
     /**
      * @param {boolean} encrypted
-     * @version 0.9.16
+     * @since 0.9.16
      */
     setEncrypted(encrypted) { }
     /**
@@ -435,26 +435,26 @@ class Channel {
     setSubscription(val) { }
     /**
      * @description Updates multiple channel parameters at once
-     * @version 0.9.16.3
+     * @since 0.9.16.3
      * @param {ChannelParams} channelParams
      */
     update(channelParams) { }
     /**
      * @description Assigns a client to a channel group
-     * @version 0.9.18
+     * @since 0.9.18
      * @param {Client} client
      * @param {ChannelGroup} channelGroup
      */
     setChannelGroup(client, channelGroup) { }
     /**
      * @description Gets the permissions for the channel from the server - this is an expensive call as the permissions are _not_ cached
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -475,25 +475,25 @@ class ServerGroup {
     name() { }
     /**
      * @returns {string} ID of the icon used for the channel group
-     * @version 0.12.0
+     * @since 0.12.0
      */
     icon() { }
     /**
      * @description Adds a client by database ID to the servergroup
      * @returns {boolean} status if the request was successful
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {(Client|string|number)} client - The client can be a client object, string or number
      */
     addClientByDatabaseId(client) { }
     /**
      * @description Gets the permissions for the servergroup from the server - this is an expensive call as the permissions are _not_ cached
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission to the servergroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -514,18 +514,18 @@ class ChannelGroup {
     name() { }
     /**
      * @returns {string} ID of the icon used for the channel group
-     * @version 0.12.0
+     * @since 0.12.0
      */
     icon() { }
     /**
      * @description Gets the permissions for the channelgroup from the server - this is an expensive call as the permissions are _not_ cached
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {Permission[]}
      */
     getPermissions() { }
     /**
      * @description Adds/sets a new permission to the channelgroup; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
      * @returns {Permission}
      */
@@ -539,78 +539,78 @@ class User {
     /**
      * @description Returns the ID of the user
      * @returns {string} ID of the User
-     * @version 0.13.37
+     * @since 0.13.37
      */
     id() { }
     /**
      * @description Returns the name of the user
      * @returns {string} Name of the User
-     * @version 0.13.37
+     * @since 0.13.37
      */
     name() { }
     /**
      * @description Returns the privileges of the user
      * @returns {number} Privileges of the user 
-     * @version 0.13.37
+     * @since 0.13.37
      */
     privileges() { }
     /**
      * @description Returns the teamspeak unique ID of the bind client
      * @returns {string} teamspeak unique ID of the bind ts client 
-     * @version 0.13.37
+     * @since 0.13.37
      */
     tsUid() { }
     /**
      * @description Returns the teamspeak group ID
      * @returns {string} ID of the bind teamspeak group
-     * @version 0.13.37
+     * @since 0.13.37
      */
     tsGroupId() { }
     /**
      * @description Checks if an user is an admin
      * @returns {boolean} Admin status of the user 
-     * @version 0.13.37
+     * @since 0.13.37
      */
     isAdmin() { }
     /**
      * @description Sets a new password to the user
      * @returns {boolean} Success or not 
      * @param {string} password - new password of the user
-     * @version 0.13.37
+     * @since 0.13.37
      */
     setPassword(password) { }
     /**
      * @description Sets the teamspeak unique ID to the user
      * @returns {boolean} Success or not
      * @param {string} tsUid - teamspeak unique ID of the client 
-     * @version 0.13.37
+     * @since 0.13.37
      */
     setTSUid(tsUid) { }
     /**
      * @description Sets the privileges to an user
      * @returns {boolean} Success or not
      * @param {number} privileges - New privileges of the user
-     * @version 0.13.37
+     * @since 0.13.37
      */
     setPrivileges(privileges) { }
     /**
      * @description Adds an privilege to an user
      * @returns {boolean} Success or not 
      * @param {number} privilege - New privilege which should be added
-     * @version 0.13.37
+     * @since 0.13.37
      */
     addPrivilege(privilege) { }
     /**
      * @description Removes an privilege from an user
      * @returns {boolean} Success or not 
      * @param {number} privilege - Privilege which should be removed
-     * @version 0.13.37
+     * @since 0.13.37
      */
     removePrivilege(privilege) { }
     /**
      * @description Deletes an user
      * @returns {boolean} Success or not 
-     * @version 0.13.37
+     * @since 0.13.37
      */
     delete() { }
 }
@@ -618,64 +618,64 @@ class User {
 /**
  * @interface Permission
  * @description handles channel, channelgroup and servergroup permissions; mainly for TS3
- * @version 0.13.37
+ * @since 0.13.37
  */
 class Permission {
     /**
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {string} ID of the permission
      */
     id() { }
     /**
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {string} Name of the permission
      */
     name() { }
     /**
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {number} permission value
      */
     value() { }
     /**
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {boolean} true, if skip flag has been set - only applicable for ServerGroups
      */
     skip() { }
     /**
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {boolean} true, if negated flag has been set - only applicable for ServerGroups
      */
     negated() { }
     /**
      * @description sets the value of the permission; you need to call save() to apply changes
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {boolean} value - true, if permission should be negated, false otherwise
      * @returns {boolean}
      */
     setNegated(value) { }
     /**
      * @description sets the skip flag - only applicable for ServerGroups; you need to call save() to apply changes
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {boolean} value - true, if permission should be skipped, false otherwise
      * @returns {boolean}
      */
     setSkip(value) { }
     /**
      * @description sets the negated flag - only applicable for ServerGroups; you need to call save() to apply changes
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {number} value - new value for the permission
      * @returns {boolean}
      */
     setValue(value) { }
     /**
      * @description applies the changed settings
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {boolean}
      */
     save() { }
     /**
      * @description delete the current permission
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {boolean}
      */
     delete() { }
@@ -719,17 +719,17 @@ class Track {
     album() { }
     /**
      * @returns {string} Genre of the track
-     * @version 0.9.16
+     * @since 0.9.16
      */
     genre() { }
     /**
      * @returns {number} Duration of the track
-     * @version 0.9.16
+     * @since 0.9.16
      */
     duration() { }
     /**
      * @returns {number} Tracknumber of the track
-     * @version 0.9.16
+     * @since 0.9.16
      */
     trackNumber() { }
     /**
@@ -829,7 +829,7 @@ class PlaylistTrack {
 
 /**
  * @interface Bytes
- * @version 0.9.16
+ * @since 0.9.16
  */
 class Bytes {
     /**

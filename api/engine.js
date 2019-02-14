@@ -180,7 +180,7 @@ module.exports = {
      * sets the avatar to the rendered output of a banner template
      * @param {string} bannerName - banner template to use
      * @returns {boolean}
-     * @version 0.12.0
+     * @since 0.12.0
      */
     setAvatarFromBanner: (bannerName) => {},
 
@@ -189,20 +189,20 @@ module.exports = {
      * sets the avatar to the given image as URL
      * @param {string} url - image url
      * @returns {boolean}
-     * @version 0.14.0
+     * @since 0.14.0
      */
     setAvatarFromURL: (url) => {},
 
     /**
      * @description Gets the users of the SinusBot
-     * @version 0.13.37
+     * @since 0.13.37
      * @returns {User[]}
      */
     getUsers: () => {},
 
     /**
      * @description Gets a SinusBot user by his ID
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {string} id - ID of the SinusBot user
      * @returns {?User}
      */
@@ -210,7 +210,7 @@ module.exports = {
 
     /**
      * @description Gets a Sinusbot user by his name.
-     * @version 0.13.37
+     * @since 0.13.37
      * @param {string} name - Name of the user
      * @returns {?User}
      */
@@ -218,14 +218,14 @@ module.exports = {
 
     /**
      * @description Sets the command prefix.
-     * @version 0.14.0
+     * @since 0.14.0
      * @param {string} prefix - Command prefix
      */
     setCommandPrefix: (prefix) => {},
 
     /**
      * @description Gets the command prefix.
-     * @version 0.14.0
+     * @since 0.14.0
      * @returns {string} Command prefix
      */
     getCommandPrefix: () => {},

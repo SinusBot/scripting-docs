@@ -19,14 +19,14 @@ module.exports = {
     // TODO: Provide examples how this can be used
     // /**
     //  * @description Creates a new BytesWriter
-    //  * @version 1.0.0
+    //  * @since 1.0.0
     //  * @returns {BytesWriter}
     //  */
     // newBytes: ()  => {},
 
     /**
      * @description Returns a BytesWriter for a given string
-     * @version 1.0.0
+     * @since 1.0.0
      * @param {string} value String
      * @returns {BytesWriter}
      */
@@ -34,7 +34,7 @@ module.exports = {
 
     /**
      * @description Returns a BytesWriter for a given hex-string
-     * @version 1.0.0
+     * @since 1.0.0
      * @param {string} value Hex-string
      * @returns {BytesWriter}
      */
@@ -42,7 +42,7 @@ module.exports = {
 
     /**
      * @description Returns a BytesWriter for a given base64-string
-     * @version 1.0.0
+     * @since 1.0.0
      * @param {string} value Base64-string
      * @returns {BytesWriter}
      */

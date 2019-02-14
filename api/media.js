@@ -60,7 +60,7 @@ module.exports = {
      * @description Adds the given url as the first entry in the queue
      * @param {string} url
      * @returns {boolean}
-     * @version 0.12.0
+     * @since 0.12.0
      */
     playAsNext: (url) => {},
 

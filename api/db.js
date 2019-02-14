@@ -1,7 +1,7 @@
 // TODO: improve parameter documentation
 /**
  * @interface DBConn
- * @version 0.9.16.4
+ * @since 0.9.16.4
  */
 class DBConn {
     /**
@@ -26,7 +26,7 @@ class DBConn {
  * @callback dbQueryCallback
  * @see DBConn#query
  * @see DBConn#exec
- * @version 0.9.16.4
+ * @since 0.9.16.4
  * @description Gets called with two parameters, err and result - both are mutually exclusive.
  * Result contains an array of rows, each containing an object with the column names as key.
  * @param {string} [error]
@@ -35,7 +35,7 @@ class DBConn {
 
 /**
  * @typedef {object} DBParams
- * @version 0.9.16
+ * @since 0.9.16
  * @property {string} driver - Database driver to use, sqlite3 (default; currently in-memory only), mysql or postgres
  * @property {string} [host] - Database server to connect to, required for mysql / postgres
  * @property {string} [username]
@@ -46,14 +46,14 @@ class DBConn {
 /**
  * @callback dbConnectCallback
  * @see module:db#connect
- * @version 0.9.16.4
+ * @since 0.9.16.4
  * @description If an error occured, exactly one parameter containing the error will be handed to the callback
  * @param {string} [error]
  */
 
 /**
  * @module db
- * @version 0.9.16.4
+ * @since 0.9.16.4
  * @description
  * The database module is protected, it needs the following entry per script in your config.ini:
  * ```

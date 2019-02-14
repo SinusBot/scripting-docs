@@ -1,7 +1,7 @@
 /**
  * @callback simpleRequestCallback
  * @see module:http#simpleRequest
- * @version 0.14.2
+ * @since 0.14.2
  * @param {string} [error]
  * @param {object} [response]
  * @param {Bytes} response.data - Data; Needs to be converted to a string first, e.g. `response.data.toString()`.
@@ -15,7 +15,7 @@
  */
 module.exports = {
     /**
-     * @version 0.14.2
+     * @since 0.14.2
      * @description Creates an http request
      * @param {object} config - http configuration object
      * @param {string} [config.method] - Request Method to use (eg GET, POST, PUT, ...)

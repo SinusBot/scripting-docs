@@ -171,14 +171,14 @@
 /**
  * @event clientDeaf
  * @memberof event
- * @version 0.9.18
+ * @since 0.9.18
  * @param {Client} client
  * @description Gets fired whenever a client mutes his sound
  */
 /**
  * @event clientUndeaf
  * @memberof event
- * @version 0.9.18
+ * @since 0.9.18
  * @param {Client} client
  * @description Gets fired whenever a client unmutes his sound
  */
@@ -221,7 +221,7 @@
  * @param {object} ev - Event data
  * @param {Client} ev.client - Client
  * @param {string} ev.text - Recognized text
- * @version 0.13.37
+ * @since 0.13.37
  * @description
  * This event gets triggered whenever the bot recognizes a voice command that the script registered, assuming:
  * 1) SpeechRecognition was installed
@@ -276,21 +276,21 @@
 /**
  * @event ws.connect
  * @memberof event
- * @version 0.9.20
+ * @since 0.9.20
  * @see ws
  * @param {string} id - ID of the new connection
  */
 /**
  * @event ws.close
  * @memberof event
- * @version 0.9.20
+ * @since 0.9.20
  * @see ws
  * @param {string} id - ID of the closed connection
  */
 /**
  * @event ws.error
  * @memberof event
- * @version 0.9.20
+ * @since 0.9.20
  * @see ws
  * @param {string} id - ID of the connection
  * @param {string} error - Error
@@ -298,7 +298,7 @@
 /**
  * @event ws.data
  * @memberof event
- * @version 0.9.20
+ * @since 0.9.20
  * @see ws
  * @param {string} id - ID of the connection
  * @param {number} type - Type of the message

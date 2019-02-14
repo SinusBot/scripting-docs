@@ -1,6 +1,6 @@
 /**
  * @typedef {object} BannerSettings
- * @version 0.14.2
+ * @since 0.14.2
  * @property {string} format - e.g. "png"
  * @property {number} width
  * @property {number} height
@@ -10,12 +10,12 @@
 /**
  * TODO: Document Layer Parameters!
  * @typedef {object} BannerLayer
- * @version 0.14.2
+ * @since 0.14.2
  */
 
  /**
  * @module graphics
- * @version 0.14.2
+ * @since 0.14.2
  * @example
  * var graphics = require('graphics');
  */

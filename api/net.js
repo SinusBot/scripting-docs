@@ -1,7 +1,7 @@
 
 /**
  * @interface NetClient
- * @version 0.9.16
+ * @since 0.9.16
  */
 class NetClient {
     /**
@@ -43,7 +43,7 @@ class NetClient {
 
 /**
  * @typedef {object} NetConnectParams
- * @version 0.9.16
+ * @since 0.9.16
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
  * @property {string} [url] - WebSocket URL to use
@@ -53,14 +53,14 @@ class NetClient {
 /**
  * @callback netConnectCallback
  * @see module:net#connect
- * @version 0.9.16
+ * @since 0.9.16
  * @description If an error occured, exactly one parameter containing the error will be handed to the callback.
  * @param {string} [error]
  */
 
 /**
  * @module net
- * @version 0.9.16
+ * @since 0.9.16
  * @example
  * var net = require('net');
  * var engine = require('engine');

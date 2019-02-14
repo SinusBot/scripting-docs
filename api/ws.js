@@ -1,6 +1,6 @@
 /**
  * @module ws
- * @version 0.9.20
+ * @since 0.9.20
  * @fires event#event:ws.connect
  * @fires event#event:ws.close
  * @fires event#event:ws.error

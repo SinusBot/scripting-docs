@@ -13,7 +13,7 @@ module.exports = {
      * @description Enables or disables audio return channel; required for speech recognition engine / recording
      * @param {number} flags - bitmask; use 0x01 for general audio return (recording) or 0x02 for separated audio (for speech recognition) - 0x03 for both
      * @returns {boolean}
-     * @version 0.13.37
+     * @since 0.13.37
      */
     setAudioReturnChannel: (flags) => {},
 

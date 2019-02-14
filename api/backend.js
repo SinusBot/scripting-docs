@@ -70,7 +70,7 @@ module.exports = {
      * Returns an array of channels matching the name
      * @param {string} name
      * @returns {Channel[]}
-     * @version 0.14.0
+     * @since 0.14.0
      * @example
      * var backend = require('backend');
      * var channels = backend.getChannelsByName('foobar');
@@ -163,7 +163,7 @@ module.exports = {
 
     /**
      * @description Creates a new channel
-     * @version 0.9.16.3
+     * @since 0.9.16.3
      * @param {ChannelParams} channelParams
      * @returns {Channel} - Channel which was created
      */
