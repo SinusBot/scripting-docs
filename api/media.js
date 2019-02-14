@@ -76,7 +76,7 @@ module.exports = {
 
     /**
      * @description Stops playback completely
-     * @param {string} trackID - (optional) the track to stop; if not present, all tracks will be stopped
+     * @param {string} [trackID] - (optional) the track to stop; if not present, all tracks will be stopped
      * @returns {boolean}
      */
     stop: (trackID) => {},
