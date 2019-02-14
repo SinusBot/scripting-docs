@@ -3,12 +3,11 @@ node_js:
 - node
 script:
 - npm install -g documentation jsdoc
-- documentation build api.js -c documentation.yml
+- documentation build api/ -c documentation.yml
   --project-name "SinusBot Scripting Engine" --project-version " "
   --shallow -f html -o documentation
-- sed -f after_building.sed -i documentation/index.html
+- sed -f apply_favicon.sed -i documentation/index.html
 - jsdoc -c config.json || true
-- node generate.js
 - cp tsd/types.d.ts documentation
 deploy:
   - provider: pages

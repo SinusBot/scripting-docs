@@ -14,23 +14,21 @@ toc:
   - name: modules
     description: |
       Modules which can be imported via `require(<module name>)`
-  - Engine
-  - Store
-  - Backend
-  - Media
-  - Audio
-  - Format
-  - Helpers
-  - Event
-  - Http
-  - Net
-  - WS
-  - DB
-  - FS
-  - Graphics
-  - name: classes
-    description: |
-      Classes which get returned by functions and are not directly accessible
+  - engine
+  - store
+  - backend
+  - media
+  - audio
+  - format
+  - helpers
+  - event
+  - http
+  - net
+  - ws
+  - db
+  - fs
+  - graphics
+  - name: interfaces
   - Client
   - Channel
   - User
@@ -40,19 +38,22 @@ toc:
   - Bytes
   - PlaylistTrack
   - Track
-  - APIEvent
+  - ApiEvent
   - Playlist
   - NetClient
   - DBConn
-  - DBConn
   - FileInfo
-#  - BytesWriter
   - name: types
-    description: |
-      Type definitions
   - ClientServergroupEvent
   - Message
-  - DBParams
   - MoveInfo
   - ChannelParams
-  - ConnectParams
+  - NetConnectParams
+  - DBParams
+  - BannerSettings
+  - BannerLayer
+  - name: callbacks
+  - simpleRequestCallback
+  - netConnectCallback
+  - dbConnectCallback
+  - dbQueryCallback
