@@ -1,4 +1,3 @@
-// TODO: improve parameter documentation
 /**
  * @interface DBConn
  * @since 0.9.16.4
@@ -18,7 +17,7 @@ class DBConn {
      * @description Use this insted of query if you don't expect a result
      * @param {string} queryString
      * @param {any} [parameters] - Zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
-     * @param {function} [callback]
+     * @param {dbQueryCallback} [callback]
      */
     exec(queryString, parameters, callback) {}
 }
