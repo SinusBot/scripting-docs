@@ -1,5 +1,3 @@
-// TODO: update links
-
 /**
  * @typedef {object} Manifest
  * @see registerPlugin
@@ -24,10 +22,10 @@
  * @param {string[]} [requiredModules]
  * Using this, you can define which restricted modules the script wants to use. If it's not allowed via the config, the script will not load at all but instead return an error on startup.
  * If you only optionally use features from restricted modules, don't use this but provide a fallback in your script.
- * @param {object[]} [vars] - More information about the usage of variables can be found [here](https://wiki.sinusbot.com/en:guides:features:scripts:variables).
+ * @param {object[]} [vars] - More information about the usage of variables can be found [here](https://sinusbot.github.io/docs/scripts/#vars-array).
  * @param {string[]} [voiceCommands]
  * This parameter is only used for the speech recognition feature and may contain one or more strings that are to be detected for the given script.
- * You can find more details on how to use it here: [Speech Recognition](https://wiki.sinusbot.com/en:guides:features:speechrecognition)
+ * You can find more details on how to use it here: [Speech Recognition](https://sinusbot.github.io/docs/speechrecognition/)
  */
 
  /**
