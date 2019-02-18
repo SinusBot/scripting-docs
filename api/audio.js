@@ -3,9 +3,11 @@
  */
 module.exports = {
     /**
-     * @description Applies an audiofilter to the audio output
+     * @description Applies a [ffmpeg filter](https://ffmpeg.org/ffmpeg-filters.html) to the audio output.
+     * 
+     * Warning: This method is curretly **not safe to use** and **leads to crashes**!
      * @param {string} filter - ffmpeg compatible filter string
-     * @returns {boolean}
+     * @returns {boolean} success
      */
     setAudioFilter: (filter) => {},
 
