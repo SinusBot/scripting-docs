@@ -8,32 +8,30 @@ class FileInfo {
      * @returns {string} Base name of the file
      */
     name() { }
+    
     /**
      * @since 1.0.0
      * @returns {string} Length in bytes for regular files; system-dependent for others
      */
     size() { }
+
     /**
      * @since 1.0.0
-     * @todo FIXME: Document FileMode or change to number
-     * @returns {FileMode} File mode bits
+     * @returns {number} [File mode bits](https://en.wikipedia.org/wiki/Chmod#Numerical_permissions)
      */
     mode() { }
+
     /**
      * @since 1.0.0
      * @returns {Date} Modification time
      */
     modTime() { }
+
     /**
      * @since 1.0.0
      * @returns {boolean} Returns if the file is a directory
      */
     isDir() { }
-    // FIXME: What is returned here exactly?
-    // /**
-    //  * @returns {object} Underlying data source (can return nil)
-    //  */
-    // sys() { }
 }
 
 /**
