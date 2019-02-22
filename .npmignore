@@ -1,2 +1,12 @@
-!tsd/types.d.ts
+# keep tsd
+!tsd
+
+# ignore other stuff
+.git
+.gitignore
+.travis.yml
+documentation/
+config.json
+after_building.sed
 intellisense-demo.gif
+README.md

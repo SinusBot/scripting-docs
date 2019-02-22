@@ -19,13 +19,13 @@ npm install -g documentation
 ### Generate html file
 
 ```bash
-documentation build api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
+documentation build api/ -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
 ```
 
 ### Serve locally
 
 ```bash
-documentation serve api.js -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -w
+documentation serve api/ -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -w
 ```
 
 ## IntelliSense
@@ -38,27 +38,15 @@ There are TypeScript typings available which are generated out of the documentat
 
 First of all you need to install the typings by executing: `npm i sinusbot-scripting-engine` or `yarn add sinusbot-scripting-engine`.
 
-After you have the typings installed, you need to create a `jsconfig.json` with the following content:
+After you have the typings installed, you need to create a `jsconfig.json` in the folder where you develop your scripts with the following content:
 
 ```json
 {
     "compilerOptions": {
-        "target": "es5",
+        "target": "es5", // or "es2018" if sinusbot version >= 1.0.0
         "checkJs": true
     }
 }
 ```
-
-Or alternatively if you only want to enable type checking for specific files set the config to
-
-```json
-{
-    "compilerOptions": {
-        "target": "es5"
-    }
-}
-```
-
-and add `// @ts-check` as the first line of your script that should be checked.
 
 For reference, you can check out [this repository](https://github.com/SinusBot/scripts).
