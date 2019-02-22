@@ -4,9 +4,8 @@ node_js:
 script:
 - npm install -g documentation jsdoc
 - documentation build api/ -c documentation.yml
-  --project-name "SinusBot Scripting Engine" --project-version " "
+  --project-name "SinusBot Scripting Engine" --project-version " " --favicon "/favicon.ico"
   --shallow -f html -o documentation
-- sed -f apply_favicon.sed -i documentation/index.html
 - jsdoc -c config.json || true
 - cp tsd/types.d.ts documentation
 deploy:
