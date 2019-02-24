@@ -43,6 +43,9 @@ toc:
   - NetClient
   - DBConn
   - FileInfo
+  - TeamSpeakServerInfo
+  - TeamSpeakExtendedServerInfo
+  - Extended
   - name: types
   - ClientServergroupEvent
   - Message

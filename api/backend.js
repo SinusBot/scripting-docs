@@ -194,4 +194,11 @@ module.exports = {
      * @returns {ChannelGroup[]}
      */
     getChannelGroups: () => {},
+
+    /**
+     * Returns the specific functions for discord and teamspeak
+     * @since 1.0.0.alpha.6
+     * @returns {Extended}
+     */
+    extended: () => {},
 }
