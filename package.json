@@ -6,7 +6,11 @@
   "homepage": "https://github.com/SinusBot/scripting-docs",
   "author": "SinusBot",
   "license": "MIT",
+  "scripts": {
+    "generate-docs": "documentation build api/ -c documentation.yml --project-name \"SinusBot Scripting Engine\" --project-version \" \" --favicon \"/favicon.ico\" --shallow -f html -o documentation"
+  },
   "devDependencies": {
+    "documentation": "^9.2.0",
     "jsdoc": "^3.5.5",
     "tsd-jsdoc": "englercj/tsd-jsdoc"
   },
