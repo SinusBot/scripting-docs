@@ -5,6 +5,12 @@
  * @description Gets fired whenever api:<eventName> is triggered by via the web api
  */
 /**
+ * @event public:eventName
+ * @memberof event
+ * @param {ApiEvent} event - API event
+ * @description Gets fired whenever public:<eventName> is triggered by via the web api
+ */
+/**
  * @event chat
  * @memberof event
  * @param {Message} msg - Message
