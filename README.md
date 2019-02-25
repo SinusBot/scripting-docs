@@ -43,7 +43,6 @@ After you have the typings installed, you need to create a `jsconfig.json` in th
 ```json
 {
     "compilerOptions": {
-        "target": "es5", // or "es2018" if sinusbot version >= 1.0.0
         "checkJs": true
     }
 }
