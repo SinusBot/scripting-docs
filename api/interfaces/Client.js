@@ -187,6 +187,7 @@ class Client {
   /**
    * @description Sends a message to the client
    * @param {string} msg - Message to send
+   * @returns {boolean} success
    * @example
    * var backend = require('backend');
    * var client = backend.getClientByName('Bob');
