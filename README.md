@@ -43,8 +43,13 @@ After you have the typings installed, you need to create a `jsconfig.json` in th
 ```json
 {
     "compilerOptions": {
-        "checkJs": true
-    }
+        "checkJs": true,
+        "target": "es2018"
+    },
+    "exclude": [
+        "node_modules",
+        "**/node_modules/*"
+    ]
 }
 ```
 
