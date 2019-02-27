@@ -1,117 +1,138 @@
 /**
  * @interface TeamSpeakServerInfo
+ * @since 1.0.0-alpha.6
  */
 class TeamSpeakServerInfo {
 
   /**
-   * @returns {string} returns the servers name
+   * @since 1.0.0-alpha.6
+   * @returns {string} server name
    */
   name() { }
 
   /**
-   * @returns {string} returns the servers uid
+   * @since 1.0.0-alpha.6
+   * @returns {string} server uid
    */
-  UID() { }
+  uid() { }
 
   /**
-   * @returns {string} returns the current welcome message 
+   * @since 1.0.0-alpha.6
+   * @returns {string} welcome message
    */
   welcomeMessage() { }
 
   /**
-   * @todo version is always 0 due to wrong type
-   * @returns {number} 
+   * @since 1.0.0-alpha.6
+   * @todo //TODO: version is always 0 due to wrong type
+   * @returns {number}
    */
   platform() { }
 
   /**
-   * @returns {number} returns the version of the server 
+   * @since 1.0.0-alpha.6
+   * @returns {number} version of the server
    */
   version() { }
 
   /**
-   * @returns {string} returns the host message
+   * @since 1.0.0-alpha.6
+   * @returns {string} host message
    */
   hostMessage() { }
 
   /**
-   * @returns {string} returns the banner url
+   * @since 1.0.0-alpha.6
+   * @returns {string} banner url
    */
   hostBannerURL() { }
 
   /**
-   * @returns {string} returns the gfx interval of the banner 
+   * @since 1.0.0-alpha.6
+   * @returns {string} gfx url of the banner
    */
   hostBannerGFXURL() { }
 
   /**
-   * @returns {number} returns the banner gfx interval in seconds 
+   * @since 1.0.0-alpha.6
+   * @returns {number} banner gfx interval in seconds
    */
   hostBannerGFXInterval() { }
 
-
   /**
-   * @returns {string} returns the hostbutton url
+   * @since 1.0.0-alpha.6
+   * @returns {string} hostbutton url
    */
   hostButtonURL() { }
 
   /**
-   * @returns {string} returns the hostbutton gfx url
+   * @since 1.0.0-alpha.6
+   * @returns {string} hostbutton gfx url
    */
   hostButtonGFXURL() { }
 
   /**
-   * @returns {string} returns the phoenetic server name 
+   * @since 1.0.0-alpha.6
+   * @returns {string} phoenetic server name
    */
   namePhonetic() { }
 
   /**
-   * @returns {number} returns the current teamspeak server id
+   * @since 1.0.0-alpha.6
+   * @returns {number} teamspeak server id
    */
   serverID() { }
 
   /**
-   * @returns {number} returns the server icon id 
+   * @since 1.0.0-alpha.6
+   * @returns {number} server icon id
    */
   iconID() { }
 
   /**
-   * @returns {number} returns the amount of reserved slots on a server 
+   * @since 1.0.0-alpha.6
+   * @returns {number} amount of reserved slots
    */
   reservedSlots() { }
 
   /**
-   * @todo evaluate if it should return a string instead of a number
-   * @returns {number} returns the id of the default server group 
+   * @since 1.0.0-alpha.6
+   * @todo //TODO: evaluate if it should return a string instead of a number
+   * @returns {number} id of the default server group
    */
   defaultServerGroup() { }
 
   /**
-   * @todo evaluate if it should return a string instead of a number
-   * @returns {number} returns the id of the default channel group 
+   * @since 1.0.0-alpha.6
+   * @todo //TODO: evaluate if it should return a string instead of a number
+   * @returns {number} id of the default channel group
    */
   defaultChannelGroup() { }
 
   /**
-   * @todo evaluate if it should return a string instead of a number
-   * @returns {number} returns the id of the default channel admin group 
+   * @since 1.0.0-alpha.6
+   * @todo //TODO: evaluate if it should return a string instead of a number
+   * @returns {number} id of the default channel admin group
    */
   defaultChannelAdminGroup() { }
 
   /**
    * Retrieves the Encryption Mode of the server
-   * @returns {number} returns the codecs encryption mode (perChannel=0; GlobalOff=1; GlobalOn=2)
+   * @since 1.0.0-alpha.6
+   * @returns {number} encryption mode (perChannel=0; GlobalOff=1; GlobalOn=2)
    */
   codecEncryptionMode() { }
 
   /**
-   * @returns {number} returns the server creation timestamp 
+   * @since 1.0.0-alpha.6
+   * @returns {number} server creation timestamp
    */
   created() { }
 
   /**
    * Retrieve the raw object
-   * @returns {object} returns the serverinfo as stringifyable object 
+   * @since 1.0.0-alpha.6
+   * @returns {object} serverinfo as stringifyable object
    */
   asObject() { }
 }

@@ -171,7 +171,7 @@ module.exports = {
 
     /**
      * Returns a servergroup by its ID
-     * @param {string} id ServerGroup ID
+     * @param {string} id - ServerGroup ID
      * @returns {ServerGroup}
      */
     getServerGroupByID: (id) => {},
@@ -196,9 +196,9 @@ module.exports = {
     getChannelGroups: () => {},
 
     /**
-     * Returns the specific functions for discord and teamspeak
-     * @since 1.0.0.alpha.6
-     * @returns {Extended}
+     * Returns the specific functions for Discord or TeamSpeak3
+     * @since 1.0.0-alpha.6
+     * @returns {(ExtendedTS3|ExtendedDiscord)}
      */
     extended: () => {},
 }

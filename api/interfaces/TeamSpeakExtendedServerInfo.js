@@ -1,182 +1,217 @@
 /**
  * @interface TeamSpeakExtendedServerInfo
+ * @since 1.0.0-alpha.6
  */
 class TeamSpeakExtendedServerInfo {
-  
+
     /**
-     * @returns {number} returns the max clients which are allowed to connect to the server
+     * @since 1.0.0-alpha.6
+     * @returns {number} max clients which are allowed to connect to the server
      */
     maxClients() { }
-  
+
     /**
-     * @returns {number} returns the amount of clients which are connected to the server
+     * @since 1.0.0-alpha.6
+     * @returns {number} amount of clients which are connected to the server
      */
     clientsOnline() { }
-  
+
     /**
-     * @returns {number} returns the amount of created channels on the server
+     * @since 1.0.0-alpha.6
+     * @returns {number} amount of created channels on the server
      */
     channelsOnline() { }
-  
+
     /**
-     * @returns {number} returns the servers uptime in seconds
+     * @since 1.0.0-alpha.6
+     * @returns {number} server uptime in seconds
      */
     uptime() { }
-  
+
     /**
-     * @returns {number} returns how many complains a client needs to have until he gets banned
+     * @since 1.0.0-alpha.6
+     * @returns {number} how many complains a client needs to have until he gets banned
      */
     complainAutobanCount() { }
-  
+
     /**
-     * @returns {number} returns the autoban duration
+     * @since 1.0.0-alpha.6
+     * @returns {number} autoban duration
      */
     complainAutobanTime() { }
-  
+
     /**
-     * @returns {number} returns the seconds of when a complain gets removed
+     * @since 1.0.0-alpha.6
+     * @returns {number} seconds of when a complain gets removed
      */
     complainRemoveTime() { }
-  
+
     /**
-     * @returns {number} returns the number of clients need to be connected to a channel until all get silenced (enforces talkpower)
+     * @since 1.0.0-alpha.6
+     * @returns {number} number of clients need to be connected to a channel until all get silenced (enforces talkpower)
      */
     minClientsInChannelBeforeForcedSilence() { }
-  
+
     /**
-     * @todo add some meaningful description
-     * @returns {number} 
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: add some meaningful description
+     * @returns {number}
      */
     antifloodPointsTickReduce() { }
-  
+
     /**
-     * @todo add some meaningful description
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     antifloodPointsNeededCommandBlock() { }
-  
+
     /**
-     * @todo add some meaningful description
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     antifloodPointsNeededIPBlock() { }
-  
+
     /**
-     * @todo add some meaningful description
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     clientConnections() { }
-  
+
     /**
-     * @todo add some meaningful description
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     queryClientConnections() { }
-  
+
     /**
-     * @returns {number} returns the amount of query clients connected to the server
+     * @since 1.0.0-alpha.6
+     * @returns {number} amount of query clients connected to the server
      */
     queryClientsOnline() { }
-  
+
     /**
-     * @returns {number} retrieves the voiceservers port
+     * @since 1.0.0-alpha.6
+     * @returns {number} voiceservers port
      */
     port() { }
-  
+
     /**
-     * @returns {number} returns wether the server is set to autostart or not
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether the server is set to autostart or not
      */
     autostart() { }
-  
+
     /**
-     * @todo evaluate what the machine id is
+     * @since 1.0.0-alpha.6
+     * @todo //TODO: evaluate what the machine id is
      * @returns {string}
      */
     machineID() { }
-  
+
     /**
-     * @returns {number} returns the needed security level to connect to the server
+     * @since 1.0.0-alpha.6
+     * @returns {number} needed security level to connect to the server
      */
     neededIdentitySecurityLevel() { }
-  
+
     /**
-     * @returns {number} returns wether logging for clients actions is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for clients actions is enabled
      */
     logClient() { }
-  
+
     /**
-     * @returns {number} returns wether logging for query actions is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for query actions is enabled
      */
     logQuery() { }
-  
+
     /**
-     * @returns {number} returns wether logging for channel changes is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for channel changes is enabled
      */
     logChannel() { }
-  
+
     /**
-     * @returns {number} returns wether logging for permissions changes is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for permissions changes is enabled
      */
     logPermissions() { }
-  
+
     /**
-     * @returns {number} returns wether logging for server actions is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for server actions is enabled
      */
     logServer() { }
-  
+
     /**
-     * @returns {number} returns wether logging for filetransfer actions is enabled
+     * @since 1.0.0-alpha.6
+     * @returns {number} wether logging for filetransfer actions is enabled
      */
     logFiletransfer() { }
-  
+
     /**
-     * @returns {number} returns the minimum client version needed to connect
+     * @since 1.0.0-alpha.6
+     * @returns {number} minimum client version needed to connect
      */
     minClientVersion() { }
-  
+
     /**
-     * @returns {number} returns the max download bandwith which is allowed for filetransfer
+     * @since 1.0.0-alpha.6
+     * @returns {number} max download bandwith which is allowed for filetransfer
      */
     maxDownloadTotalBandwidth() { }
-  
+
     /**
-     * @returns {number} returns the max upload bandwith which is allowed for filetransfer
+     * @since 1.0.0-alpha.6
+     * @returns {number} max upload bandwith which is allowed for filetransfer
      */
     maxUploadTotalBandwidth() { }
-  
+
     /**
-     * @returns {number} returns the maximum bytes which are able to be downloaded via filetransfer
+     * @since 1.0.0-alpha.6
+     * @returns {number} maximum bytes which are able to be downloaded via filetransfer
      */
     downloadQuota() { }
-  
+
     /**
-     * @returns {number} returns the maximum bytes which are able to be uploaded via filetransfer
+     * @since 1.0.0-alpha.6
+     * @returns {number} maximum bytes which are able to be uploaded via filetransfer
      */
     uploadQuota() { }
-  
+
     /**
-     * @returns {number} returns the amount of bytes which have been downloaded this month
+     * @since 1.0.0-alpha.6
+     * @returns {number} amount of bytes which have been downloaded this month
      */
     monthBytesDownloaded() { }
-  
+
     /**
-     * @returns {number} returns the amount of bytes which have been uploaded this month
+     * @since 1.0.0-alpha.6
+     * @returns {number} amount of bytes which have been uploaded this month
      */
     monthBytesUploaded() { }
-  
+
     /**
-     * @returns {number} returns the total amount of bytes which have been downloaded
+     * @since 1.0.0-alpha.6
+     * @returns {number} total amount of bytes which have been downloaded
      */
     totalBytesDownloaded() { }
-  
+
     /**
-     * @returns {number} returns the total amount of bytes which have been uploaded
+     * @since 1.0.0-alpha.6
+     * @returns {number} total amount of bytes which have been uploaded
      */
     totalBytesUploaded() { }
-  
+
     /**
-   * Retrieve the raw object
-   * @returns {object} returns the serverinfo as stringifyable object 
+     * Retrieve the raw object
+     * @since 1.0.0-alpha.6
+     * @returns {object} serverinfo as stringifyable object
      */
     asObject() { }
 }

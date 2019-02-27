@@ -58,7 +58,7 @@ class User {
   /**
    * @see tsUid
    * @returns {string} teamspeak or discord unique ID if bound to a client
-   * @since 1.0.0-alpha6
+   * @since 1.0.0-alpha.6
    */
   uid() { }
 
@@ -71,7 +71,7 @@ class User {
   /**
    * @see tsGroupId
    * @returns {string} Group ID if bound to a teamspeak group or discord role
-   * @since 1.0.0-alpha6
+   * @since 1.0.0-alpha.6
    */
   groupId() { }
 
@@ -102,7 +102,7 @@ class User {
    * @description Sets the group ID
    * @returns {boolean} Success or not
    * @param {string} groupId - teamspeak group ID or discord role ID
-   * @since 1.0.0-alpha6
+   * @since 1.0.0-alpha.6
    */
   setGroupId(groupId) { }
 
