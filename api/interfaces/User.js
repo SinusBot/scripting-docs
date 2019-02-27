@@ -50,18 +50,30 @@ class User {
   privileges() { }
 
   /**
-   * @description Returns the teamspeak unique ID of the bind client
-   * @returns {string} teamspeak unique ID of the bind ts client 
+   * @returns {string} teamspeak or discord unique ID if bound to a client
    * @since 0.13.37
    */
   tsUid() { }
 
   /**
-   * @description Returns the teamspeak group ID
-   * @returns {string} ID of the bind teamspeak group
+   * @see tsUid
+   * @returns {string} teamspeak or discord unique ID if bound to a client
+   * @since 1.0.0-alpha6
+   */
+  uid() { }
+
+  /**
+   * @returns {string} Group ID if bound to a teamspeak group or discord role
    * @since 0.13.37
    */
   tsGroupId() { }
+
+  /**
+   * @see tsGroupId
+   * @returns {string} Group ID if bound to a teamspeak group or discord role
+   * @since 1.0.0-alpha6
+   */
+  groupId() { }
 
   /**
    * @description Checks if an user is an admin
@@ -79,12 +91,20 @@ class User {
   setPassword(password) { }
 
   /**
-   * @description Sets the teamspeak unique ID to the user
+   * @description Sets the teamspeak/discord unique ID
    * @returns {boolean} Success or not
-   * @param {string} tsUid - teamspeak unique ID of the client 
+   * @param {string} uid - teamspeak/discord unique ID of the client 
    * @since 0.13.37
    */
-  setTSUid(tsUid) { }
+  setTSUid(uid) { }
+
+  /**
+   * @description Sets the group ID
+   * @returns {boolean} Success or not
+   * @param {string} groupId - teamspeak group ID or discord role ID
+   * @since 1.0.0-alpha6
+   */
+  setGroupId(groupId) { }
 
   /**
    * @description Sets the privileges to an user
