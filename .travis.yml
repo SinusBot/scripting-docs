@@ -6,7 +6,7 @@ before_script:
 script:
 - npm run generate-docs
 after_success:
-- jsdoc -c config.json
+- npm run generate-ts
 - cp tsd/types.d.ts documentation
 deploy:
   - provider: pages

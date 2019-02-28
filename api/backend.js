@@ -198,7 +198,17 @@ module.exports = {
     /**
      * Returns the specific functions for Discord or TeamSpeak3
      * @since 1.0.0-alpha.6
-     * @returns {(ExtendedTS3|ExtendedDiscord)}
+     * @returns {Extended}
      */
     extended: () => {},
 }
+
+/**
+ * Either {@link ExtendedDiscord} or {@link ExtendedTS3}
+ * @interface Extended
+ * @see {ExtendedDiscord}
+ * @see {ExtendedTS3}
+ * @implements {ExtendedDiscord}
+ * @implements {ExtendedTS3}
+ */
+class Extended {}
