@@ -8,16 +8,18 @@ class ExtendedDiscord {
      * Retrieves info about the specific Guild
      * @since 1.0.0-alpha.6
      * @param {string} guildId the guild id of which the info should be retrieved
+     * @param {function} callback => (err, object)
      */
-    getGuild(guildId) { }
+    getGuild(guildId, callback) { }
 
     /**
      * Modifys the guild
      * @since 1.0.0-alpha.6
      * @param {string} guildId Guild ID
      * @param {object} guildObject [Guild Object](https://discordapp.com/developers/docs/resources/guild#guild-object) with the data that should be modified
+     * @param {function} [callback] => (err, object)
      */
-    modifyGuild(guildId, guildObject) { }
+    modifyGuild(guildId, guildObject, callback) { }
 
     /**
      * Sends a presence or status update.
@@ -49,7 +51,7 @@ class ExtendedDiscord {
      * @since 1.0.0-alpha.6
      * @param {string} channelId
      * @param {object} data [Channel Params](https://discordapp.com/developers/docs/resources/channel#modify-channel-json-params)
-     * @param {function} callback => (err, object)
+     * @param {function} [callback] => (err, object)
      */
     modifyChannel(channelId, data, callback) { }
 
@@ -61,7 +63,7 @@ class ExtendedDiscord {
      * @see https://discordapp.com/developers/docs/resources/channel#deleteclose-channel
      * @since 1.0.0-alpha.6
      * @param {string} channelId
-     * @param {function} callback => (err, object)
+     * @param {function} [callback] => (err, object)
      */
     deleteChannel(channelId, callback) { }
 
@@ -94,7 +96,7 @@ class ExtendedDiscord {
      * @since 1.0.0-alpha.6
      * @param {string} channelId
      * @param {object} data [Message Params](https://discordapp.com/developers/docs/resources/channel#create-message-params)
-     * @param {function} callback => (err, object)
+     * @param {function} [callback] => (err, object)
      */
     createMessage(channelId, data, callback) { }
 
@@ -106,7 +108,7 @@ class ExtendedDiscord {
      * @param {string} method HTTP Method
      * @param {string} path HTTP path
      * @param {object} data Data (JSON Object)
-     * @param {function} callback => (err, object)
+     * @param {function} [callback] => (err, object)
      */
     rawCommand(method, path, data, callback) { }
 }
