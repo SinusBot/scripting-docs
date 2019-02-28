@@ -2,13 +2,63 @@
  * @event api:eventName
  * @memberof event
  * @param {ApiEvent} event - API event
- * @description Gets fired whenever api:<eventName> is triggered by via the web api
+ * @description Gets fired whenever api:<eventName> is triggered by via the http API.
+ * You can trigger this by sending a http request to `{sinusbot adress}/api/v1/bot/i/{instanceID}/event/{eventName}` with the `POST` method and the correct headers.
+ * @example
+ * // ** SinusBot Scriptn **
+ * 
+ * event.on('api:caseOne', ev => {
+ *     engine.log(ev.data().foo);
+ * });
+ * 
+ * // this is the short form of: function(ev) {return {something: '...'}}
+ * event.on('api:caseTwo', ev => ({
+ *     something: 'Hello browser, how are you doing?'
+ * }));
+ * @example
+ * // ** JavaScript on the web-page **
+ * 
+ * // this example uses jQuery but you can very easily rewrite it to work without it by using fetch
+ * // this assumes you're logged in and the webpage is included with the script:
+ * 
+ * function sendDataToScript(instanceID) {
+ *     $.ajax({
+ *         url: '/api/v1/bot/i/' + instanceID + '/event/caseOne',
+ *         method: 'POST',
+ *         headers: {
+ *             'Content-Type': 'application/json',
+ *             'Authorization': 'bearer ' + window.localStorage.token
+ *         },
+ *         data: JSON.stringify({"foo": "bar"})
+ *     });
+ * }
+ * 
+ * function requestDataFromScript(instanceID) {
+ *     $.ajax({
+ *         url: '/api/v1/bot/i/' + instanceID + '/event/caseTwo',
+ *         method: 'POST',
+ *         headers: {
+ *             'Content-Type': 'application/json',
+ *             'Authorization': 'bearer ' + window.localStorage.token
+ *         },
+ *         data: '{}'
+ *     }).done(function (data) {
+ *         if (!data || data.length == 0) {
+ *             // no data received
+ *             return
+ *         }
+ *         
+ *         // data is an array of responses
+ *         console.log(data[0].something)
+ *     });
+ * }
  */
 /**
  * @event public:eventName
  * @memberof event
  * @param {ApiEvent} event - API event
- * @description Gets fired whenever public:<eventName> is triggered by via the web api
+ * @description Gets fired whenever public:<eventName> is triggered by via the http API.
+ * @todo //TODO: What is the endpoint path?
  */
 /**
  * @event chat
@@ -235,7 +285,7 @@
  * 3) The voice command was registered by the script in registerPlugin
  * 4) AudioReturnChannel is set to 2
  * 
- * Check out [the wiki article](https://wiki.sinusbot.com/en:guides:features:speechrecognition) for more the complete list of reqirements and instructions on how to install it.
+ * Check out the [documentation](https://sinusbot.github.io/docs/speechrecognition/) for reqirements and instructions on how to install it.
  * @example
  * var event = require('event');
  * var engine = require('engine');
@@ -270,7 +320,7 @@
  * @description
  * This event gets triggered whenever a discord event got received.
  * Every event will be emitted in uppercase and the spaces will be replaced by underscores.
- * All available discord events are documentated here: https://discordapp.com/developers/docs/topics/gateway#events
+ * All available discord events can be found in the [discord documentation](https://discordapp.com/developers/docs/topics/gateway#events)
  * @example
  * var event = require('event');
  * var engine = require('engine');

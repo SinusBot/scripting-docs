@@ -1,7 +1,7 @@
 /**
  * @interface ApiEvent
- * @description This type is passed to a `(api|public):<eventName>`-event, see [`api:<eventName>`](#eventeventapieventname) or [`public:<eventName>`](#eventeventpubliceventname) for more.
- * @see module:event#api:eventName
+ * @description This type is passed to a `(api|public):<eventName>`-event,
+ * see [`api:<eventName>`](#eventeventapieventname) or [`public:<eventName>`](#eventeventpubliceventname) for more.
  */
 class ApiEvent {
   /**
