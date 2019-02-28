@@ -5,7 +5,9 @@
     },
     "source": {
         "include": [
-            "api/"
+            "api/",
+            "api/interfaces",
+            "api/types"
         ]
     }
 }
