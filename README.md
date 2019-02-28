@@ -10,22 +10,28 @@ Check out our guide in the [SinusBot Documentation](https://sinusbot.github.io/d
 
 ## Build
 
-### Install [documentation.js](https://github.com/documentationjs/documentation)
+### Install dependencies
 
 ```bash
-npm install -g documentation
+npm install
 ```
 
-### Generate html file
+### Generate html files
 
 ```bash
-documentation build api/ -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -f html -o documentation
+npm run generate-docs
 ```
 
 ### Serve locally
 
 ```bash
-documentation serve api/ -c documentation.yml --project-name "SinusBot Scripting Engine" --project-version " " --shallow -w
+npm run serve-docs
+```
+
+### Generate d.ts
+
+```bash
+npm run generate-ts
 ```
 
 ## IntelliSense
