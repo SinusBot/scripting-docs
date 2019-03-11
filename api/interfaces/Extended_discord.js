@@ -25,14 +25,35 @@ class ExtendedDiscord {
      * Sends a presence or status update.
      * @see https://discordapp.com/developers/docs/topics/gateway#update-status
      * @since 1.0.0-alpha.6
-     * @param {object} [status]
-     * @param {object} [status.game] Activity
+     * @example
+     * const backend = require("backend")
+     * // => playing hide and seek
+     * backend.extended().setStatus({
+     *     since: 0,
+     *     game: {
+     *         name: "hide and seek",
+     *         type: 0,
+     *     },
+     *     status: "online",
+     *     afk: false
+     * })
+     * @example
+     * const backend = require("backend")
+     * // => set status to 'do not disturb'
+     * backend.extended().setStatus({
+     *     since: 0,
+     *     game: {},
+     *     status: "dnd",
+     *     afk: false
+     * })
+     * @param {object} status
+     * @param {object} status.game Activity
      * @param {string} [status.game.name] Activity's name
-     * @param {string} [status.game.type] Activity's type: 0 (game), 1 (streaming), 2 (listening)
+     * @param {number} [status.game.type] Activity's type: 0 (game), 1 (streaming), 2 (listening)
      * @param {string} [status.game.url] Only https://twitch.tv/ urls work.
-     * @param {string} [status.status] [Status Type](https://discordapp.com/developers/docs/topics/gateway#update-status-status-types). Either online, dnd, idle, invisible or offline.
-     * @param {boolean} [status.afk] Whether or not the client is afk.
-     * @param {number} [status.since] Unix time (in milliseconds) of when the client went idle, or null if the client is not idle.
+     * @param {string} status.status [Status Type](https://discordapp.com/developers/docs/topics/gateway#update-status-status-types). Either online, dnd, idle, invisible or offline.
+     * @param {boolean} status.afk Whether or not the client is afk.
+     * @param {number}  status.since Unix time (in milliseconds) of when the client went idle, or null if the client is not idle.
      */
     setStatus(status) { }
 
