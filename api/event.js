@@ -4,6 +4,7 @@
  * @param {ApiEvent} event - API event
  * @description Gets fired whenever api:<eventName> is triggered by via the http API.
  * You can trigger this by sending a http request to `{sinusbot adress}/api/v1/bot/i/{instanceID}/event/{eventName}` with the `POST` method and the correct headers.
+ * This can only be called by users that are logged in and authenticated via the `Authorization` header. For a public api event see [`public:<eventName>`](#eventeventpubliceventname).
  * @example
  * // ** SinusBot Scriptn **
  * 
@@ -58,7 +59,11 @@
  * @memberof event
  * @param {ApiEvent} event - API event
  * @description Gets fired whenever public:<eventName> is triggered by via the http API.
- * @todo //TODO: What is the endpoint path?
+ * You can trigger this by sending a http request to `{sinusbot adress}/api/v1/b/i/{instanceID}/event/{eventName}` with the `POST` method.
+ * This is similar to [`api:<eventName>`](#eventeventapieventname) with the only difference being
+ * that no authentication is required.
+ * 
+ * See [`api:<eventName>`](#eventeventapieventname) for similar examples.
  */
 /**
  * @event chat
