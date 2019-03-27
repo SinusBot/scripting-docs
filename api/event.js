@@ -3,7 +3,7 @@
  * @memberof event
  * @param {ApiEvent} event - API event
  * @description Gets fired whenever api:<eventName> is triggered by via the http API.
- * You can trigger this by sending a http request to `{sinusbot adress}/api/v1/bot/i/{instanceID}/event/{eventName}` with the `POST` method and the correct headers.
+ * You can trigger this by sending a http request to `{sinusbot address}/api/v1/bot/i/{instanceID}/event/{eventName}` with the `POST` method and the correct headers.
  * This can only be called by users that are logged in and authenticated via the `Authorization` header. For a public api event see [`public:<eventName>`](#eventeventpubliceventname).
  * @example
  * // ** SinusBot Script **
@@ -60,7 +60,7 @@
  * @memberof event
  * @param {ApiEvent} event - API event
  * @description Gets fired whenever public:<eventName> is triggered by via the http API.
- * You can trigger this by sending a http request to `{sinusbot adress}/api/v1/b/i/{instanceID}/event/{eventName}` with the `POST` method.
+ * You can trigger this by sending a http request to `{sinusbot address}/api/v1/b/i/{instanceID}/event/{eventName}` with the `POST` method.
  * This is similar to [`api:<eventName>`](#eventeventapieventname) with the only difference being
  * that no authentication is required.
  * @example
@@ -69,7 +69,7 @@
  *     // JSON data is in: ev.data()
  * });
  * 
- * // This event can be triggered by sending a http `POST` request to `{sinusbot adress}/api/v1/b/i/{instanceID}/event/foobar`.
+ * // This event can be triggered by sending a http `POST` request to `{sinusbot address}/api/v1/b/i/{instanceID}/event/foobar`.
  * // Data can be passed by sening JSON in the request body.
  */
 /**
