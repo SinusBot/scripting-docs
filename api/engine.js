@@ -229,4 +229,11 @@ module.exports = {
      * @returns {string} Command prefix
      */
     getCommandPrefix: () => {},
+
+    /**
+     * @description Returns the SinusBot version.
+     * @since 1.0.0
+     * @returns {string} SinusBot version, for example: `1.0.0-alpha.7-a20212b`
+     */
+    version: () => {},
 }
