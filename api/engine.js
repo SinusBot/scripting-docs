@@ -1,7 +1,7 @@
 /**
  * @module engine
  * @example
- * var engine = require('engine');
+ * const engine = require('engine');
  * engine.log('Hello from a script!');
  */
 module.exports = {
@@ -118,10 +118,41 @@ module.exports = {
     saveConfig: () => {},
 
     /**
-     * Logs to stdout / instance log
-     * @param {any} log
+     * Logs to stdout / instance log.
+     * 
+     * Note:
+     * - For some classes this may print `{}` because the values are returned by functions and not stored as properties.
+     * - In recent versions numbers and some other types may be logged as `<nil>`.
+     * To get the actual value in the log you need to convert it to a string first.
+     * @param {...*} something
+     * @example
+     * const engine = require('engine');
+     * engine.log('Hello from a script!');
+     * 
+     * const a = 42;
+     * const b = 1337;
+     * // can be logged like this:
+     * engine.log('a is ' + a + ', and b is ' + b + '.');
+     * // or a bit nicer with an es6 templates string:
+     * engine.log(`a is ${a}, and b is ${b}.`);
+     * // see https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings
+     * 
+     * // examples of common mistakes:
+     * 
+     * // converting an object to a string like this will *NOT* print what you want:
+     * const cat = {says: 'meow'};
+     * engine.log(`cat: ${cat}`); // => will print: "cat: [object Object]"
+     * engine.log(cat); // => will (probably) print: "{"says":"meow"}"
+     * // to print it's values you can also convert it to JSON:
+     * engine.log(`cat: ${JSON.stringify(cat)}`); // => will print: "cat: {"says":"meow"}"
+     * 
+     * // but this will not work with classes like Client or Channel!
+     * engine.log(JSON.stringify(aClientObj)) // => will print: "{}"
+     * engine.log(aClientObj) // => will print: "Client{ ID: <something>, Name: <irgendwr> }"
+     * // but an array of clients/channels/... will NOT be printed as you would expect:
+     * engine.log([aClientObj, aClientObj]) // => will print: "[{},{}]"
      */
-    log: (log) => {},
+    log: (...something) => {},
 
     /**
      * Exports an object, so other Scripts are able to use functions or values of the Script
