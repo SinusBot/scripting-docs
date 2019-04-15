@@ -156,22 +156,40 @@ module.exports = {
 
     /**
      * Exports an object, so other Scripts are able to use functions or values of the Script
+     * 
+     * **Note:** Since SinusBot v1.0.0 you can now use the standard `module.exports = {...};` instead, as shown below.
      * @param {object} obj - object which should get exported
      * @example
      * // scriptname: exportscript.js
-     * var engine = require('engine');
      * var publicvariable = 'I get exportet!';
-     * engine.export({
+     * 
+     * module.exports = {
      *     // returns the value of 'publicvariable'
-     *     get: function get() {
+     *     get: () => {
      *         return publicvariable;
      *     },
      *     // modifies the value of 'publicvariable'
-     *     set: function get(value) {
+     *     set: (value) => {
      *         publicvariable = value;
      *     }
-     * })
+     * };
+     * 
+     * // ----------------------------------------------
+     * // old way of exporting:
+     * // var engine = require('engine');
+     * // engine.export({
+     * //     // returns the value of 'publicvariable'
+     * //     get: function () {
+     * //         return publicvariable;
+     * //     },
+     * //     // modifies the value of 'publicvariable'
+     * //     set: function (value) {
+     * //         publicvariable = value;
+     * //     }
+     * // })
+     * // ----------------------------------------------
      * @example
+     * // import in another script:
      * var event = require('event');
      * var engine = require('engine');
      * event.on('load', function() {
