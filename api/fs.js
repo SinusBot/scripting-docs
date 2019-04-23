@@ -37,6 +37,9 @@ class FileInfo {
 /**
  * @module fs
  * @since 1.0.0
+ * @description
+ * This module is protected. This means that you need to add `'fs'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
+ * 
  */
 module.exports = {
     /**

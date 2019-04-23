@@ -20,8 +20,7 @@
  * 
  * Hidden scripts can not have variables (vars), since they'd never be shown and thus not configurable.
  * @param {string[]} [requiredModules]
- * Using this, you can define which restricted modules the script wants to use. If it's not allowed via the config, the script will not load at all but instead return an error on startup.
- * If you only optionally use features from restricted modules, don't use this but provide a fallback in your script.
+ * An array of protected modules (i.e. 'http' or 'db') that the script requires.
  * @param {object[]} [vars] - More information about the usage of variables can be found [here](https://sinusbot.github.io/docs/scripts/#vars-array).
  * @param {string[]} [voiceCommands]
  * This parameter is only used for the speech recognition feature and may contain one or more strings that are to be detected for the given script.

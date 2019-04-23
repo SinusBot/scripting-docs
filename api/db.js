@@ -54,11 +54,7 @@ class DBConn {
  * @module db
  * @since 0.9.16.4
  * @description
- * The database module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["db"]
- * ```
+ * This module is protected. This means that you need to add `'db'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
  * 
  * Use additional parameters to exec / query whenever you use untrusted/unknown data, as those will automatically be escaped and avoid SQL injection.
  * @example

@@ -16,8 +16,10 @@
  /**
  * @module graphics
  * @since 0.14.2
- * @example
- * var graphics = require('graphics');
+ * @description
+ * This module is protected. This means that you need to add `'graphics'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
+ * 
+ * The best example on how to use the graphics module is the [Avatar banner script](https://forum.sinusbot.com/resources/avatar-banner-for-and-with-sinusbot.326/) by [Filtik](https://forum.sinusbot.com/members/filtik.7044/#resources).
  */
 module.exports = {
     /**
@@ -34,7 +36,7 @@ module.exports = {
      *     "width": 260,
      *     "height": 120,
      *     "layers": [
-     *         // FIXME: layers
+     *         // FIXME: add layers here
      *     ]
      * }, function() {
      *     engine.setAvatarFromBanner('banner.png');

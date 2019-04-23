@@ -47,7 +47,7 @@ class NetClient {
  * @property {string} [host] - Host to connect to; required for mysql / postgres
  * @property {number} [port] - Port to use
  * @property {string} [url] - WebSocket URL to use
- * @property {string} [protocol=tcp] - can be udp, tcp or ws (websocket)
+ * @property {string} [protocol="tcp"] - can be udp, tcp or ws (websocket)
  */
 
 /**
@@ -61,23 +61,39 @@ class NetClient {
 /**
  * @module net
  * @since 0.9.16
- * @example
- * var net = require('net');
- * var engine = require('engine');
- * var conn = net.connect({ host: '127.0.0.1', port: 80 }, function(err) {
- *     if (err) { engine.log(err); }
- * });
- * conn.on('data', function(x) {
- *     engine.log('got data');
- *     engine.log(x.toString());
- * })
- * if (conn) conn.write("GET / HTTP/1.1\r\nHost: localhost\r\n\r\n");
  * @description
- * The net module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["net"]
- * ```
+ * This module is protected. This means that you need to add `'net'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
+ * 
+ * The net module allows you to connect to any TCP/UDP port or ws (websocket) and send raw data.
+ * If you just need to send a http request then you should definitely use the [http module](#http) instead.
+ * @example
+ * const engine = require('engine');
+ * const net = require('net');
+ * 
+ * // connect to a tcp port
+ * const conn = net.connect({
+ *     host: '127.0.0.1',
+ *     port: 80
+ * }, err => {
+ *     // log connection errors if any
+ *     if (err) {
+ *         engine.log(err);
+ *     }
+ * });
+ * 
+ * // start listening for data
+ * conn.on('data', data => {
+ *     engine.log('received data');
+ *     engine.log(data.toString());
+ * })
+ * 
+ * // write data if connection is available
+ * if (conn) {
+ *     // write data
+ *     conn.write("GET / HTTP/1.1\r\nHost: localhost\r\n\r\n");
+ * } else {
+ *     engine.log('connection unavailable');
+ * }
  */
 module.exports = {
     /**

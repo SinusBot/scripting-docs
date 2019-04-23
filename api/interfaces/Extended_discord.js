@@ -123,7 +123,7 @@ class ExtendedDiscord {
 
     /**
      * Sends a raw http request to the discord API and therefore **allows potentially unsafe and arbitrary API calls**.
-     * Only works if `requiredModules: ['discord-dangerous']` is set in the script manifest.
+     * **Important:** This method is protected and only works if `requiredModules: ['discord-dangerous']` is set in the script manifest.
      * Check the [discord documentation](https://discordapp.com/developers/docs/resources/channel) for available API calls.
      * @since 1.0.0-alpha.6
      * @param {string} method HTTP Method

@@ -6,31 +6,36 @@
  * @fires event#event:ws.error
  * @fires event#event:ws.data
  * @description
- * Websocket Server:
- * The ws module is protected, it needs the following entry per script in your config.ini:
- * ```
- * [Scripts.Privileges]
- * scriptname = ["ws"]
- * ```
- * @example
- * SinusBot script:
- * var ws = require('ws');
- * var engine = require('engine');
- * var event = require('event');
+ * This module is protected. This means that you need to add `'ws'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
  * 
- * event.on('ws.connect', function(id) {
+ * The ws module allows you to start a websocket server.
+ * If you want to connect to a websocket server instead then take look at the [net module](#net).
+ * @example
+ * // ### SinusBot script: ###
+ * 
+ * const engine = require('engine');
+ * const event = require('event');
+ * const ws = require('ws');
+ * 
+ * // listen for connections
+ * event.on('ws.connect', id => {
  *     engine.log('new websocket connection; id ' + id);
+ *     // broadcast data to all connected clients
  *     ws.broadcast(1, { blubb: 'blubb' });
  * });
- * event.on('ws.disconnect', function(id) {
+ * // listen for disconnections
+ * event.on('ws.disconnect', id => {
  *     engine.log('websocket connection disconnected; id ' + id);
  * });
- * event.on('ws.data', function(id, type, data) {
+ * // listen for data
+ * event.on('ws.data', (id, type, data) => {
  *     engine.log('ws.data: id ' + id + '; data: ' + data.toString());
+ *     // respond with data
  *     ws.write(id, type, data.toString());
  * });
  * @example
- * Client Side (served html files via the enableWeb script option):
+ * // ### Client Side (served html files via the enableWeb script option): ###
+ * 
  * var proto = (window.location.protocol == 'https:') ? 'wss' : 'ws';
  * var conn = new WebSocket(proto + "://" + document.location.host + "/api/v1/b/" + botId + "/i/" + instanceId + "/ws");
  * conn.onclose = function (evt) {

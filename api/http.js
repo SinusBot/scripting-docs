@@ -12,6 +12,48 @@
 
 /**
  * @module http
+ * @description
+ * This module is protected. This means that you need to add `'http'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it - like shown here:
+ * 
+ * ```javascript
+ * registerPlugin({
+ *     name: 'Demo http basic Script',
+ *     version: '1.0.0',
+ *     description: 'This example script sends a http request.',
+ *     author: 'Author <author@example.com>',
+ *     //...
+ *     // define the protected modules that you require:
+ *     requiredModules: ['http'],
+ *     //...
+ *     vars: []
+ * }, (_, config, meta) => {
+ *     const engine = require('engine');
+ *     // and then you can require and use the module in here:
+ *     const http = require('http');
+ *     
+ *     // send request
+ *     http.simpleRequest({
+ *         'method': 'GET',
+ *         'url': 'https://example.com',
+ *         'timeout': 6000,
+ *     }, function (error, response) {
+ *         if (error) {
+ *             engine.log("Error: " + error);
+ *             return;
+ *         }
+ *         
+ *         if (response.statusCode != 200) {
+ *             engine.log("HTTP Error: " + response.status);
+ *             return;
+ *         }
+ *         
+ *         // success!
+ *         engine.log("Response: " + response.data.toString());
+ *     });
+ * });
+ * ```
+ * 
+ * Examples can be found under [simpleRequest](#httpsimplerequest).
  */
 module.exports = {
     /**
@@ -25,26 +67,92 @@ module.exports = {
      * @param {object} [config.headers] - request header
      * @param {simpleRequestCallback} callback - Callback function with error and response
      * @example
-     * var engine = require('engine');
-     * var http = require('http');
+     * registerPlugin({
+     *     name: 'Demo http basic Script',
+     *     version: '1.0.0',
+     *     description: 'This example script sends a http request.',
+     *     author: 'Author <author@example.com>',
+     *     requiredModules: ['http'], // <-- don't forget this!
+     *     vars: []
+     * }, (_, config, meta) => {
+     *     // import modules
+     *     const engine = require('engine');
+     *     const http = require('http');
+     *     
+     *     // send request
+     *     http.simpleRequest({
+     *         'method': 'GET',
+     *         'url': 'https://example.com',
+     *         'timeout': 6000,
+     *     }, function (error, response) {
+     *         if (error) {
+     *             engine.log("Error: " + error);
+     *             return;
+     *         }
+     *         
+     *         if (response.statusCode != 200) {
+     *             engine.log("HTTP Error: " + response.status);
+     *             return;
+     *         }
+     *         
+     *         // success!
+     *         engine.log("Response: " + response.data.toString());
+     *     });
+     * });
      * 
-     * http.simpleRequest({
-     *     method: 'GET',
-     *     url: 'https://example.com',
-     *     timeout: 10 * 1000
-     * }, function(error, response) {
-     *     if (error) {
-     *         engine.log("Error: " + error);
-     *         return;
-     *     }
+     * @example
+     * registerPlugin({
+     *     name: 'Demo http basic Script',
+     *     version: '1.0.0',
+     *     description: 'This example script sends a http request and sends+receives json data.',
+     *     author: 'Author <author@example.com>',
+     *     requiredModules: ['http'], // <-- don't forget this!
+     *     vars: []
+     * }, (_, config, meta) => {
+     *     // import modules
+     *     const engine = require('engine');
+     *     const http = require('http');
+     *     
+     *     // define data that should be sent
+     *     var sendData = JSON.stringify({ foo: 'bar' });
      * 
-     *     if (response.statusCode != 200) {
-     *         engine.log("HTTP Error: " + response.status);
-     *         return;
-     *     }
-     * 
-     *     // success!
-     *     engine.log("Response: " + response.data.toString());
+     *     // send request
+     *     http.simpleRequest({
+     *         'method': 'POST',
+     *         'url': 'https://example.com',
+     *         'timeout': 6000,
+     *         'body': sendData,
+     *         'headers': {
+     *             'Content-Type': 'application/json',
+     *             'Content-Length': sendData.length
+     *         }
+     *     }, function (error, response) {
+     *         if (error) {
+     *             engine.log("Error: " + error);
+     *             return;
+     *         }
+     *         
+     *         if (response.statusCode != 200) {
+     *             engine.log("HTTP Error: " + response.status);
+     *             return;
+     *         }
+     *         
+     *         // parse JSON response
+     *         var res;
+     *         try {
+     *             res = JSON.parse(response.data.toString());
+     *         } catch (err) {
+     *             engine.log(err.message);
+     *         }
+     *         
+     *         // check if parsing was successfull
+     *         if (res === undefined) {
+     *             engine.log("Invalid JSON.");
+     *             return;
+     *         }
+     *         
+     *         // success!
+     *         engine.log(res);
      * });
      */
     simpleRequest(config, callback) { }
