@@ -12,8 +12,11 @@ class ExtendedTS3 {
 
   /**
    * Retrieve Extended TeamSpeak Server Info
+   * 
+   * This will fire a [serverinfo_int](#eventeventserverinfo_int) event with a {@link TeamSpeakExtendedServerInfo} object as callback parameter.
    * @since 1.0.0-alpha.6
-   * @returns {TeamSpeakExtendedServerInfo} TeamSpeakExtednedServerInfo Object for current server
+   * @fires event#serverinfo_int
+   * @returns {boolean} success
    */
   requestExtendedServerInfo() { }
 }

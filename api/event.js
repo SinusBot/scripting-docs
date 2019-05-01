@@ -372,6 +372,15 @@
  * @param {number} type - Type of the message
  * @param {Bytes} data - Data object
  */
+/**
+ * @event serverinfo_int
+ * @memberof event
+ * @since 1.0.0-alpha.6
+ * @see backend.requestExtendedServerInfo
+ * @param {TeamSpeakExtendedServerInfo} serverinfo
+ * @description
+ * This event is fired when calling [backend.extended().requestExtendedServerInfo()](#extendedts3requestextendedserverinfo) when the backend is TS3.
+ */
 
 
 /**

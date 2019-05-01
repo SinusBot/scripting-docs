@@ -1,6 +1,8 @@
 /**
  * @interface TeamSpeakExtendedServerInfo
  * @since 1.0.0-alpha.6
+ * @description
+ * See [backend.extended().requestExtendedServerInfo()](#extendedts3requestextendedserverinfo).
  */
 class TeamSpeakExtendedServerInfo {
 
