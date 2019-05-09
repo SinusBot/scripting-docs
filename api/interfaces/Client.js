@@ -244,7 +244,7 @@ class Client {
    * @description Removes a client from a specific ServerGroup
    * @param {(ServerGroup|string|number)} group - Servergroup the client should be removed from
    */
-  removeFromServerGroup(id) { }
+  removeFromServerGroup(group) { }
 
   /**
    * @description
