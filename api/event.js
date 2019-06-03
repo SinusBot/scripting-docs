@@ -88,6 +88,22 @@
  * });
  */
 /**
+ * @event message
+ * @memberof event
+ * @param {DiscordMessage} msg - Message
+ * @description
+ * Note: This event is **only for discord messages**. For both TS3 and Discord messages use the chat event.
+ * 
+ * This event gets triggered whenever a discord message has been received.
+ * @example
+ * var event = require('event');
+ * 
+ * event.on('message', msg => {
+ *     // like message
+ *     msg.createReaction('👍');
+ * });
+ */
+/**
  * @event poke
  * @memberof event
  * @param {Message} msg - Message
