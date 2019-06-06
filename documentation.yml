@@ -28,6 +28,7 @@ toc:
   - db
   - fs
   - graphics
+  - crypto
   - name: interfaces
   - Client
   - Channel
