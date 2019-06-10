@@ -92,6 +92,12 @@ module.exports = {
     setNick: (nick) => {},
 
     /**
+     * Gets the default channel ID
+     * @returns {string}
+     */
+    getDefaultChannelID: () => {},
+
+    /**
      * Sets the default channel by its ID
      * @param {string} channelID
      * @returns {boolean}
@@ -153,6 +159,13 @@ module.exports = {
      * engine.log([aClientObj, aClientObj]) // => will print: "[{},{}]"
      */
     log: (...something) => {},
+
+	/**
+     * @todo //TODO: What are the formatter options?
+	 * @param {string} format Format
+	 * @param {...*} something
+	 */
+    logf(format, ...something) {},
 
     /**
      * Exports an object, so other Scripts are able to use functions or values of the Script
@@ -265,6 +278,14 @@ module.exports = {
      */
     getUserByName: (name) => {},
 
+	/**
+     * @description Adds a user.
+     * @since 1.0.0
+	 * @param {string} username
+	 * @returns {?User} User or undefined if a user with the same name already exists
+	 */
+    addUser() {},
+
     /**
      * @description Sets the command prefix.
      * @since 0.14.0
@@ -285,4 +306,49 @@ module.exports = {
      * @returns {string} SinusBot version, for example: `1.0.0-alpha.7-a20212b`
      */
     version: () => {},
+
+	/**
+     * @since 1.0.0
+	 * @returns {string} OS (Operating-System, e.g. "linux")
+	 */
+	os() {},
+    
+	/**
+     * @description Disables the register command
+     * @since 1.0.0
+	 */
+	disableRegistration() {},
+
+	/**
+     * @description Enables the register command
+     * @since 1.0.0
+	 */
+    enableRegistration() {},
+
+	/**
+	* @returns {boolean}
+	*/
+	isSubscriptionMode() {},
+    
+	/**
+	 * @returns {Channel[]}
+     */
+    getChannelSubscriptions() {},
+    
+	/**
+	 * @returns {Client[]}
+	 */
+	getClientSubscriptions() {},
+    
+	/**
+	 * @param {Channel}
+	 * @param {boolean}
+     */
+    setChannelSubscriptions() {},
+    
+	/**
+	 * @param {Client}
+	 * @param {boolean}
+	 */
+    setClientSubscriptions() {},
 }

@@ -11,7 +11,7 @@ module.exports = {
      * // Sends a red-colored message to the server chat (requires permission to do so)
      * var backend = require('backend');
      * var format = require('format');
-     * backend.chat('This is SinusBot writing in ' + format.formatColor('red', '#aa0000'));
+     * backend.chat('This is SinusBot writing in ' + format.color('red', '#aa0000'));
      */
     color: (text, color) => {},
 

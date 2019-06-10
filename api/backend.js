@@ -201,6 +201,14 @@ module.exports = {
      * @returns {Extended}
      */
     extended: () => {},
+    
+    /**
+     * Set the bot client as away on TeamSpeak.
+     * @param {boolean} away
+     * @param {string} reason
+     * @returns {boolean} success
+     */
+    setAway(away, reason) {},
 }
 
 /**

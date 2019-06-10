@@ -20,6 +20,12 @@ module.exports = {
     setAudioReturnChannel: (flags) => {},
 
     /**
+     * @returns {number}
+     * @since 0.13.37
+     */
+    getAudioReturnChannel: () => {},
+
+    /**
      * @description Starts recording to a file
      * @returns {boolean}
      */
@@ -119,12 +125,6 @@ module.exports = {
      * @param {string} [locale] - Locale to use
      */
     say: (text, locale) => {},
-
-    /**
-     * @description Returns the client count of the connected server
-     * @returns {number} client count
-     */
-    getClientCount: () => {},
 
     /**
      * @description Sets the volume of a specific stream (0-100)

@@ -66,6 +66,16 @@ class DiscordMessage {
     deleteOwnReaction(emoji, callback) {}
 
     /**
+     * Delete a reaction that a given user has made for the message.
+     * @since 1.0.0-beta.2
+     * @param {string} emoji - Emoji in the form of `name:id` for custom guild emoji, or Unicode character.
+     * @param {(Client|string)} user
+     * @param {function} callback
+     * @returns {boolean} success
+     */
+    deleteUserReaction(emoji, user, callback) {}
+
+    /**
      * Edits the content/text of the message.
      * @param {string} content
      * @param {function} callback

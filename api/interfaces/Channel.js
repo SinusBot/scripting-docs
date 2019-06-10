@@ -5,31 +5,36 @@ class Channel {
   /**
    * @returns {string} ID
    */
-  id() { }
+  id() {}
   
   /**
    * @returns {string} Name
    */
-  name() { }
+  name() {}
 
   /**
    * @returns {?Channel} Parent of channel or null if none is set
    */
-  parent() { }
+  parent() {}
 
   /**
    * @since 0.9.16.3
    * @returns {number} Order / position of this channel.
    * For ts3 this is a numeric value determining the order in which channels are displayed below their parent. To set a new value, please use moveTo.
    */
-  position() { }
+  position() {}
+  
+	/**
+	 * @param {number} pos
+	 */
+  setPosition(pos) {}
 
   /**
    * @description delete the current channel
    * @since 0.9.17
    * @returns {boolean}
    */
-  delete() { }
+  delete() {}
 
   /**
    * @description Moves the channel to a new parent with a new position value
@@ -37,165 +42,175 @@ class Channel {
    * @param {(string|Channel)} parent - New parent channel
    * @param {number} order - New order value
    */
-  moveTo(parent, order) { }
+  moveTo(parent, order) {}
 
   /**
    * @param {string} name
    * @since 0.9.16
    */
-  setName(name) { }
+  setName(name) {}
 
   /**
    * @returns {number} Type (0 = voice, 1 = text)
    */
-  type() { }
+  type() {}
 
   /**
    * @returns {string} Topic
    */
-  topic() { }
+  topic() {}
 
   /**
    * @param {string} topic
    * @since 0.9.16
    */
-  setTopic(topic) { }
+  setTopic(topic) {}
 
   /**
    * @since 0.9.19
    * @returns {string} Description
    */
-  description() { }
+  description() {}
 
   /**
    * @param {string} description
    * @since 0.9.16
    */
-  setDescription(description) { }
+  setDescription(description) {}
 
   /**
    * @returns {number} Codec
    */
-  codec() { }
+  codec() {}
 
   /**
    * @param {number} codec
    * @since 0.9.16
    */
-  setCodec(codec) { }
+  setCodec(codec) {}
 
   /**
    * @returns {number} Codec quality
    */
-  codecQuality() { }
+  codecQuality() {}
 
   /**
    * @param {number} quality
    * @since 0.9.16
    */
-  setCodecQuality(quality) { }
+  setCodecQuality(quality) {}
 
   /**
    * @returns {number} Configured number of clients the channel can hold (-1 if unlimited)
    */
-  maxClients() { }
+  maxClients() {}
 
   /**
    * @param {boolean} maxClients Set to -1 for unlimited clients
    * @since 0.9.16
    */
-  setMaxClients(maxClients) { }
+  setMaxClients(maxClients) {}
 
   /**
    * @returns {number}
    */
-  maxFamilyClients() { }
+  maxFamilyClients() {}
 
   /**
    * @param {boolean} maxFamilyClients
    * @since 0.9.16
    */
-  setMaxFamilyClients(maxFamilyClients) { }
+  setMaxFamilyClients(maxFamilyClients) {}
 
   /**
    * @returns {boolean} Whether channel is permanent or not
    */
-  isPermanent() { }
+  isPermanent() {}
 
   /**
    * @param {boolean} permanent
    * @since 0.9.16
    */
-  setPermanent(permanent) { }
+  setPermanent(permanent) {}
 
   /**
    * @returns {boolean} Whether channel is semi-permanent or not
    */
-  isSemiPermanent() { }
+  isSemiPermanent() {}
 
   /**
    * @param {boolean} permanent
    * @since 0.9.16
    */
-  setSemiPermanent(permanent) { }
+  setSemiPermanent(permanent) {}
 
   /**
    * @returns {boolean} Whether channel is the default one
    */
-  isDefault() { }
+  isDefault() {}
+
+	/**
+	 * @param {boolean} Whether channel is the default one
+	 */
+	setDefault() {}
 
   /**
    * @returns {boolean} Whether channel is password-protected or not
    */
-  isPassworded() { }
+  isPassworded() {}
+  
+	/**
+	 * @param {string}
+	 */
+	setPassword() {}
 
   /**
    * @returns {boolean} Whether channel is encrypted or not
    */
-  isEncrypted() { }
+  isEncrypted() {}
 
   /**
    * @param {boolean} encrypted
    * @since 0.9.16
    */
-  setEncrypted(encrypted) { }
+  setEncrypted(encrypted) {}
 
   /**
    * @description Compares two channels
    * @param {Channel} otherChannel
    * @returns {boolean} True, if both channels are the same
    */
-  equals(otherChannel) { }
+  equals(otherChannel) {}
 
   /**
    * @description Sends a chat message to the channel
    * @param {string} msg - Message to send
    * @returns {boolean} success
    */
-  chat(msg) { }
+  chat(msg) {}
 
   /**
    * @returns {Client[]} Clients that are in this channel
    */
-  getClients() { }
+  getClients() {}
 
   /**
    * @returns {number} Number of clients that are in the channel 
    */
-  getClientCount() { }
+  getClientCount() {}
 
   /**
    * @description enables / disables subscription for this channel; requires subscription mode
    * @param {boolean} val
    */
-  setSubscription(val) { }
+  setSubscription(val) {}
 
   /**
    * @description Updates multiple channel parameters at once
    * @since 0.9.16.3
    * @param {ChannelParams} channelParams
    */
-  update(channelParams) { }
+  update(channelParams) {}
 
   /**
    * @description Assigns a client to a channel group
@@ -203,14 +218,14 @@ class Channel {
    * @param {Client} client
    * @param {ChannelGroup} channelGroup
    */
-  setChannelGroup(client, channelGroup) { }
+  setChannelGroup(client, channelGroup) {}
 
   /**
    * @description Gets the permissions for the channel from the server - this is an expensive call as the permissions are _not_ cached
    * @since 0.13.37
    * @returns {Permission[]}
    */
-  getPermissions() { }
+  getPermissions() {}
 
   /**
    * @description Adds/sets a new permission on the channel; you need to use the setters and then call save() to apply - can also be used to remove a permission by delete() afterwards
@@ -218,5 +233,33 @@ class Channel {
    * @param {string} id - id of the permission to add; can also be supplied as name like i_channel_needed_join_power
    * @returns {Permission}
    */
-  addPermission(id) { }
+  addPermission(id) {}
+
+	/**
+   * Note: TS3 only at the moment
+   * @todo //FIXME: support discord
+	 * @returns {string}
+	 */
+	getURL() {}
+
+	/**
+	 * @param {boolean} sub
+	 */
+  subscribe(sub) {}
+  
+	/**
+   * Gets the messages of a discord channel.
+   * @since 1.0.0-beta.2
+   * @see https://discordapp.com/developers/docs/resources/channel#get-channel-messages
+	 * @param {object} params e.g. `{ around: 'messageid', limit: '1' }`, see [discord documentation](https://discordapp.com/developers/docs/resources/channel#get-channel-messages)
+	 * @param {function} callback (error, messages)
+	 * @returns {bool}
+	 */
+	getMessages(params, callback) {}
+
+  /**
+   * @private
+   * @returns {string} Something like: "Channel{ ID: <...>, Name: <...> }"
+   */
+  string() {}
 }

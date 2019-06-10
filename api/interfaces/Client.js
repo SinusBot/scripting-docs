@@ -41,6 +41,12 @@ class Client {
   databaseID() { }
 
   /**
+   * Alias of databaseID()
+   * @returns {string} TeamSpeak database ID of the client
+   */
+  databaseId() { }
+
+  /**
    * @returns {string} Country of the client
    */
   country() { }
@@ -51,10 +57,18 @@ class Client {
   description() { }
 
   /**
-   * @param {string} description
    * @since 0.9.19
+   * @param {string} description
+	 * @returns {boolean} success
    */
   setDescription(description) { }
+
+  /**
+   * @todo //TODO: explain this
+   * @param {string} description
+	 * @returns {boolean} success
+   */
+  setDescriptionHex(description) { }
 
   /**
    * Returns true when this client is the bot itself
@@ -207,7 +221,7 @@ class Client {
 
   /**
    * @description Bans a client
-   * @param {number} time - Amount of time (in seconds) the ban should last (-1 for permanant)
+   * @param {number} time - Amount of time (in seconds) the ban should last (-1 for permanent)
    * @param {string} msg - Message to send
    * @example
    * var backend = require('backend');
@@ -279,4 +293,15 @@ class Client {
    * @returns {string} client type
    */
   type() { }
+
+	/**
+	 * @param {boolean} sub
+	 */
+  subscribe(sub) {}
+
+  /**
+   * @private
+   * @returns {string} Something like: "Client{ ID: <...>, Name: <...> }"
+   */
+  string() {}
 }

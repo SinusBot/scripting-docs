@@ -4,8 +4,8 @@
 module.exports = {
     /**
      * @description Plays a track via internal url
-     * @param {string} url - Internal url (like track://...)
-     * @returns {boolean}
+     * @param {string} url - Internal Track-URL (see {@link Track#url}, something like track://...)
+     * @returns {boolean} success
      */
     playURL: (url) => {},
 
@@ -20,6 +20,14 @@ module.exports = {
      * @returns {?Track}
      */
     getTrackByID: (id) => {},
+
+    // /**
+    //  * Returns all Tracks
+    //  * @todo //TODO: wait for this to get implemented...
+    //  * @since 1.0.0-beta.3
+    //  * @returns {Track[]}
+    //  */
+    // getTracks: () => {},
 
     /**
      * @description Searches for tracks matching the search term, returns 20 entries at most
@@ -51,33 +59,35 @@ module.exports = {
 
     /**
      * @description Adds the given url to the queue
-     * @param {string} url
-     * @returns {boolean}
+     * @param {string} url Track-URL (see {@link Track#url})
+     * @returns {boolean} success
      */
     enqueue: (url) => {},
 
     /**
      * @description Adds the given url as the first entry in the queue
-     * @param {string} url
-     * @returns {boolean}
+     * @param {string} url Track-URL (see {@link Track#url})
+     * @returns {boolean} success
      * @since 0.12.0
      */
     playAsNext: (url) => {},
 
     /**
      * @description Plays the next track of the queue / playlist
+     * @returns {boolean} success
      */
     playNext: () => {},
 
     /**
      * @description Plays the next previous of the queue / playlist
+     * @returns {boolean} success
      */
     playPrevious: () => {},
 
     /**
      * @description Stops playback completely
      * @param {string} [trackID] - (optional) the track to stop; if not present, all tracks will be stopped
-     * @returns {boolean}
+     * @returns {boolean} success
      */
     stop: (trackID) => {},
 
@@ -108,44 +118,55 @@ module.exports = {
     /**
      * @description Removes the track at a given position from the queue
      * @param {number} index - Index of the track that should be removed from the queue (0 being the first entry)
-     * @returns {boolean}
+     * @returns {boolean} success
      */
     removeFromQueue: (index) => {},
 
     /**
      * @description Removes all entries from the queue
-     * @returns {boolean}
+     * @returns {boolean} success
      */
     clearQueue: () => {},
 
     /**
      * @description Clears the current playlist (if set) so that playback won't continue inside that playlist
-     * @returns {boolean}
+     * @returns {boolean} success
      */
     clearPlaylist: () => {},
 
     /**
-     * @description Streams a file via youtube-dl
-     * @param {string} url - Url that youtube-dl supports
+     * @description Plays a file via youtube-dl.
+     * @param {string} url - URL that youtube-dl supports
+     * @returns {string} Track-ID (last part of Track-URL: track://<uid>)
      */
     yt: (url) => {},
 
     /**
+     * @description Streams something via youtube-dl.
+     * @param {string} url - URL that youtube-dl supports
+     * @returns {bool} success
+     */
+    ytStream(url) {},
+
+    /**
      * @description Downloads a file via youtube-dl, optionally plays it
-     * @param {string} url - Url that youtube-dl supports
+     * @param {string} url - URL that youtube-dl supports
      * @param {boolean} play - Set to true to play after download
+     * @returns {string} Track-ID
      */
     ytdl: (url, play) => {},
 
     /**
      * @description Enqueues a stream via youtube-dl
-     * @param {string} url - Url that youtube-dl supports
+     * @param {string} url - URL that youtube-dl supports
+     * @returns {string} Track-ID
      */
     enqueueYt: (url) => {},
 
     /**
      * @description Downloads a file via youtube-dl, then enqueues it
      * @param {string} url - Url that youtube-dl supports
+     * @returns {string} Track-ID
      */
     enqueueYtdl: (url) => {},
 }

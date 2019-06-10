@@ -21,11 +21,6 @@ class BytesWriter {
     length() {}
   
     /**
-     * @returns {[]number}
-     */
-    marshalJSON() {}
-  
-    /**
      * @returns {Bytes}
      */
     newReader() {}
