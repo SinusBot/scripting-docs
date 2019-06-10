@@ -37,6 +37,7 @@ toc:
   - ChannelGroup
   - ServerGroup
   - Bytes
+  - BytesWriter
   - PlaylistTrack
   - Track
   - ApiEvent
@@ -50,6 +51,7 @@ toc:
   - ExtendedTS3
   - TeamSpeakServerInfo
   - TeamSpeakExtendedServerInfo
+  - CryptoKeypair
   - name: types
   - ClientServergroupEvent
   - Message

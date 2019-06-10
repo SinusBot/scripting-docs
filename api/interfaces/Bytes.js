@@ -1,3 +1,8 @@
+/**
+ * @interface Bytes
+ * @since 0.9.16
+ * @todo //TODO: add explanations
+ */
 class Bytes {
   /**
    * @returns {[]uint8}
