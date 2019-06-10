@@ -55,36 +55,36 @@ class TeamSpeakExtendedServerInfo {
     minClientsInChannelBeforeForcedSilence() { }
 
     /**
+     * Anti-Flood: Amount of reduced points per tick.
      * @since 1.0.0-alpha.6
-     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     antifloodPointsTickReduce() { }
 
     /**
+     * Anti-Flood: Points needed for commands block.
      * @since 1.0.0-alpha.6
-     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     antifloodPointsNeededCommandBlock() { }
 
     /**
+     * Anti-Flood: Points needed for IP block.
      * @since 1.0.0-alpha.6
-     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     antifloodPointsNeededIPBlock() { }
 
     /**
+     * Amount of client connections.
      * @since 1.0.0-alpha.6
-     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     clientConnections() { }
 
     /**
+     * Amount of query client connections.
      * @since 1.0.0-alpha.6
-     * @todo //TODO: add some meaningful description
      * @returns {number}
      */
     queryClientConnections() { }

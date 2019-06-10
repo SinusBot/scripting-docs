@@ -98,21 +98,18 @@ class TeamSpeakServerInfo {
 
   /**
    * @since 1.0.0-alpha.6
-   * @todo //TODO: evaluate if it should return a string instead of a number
    * @returns {number} id of the default server group
    */
   defaultServerGroup() { }
 
   /**
    * @since 1.0.0-alpha.6
-   * @todo //TODO: evaluate if it should return a string instead of a number
    * @returns {number} id of the default channel group
    */
   defaultChannelGroup() { }
 
   /**
    * @since 1.0.0-alpha.6
-   * @todo //TODO: evaluate if it should return a string instead of a number
    * @returns {number} id of the default channel admin group
    */
   defaultChannelAdminGroup() { }
