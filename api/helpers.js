@@ -107,17 +107,17 @@ module.exports = {
 
     /**
      * @description Returns the documentation of an interface
-     * @param {*} interface Interface to document
+     * @param {*} obj Interface to document
      * @returns {string} JSDoc String
      */
-    document: (interface)  => {},
+    document: (obj)  => {},
 
     /**
      * @private
      * @deprecated Shouldn't be used
      * @description Returns the internal type of an object
-     * @param {*} interface
+     * @param {*} obj
      * @returns {string} Internal type
      */
-    typeOf: (interface)  => {},
+    typeOf: (obj)  => {},
 }
