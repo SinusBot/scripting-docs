@@ -5,7 +5,7 @@ module.exports = {
     /**
      * @description Returns a random numbers between zero and <max>
      * @param {number} max
-     * @returns {number} Random numbers
+     * @returns {number} Random number
      */
     getRandom: (max)  => {},
 
@@ -16,13 +16,12 @@ module.exports = {
      */
     getRandPerm: (max)  => {},
 
-    // TODO: Provide examples how this can be used
-    // /**
-    //  * @description Creates a new BytesWriter
-    //  * @since 1.0.0
-    //  * @returns {BytesWriter}
-    //  */
-    // newBytes: ()  => {},
+    /**
+     * @description Creates an empty BytesWriter
+     * @since 1.0.0
+     * @returns {BytesWriter}
+     */
+    newBytes: ()  => {},
 
     /**
      * @description Returns a BytesWriter for a given string
@@ -104,21 +103,21 @@ module.exports = {
      * @returns {string}
      */
     toString: (input)  => {},
-
     
-    // Semi-undocumented stuff:
-    // /**
-    //  * @description Returns the documentation of a function
-    //  * @deprecated Probably doesn't work anymore
-    //  * @returns {string} JSDoc String
-    //  */
-    // document: ()  => {},
 
-    // /**
-    //  * @description Returns the internal type of an object
-    //  * @deprecated Shouldn't be used
-    //  * @param input
-    //  * @returns {string} Internal type
-    //  */
-    // typeOf: (input)  => {},
+    /**
+     * @description Returns the documentation of an interface
+     * @param {*} interface Interface to document
+     * @returns {string} JSDoc String
+     */
+    document: (interface)  => {},
+
+    /**
+     * @private
+     * @deprecated Shouldn't be used
+     * @description Returns the internal type of an object
+     * @param {*} interface
+     * @returns {string} Internal type
+     */
+    typeOf: (interface)  => {},
 }
