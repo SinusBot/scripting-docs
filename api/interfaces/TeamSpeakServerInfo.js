@@ -24,13 +24,14 @@ class TeamSpeakServerInfo {
 
   /**
    * @since 1.0.0-alpha.6
-   * @todo //TODO: version is always 0 due to wrong type
    * @returns {number}
    */
   platform() { }
 
   /**
+   * Note: Currently does not work; only returns `0`.
    * @since 1.0.0-alpha.6
+   * @todo //FIXME: always returns 0 due to wrong type
    * @returns {number} version of the server
    */
   version() { }

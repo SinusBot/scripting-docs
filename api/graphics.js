@@ -8,7 +8,7 @@
  */
 
 /**
- * @todo TODO: Document Layer Parameters!
+ * @todo TODO: Document Layer Parameters! => https://github.com/SinusBot/scripting-docs/issues/23
  * @typedef {object} BannerLayer
  * @since 0.14.2
  */
