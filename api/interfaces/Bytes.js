@@ -5,15 +5,15 @@
  */
 class Bytes {
   /**
-   * @returns {[]uint8}
+   * @returns {number[]} uint8 array
    */
   bytes() {}
 
   /**
-   * @param {number}
+   * @param {number} length
    * @returns {string}
    */
-  string() {}
+  string(length) {}
 
   /**
    * @returns {string}
@@ -51,10 +51,10 @@ class Bytes {
   pos() {}
 
   /**
-   * @param {number}
+   * @param {number} pos
    * @returns {bool}
    */
-  seek() {}
+  seek(pos) {}
 
   /**
    * @returns {string}

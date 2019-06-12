@@ -5,10 +5,10 @@
  */
 class BytesWriter {
     /**
-     * @param {Bytes}
+     * @param {Bytes} bytes
      * @returns {number}
      */
-    append() {}
+    append(bytes) {}
   
     /**
      * @returns {Bytes}
@@ -41,82 +41,82 @@ class BytesWriter {
     toString() {}
   
     /**
-     * @param {string}
+     * @param {string} str
      */
-    writeString() {}
+    writeString(str) {}
   
     /**
-     * @param {string}
+     * @param {string} str
      */
-    writeCString() {}
+    writeCString(str) {}
   
     /**
      * @param {number} int8 Write 8-bit integer.
      */
-    writeInt8() {}
+    writeInt8(int8) {}
   
     /**
      * @param {number} int16 Write 16-bit integer as big-endian.
      */
-    writeInt16be() {}
+    writeInt16be(int16) {}
   
     /**
      * @param {number} int16 Write 16-bit integer as little-endian.
      */
-    writeInt16le() {}
+    writeInt16le(int16) {}
   
     /**
      * @param {number} int32 Write 32-bit integer as big-endian.
      */
-    writeInt32be() {}
+    writeInt32be(int32) {}
   
     /**
      * @param {number} int32 Write 32-bit integer as little-endian.
      */
-    writeInt32le() {}
+    writeInt32le(int32) {}
   
     /**
      * @param {number} int64 Write 64-bit integer as big-endian.
      */
-    writeInt64be() {}
+    writeInt64be(int64) {}
   
     /**
      * @param {number} int64 Write 64-bit integer as little-endian.
      */
-    writeInt64le() {}
+    writeInt64le(int64) {}
   
     /**
      * @param {number} uint8 Write unsigned 8-bit integer.
      */
-    writeUint8() {}
+    writeUint8(uint8) {}
   
     /**
      * @param {number} uint16 Write unsigned 16-bit integer as big-endian.
      */
-    writeUint16be() {}
+    writeUint16be(uint16) {}
   
     /**
      * @param {number} uint16 Write unsigned 16-bit integer as little-endian.
      */
-    writeUint16le() {}
+    writeUint16le(uint16) {}
   
     /**
      * @param {number} uint32 Write unsigned 32-bit integer as big-endian.
      */
-    writeUint32be() {}
+    writeUint32be(uint32) {}
   
     /**
      * @param {number} uint32 Write unsigned 32-bit integer as little-endian.
      */
-    writeUint32le() {}
+    writeUint32le(uint32) {}
   
     /**
      * @param {number} uint64 Write unsigned 64-bit integer as big-endian.
      */
-    writeUint64be() {}
+    writeUint64be(uint64) {}
   
     /**
      * @param {number} uint64 Write unsigned 64-bit integer as little-endian.
      */
-    writeUint64le() {}
+    writeUint64le(uint64) {}
   }
