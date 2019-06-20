@@ -1,20 +1,17 @@
 {
-  "name": "sinusbot-scripting-engine",
-  "version": "1.0.11",
-  "description": "SinusBot JavaScript based Scripting Engine documentation with examples.",
-  "repository": "https://github.com/SinusBot/scripting-docs",
-  "homepage": "https://github.com/SinusBot/scripting-docs",
-  "author": "SinusBot",
-  "license": "MIT",
-  "scripts": {
-    "generate-docs": "documentation build api/ -c documentation.yml --project-name \"SinusBot Scripting Engine\" --project-version \" \" --favicon \"/favicon.ico\" --shallow -f html -o documentation",
-    "serve-docs": "documentation serve api/ -c documentation.yml --project-name \"SinusBot Scripting Engine\" --project-version \" \" --shallow -w",
-    "generate-ts": "jsdoc -c config.json"
-  },
+  "name": "sinusbot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "example.js",
+  "dependencies": {},
   "devDependencies": {
-    "documentation": "^11.0.0",
-    "jsdoc": "^3.6.2",
-    "tsd-jsdoc": "^2.3.0"
+    "typedoc": "^0.14.2",
+    "typescript": "^3.5.2"
   },
-  "typings": "./tsd/types.d.ts"
+  "scripts": {
+    "generate-doc": "typedoc --out docs ./typings --mode file --toc ./types --excludeExternals --ignoreCompilerErrors --includeDeclarations",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
