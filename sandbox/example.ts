@@ -23,6 +23,9 @@ registerPlugin({
       engine.log("no bot client found :(")
     }
 
+    const command = require("command")
+    command.createCommand("ping")
+
   })
 
 })

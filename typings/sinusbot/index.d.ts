@@ -1,11 +1,17 @@
-import { Engine } from "../modules/engine"
-import { Backend } from "../modules/backend"
-import { Store } from "../modules/store"
-import { Event } from "../modules/event"
-import { Media } from "../modules/media"
-import { Format } from "../modules/format"
+import { Engine } from "@sinusbot/modules/engine"
+import { Backend } from "@sinusbot/modules/backend"
+import { Store } from "@sinusbot/modules/store"
+import { Event } from "@sinusbot/modules/event"
+import { Media } from "@sinusbot/modules/media"
+import { Format } from "@sinusbot/modules/format"
+
+import { Command } from "@sinusbot/modules/command"
 
 import { SinusbotMeta, ConfigMetaData } from "./meta"
+
+export interface Module {
+  exports: any
+}
 
 declare global {
   /**
@@ -25,6 +31,8 @@ declare global {
    */
   function registerPlugin(meta: SinusbotMeta, callback: (sinusbot: null, config: ConfigMetaData, meta: SinusbotMeta) => void) :void
 
+  const module: Module
+
   function require(name: "engine"): typeof Engine
   function require(name: "backend"): typeof Backend
   function require(name: "store"): typeof Store
@@ -40,4 +48,8 @@ declare global {
   /** @todo function require(name: "fs"): typeof FileSystem */
   /** @todo function require(name: "graphics"): typeof Graphics */
   /** @todo function require(name: "crypto"): typeof Crypto */
+
+  /** 3rd party scripts */
+
+  function require(name: "command"): typeof Command
 }
