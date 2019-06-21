@@ -5,7 +5,7 @@ import { Event } from "@sinusbot/modules/event"
 import { Media } from "@sinusbot/modules/media"
 import { Format } from "@sinusbot/modules/format"
 
-import { Command } from "@sinusbot/modules/command"
+import { command } from "@sinusbot/modules/command"
 
 import { SinusbotMeta, ConfigMetaData } from "./meta"
 
@@ -31,6 +31,11 @@ declare global {
    */
   function registerPlugin(meta: SinusbotMeta, callback: (sinusbot: null, config: ConfigMetaData, meta: SinusbotMeta) => void) :void
 
+  function clearInterval(interval: number): void
+  function clearTimeout(interval: number): void
+  function setInterval(callback: (...args: any[]) => void, interval: number, ...args: any[]): number
+  function setTimeout(callback: (...args: any[]) => void, timeout: number, ...args: any[]): number
+
   const module: Module
 
   function require(name: "engine"): typeof Engine
@@ -51,5 +56,5 @@ declare global {
 
   /** 3rd party scripts */
 
-  function require(name: "command"): typeof Command
+  function require(name: "command"): typeof command
 }

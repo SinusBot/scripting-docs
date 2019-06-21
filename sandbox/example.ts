@@ -23,8 +23,14 @@ registerPlugin({
       engine.log("no bot client found :(")
     }
 
-    const command = require("command")
-    command.createCommand("ping")
+    const { createCommandGroup } = require("command")
+    const exampleCommand = createCommandGroup("typescript")
+
+    //command !typescript ping
+    exampleCommand
+      .addCommand("ping")
+      .help("responds with pong")
+      .exec((client, args, reply) => reply("Pong!"))
 
   })
 

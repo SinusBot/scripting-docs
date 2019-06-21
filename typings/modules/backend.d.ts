@@ -73,18 +73,18 @@ export module Backend {
   /**
    * returns a client by its id if found
    */
-  export function getClientByID(): Client
+  export function getClientByID(id: string): Client
   
   /**
    * returns a client by its name if found
    */
-  export function getClientByName(): Client
+  export function getClientByName(name: string): Client
   
   /**
    * returns a client by its nick if found
    * alias to getClientByNick()
    */
-  export function getClientByNick(): Client
+  export function getClientByNick(nick: string): Client
   
   /**
    * returns a client by its uid if found
