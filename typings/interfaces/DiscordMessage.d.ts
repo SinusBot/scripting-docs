@@ -1,7 +1,7 @@
-import Client from "./Client"
-import Channel from "./Channel"
+import { Client } from "./Client"
+import { Channel } from "./Channel"
 
-export default interface DiscordMessage {
+export interface DiscordMessage {
 
   /**
    * returns the id of the message

@@ -1,4 +1,4 @@
-export default interface DBConn {
+export interface DBConn {
 
   /**
    * Use this, if you expect a result set

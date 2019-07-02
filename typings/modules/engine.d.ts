@@ -1,8 +1,8 @@
 import { SinusbotConfig } from "../sinusbot/meta"
-import Track from "../interfaces/Track"
-import User from "../interfaces/User"
-import Channel from "../interfaces/Channel"
-import Client from "../interfaces/Client"
+import { Track } from "../interfaces/Track"
+import { User } from "../interfaces/User"
+import { Channel } from "../interfaces/Channel"
+import { Client } from "../interfaces/Client"
 
 export enum BackendType {
   ts3 = "ts3",

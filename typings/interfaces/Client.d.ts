@@ -1,13 +1,13 @@
-import ServerGroup from "./ServerGroup"
-import ChannelGroup from "./ChannelGroup"
-import Channel from "./Channel"
+import { ServerGroup } from "./ServerGroup"
+import { ChannelGroup } from "./ChannelGroup"
+import { Channel } from "./Channel"
 
 export enum ClientType {
   query = 0,
   normal = 1
 }
 
-export default interface Client {
+export interface Client {
 
   /**
    * returns the nickname of the client

@@ -1,5 +1,5 @@
-import Track from "../interfaces/Track"
-import Playlist from "../interfaces/Playlist"
+import { Track } from "../interfaces/Track"
+import { Playlist } from "../interfaces/Playlist"
 
 export module Media {
 

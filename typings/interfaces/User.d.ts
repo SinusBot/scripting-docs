@@ -18,7 +18,7 @@ export enum Privilege {
   EDITINSTANCE =    1 << 16,
 }
 
-export default interface User {
+export interface User {
   
   /**
    * returns the id of the user

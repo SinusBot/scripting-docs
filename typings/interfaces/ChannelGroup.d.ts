@@ -1,7 +1,7 @@
-import Permission from "./Permission"
-import Client from "./Client"
+import { Permission } from "./Permission"
+import { Client } from "./Client"
 
-export default interface ChannelGroup {
+export interface ChannelGroup {
   
   /**
    * returns the id of the channelgroup

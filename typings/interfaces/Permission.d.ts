@@ -1,4 +1,4 @@
-export default interface Permission {
+export interface Permission {
 
   /**
    * returns the permissions id

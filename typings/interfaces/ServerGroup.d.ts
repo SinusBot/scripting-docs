@@ -1,7 +1,7 @@
-import Permission from "./Permission"
-import Client from "./Client"
+import { Permission } from "./Permission"
+import { Client } from "./Client"
 
-export default interface ServerGroup {
+export interface ServerGroup {
   
   /**
    * returns the id of the servergroup

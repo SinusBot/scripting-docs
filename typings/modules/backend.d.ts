@@ -1,8 +1,8 @@
-import Client from "../interfaces/Client"
-import Channel, { ChannelParams } from "../interfaces/Channel"
-import ServerGroup from "../interfaces/ServerGroup"
-import ChannelGroup from "../interfaces/ChannelGroup"
-import Extended from "../interfaces/Extended"
+import { Client } from "../interfaces/Client"
+import { Channel, ChannelParams } from "../interfaces/Channel"
+import { ServerGroup } from "../interfaces/ServerGroup"
+import { ChannelGroup } from "../interfaces/ChannelGroup"
+import { Extended } from "../interfaces/Extended"
 
 export module Backend {
   /**

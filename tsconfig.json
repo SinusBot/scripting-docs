@@ -3,6 +3,8 @@
     "lib": ["es2018"],
     "module": "commonjs",
     "target": "es6",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
     "baseUrl": "./typings",
     "paths": {
       "@sinusbot": ["sinusbot/sinusbot.d.ts", "sinusbot/meta.d.ts"],

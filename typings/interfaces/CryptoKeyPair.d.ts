@@ -1,4 +1,4 @@
-import BytesWriter from "./BytesWriter"
+import { BytesWriter } from "./BytesWriter"
 
 export default interface CryptoKeypair {
 

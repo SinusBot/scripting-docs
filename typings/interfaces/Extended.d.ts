@@ -1,4 +1,4 @@
-export default interface Extended {
+export interface Extended {
 
 }
 

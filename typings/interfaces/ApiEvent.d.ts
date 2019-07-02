@@ -1,6 +1,6 @@
-import User from "./User"
+import { User } from "./User"
 
-export default interface ApiEvent {
+export interface ApiEvent {
 
   /**
    * returns the name of the event

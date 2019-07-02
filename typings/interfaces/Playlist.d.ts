@@ -1,6 +1,6 @@
-import PlaylistTrack from "./PlaylistTrack"
+import { PlaylistTrack } from "./PlaylistTrack"
 
-export default interface Playlist {
+export interface Playlist {
 
   /**
    * returns the id of the playlist

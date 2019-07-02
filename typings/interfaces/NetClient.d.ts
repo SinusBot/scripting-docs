@@ -1,11 +1,11 @@
-import Bytes from "./Bytes"
+import { Bytes } from "./Bytes"
 
 export enum EncodingFormat {
   HEX = "hex",
   BASE64 = "base64"
 }
 
-export default interface NetClient {
+export interface NetClient {
 
   /**
    * sends data over this connection

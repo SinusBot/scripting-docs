@@ -1,9 +1,9 @@
-import Client from "../interfaces/Client"
-import Channel from "../interfaces/Channel"
-import Track from "../interfaces/Track"
-import ServerGroup from "../interfaces/ServerGroup"
-import Bytes from "../interfaces/Bytes"
-import DiscordMessage from "../interfaces/DiscordMessage"
+import { Client } from "../interfaces/Client"
+import { Channel } from "../interfaces/Channel"
+import { Track } from "../interfaces/Track"
+import { ServerGroup } from "../interfaces/ServerGroup"
+import { Bytes } from "../interfaces/Bytes"
+import { DiscordMessage } from "../interfaces/DiscordMessage"
 import { TeamSpeakExtendedServerInfo } from "../interfaces/Extended"
 
 export enum ChatMode {

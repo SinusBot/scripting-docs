@@ -1,4 +1,4 @@
-export default interface Bytes {
+export interface Bytes {
 
   /**
    * returns an array of bytes

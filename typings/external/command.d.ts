@@ -1,6 +1,6 @@
-import Client from "../interfaces/Client"
-import Channel from "../interfaces/Channel"
-import DiscordMessage from "../interfaces/DiscordMessage"
+import { Client } from "../interfaces/Client"
+import { Channel } from "../interfaces/Channel"
+import { DiscordMessage } from "../interfaces/DiscordMessage"
 import { ChatMode } from "../modules/event"
 
 declare interface MessageEvent {
@@ -12,7 +12,7 @@ declare interface MessageEvent {
 }
 
 declare function replyCallback(message: string): void
-declare function execCallback(client: Client, args: any, reply: typeof replyCallback, event: MessageEvent)
+declare function execCallback(client: Client, args: any, reply: typeof replyCallback, event: MessageEvent): void
 declare function checkPermissionCallback(client: Client): boolean
 
 declare class CommandDisabledError extends Error {}
@@ -81,7 +81,7 @@ declare class CommandCollector {
    *
    * @param name the name which should be searched for
    */
-  getCommandByName(name): Command
+  getCommandByName(name: string): Command
 }
 
 
@@ -128,7 +128,7 @@ declare class Throttle {
    * returns the time in milliseconds until a client can send his next command
    * @param client the client which should be checked
    */
-  timeTillNextCommand(client): number
+  timeTillNextCommand(client: Client): number
 }
 
 

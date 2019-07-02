@@ -1,4 +1,4 @@
-export default interface Track {
+export interface Track {
   
   /**
    * returns the unique id of the track

@@ -1,4 +1,4 @@
-export default interface PlaylistTrack {
+export interface PlaylistTrack {
   
   /**
    * returns the title of the track

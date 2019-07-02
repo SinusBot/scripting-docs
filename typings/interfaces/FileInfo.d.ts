@@ -1,4 +1,4 @@
-export default interface FileInfo {
+export interface FileInfo {
 
   /**
    * returns the base name of the file

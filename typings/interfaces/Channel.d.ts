@@ -1,6 +1,6 @@
-import Client from "./Client"
-import ChannelGroup from "./ChannelGroup"
-import Permission from "./Permission"
+import { Client } from "./Client"
+import { ChannelGroup } from "./ChannelGroup"
+import { Permission } from "./Permission"
 
 export interface ChannelParams {
 
@@ -35,7 +35,7 @@ export enum ChannelType {
   "text" = 1
 }
 
-export default interface Channel {
+export interface Channel {
   
   /**
    * returns the id of the channel

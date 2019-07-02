@@ -1,6 +1,6 @@
-import Bytes from "./Bytes"
+import { Bytes } from "./Bytes"
 
-export default interface BytesWriter {
+export interface BytesWriter {
 
   /**
    * @todo
