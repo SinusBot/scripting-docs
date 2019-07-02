@@ -1,18 +1,20 @@
-import { Engine } from "@sinusbot/modules/engine"
-import { Backend } from "@sinusbot/modules/backend"
-import { Store } from "@sinusbot/modules/store"
-import { Event } from "@sinusbot/modules/event"
-import { Media } from "@sinusbot/modules/media"
-import { Format } from "@sinusbot/modules/format"
-import { Helpers } from "@sinusbot/modules/helpers"
-import { Net } from "@sinusbot/modules/net"
-import { Http } from "@sinusbot/modules/http"
-import { Audio } from "@sinusbot/modules/audio"
-import { WebSocket } from "@sinusbot/modules/ws"
-import { Database } from "@sinusbot/modules/database"
-import { Filesystem } from "@sinusbot/modules/filesystem"
+import { Engine } from "../modules/engine"
+import { Backend } from "../modules/backend"
+import { Store } from "../modules/store"
+import { Event } from "../modules/event"
+import { Media } from "../modules/media"
+import { Format } from "../modules/format"
+import { Helpers } from "../modules/helpers"
+import { Net } from "../modules/net"
+import { Http } from "../modules/http"
+import { Audio } from "../modules/audio"
+import { WebSocket } from "../modules/ws"
+import { Database } from "../modules/database"
+import { Filesystem } from "../modules/filesystem"
+import { Graphics } from "../modules/graphics"
+import { Crypto } from "../modules/crypto"
 
-import { command } from "@sinusbot/modules/command"
+import { command } from "../external/command"
 
 import { SinusbotMeta, ConfigMetaData } from "./meta"
 
@@ -58,8 +60,8 @@ declare global {
   function require(name: "ws"): typeof WebSocket
   function require(name: "db"): typeof Database
   function require(name: "fs"): typeof Filesystem
-  /** @todo function require(name: "graphics"): typeof Graphics */
-  /** @todo function require(name: "crypto"): typeof Crypto */
+  function require(name: "graphics"): typeof Graphics
+  function require(name: "crypto"): typeof Crypto
 
   /** 3rd party scripts */
   function require(name: "command"): typeof command

@@ -1,6 +1,6 @@
 import { BytesWriter } from "./BytesWriter"
 
-export default interface CryptoKeypair {
+export interface CryptoKeypair {
 
   /**
    * returns the keypair bytes

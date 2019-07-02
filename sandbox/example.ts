@@ -1,4 +1,4 @@
-import Client from "@sinusbot/Client"
+import { Client } from "@sinusbot/Client"
 
 registerPlugin({
   name: "typescript",
@@ -13,7 +13,7 @@ registerPlugin({
 
 
   event.on("load", () => {
-    let botClient: Client
+    let botClient: Client = null
     backend.getClients().forEach(client => {
       if (client.isSelf()) botClient = client
     })
