@@ -3,9 +3,11 @@
     "lib": ["es2018"],
     "target": "es6",
     "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
     "baseUrl": "./typings",
     "paths": {
-      "@sinusbot": ["global.d.ts", "sinusbot/meta.d.ts"],
+      "@sinusbot": ["sinusbot/global.d.ts", "sinusbot/meta.d.ts"],
       "@sinusbot/*": ["interfaces/*"],
       "@sinusbot/modules/*": ["modules/*", "external/*"]
     }

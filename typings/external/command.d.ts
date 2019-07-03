@@ -1,13 +1,12 @@
 import { Client } from "../interfaces/Client"
 import { Channel } from "../interfaces/Channel"
 import { DiscordMessage } from "../interfaces/DiscordMessage"
-import { ChatMode } from "../modules/event"
 
 declare interface MessageEvent {
   text: string
   client: Client
   channel: Channel 
-  mode: ChatMode,
+  mode: 0|1|2,
   message: DiscordMessage
 }
 
@@ -26,16 +25,21 @@ declare class PermissionError extends Error {}
 
 
 
-export enum GroupArgumentType {
+/*export enum GroupArgumentType {
   OR = "or",
   AND = "and"
-}
+}*/
 
+/*export enum ArgumentType {
+  CLIENT = "client",
+  NUMBER = "number",
+  STRING = "string",
+  REST = "rest"
+}*/
 
-
-export enum OverrideType {
+/*export enum OverrideType {
   YES_I_KNOW_THAT_I_SHOULD_NOT_USE_COMMANDS_WITH_LENGTH_OF_ONE = "YES_I_KNOW_THAT_I_SHOULD_NOT_USE_COMMANDS_WITH_LENGTH_OF_ONE"
-}
+}*/
 
 
 
@@ -133,7 +137,7 @@ declare class Throttle {
 
 
 
-declare class Argument {
+declare class Argument<T> {
   /**
    * sets an Argument as optional
    * if the argument has not been parsed successful,
@@ -141,7 +145,7 @@ declare class Argument {
    * @param fallback the default value which should be set if this parameter has not been found
    * @param displayDefault wether it should display the default value when called with the #getUsage method
    */
-  optional(fallback?: any, displayDefault?: boolean): ThisType<Argument>
+  optional(fallback?: any, displayDefault?: boolean): T
 
   /**
    * retrieves the default value if it had been set
@@ -169,7 +173,7 @@ declare class Argument {
    * @param name sets the name of the argument
    * @param display sets a beautified display name which will be used when the getManual command gets executed, if none given it will use the first parameter as display value
    */
-  setName(name: string, display?: boolean): ThisType<Argument>
+  setName(name: string, display?: string): T
 
   /**
    * retrieves the name of the Argument
@@ -179,7 +183,7 @@ declare class Argument {
 
 
 
-declare class GroupArgument extends Argument implements ArgumentInterface {
+declare class GroupArgument extends Argument<GroupArgument> implements ArgumentInterface {
   /**
    * Validates the given String to the GroupArgument
    * @param {string} args the remaining args
@@ -195,13 +199,13 @@ declare class GroupArgument extends Argument implements ArgumentInterface {
 
 
 
-declare class ClientArgument extends Argument implements ArgumentInterface {
+declare class ClientArgument extends Argument<ClientArgument> implements ArgumentInterface {
   validate(args: string): any
 }
 
 
 
-declare class StringArgument extends Argument implements ArgumentInterface {
+declare class StringArgument extends Argument<StringArgument> implements ArgumentInterface {
   validate(args: string): any
   match(regex: RegExp): StringArgument
   max(len: number): StringArgument
@@ -213,7 +217,7 @@ declare class StringArgument extends Argument implements ArgumentInterface {
 
 
 
-declare class NumberArgument extends Argument implements ArgumentInterface {
+declare class NumberArgument extends Argument<NumberArgument> implements ArgumentInterface {
   validate(args: string): any
   match(regex: RegExp): NumberArgument
   max(len: number): NumberArgument
@@ -225,7 +229,7 @@ declare class NumberArgument extends Argument implements ArgumentInterface {
 
 
 
-declare class RestArgument extends Argument implements ArgumentInterface {
+declare class RestArgument extends Argument<RestArgument> implements ArgumentInterface {
   validate(args: string): any
 }
 
@@ -354,12 +358,12 @@ declare class Command {
   /**
    * adds an argument to the command
    */
-  addArgument(argument: Argument): Command
+  addArgument(argument: Argument<any>): Command
 
   /**
    * retrieves all available arguments
    */
-  getArguments(): Argument[]
+  getArguments(): Argument<any>[]
 }
 
 
@@ -423,11 +427,11 @@ export module command {
    *  .help("responds with pong")
    *  .exec((_, _, reply) => reply("pong"))
    */
-  export function createCommand(cmd: string, overrides?: OverrideType): Command
+  export function createCommand(cmd: string, overrides?: "YES_I_KNOW_THAT_I_SHOULD_NOT_USE_COMMANDS_WITH_LENGTH_OF_ONE"): Command
 
   export function createArgument(type: "client"): ClientArgument
   export function createArgument(type: "number"): NumberArgument
-  export function createArgument(type: "client"): ClientArgument
+  export function createArgument(type: "string"): StringArgument
   export function createArgument(type: "rest"): RestArgument
 
   /**
@@ -438,7 +442,7 @@ export module command {
   /**
    * creates a new instance of command group
    */
-  export function createGroupedArgument(type: GroupArgumentType): GroupArgument
+  export function createGroupedArgument(type: "and"|"or"): GroupArgument
 
   /**
    * returns the currently used command prefix

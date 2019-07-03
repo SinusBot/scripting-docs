@@ -30,10 +30,10 @@ export interface DiscordMessageQuery {
 
 }
 
-export enum ChannelType {
+/*export enum ChannelType {
   "voice" = 0,
   "text" = 1
-}
+}*/
 
 export interface Channel {
   
@@ -81,7 +81,7 @@ export interface Channel {
   /**
    * returns the type of the channel
    */
-  type(): ChannelType
+  type(): "voice"|"text"
   
   /**
    * retrurns the channels topic

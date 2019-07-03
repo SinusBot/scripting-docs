@@ -1,4 +1,4 @@
-export enum Privilege {
+/*export enum Privilege {
   LOGIN =           1 <<  0,
   LIST_FILE =       1 <<  1,
   UPLOAD_FILE =     1 <<  2,
@@ -16,7 +16,7 @@ export enum Privilege {
   ENQUEUENEXT =     1 << 14,
   EDITBOT =         1 << 15,
   EDITINSTANCE =    1 << 16,
-}
+}*/
 
 export interface User {
   
@@ -32,7 +32,6 @@ export interface User {
   
   /**
    * returns the privileges of the user
-   * @see {Privilege}
    */
   privileges(): number
   
@@ -86,12 +85,12 @@ export interface User {
   /**
    * adds a privilege to the user
    */
-  addPrivilege(privilege: Privilege): boolean 
+  addPrivilege(privilege: number): boolean 
   
   /**
    * removes a privilege from the user
    */
-  removePrivilege(privilege: Privilege): boolean
+  removePrivilege(privilege: number): boolean
   
   /**
    * deletes the user

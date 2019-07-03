@@ -4,19 +4,19 @@ import { User } from "../interfaces/User"
 import { Channel } from "../interfaces/Channel"
 import { Client } from "../interfaces/Client"
 
-export enum BackendType {
+/*export enum BackendType {
   ts3 = "ts3",
   discord = "discord"
-}
+}*/
 
-export enum LogLevel {
+/*export enum LogLevel {
   off = 0,
   errors = 1,
   warnings = 2,
   information = 3,
   verbose = 10,
   all = 11
-}
+}*/
 
 export module Engine {
 
@@ -33,7 +33,7 @@ export module Engine {
   /**
    * returns the name of the used backend (e.g. "ts3" or "discord")
    */
-  export function getBackend(): BackendType
+  export function getBackend(): "ts3"|"discord"
 
   /**
    * sets the log level of the instance
@@ -47,7 +47,7 @@ export module Engine {
    *  10   | most verbose
    *  11   | most verbose + external backends
    */
-  export function setInstanceLogLevel(level: LogLevel): boolean
+  export function setInstanceLogLevel(level: number): boolean
 
   /**
    * sets the log level of the bot
@@ -61,17 +61,17 @@ export module Engine {
    *  10   | most verbose
    *  11   | most verbose + external backends
    */
-  export function setBotLogLevel(level: LogLevel): boolean
+  export function setBotLogLevel(level: number): boolean
 
   /**
    * returns the log level of the instance
    */
-  export function getInstanceLogLevel(): LogLevel
+  export function getInstanceLogLevel(): number
 
   /**
    * returns the log level of the bot
    */
-  export function getBotLogLevel(): LogLevel
+  export function getBotLogLevel(): number
 
   /**
    * reloads all scripts

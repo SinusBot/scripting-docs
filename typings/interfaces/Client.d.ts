@@ -2,10 +2,10 @@ import { ServerGroup } from "./ServerGroup"
 import { ChannelGroup } from "./ChannelGroup"
 import { Channel } from "./Channel"
 
-export enum ClientType {
+/*export enum ClientType {
   query = 0,
   normal = 1
-}
+}*/
 
 export interface Client {
 
@@ -248,7 +248,7 @@ export interface Client {
   /**
    * returns the type of the client
    */
-  type(): ClientType 
+  type(): 0|1 
 
   /**
    * subscribes to the client

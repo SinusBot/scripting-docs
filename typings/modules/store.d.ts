@@ -22,7 +22,7 @@ export module Store {
    * returns an array of all set key the values
    * all keys for the current script, but shared between instances of it
    */
-  export function getKeys(key: string): any[]
+  export function getKeys(): any[]
 
   /**
    * gets all stored keys with a key value map
@@ -52,7 +52,7 @@ export module Store {
    * returns an array of all set key the values
    * the values stored are available for every script in every instance
    */
-  export function getKeysGlobal(key: string): any[]
+  export function getKeysGlobal(): any[]
 
   /**
    * gets all stored keys with a key value map
@@ -82,7 +82,7 @@ export module Store {
    * returns an array of all set key the values
    * the values stored are available only for the current instance of the script (not shared between instances and / or other scripts)
    */
-  export function getKeysInstance(key: string): any[]
+  export function getKeysInstance(): any[]
 
   /**
    * gets all stored keys with a key value map

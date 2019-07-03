@@ -5,22 +5,22 @@ export interface SinusbotMeta {
   author: string,
   hidden?: boolean,
   requiredModules?: string[],
-  backends?: string[],
+  backends?: Array<"ts3"|"discord">,
   engine?: string,
   vars?: SinusbotConfig[],
   autorun?: boolean,
   enableweb?: boolean
 }
 
-export declare enum Backends {
+/*export declare enum Backends {
   ts3 = "ts3",
   discord = "discord"
-}
+}*/
 
-export declare enum VarType {
+/*export declare enum VarType {
   string = "string",
   password = "password",
-  strings = "string",
+  strings = "strings",
   multiline = "multiline",
   number = "number",
   track = "track",
@@ -29,15 +29,16 @@ export declare enum VarType {
   select = "select",
   checkbox = "checkbox",
   array = "array",
-}
+}*/
 
 export interface SinusbotConfig {
-  type: VarType,
+  type: "string"|"strings"|"password"|"multiline"|"number"|"track"|"tracks"|"channel"|"checkbox"|"array"|"select",
+  options?: string[],
   name: string,
   title: string,
   placeholder?: string,
   default?: any,
-  options?: string[],
+  indent?: number,
   conditions?: ConfigCondition[]
 }
 

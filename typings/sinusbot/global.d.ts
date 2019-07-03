@@ -13,6 +13,7 @@ import { Database } from "../modules/database"
 import { Filesystem } from "../modules/filesystem"
 import { Graphics } from "../modules/graphics"
 import { Crypto } from "../modules/crypto"
+import { Console } from "../modules/console"
 
 import { command } from "../external/command"
 
@@ -45,6 +46,7 @@ declare global {
   function setInterval(callback: (...args: any[]) => void, interval: number, ...args: any[]): number
   function setTimeout(callback: (...args: any[]) => void, timeout: number, ...args: any[]): number
 
+  const console: typeof Console
   const module: Module
 
   function require(name: "engine"): typeof Engine

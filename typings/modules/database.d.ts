@@ -1,10 +1,10 @@
 import { DBConn } from "../interfaces/DBConn"
 
-export enum DatabaseDriver {
+/*export enum DatabaseDriver {
   sqlite3 = "sqlite3",
   mysql = "mysql",
   postgres = "postgres"
-}
+}*/
 
 export interface DatabaseConnectParams {
 
@@ -12,7 +12,7 @@ export interface DatabaseConnectParams {
    * driver to use
    * SQLITE driver is currently in memory only
    */
-  driver: DatabaseDriver
+  driver: "sqlite3"|"mysql"|"postgres"
   host?: string
   username?: string
   password?: string

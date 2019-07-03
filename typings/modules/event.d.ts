@@ -6,17 +6,23 @@ import { Bytes } from "../interfaces/Bytes"
 import { DiscordMessage } from "../interfaces/DiscordMessage"
 import { TeamSpeakExtendedServerInfo } from "../interfaces/Extended"
 
-export enum ChatMode {
+/*export enum ChatMode {
   PRIVATE = 1,
   CHANNEL = 2,
   SERVER = 3,
-}
+}*/
 
 export interface chatEvent {
   text: string,
   channel: Channel,
   client: Client,
-  mode: ChatMode
+
+  /**
+   * PRIVATE = 1
+   * CHANNEL = 2
+   * SERVER = 3
+   */
+  mode: 1|2|3
 }
 
 export interface youtubedlEvent {

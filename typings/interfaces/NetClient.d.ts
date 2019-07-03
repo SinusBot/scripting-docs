@@ -1,10 +1,5 @@
 import { Bytes } from "./Bytes"
 
-export enum EncodingFormat {
-  HEX = "hex",
-  BASE64 = "base64"
-}
-
 export interface NetClient {
 
   /**
