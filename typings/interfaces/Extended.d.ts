@@ -44,12 +44,12 @@ interface ExtendedDiscord {
   /**
    * @todo
    */
-  getChannelMessages(channelId, callback?: (err: Error, data: { [key: string]: any }) => void): void
+  getChannelMessages(channelId: number, callback?: (err: Error, data: { [key: string]: any }) => void): void
   
   /**
    * @todo
    */
-  getChannelMessage(channelId, callback?: (err: Error, data: { [key: string]: any }) => void): void
+  getChannelMessage(channelId: number, callback?: (err: Error, data: { [key: string]: any }) => void): void
   
   /**
    * @todo

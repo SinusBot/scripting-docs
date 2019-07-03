@@ -5,7 +5,7 @@ export module WebSocket {
   /**
    * writes some data to the connection with given connectionId
    */
-  export function write(connectionId: string, messageType: number, message: string|Bytes)
+  export function write(connectionId: string, messageType: number, message: string|Bytes): void
 
   /**
    * broadcasts some data to all connected clients

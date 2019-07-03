@@ -6,11 +6,11 @@ export interface DBConn {
    * to convert to actual strings, please use helpers.toString(column)
    * @todo
    */
-  query(queryString: string, parameters?: any[], callback?: (err: Error, data: any) => void)
+  query(queryString: string, parameters?: any[], callback?: (err: Error, data: any) => void): void
 
   /**
    * use this instead of query if you dont expect a result
    * @todo
    */
-  exec(queryString: string, parameters?: any[], callback?: (err: Error) => void)
+  exec(queryString: string, parameters?: any[], callback?: (err: Error) => void): void
 }
