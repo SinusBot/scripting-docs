@@ -23,6 +23,13 @@ class ServerGroup {
    */
   addClientByDatabaseId(client) { }
   /**
+   * @description Removes a client by database ID from the servergroup
+   * @returns {boolean} status if the request was successful
+   * @since 0.13.37
+   * @param {(Client|string|number)} client - The client can be a client object, string or number
+   */
+  removeClientByDatabaseId(client) { }
+  /**
    * @description Gets the permissions for the servergroup from the server - this is an expensive call as the permissions are _not_ cached
    * @since 0.13.37
    * @returns {Permission[]}
