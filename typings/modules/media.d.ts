@@ -1,7 +1,7 @@
 import { Track } from "../interfaces/Track"
 import { Playlist } from "../interfaces/Playlist"
 
-export module Media {
+export module media {
 
   /**
    * plays a track via internal url

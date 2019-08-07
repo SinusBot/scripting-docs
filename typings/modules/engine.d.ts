@@ -1,4 +1,4 @@
-import { SinusbotConfig } from "../sinusbot/meta"
+import { SinusbotConfig } from "../meta"
 import { Track } from "../interfaces/Track"
 import { User } from "../interfaces/User"
 import { Channel } from "../interfaces/Channel"
@@ -18,7 +18,7 @@ import { Client } from "../interfaces/Client"
   all = 11
 }*/
 
-export module Engine {
+export module engine {
 
   /**
    * returns the instances unique identifier

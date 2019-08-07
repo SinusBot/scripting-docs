@@ -1,4 +1,4 @@
-export module Store {
+export module store {
 
   /**
    * retrieves a key

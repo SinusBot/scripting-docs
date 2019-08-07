@@ -36,7 +36,7 @@ export interface HttpResponse {
 
 export function simpleRequestCallback(error: string, response: HttpResponse): void
 
-export module Http {
+export module http {
 
   /**
    * creates an http request

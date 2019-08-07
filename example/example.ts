@@ -1,3 +1,5 @@
+//reference the global definition file by default its ./node_modules/sinusbot-scripting-engine/typings/global.d.ts
+///<reference path="../typings/global.d.ts" />
 import { Client } from "@sinusbot/Client"
 
 registerPlugin({

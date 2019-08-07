@@ -1,6 +1,6 @@
 import { Bytes } from "../interfaces/Bytes"
 
-export module WebSocket {
+export module ws {
 
   /**
    * writes some data to the connection with given connectionId

@@ -24,7 +24,7 @@ export interface DatabaseConnectParams {
  */
 export function DatabaseConnectCallback(error?: string): void
 
-export module Database {
+export module db {
 
   /**
    * connects to a database

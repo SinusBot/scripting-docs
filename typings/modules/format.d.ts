@@ -1,4 +1,4 @@
-export module Format {
+export module format {
 
   /**
    * apply color if the backend supports it

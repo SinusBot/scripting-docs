@@ -70,7 +70,7 @@ export interface wsDataEvent {
   data: Bytes
 }
 
-export module Event {
+export module event {
 
   export function on(name: string, callback: (...args: any[]) => void): void
 

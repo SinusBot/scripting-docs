@@ -28,6 +28,6 @@ export interface NetConnectParams {
  */
 export function NetConnectCallback(error?: string): void
 
-export module Net {
+export module net {
   export function connect(params: NetConnectParams, callback: typeof NetConnectCallback): NetClient
 }

@@ -27,7 +27,7 @@ export interface BannerLayer {
   [key: string]: any
 }
 
-export module Graphics {
+export module graphics {
 
   /**
    * removes the avatar of sinusbot

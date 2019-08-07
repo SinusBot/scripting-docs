@@ -2,7 +2,7 @@ import { Bytes } from "../interfaces/Bytes"
 import { BytesWriter } from "../interfaces/BytesWriter"
 import { FileInfo } from "../interfaces/FileInfo"
 
-export module Filesystem {
+export module fs {
   
   /**
    * checks if a file exists

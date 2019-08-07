@@ -1,7 +1,7 @@
 import { CryptoKeypair } from "../interfaces/CryptoKeyPair"
 import { BytesWriter } from "../interfaces/BytesWriter"
 
-export module Crypto {
+export module crypto {
 
   /**
    * generates a new {@see CryptoKeypair}
