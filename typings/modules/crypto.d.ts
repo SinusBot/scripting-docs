@@ -1,4 +1,3 @@
-import { CryptoKeypair } from "../interfaces/CryptoKeyPair"
 import { BytesWriter } from "../interfaces/BytesWriter"
 
 export module crypto {
@@ -38,4 +37,22 @@ export module crypto {
    * @param number number of random bytes to return
    */
   export function randomBytes(number: number): BytesWriter
+}
+
+
+export namespace crypto {
+  
+  export interface CryptoKeypair {
+
+    /**
+     * returns the keypair bytes
+     */
+    export(): BytesWriter
+
+    /**
+     * returns the shared key
+     */
+    sharedKey(pair: BytesWriter): BytesWriter
+  }
+
 }

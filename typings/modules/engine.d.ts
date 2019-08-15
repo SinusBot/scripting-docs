@@ -1,4 +1,3 @@
-import { SinusbotConfig } from "../meta"
 import { Track } from "../interfaces/Track"
 import { User } from "../interfaces/User"
 import { Channel } from "../interfaces/Channel"
@@ -113,7 +112,7 @@ export module engine {
   /**
    * stores the given object as configuration for the current script
    */
-  export function saveConfig(config: SinusbotConfig): boolean
+  export function saveConfig(config: Record<string, any>): boolean
 
   /**
    * logs to stdout / instance log

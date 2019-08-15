@@ -1,74 +1,11 @@
 import { Client } from "../interfaces/Client"
+import { User } from "../interfaces/User"
 import { Channel } from "../interfaces/Channel"
 import { Track } from "../interfaces/Track"
 import { ServerGroup } from "../interfaces/ServerGroup"
 import { Bytes } from "../interfaces/Bytes"
 import { DiscordMessage } from "../interfaces/DiscordMessage"
 import { TeamSpeakExtendedServerInfo } from "../interfaces/Extended"
-
-/*export enum ChatMode {
-  PRIVATE = 1,
-  CHANNEL = 2,
-  SERVER = 3,
-}*/
-
-export interface chatEvent {
-  text: string,
-  channel: Channel,
-  client: Client,
-
-  /**
-   * PRIVATE = 1
-   * CHANNEL = 2
-   * SERVER = 3
-   */
-  mode: 1|2|3
-}
-
-export interface youtubedlEvent {
-  url: string,
-  jobId: string,
-  trackId: string
-}
-
-export interface clientMoveEvent {
-  fromChannel?: Channel
-  toChannel?: Channel
-  client: Client,
-  invoker: Client
-}
-
-export interface clientNickEvent {
-  client: Client,
-  oldNick: string
-}
-
-export interface clientServerGroupEvent {
-  client: Client,
-  invoker: Client,
-  serverGroup: ServerGroup
-}
-
-export interface channelEvent {
-  channel: Channel,
-  invoker: Client
-}
-
-export interface speechEvent {
-  client: Client,
-  text: string
-}
-
-export interface wsErrorEvent {
-  id: string,
-  error: string
-}
-
-export interface wsDataEvent {
-  id: string,
-  type: number,
-  data: Bytes
-}
 
 export module event {
 
@@ -298,4 +235,98 @@ export module event {
    * emits a custom event to all instances
    */
   export function broadcast(name: string, data: any): void
+}
+
+export namespace event {
+  export interface ApiEvent {
+
+    /**
+     * returns the name of the event
+     */
+    name(): string
+  
+    /**
+     * returns the json body
+     */
+    data(): { [key: string]: any }
+  
+    /**
+     * returns the User which called the event
+     */
+    user(): User|undefined
+  
+    /**
+     * returns the remote address which triggered the call
+     */
+    remoteAddr(): string
+  
+    /**
+     * gets the parameters inside the url
+     */
+    queryParams(): { [key: string]: any }
+  }
+
+  /*export enum ChatMode {
+    PRIVATE = 1,
+    CHANNEL = 2,
+    SERVER = 3,
+  }*/
+
+  export interface chatEvent {
+    text: string,
+    channel: Channel,
+    client: Client,
+
+    /**
+     * PRIVATE = 1
+     * CHANNEL = 2
+     * SERVER = 3
+     */
+    mode: 1|2|3
+  }
+
+  export interface youtubedlEvent {
+    url: string,
+    jobId: string,
+    trackId: string
+  }
+
+  export interface clientMoveEvent {
+    fromChannel?: Channel
+    toChannel?: Channel
+    client: Client,
+    invoker: Client
+  }
+
+  export interface clientNickEvent {
+    client: Client,
+    oldNick: string
+  }
+
+  export interface clientServerGroupEvent {
+    client: Client,
+    invoker: Client,
+    serverGroup: ServerGroup
+  }
+
+  export interface channelEvent {
+    channel: Channel,
+    invoker: Client
+  }
+
+  export interface speechEvent {
+    client: Client,
+    text: string
+  }
+
+  export interface wsErrorEvent {
+    id: string,
+    error: string
+  }
+
+  export interface wsDataEvent {
+    id: string,
+    type: number,
+    data: Bytes
+  }
 }
