@@ -20,6 +20,11 @@ export module media {
   export function getTrackByID(id: string): Track
 
   /**
+   * returns all tracks
+   */
+  export function getTracks(): Track[]
+
+  /**
    * searches for tracks matching the search term, returns 20 entries at most
    */
   export function search(pattern: string): Track[]
