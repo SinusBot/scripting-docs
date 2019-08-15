@@ -17,17 +17,17 @@ module.exports = {
 
     /**
      * Returns the track with the given ID (or null if none was found)
+     * @param {string} id - Track ID
      * @returns {?Track}
      */
     getTrackByID: (id) => {},
 
-    // /**
-    //  * Returns all Tracks
-    //  * @todo //TODO: wait for this to get implemented...
-    //  * @since 1.0.0-beta.3
-    //  * @returns {Track[]}
-    //  */
-    // getTracks: () => {},
+    /**
+     * Returns all Tracks
+     * @since 1.0.0-beta.3
+     * @returns {Track[]}
+     */
+    getTracks: () => {},
 
     /**
      * @description Searches for tracks matching the search term, returns 20 entries at most
