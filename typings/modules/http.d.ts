@@ -24,7 +24,7 @@ export interface HttpConfig {
   /**
    * request headers
    */
-  headers: Record<string, string>
+  headers?: Record<string, string>
 }
 
 export interface HttpResponse {

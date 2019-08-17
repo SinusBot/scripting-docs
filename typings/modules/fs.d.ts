@@ -73,7 +73,7 @@ export namespace fs {
      * returns the length in bytes for regular files
      * system dependent for others
      */
-    size(): string
+    size(): number
   
     /**
      * returns the file mode bits

@@ -248,7 +248,7 @@ export namespace event {
     /**
      * returns the json body
      */
-    data(): { [key: string]: any }
+    data(): any
   
     /**
      * returns the User which called the event
@@ -263,7 +263,7 @@ export namespace event {
     /**
      * gets the parameters inside the url
      */
-    queryParams(): { [key: string]: any }
+    queryParams(): { [key: string]: string }
   }
 
   /*export enum ChatMode {
