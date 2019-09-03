@@ -3,9 +3,9 @@ import { Bytes } from "./Bytes"
 export interface BytesWriter {
 
   /**
-   * @todo
+   * adds data to the current ByteWriter
    */
-  append(data: Bytes): void
+  append(data: BytesWriter): void
 
   /**
    * returns the current bytes
@@ -23,17 +23,17 @@ export interface BytesWriter {
   newReader(): Bytes
 
   /**
-   * @todo
+   * returns a base64 representation of the current payload
    */
   toBase64(): string
 
   /**
-   * @todo
+   * returns an hex string representation of the current payload
    */
   toHex(): string
 
   /**
-   * @todo
+   * returns the raw string representation of the current payload
    */
   toString(): string
 

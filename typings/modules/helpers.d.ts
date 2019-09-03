@@ -75,8 +75,10 @@ export module helpers {
 
   /**
    * returns the documentation of an interface
+   * @param name name of the object to display
+   * @param object the object to document
    */
-  export function document(object: any): string
+  export function document(name: string, object: any): string
   
 
 }
