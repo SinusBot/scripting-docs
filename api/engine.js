@@ -326,6 +326,13 @@ module.exports = {
     enableRegistration() {},
 
 	/**
+     * @description Returns whether registration is enabled
+     * @since 1.0.0-beta.6
+     * @returns {boolean} true if registration is enabled
+	 */
+    registrationEnabled() {},
+
+	/**
 	* @returns {boolean}
 	*/
 	isSubscriptionMode() {},

@@ -169,4 +169,36 @@ module.exports = {
      * @returns {string} Track-ID
      */
     enqueueYtdl: (url) => {},
+
+    /**
+     * @description Plays the next track of the queue; resumes queue if stopped.
+     * @since 1.0.0-beta.6
+     */
+    playQueueNext: () => {},
+
+    /**
+     * @description Clears the idle track.
+     * @since 1.0.0-beta.6
+     */
+    clearIdleTrack: () => {},
+
+    /**
+     * @description Clears the startup track.
+     * @since 1.0.0-beta.6
+     */
+    clearStartupTrack: () => {},
+
+    /**
+     * @description Clears the startup track.
+     * @param {string} url Track-URL (see {@link Track#url})
+     * @since 1.0.0-beta.6
+     */
+    setIdleTrackURL: (url) => {},
+
+    /**
+     * @description Clears the startup track.
+     * @param {string} url Track-URL (see {@link Track#url})
+     * @since 1.0.0-beta.6
+     */
+    setStartupTrackURL: (url) => {},
 }
