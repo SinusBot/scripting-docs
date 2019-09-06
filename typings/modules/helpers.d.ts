@@ -79,6 +79,14 @@ export module helpers {
    * @param object the object to document
    */
   export function document(name: string, object: any): string
+
+  /**
+   * NOT POSSIBLE TO DOCUMENT SINCE TYPEOF IS A RESERVED KEYWORD
+   * checks the type of a input value und returns its name
+   * @param data the type to check
+   */
+  function _typeof(data: any): string
+  export { _typeof as typeof }
   
 
 }

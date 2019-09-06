@@ -168,7 +168,7 @@ export module engine {
   /**
    * gets a sinusbot user by his id
    */
-  export function getUserById(id: string): User|undefined
+  export function getUserByID(id: string): User|undefined
 
   /**
    * gets a sinusbot user by his name
@@ -224,8 +224,8 @@ export module engine {
    */
   export function getClientSubscriptions(): Client[]
 
-  export function setChannelSubscriptions(channel: Channel, bool: boolean): void
+  export function setChannelSubscription(channel: Channel, bool: boolean): void
 
-  export function setClientSubscriptions(client: Client, bool: boolean): void
+  export function setChannelSubscription(client: Client, bool: boolean): void
 
 }

@@ -55,6 +55,21 @@ export module audio {
   export function isShuffle(): boolean
 
   /**
+   * starts playing the next song
+   */
+  export function playNext(): boolean
+
+  /**
+   * starts playing the previous song
+   */
+  export function playPrevious(): boolean
+
+  /**
+   * stops one or more playing songs
+   */
+  export function stop(tracks?: string[]): boolean
+
+  /**
    * sets the state of shuffle-mode
    */
   export function setShuffle(state: boolean): void

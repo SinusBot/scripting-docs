@@ -38,7 +38,7 @@ export module backend {
   /**
    * returns a channel by its id if found
    */
-  export function getChannelByID(id: number): Channel
+  export function getChannelByID(id: string): Channel
   
   /**
    * returns the primary channel the bot is in
@@ -110,12 +110,12 @@ export module backend {
   /**
    * returns a servergroup by its id if found
    */
-  export function getServerGroupByID(id: number): ServerGroup
+  export function getServerGroupByID(id: string): ServerGroup
   
   /**
    * returns a channelgroup by its id if found
    */
-  export function getChannelGroupByID(id: number): ChannelGroup
+  export function getChannelGroupByID(id: string): ChannelGroup
   
   /**
    * returns all known servergroups
