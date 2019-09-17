@@ -37,14 +37,14 @@ class DiscordMessage {
      * this requires the `ADD_REACTIONS` permission to be present on the current user.
      * @see https://discordapp.com/developers/docs/resources/channel#create-reaction
      * @param {string} emoji - Emoji in the form of `name:id` for custom guild emoji, or Unicode character.
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     createReaction(emoji, callback) {}
 
     /**
      * Deletes the message.
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     delete(callback) {}
@@ -52,7 +52,7 @@ class DiscordMessage {
     /**
      * Deletes all reactions on a message. This requires the `MANAGE_MESSAGES` permission.
      * @see https://discordapp.com/developers/docs/resources/channel#delete-all-reactions
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     deleteAllReactions(callback) {}
@@ -60,7 +60,7 @@ class DiscordMessage {
     /**
      * Delete a reaction the bot has made for the message.
      * @param {string} emoji - Emoji in the form of `name:id` for custom guild emoji, or Unicode character.
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     deleteOwnReaction(emoji, callback) {}
@@ -70,7 +70,7 @@ class DiscordMessage {
      * @since 1.0.0-beta.2
      * @param {string} emoji - Emoji in the form of `name:id` for custom guild emoji, or Unicode character.
      * @param {(Client|string)} user
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     deleteUserReaction(emoji, user, callback) {}
@@ -78,7 +78,7 @@ class DiscordMessage {
     /**
      * Edits the content/text of the message.
      * @param {string} content
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     editContent(content, callback) {}
@@ -101,7 +101,7 @@ class DiscordMessage {
     /**
      * Posts a message in the same channel/chat that the original message was sent in.
      * @param {string} text
-     * @param {function} callback
+     * @param {function} [callback]
      * @returns {boolean} success
      */
     reply(text, callback) {}
