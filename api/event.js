@@ -267,6 +267,13 @@
  * @description Gets fired whenever a client unmutes his sound
  */
 /**
+ * @event clientBanned
+ * @memberof event
+ * @since 1.0.0-beta.6
+ * @todo TODO: What parameters?
+ * @description Gets fired whenever a client is banned from a TS server
+ */
+/**
  * @event serverGroupAdded
  * @memberof event
  * @param {ClientServerGroupEvent} event

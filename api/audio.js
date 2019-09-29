@@ -133,4 +133,20 @@ module.exports = {
      * @returns {boolean}
      */
     setStreamVolume: (streamID, volume) => {},
+
+    /**
+     * @since 1.0.0-beta.6
+     * @description Sets the TTS URL
+     * @param {string} url - TTS URL
+     * @returns {boolean}
+     */
+    setTTSURL: (url) => {},
+
+    /**
+     * @since 1.0.0-beta.6
+     * @description Sets the TTS default locale
+     * @param {string} locale - Locale
+     * @returns {boolean}
+     */
+    setTTSDefaultLocale: (locale) => {},
 }

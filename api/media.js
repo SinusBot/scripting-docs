@@ -177,6 +177,12 @@ module.exports = {
     playQueueNext: () => {},
 
     /**
+     * @description Alias for `playQueueNext()`. Plays the next track of the queue; resumes queue if stopped.
+     * @since 1.0.0-beta.6
+     */
+    resumeQueue: () => {},
+
+    /**
      * @description Clears the idle track.
      * @since 1.0.0-beta.6
      */

@@ -12,7 +12,7 @@
     "generate-ts": "jsdoc -c config.json"
   },
   "devDependencies": {
-    "documentation": "^12.1.1",
+    "documentation": "^12.1.2",
     "jsdoc": "^3.6.3",
     "tsd-jsdoc": "^2.4.0"
   },
