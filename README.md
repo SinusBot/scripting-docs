@@ -52,6 +52,9 @@ After you have the typings installed, you need to create a `jsconfig.json` in th
         "checkJs": true,
         "target": "es2018"
     },
+    "include": [
+        "node_modules/sinusbot-scripting-engine"
+    ],
     "exclude": [
         "node_modules",
         "**/node_modules/*"
