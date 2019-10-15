@@ -203,7 +203,7 @@ class Channel {
    * @description enables / disables subscription for this channel; requires subscription mode
    * @param {boolean} val
    */
-  setSubscription(val) {}
+  subscribe(val) {}
 
   /**
    * @description Updates multiple channel parameters at once
@@ -236,16 +236,9 @@ class Channel {
   addPermission(id) {}
 
 	/**
-   * Note: TS3 only at the moment
-   * @todo //FIXME: support discord
 	 * @returns {string}
 	 */
 	getURL() {}
-
-	/**
-	 * @param {boolean} sub
-	 */
-  subscribe(sub) {}
   
 	/**
    * Gets the messages of a discord channel.

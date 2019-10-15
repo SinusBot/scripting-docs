@@ -274,7 +274,7 @@ class Client {
    * @description Enables / disables subscription for this client; requires subscription mode
    * @param {boolean} val
    */
-  setSubscription(val) { }
+  subscribe(val) { }
 
   /**
    * @description Returns the platform of the client (Windows, Linux, MacOS)
@@ -293,11 +293,6 @@ class Client {
    * @returns {string} client type
    */
   type() { }
-
-	/**
-	 * @param {boolean} sub
-	 */
-  subscribe(sub) {}
 
   /**
    * @private

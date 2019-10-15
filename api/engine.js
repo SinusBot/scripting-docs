@@ -346,16 +346,4 @@ module.exports = {
 	 * @returns {Client[]}
 	 */
 	getClientSubscriptions() {},
-    
-	/**
-	 * @param {Channel}
-	 * @param {boolean}
-     */
-    setChannelSubscriptions() {},
-    
-	/**
-	 * @param {Client}
-	 * @param {boolean}
-	 */
-    setClientSubscriptions() {},
 }
