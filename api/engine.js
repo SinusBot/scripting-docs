@@ -345,5 +345,11 @@ module.exports = {
 	/**
 	 * @returns {Client[]}
 	 */
-	getClientSubscriptions() {},
+    getClientSubscriptions() {},
+    
+	/**
+	 * @param {boolean} bool `true` to enable subscription-mode, `false` to disable it.
+     * @since 1.0.0-beta.8
+	 */
+	setSubscriptionMode(bool) {},
 }
