@@ -207,4 +207,12 @@ module.exports = {
      * @since 1.0.0-beta.6
      */
     setStartupTrackURL: (url) => {},
+
+    /**
+     * @description Starts playback of a playlist with a given track index.
+     * @param {Playlist} playlist Playlist
+     * @param {number} index Index of the track (e.g. `0` for first one)
+     * @since 1.0.0-beta.8
+     */
+    playlistPlayByID: (playlist, index) => {},
 }
