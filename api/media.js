@@ -195,14 +195,14 @@ module.exports = {
     clearStartupTrack: () => {},
 
     /**
-     * @description Clears the startup track.
+     * @description Sets the idle track.
      * @param {string} url Track-URL (see {@link Track#url})
      * @since 1.0.0-beta.6
      */
     setIdleTrackURL: (url) => {},
 
     /**
-     * @description Clears the startup track.
+     * @description Sets the startup track.
      * @param {string} url Track-URL (see {@link Track#url})
      * @since 1.0.0-beta.6
      */
