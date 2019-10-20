@@ -59,4 +59,9 @@ After you have the typings installed, you need to create a `jsconfig.json` in th
 }
 ```
 
+You might aswell need to reference the location of the typing file manually directly in your script. In the first line add this:
+```javascript
+///<reference path="./node_modules/sinusbot-scripting-engine/tsd/types.d.ts" />
+```
+
 For reference, you can check out [this repository](https://github.com/SinusBot/scripts).
