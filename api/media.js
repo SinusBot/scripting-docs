@@ -144,7 +144,7 @@ module.exports = {
     /**
      * @description Streams something via youtube-dl.
      * @param {string} url - URL that youtube-dl supports
-     * @returns {bool} success
+     * @returns {boolean} success
      */
     ytStream(url) {},
 

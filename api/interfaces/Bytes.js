@@ -52,7 +52,7 @@ class Bytes {
 
   /**
    * @param {number} pos
-   * @returns {bool}
+   * @returns {boolean}
    */
   seek(pos) {}
 

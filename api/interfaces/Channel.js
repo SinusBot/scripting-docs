@@ -150,9 +150,9 @@ class Channel {
   isDefault() {}
 
 	/**
-	 * @param {boolean} Whether channel is the default one
+	 * @param {boolean} bool Whether channel is the default one
 	 */
-	setDefault() {}
+	setDefault(bool) {}
 
   /**
    * @returns {boolean} Whether channel is password-protected or not
@@ -160,9 +160,9 @@ class Channel {
   isPassworded() {}
   
 	/**
-	 * @param {string}
+	 * @param {string} password Password
 	 */
-	setPassword() {}
+	setPassword(password) {}
 
   /**
    * @returns {boolean} Whether channel is encrypted or not
@@ -246,7 +246,7 @@ class Channel {
    * @see https://discordapp.com/developers/docs/resources/channel#get-channel-messages
 	 * @param {object} params e.g. `{ around: 'messageid', limit: '1' }`, see [discord documentation](https://discordapp.com/developers/docs/resources/channel#get-channel-messages)
 	 * @param {function} callback (error, messages)
-	 * @returns {bool}
+	 * @returns {boolean}
 	 */
 	getMessages(params, callback) {}
 
