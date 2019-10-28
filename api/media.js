@@ -3,8 +3,8 @@
  */
 module.exports = {
     /**
-     * @description Plays a track via internal url
-     * @param {string} url - Internal Track-URL (see {@link Track#url}, something like track://...)
+     * @description Streams a URL or plays a track via internal url
+     * @param {string} url - URL or Internal Track-URL (see {@link Track#url}, something like track://...)
      * @returns {boolean} success
      */
     playURL: (url) => {},
