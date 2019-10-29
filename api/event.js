@@ -270,7 +270,10 @@
  * @event clientBanned
  * @memberof event
  * @since 1.0.0-beta.6
- * @todo TODO: What parameters?
+ * @param {string} message the ban reason
+ * @param {Client} invoker user which created the ban
+ * @param {Channel} fromChannel the channel the client was in
+ * @param {Client} client user which has been banned
  * @description Gets fired whenever a client is banned from a TS server
  */
 /**
