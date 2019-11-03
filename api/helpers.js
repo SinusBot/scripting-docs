@@ -107,10 +107,11 @@ module.exports = {
 
     /**
      * @description Returns the documentation of an interface
+     * @param {string} name Interface name
      * @param {*} obj Interface to document
      * @returns {string} JSDoc String
      */
-    document: (obj)  => {},
+    document: (name, obj)  => {},
 
     /**
      * @private
