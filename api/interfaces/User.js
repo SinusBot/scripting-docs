@@ -44,34 +44,44 @@ class User {
    * }
    * 
    * @description Returns the privileges of the user
-   * @returns {number} Privileges of the user 
+   * @returns {number} Privileges of the user
    * @since 0.13.37
    */
   privileges() { }
 
   /**
+   * @description Returns the instance privileges of the user
+   * @returns {number} Instance privileges of the user
+   * @since 1.0.0-beta.9
+   * @see privileges
+   */
+  instancePrivileges() { }
+
+  /**
    * @returns {string} teamspeak or discord unique ID if bound to a client
    * @since 0.13.37
+   * @see uid
    */
   tsUid() { }
 
   /**
-   * @see tsUid
    * @returns {string} teamspeak or discord unique ID if bound to a client
    * @since 1.0.0-alpha.6
+   * @see tsUid
    */
   uid() { }
 
   /**
    * @returns {string} Group ID if bound to a teamspeak group or discord role
    * @since 0.13.37
+   * @see groupId
    */
   tsGroupId() { }
 
   /**
-   * @see tsGroupId
    * @returns {string} Group ID if bound to a teamspeak group or discord role
    * @since 1.0.0-alpha.6
+   * @see tsGroupId
    */
   groupId() { }
 
@@ -95,8 +105,18 @@ class User {
    * @returns {boolean} Success or not
    * @param {string} uid - teamspeak/discord unique ID of the client 
    * @since 0.13.37
+   * @see setUid
    */
   setTSUid(uid) { }
+
+  /**
+   * @description Sets the teamspeak/discord unique ID
+   * @returns {boolean} Success or not
+   * @param {string} uid - teamspeak/discord unique ID of the client 
+   * @since 1.0.0-beta.9
+   * @see setTSUid
+   */
+  setUid(uid) { }
 
   /**
    * @description Sets the group ID
@@ -107,7 +127,7 @@ class User {
   setGroupId(groupId) { }
 
   /**
-   * @description Sets the privileges to an user
+   * @description Sets the users privileges
    * @returns {boolean} Success or not
    * @param {number} privileges - New privileges of the user
    * @since 0.13.37
@@ -115,7 +135,7 @@ class User {
   setPrivileges(privileges) { }
 
   /**
-   * @description Adds an privilege to an user
+   * @description Adds a privilege to a user
    * @returns {boolean} Success or not 
    * @param {number} privilege - New privilege which should be added
    * @since 0.13.37
@@ -123,12 +143,36 @@ class User {
   addPrivilege(privilege) { }
 
   /**
-   * @description Removes an privilege from an user
+   * @description Removes a privilege from a user
    * @returns {boolean} Success or not 
    * @param {number} privilege - Privilege which should be removed
    * @since 0.13.37
    */
   removePrivilege(privilege) { }
+
+  /**
+   * @description Sets the users instance privileges
+   * @returns {boolean} Success or not
+   * @param {number} privileges - New privileges of the user
+   * @since 1.0.0-beta.9
+   */
+  setInstancePrivileges(privileges) { }
+
+  /**
+   * @description Adds an instance privilege to a user
+   * @returns {boolean} Success or not 
+   * @param {number} privilege - New privilege which should be added
+   * @since 1.0.0-beta.9
+   */
+  addInstancePrivilege(privilege) { }
+
+  /**
+   * @description Removes an instance privilege from a user
+   * @returns {boolean} Success or not 
+   * @param {number} privilege - Privilege which should be removed
+   * @since 1.0.0-beta.9
+   */
+  removeInstancePrivilege(privilege) { }
 
   /**
    * @description Deletes an user
