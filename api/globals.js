@@ -47,7 +47,7 @@ function mainFunction(_, config, meta) {}
  *     name: 'Demo Script',
  *     version: '1.0',
  *     description: 'This example actually does nothing',
- *     author: 'Author <author@example.com>',
+ *     author: 'Author <author[at]example.com>',
  *     vars: []
  * }, function(_, config, meta) {
  *     // your code goes here
