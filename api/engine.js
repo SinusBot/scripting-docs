@@ -360,13 +360,6 @@ module.exports = {
 	getIgnoreCommandsFromServerChat() {},
     
 	/**
-     * the value of the checkbox from instance settings "ignore commands via server-chat"
-     * @returns {boolean} wether ignore setting has been set or not
-     * @since 1.0.0-beta.9
-	 */
-	getIgnoreCommandsFromServerChat() {},
-    
-	/**
      * the value of the checkbox from instance settings "ignore commands via channel-chat"
      * @returns {boolean} wether ignore setting has been set or not
      * @since 1.0.0-beta.9
@@ -381,20 +374,23 @@ module.exports = {
     getIgnoreCommandsFromPrivateChat() {},
     
     /**
-     * (re)sets the value of the checkbox from instance settings "ignore commands via server-chat"
+     * set the value of the checkbox from instance settings "ignore commands via server-chat"
      * @param {boolean} bool reset/set specific setting
+     * @since 1.0.0-beta.9
      */
     setIgnoreCommandsFromServerChat(bool) {},
     
     /**
-     * (re)sets the value of the checkbox from instance settings "ignore commands via channel-chat"
+     * set the value of the checkbox from instance settings "ignore commands via channel-chat"
      * @param {boolean} bool reset/set specific setting
+     * @since 1.0.0-beta.9
      */
     setIgnoreCommandsFromChannelChat(bool) {},
     
     /**
-     * (re)sets the value of the checkbox from instance settings "ignore commands via private message"
+     * set the value of the checkbox from instance settings "ignore commands via private message"
      * @param {boolean} bool reset/set specific setting
+     * @since 1.0.0-beta.9
      */
     setIgnoreCommandsFromPrivateChat(bool) {},
 }
