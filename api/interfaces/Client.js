@@ -25,12 +25,13 @@ class Client {
   id() { }
 
   /**
-   * Alias of uniqueId()
    * @returns {string} Unique ID of the client
    */
   uid() { }
 
   /**
+   * Alias of uid()
+   * @deprecated Please use uid() instead.
    * @returns {string} Unique ID of the client
    */
   uniqueId() { }
