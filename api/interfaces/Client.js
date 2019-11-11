@@ -186,8 +186,9 @@ class Client {
   getAudioChannel() { }
 
   /**
-   * Returns the TS3 client URL in the format `client://0/uid~nickname`
-   * @returns {string} Client URL
+   * Returns the TS3 client URL in the format `client://0/uid~nickname`.
+   * On discord it returns an @-mention in the format `<@uid>`.
+   * @returns {string} Client URL / mention
    */
   getURL() { }
 
