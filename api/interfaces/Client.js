@@ -64,12 +64,11 @@ class Client {
    */
   setDescription(description) { }
 
-  /**
-   * @todo //TODO: explain this
-   * @param {string} description
-	 * @returns {boolean} success
-   */
-  setDescriptionHex(description) { }
+  // /**
+  //  * @param {string} description
+	//  * @returns {boolean} success
+  //  */
+  // setDescriptionHex(description) { }
 
   /**
    * Returns true when this client is the bot itself
