@@ -290,6 +290,13 @@ class Client {
   getVersion() { }
 
   /**
+   * @since 1.0.0-beta.10
+   * @description Forces an update on the client
+   * @returns {boolean}
+   */
+  requestConnectionInfoUpdate() { }
+
+  /**
    * @description Returns the client type (Query=0; Normal=1)
    * @returns {string} client type
    */

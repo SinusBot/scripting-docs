@@ -274,6 +274,7 @@
  * @param {Client} invoker user which created the ban
  * @param {Channel} fromChannel the channel the client was in
  * @param {Client} client user which has been banned
+ * @param {number} time the bantime in seconds
  * @description Gets fired whenever a client is banned from a TS server
  */
 /**
@@ -308,6 +309,13 @@
  * @param {Channel} channel - Channel that got deleted
  * @param {Client} invoker - Client that deleted the channel
  * @description Gets fired whenever a channel is deleted
+ */
+/**
+ * @event clientConnectionInfoUpdate
+ * @memberof event
+ * @type {Client} client - the client which got updated
+ * @description gets fired when a client connection info gets updated
+ * @since 1.0.0-beta.10
  */
 /**
  * @event speech

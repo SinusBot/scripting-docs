@@ -25,6 +25,21 @@ class PlaylistTrack {
    */
   play() { }
   // /**
+  //  * @description Checks if a title exists for this PlaylistTrack
+  //  * @returns {boolean} wether a title exists on this PlaylistTrack
+  //  */
+  // hasTitle() { }
+  // /**
+  //  * @description Checks if an album exists for this PlaylistTrack
+  //  * @returns {boolean} wether an album exists on this PlaylistTrack
+  //  */
+  // hasAlbum() { }
+  // /**
+  //  * @description Checks if an artist exists for this PlaylistTrack
+  //  * @returns {boolean} wether an artist exists on this PlaylistTrack
+  //  */
+  // hasArtist() { }
+  // /**
   //  * adds the track to the queue
   //  * @returns {boolean}
   //  */
