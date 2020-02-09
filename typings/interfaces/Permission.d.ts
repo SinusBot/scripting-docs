@@ -48,6 +48,12 @@ export interface Permission {
   setSkip(value: number): boolean
 
   /**
+   * sets the negated flag
+   * only applicable for ServerGroups; you need to call save() to apply changes
+   */
+  setValue(value: number): boolean
+
+  /**
    * saves the permission
    */
   save(): boolean
