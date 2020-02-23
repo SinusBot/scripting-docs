@@ -17,7 +17,7 @@ class FileInfo {
 
     /**
      * @since 1.0.0
-     * @returns {number} [File mode bits](https://en.wikipedia.org/wiki/Chmod#Numerical_permissions)
+     * @returns {number} [UNIX file permission mode](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation)
      */
     mode() { }
 
@@ -63,7 +63,7 @@ module.exports = {
      * @since 1.0.0
      * @param {string} path - Path to the file
      * @param {BytesWriter} data - Data as Bytes, e.g. created by `helpers.bytesFromString()` or similar functions
-     * @param {number} mode - File mode bits
+     * @param {number} mode - [UNIX file permission mode](https://en.wikipedia.org/wiki/File_system_permissions#Numeric_notation), i.e. `0644` (for `-rw-r--r--`)
      * @return {boolean} success
      */
     writeFile: (path, data, mode) => {},
