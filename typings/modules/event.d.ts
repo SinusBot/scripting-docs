@@ -77,7 +77,7 @@ export module event {
   /**
    * gets fired whenever a clients nickname is changed
    */
-  export function on(name: "clientNick", callback: (event: clientNickEvent) => void): void
+  export function on(name: "clientNick", callback: (client: Client) => void): void
 
   /**
    * gets fired whenever a client becomes visible to the bot
@@ -298,10 +298,12 @@ export namespace event {
     invoker: Client
   }
 
+  /**
   export interface clientNickEvent {
     client: Client,
     oldNick: string
   }
+  */
 
   export interface clientServerGroupEvent {
     client: Client,
