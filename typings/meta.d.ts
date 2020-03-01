@@ -93,7 +93,3 @@ export interface SinusbotArrayConfig<T> extends Config<T[]> {
   type: "array",
   vars: SinusbotConfig[]
 }
-
-export interface ConfigMetaData {
-  [key: string]: any
-}
