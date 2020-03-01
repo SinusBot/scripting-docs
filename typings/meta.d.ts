@@ -5,47 +5,93 @@ export interface SinusbotMeta {
   author: string,
   hidden?: boolean,
   requiredModules?: string[],
-  backends?: Array<"ts3"|"discord">,
+  backends?: Backends[],
   engine?: string,
   vars?: SinusbotConfig[],
   autorun?: boolean,
   enableweb?: boolean
 }
 
-/*export declare enum Backends {
-  ts3 = "ts3",
-  discord = "discord"
-}*/
-
-/*export declare enum VarType {
-  string = "string",
-  password = "password",
-  strings = "strings",
-  multiline = "multiline",
-  number = "number",
-  track = "track",
-  tracks = "tracks",
-  channel = "channel",
-  select = "select",
-  checkbox = "checkbox",
-  array = "array",
-}*/
-
-export interface SinusbotConfig {
-  type: "string"|"strings"|"password"|"multiline"|"number"|"track"|"tracks"|"channel"|"checkbox"|"array"|"select"|"array",
-  options?: string[],
-  name: string,
-  title: string,
-  placeholder?: string,
-  default?: any,
-  indent?: number,
-  conditions?: ConfigCondition[]
-  vars?: SinusbotConfig[]
+export declare type Backends = {
+  ts3: "ts3",
+  discord: "discord"
 }
 
-export interface ConfigCondition {
-  field: string,
-  value: any
+export type SinusbotConfig = 
+  SinusbotStringConfig |
+  SinusbotStringsConfig |
+  SinusbotPasswordConfig |
+  SinusbotMultilineConfig |
+  SinusbotNumberConfig |
+  SinusbotTrackConfig |
+  SinusbotTracksConfig |
+  SinusbotChannelConfig |
+  SinusbotCheckboxConfig |
+  SinusbotSelectConfig |
+  SinusbotArrayConfig<any>
+
+
+export interface Config<T> {
+  /** key name in the config object */
+  name: string,
+  /** display name in the webinterface */
+  title: string,
+  /** default variable if nothing has been set */
+  default: T,
+  /** placeholder data in the webinterface */
+  placeholder?: string
+  indent?: number,
+  //displays a config option depending on the config name and the value
+  conditions?: {
+    field: string,
+    value: any
+  }[]
+}
+
+export interface SinusbotStringConfig extends Config<String> {
+  type: "string",
+}
+
+export interface SinusbotStringsConfig extends Config<String[]> {
+  type: "strings",
+}
+
+export interface SinusbotPasswordConfig extends Config<String> {
+  type: "password",
+}
+
+export interface SinusbotMultilineConfig extends Config<String> {
+  type: "multiline",
+}
+
+export interface SinusbotNumberConfig extends Config<Number> {
+  type: "number",
+}
+
+export interface SinusbotTrackConfig extends Config<never> {
+  type: "track",
+}
+
+export interface SinusbotTracksConfig extends Config<never> {
+  type: "tracks",
+}
+
+export interface SinusbotChannelConfig extends Config<never> {
+  type: "channel",
+}
+
+export interface SinusbotCheckboxConfig extends Config<Number> {
+  type: "checkbox",
+}
+
+export interface SinusbotSelectConfig extends Config<Number> {
+  type: "select",
+  options: string[]
+}
+
+export interface SinusbotArrayConfig<T> extends Config<T[]> {
+  type: "array",
+  vars: SinusbotConfig[]
 }
 
 export interface ConfigMetaData {
