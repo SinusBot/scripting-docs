@@ -32,7 +32,7 @@ export interface SinusbotMeta {
 }*/
 
 export interface SinusbotConfig {
-  type: "string"|"strings"|"password"|"multiline"|"number"|"track"|"tracks"|"channel"|"checkbox"|"array"|"select",
+  type: "string"|"strings"|"password"|"multiline"|"number"|"track"|"tracks"|"channel"|"checkbox"|"array"|"select"|"array",
   options?: string[],
   name: string,
   title: string,
@@ -40,6 +40,7 @@ export interface SinusbotConfig {
   default?: any,
   indent?: number,
   conditions?: ConfigCondition[]
+  vars?: SinusbotConfig[]
 }
 
 export interface ConfigCondition {
