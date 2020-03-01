@@ -1,17 +1,16 @@
 {
   "name": "sinusbot",
   "version": "1.0.0",
-  "description": "",
-  "main": "example.js",
+  "description": "sinusbot scripting engine type specifications",
   "dependencies": {},
   "devDependencies": {
-    "typedoc": "^0.14.2",
-    "typescript": "^3.5.2"
+    "typedoc": "^0.16.11",
+    "typescript": "^3.8.2"
   },
   "scripts": {
     "generate-doc": "typedoc --out docs ./typings --mode file --toc ./types --excludeExternals --ignoreCompilerErrors --includeDeclarations",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "MIT"
 }

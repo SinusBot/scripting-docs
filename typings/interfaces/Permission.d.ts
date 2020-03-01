@@ -45,7 +45,7 @@ export interface Permission {
    * sets the value of the permission
    * you need to call save() to apply changes
    */
-  setSkip(value: number): boolean
+  setValue(value: number): boolean
 
   /**
    * saves the permission

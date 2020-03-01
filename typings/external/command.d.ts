@@ -6,7 +6,7 @@ declare interface MessageEvent {
   text: string
   client: Client
   channel: Channel 
-  mode: 0|1|2,
+  mode: 0|1|2|3,
   message: DiscordMessage
 }
 

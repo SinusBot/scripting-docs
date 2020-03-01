@@ -15,12 +15,12 @@ registerPlugin({
 
 
   event.on("load", () => {
-    let botClient: Client = null
+    let botClient: Client|null = null
     backend.getClients().forEach(client => {
       if (client.isSelf()) botClient = client
     })
     if (botClient) {
-      engine.log(`My country is ${botClient.country()}`)
+      engine.log(`My country is ${botClient!.country()}`)
     } else {
       engine.log("no bot client found :(")
     }

@@ -228,4 +228,8 @@ export module engine {
 
   export function setChannelSubscription(client: Client, bool: boolean): void
 
+  export function getIgnoreCommandsFromPrivateChat(): boolean
+  export function getIgnoreCommandsFromChannelChat(): boolean
+  export function getIgnoreCommandsFromServerChat(): boolean
+
 }

@@ -89,5 +89,5 @@ export interface DiscordMessage {
   /**
    * replies to the message with given text
    */
-  reply(ttext: string, callback: (...args: any[]) => void): boolean
+  reply(ttext: string, callback?: (...args: any[]) => void): boolean
 }
