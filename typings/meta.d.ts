@@ -12,10 +12,7 @@ export interface SinusbotMeta {
   enableweb?: boolean
 }
 
-export declare type Backends = {
-  ts3: "ts3",
-  discord: "discord"
-}
+export declare type Backends = "ts3"|"discord"
 
 export type SinusbotConfig = 
   SinusbotStringConfig |
