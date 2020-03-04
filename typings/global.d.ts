@@ -17,7 +17,7 @@ import { crypto } from "./modules/crypto"
 
 import { command } from "./external/command"
 
-import { SinusbotMeta } from "./meta"
+import type { SinusbotMeta } from "./meta"
 
 export interface Module {
   exports: any
@@ -39,10 +39,12 @@ declare global {
    * @param meta basic script informations
    * @param callback script environment
    */
-  function registerPlugin<T extends SinusbotMeta>(
-    meta: T,
-    callback: (sinusbot: null, config: Record<string, any>, meta: T) => void
+  function registerPlugin<T>(
+    meta: SinusbotMeta,
+    callback: (sinusbot: null, config: T, meta: SinusbotMeta) => void
   ): void
+
+  /** enumerations */
 
   function clearInterval(interval: number): void
   function clearTimeout(interval: number): void

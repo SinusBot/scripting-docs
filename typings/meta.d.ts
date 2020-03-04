@@ -4,39 +4,18 @@ export interface SinusbotMeta {
   description: string,
   author: string,
   hidden?: boolean,
-  requiredModules?: string[],
+  requiredModules?: ModulesWithSpecialPermission[],
   backends?: Backends[],
   engine?: string,
-  vars?: Config<any>[],
+  vars?: ConfigEntries[],
   autorun?: boolean,
   enableweb?: boolean
 }
 
-export declare type Backends = "ts3"|"discord"
+export type ModulesWithSpecialPermission = "http"|"net"|"ws"|"db"|"fs"|"graphic"
+export type Backends = "ts3"|"discord"
 
-
-export interface Config<T> {
-  type: string
-  /** key name in the config object */
-  name: string,
-  /** display name in the webinterface */
-  title: string,
-  /** default variable if nothing has been set */
-  default?: T,
-  /** placeholder data in the webinterface */
-  placeholder?: string
-  indent?: number,
-  //displays a config option depending on the config name and the value
-  conditions?: {
-    field: string,
-    value: any
-  }[]
-  options?: string[]
-  vars?: Config<any>[]
-}
-
-//maybe for future sinusbot versions
-export type ConfigEntry = 
+export type ConfigEntries = 
   StringEntry |
   StringsEntry |
   PasswordEntry |
@@ -47,50 +26,81 @@ export type ConfigEntry =
   ChannelEntry |
   CheckboxEntry |
   SelectEntry |
-  ArrayEntry<any>
+  ArrayEntry
 
-export interface StringEntry extends Config<String> {
-  type: "string",
+export type ConfigTypes =
+  "string" |
+  "strings" |
+  "password" |
+  "multiline" |
+  "number" |
+  "track" |
+  "tracks" |
+  "channel" |
+  "checkbox" |
+  "select" |
+  "array"
+
+export interface BaseConfig<T> {
+  readonly type: ConfigTypes
+  /** key name in the config object */
+  readonly name: string,
+  /** display name in the webinterface */
+  readonly title: string,
+  /** default variable if nothing has been set */
+  readonly default: T,
+  /** placeholder data in the webinterface */
+  readonly placeholder?: string
+  readonly indent?: number,
+  //displays a config option depending on the config name and the value
+  readonly conditions?: {
+    readonly field: string,
+    readonly value: any
+  }[]
 }
 
-export interface StringsEntry extends Config<String[]> {
-  type: "strings",
+export interface StringEntry extends BaseConfig<String> {
+  readonly type: "string"
 }
 
-export interface PasswordEntry extends Config<String> {
-  type: "password",
+export interface StringsEntry extends BaseConfig<String[]> {
+  readonly type: "strings"
 }
 
-export interface MultilineEntry extends Config<String> {
-  type: "multiline",
+export interface PasswordEntry extends BaseConfig<String> {
+  readonly type: "password"
 }
 
-export interface NumberEntry extends Config<Number> {
-  type: "number",
+export interface MultilineEntry extends BaseConfig<String> {
+  readonly type: "multiline"
 }
 
-export interface TrackEntry extends Config<never> {
-  type: "track",
+export interface NumberEntry extends BaseConfig<Number> {
+  readonly type: "number"
 }
 
-export interface TracksEntry extends Config<never> {
-  type: "tracks",
+export interface TrackEntry extends BaseConfig<never> {
+  readonly type: "track"
 }
 
-export interface ChannelEntry extends Config<never> {
-  type: "channel",
+export interface TracksEntry extends BaseConfig<never> {
+  readonly type: "tracks"
 }
 
-export interface CheckboxEntry extends Config<Number> {
-  type: "checkbox",
+export interface ChannelEntry extends BaseConfig<never> {
+  readonly type: "channel"
 }
 
-export interface SelectEntry extends Config<Number> {
-  type: "select",
-  options: string[]
+export interface CheckboxEntry extends BaseConfig<Number> {
+  readonly type: "checkbox"
 }
 
-export interface ArrayEntry<T> extends Config<T[]> {
-  type: "array",
-  vars: ConfigEntry[]
+export interface SelectEntry extends BaseConfig<Number> {
+  readonly type: "select"
+  readonly options: string[]
+}
+
+export interface ArrayEntry extends BaseConfig<any[]> {
+  readonly type: "array"
+  readonly vars: ConfigEntries[]
 }
