@@ -1,6 +1,14 @@
+//to compile this file you will need to use 'npm run build'
+//you can find the example build command in package.json
+//this is a custom command which will strip a line from the compiled js
+//which the sinusbot scripting api is unable to understand
+
 //reference the global definition file by default its sinusbot/typings/global.d.ts
 ///<reference path="../typings/global.d.ts" />
-import { Client } from "@sinusbot/Client"
+
+//IMPORTANT, use 'import type x from "sinusbot/..." so the compiler does only import the actual types'
+//this requires minimum typescript 3.8.x!
+import type { Client } from "@sinusbot/Client"
 
 registerPlugin<{
   //here the config interface will be declared

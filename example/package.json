@@ -1,0 +1,20 @@
+{
+  "name": "sinusbotTSExample",
+  "version": "1.0.0",
+  "description": "sinusbot typescript example",
+  "scripts": {
+    "build": "tsc && find . -path ./node_modules -prune -o -print | grep \\.js$ | xargs -n 1 ex '+g/^Object\\.defineProperty(exports,/d' -cwq"
+  },
+  "keywords": [
+    "sinusbot",
+    "script"
+  ],
+  "author": "Multivitamin <david.kartnaller@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sinusbot": "file:../scripting-docs"
+  },
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}
