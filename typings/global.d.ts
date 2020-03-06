@@ -72,4 +72,6 @@ declare global {
 
   /** 3rd party scripts */
   function require(name: "command"): typeof command
+
+  function require(name: string): any
 }

@@ -95,7 +95,7 @@ export interface CheckboxEntry extends BaseConfig<Number> {
   readonly type: "checkbox"
 }
 
-export interface SelectEntry extends BaseConfig<Number> {
+export interface SelectEntry extends BaseConfig<String> {
   readonly type: "select"
   readonly options: string[]
 }
