@@ -295,7 +295,7 @@ export namespace Event {
     fromChannel?: Channel
     toChannel?: Channel
     client: Client,
-    invoker: Client
+    invoker?: Client
   }
 
   /**
