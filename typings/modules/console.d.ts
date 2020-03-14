@@ -1,4 +1,4 @@
-export module console {
+export module Console {
   
   /**
    * a wrapper for engine.log

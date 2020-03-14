@@ -1,7 +1,7 @@
 import { Bytes } from "../interfaces/Bytes"
 import { BytesWriter } from "../interfaces/BytesWriter"
 
-export module fs {
+export module Fs {
   
   /**
    * checks if a file exists
@@ -61,7 +61,7 @@ export module fs {
 
 }
 
-export namespace fs {
+export namespace Fs {
   export interface FileInfo {
 
     /**

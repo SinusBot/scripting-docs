@@ -11,7 +11,7 @@
  */
 export function DatabaseConnectCallback(error?: string): void
 
-export module db {
+export module Db {
 
   /**
    * connects to a database
@@ -20,7 +20,7 @@ export module db {
 
 }
 
-export namespace db {
+export namespace Db {
   export interface DatabaseConnectParams {
 
     /**

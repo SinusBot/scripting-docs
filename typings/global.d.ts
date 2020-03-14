@@ -1,21 +1,21 @@
-import { engine } from "./modules/engine"
-import { backend } from "./modules/backend"
-import { store } from "./modules/store"
-import { event } from "./modules/event"
-import { media } from "./modules/media"
-import { format } from "./modules/format"
-import { helpers } from "./modules/helpers"
-import { net } from "./modules/net"
-import { http } from "./modules/http"
-import { audio } from "./modules/audio"
-import { ws } from "./modules/ws"
-import { db } from "./modules/db"
-import { fs } from "./modules/fs"
-import { graphics } from "./modules/graphics"
-import { crypto } from "./modules/crypto"
+import { Engine } from "./modules/engine"
+import { Backend } from "./modules/backend"
+import { Store } from "./modules/store"
+import { Event } from "./modules/event"
+import { Media } from "./modules/media"
+import { Format } from "./modules/format"
+import { Helpers } from "./modules/helpers"
+import { Net } from "./modules/net"
+import { Http } from "./modules/http"
+import { Audio } from "./modules/audio"
+import { Ws } from "./modules/ws"
+import { Db } from "./modules/db"
+import { Fs } from "./modules/fs"
+import { Graphics } from "./modules/graphics"
+import { Crypto } from "./modules/crypto"
 //import { console as Console } from "./modules/console"
 
-import { command } from "./external/command"
+import { Command } from "./external/command"
 
 import type { SinusbotMeta } from "./meta"
 
@@ -54,24 +54,24 @@ declare global {
   //const console: typeof Console
   const module: Module
 
-  function require(name: "engine"): typeof engine
-  function require(name: "backend"): typeof backend
-  function require(name: "store"): typeof store
-  function require(name: "event"): typeof event
-  function require(name: "media"): typeof media
-  function require(name: "audio"): typeof audio
-  function require(name: "format"): typeof format
-  function require(name: "helpers"): typeof helpers
-  function require(name: "http"): typeof http
-  function require(name: "net"): typeof net
-  function require(name: "ws"): typeof ws
-  function require(name: "db"): typeof db
-  function require(name: "fs"): typeof fs
-  function require(name: "graphics"): typeof graphics
-  function require(name: "crypto"): typeof crypto
+  function require(name: "engine"): typeof Engine
+  function require(name: "backend"): typeof Backend
+  function require(name: "store"): typeof Store
+  function require(name: "event"): typeof Event
+  function require(name: "media"): typeof Media
+  function require(name: "audio"): typeof Audio
+  function require(name: "format"): typeof Format
+  function require(name: "helpers"): typeof Helpers
+  function require(name: "http"): typeof Http
+  function require(name: "net"): typeof Net
+  function require(name: "ws"): typeof Ws
+  function require(name: "db"): typeof Db
+  function require(name: "fs"): typeof Fs
+  function require(name: "graphics"): typeof Graphics
+  function require(name: "crypto"): typeof Crypto
 
   /** 3rd party scripts */
-  function require(name: "command"): typeof command
+  function require(name: "command"): typeof Command
 
   function require(name: string): any
 }

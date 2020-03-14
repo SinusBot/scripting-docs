@@ -1,4 +1,4 @@
-export module audio {
+export module Audio {
 
   /**
    * applies a ffmpeg filter to the audio output

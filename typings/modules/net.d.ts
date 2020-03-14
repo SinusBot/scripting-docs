@@ -29,11 +29,11 @@ export interface NetConnectParams {
  */
 export function NetConnectCallback(error?: string): void
 
-export module net {
+export module Net {
   export function connect(params: NetConnectParams, callback: typeof NetConnectCallback): NetClient
 }
 
-export namespace net {
+export namespace Net {
   export interface NetClient {
 
     /**

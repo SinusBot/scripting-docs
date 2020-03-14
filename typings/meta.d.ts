@@ -59,43 +59,43 @@ export interface BaseConfig<T> {
   }[]
 }
 
-export interface StringEntry extends BaseConfig<String> {
+export interface StringEntry extends BaseConfig<string> {
   readonly type: "string"
 }
 
-export interface StringsEntry extends BaseConfig<String[]> {
+export interface StringsEntry extends BaseConfig<string[]> {
   readonly type: "strings"
 }
 
-export interface PasswordEntry extends BaseConfig<String> {
+export interface PasswordEntry extends BaseConfig<string> {
   readonly type: "password"
 }
 
-export interface MultilineEntry extends BaseConfig<String> {
+export interface MultilineEntry extends BaseConfig<string> {
   readonly type: "multiline"
 }
 
-export interface NumberEntry extends BaseConfig<Number> {
+export interface NumberEntry extends BaseConfig<number> {
   readonly type: "number"
 }
 
-export interface TrackEntry extends BaseConfig<never> {
+export interface TrackEntry extends BaseConfig<string> {
   readonly type: "track"
 }
 
-export interface TracksEntry extends BaseConfig<never> {
+export interface TracksEntry extends BaseConfig<string> {
   readonly type: "tracks"
 }
 
-export interface ChannelEntry extends BaseConfig<never> {
+export interface ChannelEntry extends BaseConfig<string> {
   readonly type: "channel"
 }
 
-export interface CheckboxEntry extends BaseConfig<Number> {
+export interface CheckboxEntry extends BaseConfig<Boolean> {
   readonly type: "checkbox"
 }
 
-export interface SelectEntry extends BaseConfig<String> {
+export interface SelectEntry extends BaseConfig<string> {
   readonly type: "select"
   readonly options: string[]
 }

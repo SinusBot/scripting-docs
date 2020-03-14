@@ -211,7 +211,7 @@ export interface Client {
   /**
    * kicks the client from the channel
    */
-  kickFromChannel(message: string): void
+  kickFromChannel(message?: string): void
 
   /**
    * adds the client to a specific servergroup

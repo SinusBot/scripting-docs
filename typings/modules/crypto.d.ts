@@ -1,6 +1,6 @@
 import { BytesWriter } from "../interfaces/BytesWriter"
 
-export module crypto {
+export module Crypto {
 
   /**
    * generates a new {@see CryptoKeypair}
@@ -40,7 +40,7 @@ export module crypto {
 }
 
 
-export namespace crypto {
+export namespace Crypto {
   
   export interface CryptoKeypair {
 

@@ -7,7 +7,7 @@ import { Bytes } from "../interfaces/Bytes"
 import { DiscordMessage } from "../interfaces/DiscordMessage"
 import { TeamSpeakExtendedServerInfo } from "../interfaces/Extended"
 
-export module event {
+export module Event {
 
   export function on(name: string, callback: (...args: any[]) => void): void
 
@@ -237,7 +237,7 @@ export module event {
   export function broadcast(name: string, data: any): void
 }
 
-export namespace event {
+export namespace Event {
   export interface ApiEvent {
 
     /**

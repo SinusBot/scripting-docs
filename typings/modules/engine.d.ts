@@ -17,7 +17,7 @@ import { Client } from "../interfaces/Client"
   all = 11
 }*/
 
-export module engine {
+export module Engine {
 
   /**
    * returns the instances unique identifier

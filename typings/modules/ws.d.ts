@@ -1,6 +1,6 @@
 import { Bytes } from "../interfaces/Bytes"
 
-export module ws {
+export module Ws {
 
   /**
    * writes some data to the connection with given connectionId

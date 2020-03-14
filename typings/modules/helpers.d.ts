@@ -1,6 +1,6 @@
 import { BytesWriter } from "../interfaces/BytesWriter"
 
-export module helpers {
+export module Helpers {
 
   /**
    * returns a random numbers between zero and max

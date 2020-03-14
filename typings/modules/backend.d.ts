@@ -4,7 +4,7 @@ import { ServerGroup } from "../interfaces/ServerGroup"
 import { ChannelGroup } from "../interfaces/ChannelGroup"
 import { Extended } from "../interfaces/Extended"
 
-export module backend {
+export module Backend {
   /**
    * connects to the server
    */
