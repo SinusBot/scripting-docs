@@ -8,24 +8,30 @@
  * @example
  * // ** SinusBot Script **
  * 
- * event.on('api:caseOne', ev => {
+ * event.on('api:logMyFoo', ev => {
  *     engine.log(ev.data().foo);
  * });
  * 
  * // this is the short form of: function(ev) {return {something: '...'}}
- * event.on('api:caseTwo', ev => ({
+ * event.on('api:respondWithSomething', ev => ({
  *     something: 'Hello browser, how are you doing?'
  * }));
  * 
  * @example
  * // ** JavaScript on the web-page **
  * 
- * // this example uses jQuery but you can very easily rewrite it to work without it by using fetch
- * // this assumes you're logged in and the webpage is included with the script:
+ * // This example uses jQuery but you can very easily rewrite it to work without it by using "fetch".
+ * // See https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+ * 
+ * // This assumes you're logged in and the webpage is included with the script.
+ * // HTTP API methods to Login and get a list of the Instances are documented here: https://www.sinusbot.com/api/
+ * // Information on how to include a webpage can be found here: https://sinusbot.github.io/docs/scripts/#enableweb-bool
+ * 
+ * //TODO: Rewrite this to use fetch.
  * 
  * function sendDataToScript(instanceID) {
  *     $.ajax({
- *         url: '/api/v1/bot/i/' + instanceID + '/event/caseOne',
+ *         url: '/api/v1/bot/i/' + instanceID + '/event/logMyFoo',
  *         method: 'POST',
  *         headers: {
  *             'Content-Type': 'application/json',
@@ -37,7 +43,7 @@
  * 
  * function requestDataFromScript(instanceID) {
  *     $.ajax({
- *         url: '/api/v1/bot/i/' + instanceID + '/event/caseTwo',
+ *         url: '/api/v1/bot/i/' + instanceID + '/event/respondWithSomething',
  *         method: 'POST',
  *         headers: {
  *             'Content-Type': 'application/json',
@@ -45,13 +51,8 @@
  *         },
  *         data: '{}'
  *     }).done(function (data) {
- *         if (!data || data.length == 0) {
- *             // no data received
- *             return
- *         }
- *         
- *         // data is an array of responses
- *         console.log(data[0].something)
+ *         console.log("Response:");
+ *         console.log(data);
  *     });
  * }
  */
