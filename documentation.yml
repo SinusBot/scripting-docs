@@ -53,10 +53,10 @@ toc:
   - TeamSpeakExtendedServerInfo
   - CryptoKeypair
   - name: types
-  - ClientServergroupEvent
   - Message
   - MoveInfo
   - ChannelParams
+  - ClientServerGroupEvent
   - NetConnectParams
   - DBParams
   - BannerSettings
