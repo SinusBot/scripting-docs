@@ -122,9 +122,10 @@ class ExtendedDiscord {
     createMessage(channelId, data, callback) { }
 
     /**
-     * Sends a raw http request to the discord API and therefore **allows potentially unsafe and arbitrary API calls**.
-     * **Important:** This method is protected and only works if `requiredModules: ['discord-dangerous']` is set in the script manifest.
+     * Sends a raw http request to the discord API and therefore allows potentially unsafe and arbitrary API calls.
      * Check the [discord documentation](https://discordapp.com/developers/docs/resources/channel) for available API calls.
+     * 
+     * **Important:** In previous SinusBot versions (1.0.0-beta.6 or older) this method was protected and only works if `requiredModules: ['discord-dangerous']` is set in the script manifest.
      * @since 1.0.0-alpha.6
      * @param {string} method HTTP Method
      * @param {string} path HTTP path
