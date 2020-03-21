@@ -10,6 +10,8 @@
  * 
  * The ws module allows you to start a websocket server.
  * If you want to connect to a websocket server instead then take look at the [net module](#net).
+ * 
+ * Please consider using http api events for simple communications instead, as they are simpler and also allow you to require authentication; See [`api:<your event name>`](#eventeventapieventname) and [`public:<your event name>`](#eventeventpubliceventname) for more.
  * @example
  * // ### SinusBot script: ###
  * 
