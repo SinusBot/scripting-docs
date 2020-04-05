@@ -137,7 +137,7 @@ module.exports = {
     /**
      * @description Plays a file via youtube-dl.
      * @param {string} url - URL that youtube-dl supports
-     * @returns {string} Track-ID (last part of Track-URL: track://<uid>)
+     * @returns {string} jobId
      */
     yt: (url) => {},
 
@@ -152,21 +152,21 @@ module.exports = {
      * @description Downloads a file via youtube-dl, optionally plays it
      * @param {string} url - URL that youtube-dl supports
      * @param {boolean} play - Set to true to play after download
-     * @returns {string} Track-ID
+     * @returns {string} jobId
      */
     ytdl: (url, play) => {},
 
     /**
      * @description Enqueues a stream via youtube-dl
      * @param {string} url - URL that youtube-dl supports
-     * @returns {string} Track-ID
+     * @returns {string} jobId
      */
     enqueueYt: (url) => {},
 
     /**
      * @description Downloads a file via youtube-dl, then enqueues it
      * @param {string} url - Url that youtube-dl supports
-     * @returns {string} Track-ID
+     * @returns {string} jobId
      */
     enqueueYtdl: (url) => {},
 
