@@ -145,18 +145,28 @@
 /**
  * @event ytdl.success
  * @memberof event
- * @param {string} url
- * @param {string} jobId
- * @param {string} trackId
+ * @param {object} ev
+ * @param {string} ev.url - YouTube URL
+ * @param {string} ev.jobId - Job ID
+ * @param {string} [ev.trackId] - Track ID (only when downloaded)
  * @description Gets fired whenever a track was successfully downloaded via ytdl
+ * @example
+ * event.on("ytdl.success", ev => {
+ *     engine.log(`Successfully downloaded a YouTube Video: ${ev.url}, jobId: ${ev.jobId}, trackId: ${ev.trackId}`)
+ * })
  */
 /**
  * @event ytdl.error
  * @memberof event
- * @param {string} url
- * @param {string} jobId
- * @param {string} trackId
+ * @param {object} ev
+ * @param {string} ev.url - YouTube URL
+ * @param {string} ev.jobId - Job ID
+ * @param {string} message - Error Message
  * @description Gets fired whenever a download via ytdl fails
+ * @example
+ * event.on("ytdl.error", (ev, message) => {
+ *     engine.log(`Error while downloading a YouTube Video: ${ev.url}, jobId: ${ev.jobId}, message: ${message}`)
+ * })
  */
 /**
  * @event connect
