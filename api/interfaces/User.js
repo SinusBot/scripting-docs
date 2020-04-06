@@ -18,29 +18,24 @@ class User {
 
   /**
    * @example
-   * let privileges = {
-   *     LOGIN:           1 <<  0,
-   *     LIST_FILE:       1 <<  1,
-   *     UPLOAD_FILE:     1 <<  2,
-   *     DELETE_FILE:     1 <<  3,
-   *     EDIT_FILE:       1 <<  4,
-   *     CREATE_PLAYLIST: 1 <<  5,
-   *     DELETE_PLAYLIST: 1 <<  6,
-   *     ADDTO_PLAYLIST:  1 <<  7,
-   *     STARTSTOP:       1 <<  8,
-   *     EDITUSERS:       1 <<  9,
-   *     CHANGENICK:      1 << 10,
-   *     BROADCAST:       1 << 11,
-   *     PLAYBACK:        1 << 12,
-   *     ENQUEUE:         1 << 13,
-   *     ENQUEUENEXT:     1 << 14,
-   *     EDITBOT:         1 << 15,
-   *     EDITINSTANCE:    1 << 16,
-   * }
+   * const ENQUEUE           = 1 << 13;
+   * const SKIP_QUEUE        = 1 << 14;
+   * const ADMIN_QUEUE       = 1 << 15;
+   * const PLAYBACK          = 1 << 12;
+   * const START_STOP        = 1 <<  8;
+   * const EDIT_BOT_SETTINGS = 1 << 16;
+   * const LOGIN             = 1 <<  0;
+   * const UPLOAD_FILES      = 1 <<  2;
+   * const DELETE_FILES      = 1 <<  3;
+   * const EDIT_FILES        = 1 <<  4;
+   * const CREATE_AND_DELETE_PLAYLISTS = 1 << 5;
+   * const EDIT_PLAYLISTS    = 1 <<  7;
+   * const EDIT_INSTANCES    = 1 << 17;
+   * const EDIT_USERS        = 1 <<  9;
    * 
-   * function hasPlaybackOrEnqueuePermission(user) {
-   *     // returns true if user has playback or enqueue permission
-   *     return (user.privileges() & (privileges.PLAYBACK | privileges.ENQUEUE)) != 0
+   * function hasPlaybackPermission(user) {
+   *     // returns true if user has playback permission
+   *     return (user.privileges() & PLAYBACK) != 0
    * }
    * 
    * @description Returns the privileges of the user
