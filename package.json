@@ -12,9 +12,9 @@
     "generate-ts": "jsdoc -c config.json"
   },
   "devDependencies": {
-    "documentation": "^12.1.2",
-    "jsdoc": "^3.6.3",
-    "tsd-jsdoc": "^2.4.0"
+    "documentation": "^12.3.0",
+    "jsdoc": "^3.6.4",
+    "tsd-jsdoc": "^2.5.0"
   },
   "typings": "./tsd/types.d.ts"
 }
