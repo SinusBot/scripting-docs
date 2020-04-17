@@ -2,8 +2,33 @@ import { Client } from "./Client"
 import { ChannelGroup } from "./ChannelGroup"
 import { Permission } from "./Permission"
 
-export interface ChannelParams {
+export type ChannelCreateParams = 
+  Pick<ChannelParams,"name"> &
+  Partial<Omit<ChannelParams,"name">>
 
+export interface ChannelParams {
+  //display name of the channel, mandatory on create
+  name: string
+  //parent channel (you can also use the channelId)
+  //ignored on update, mandatory on create
+  parent: number|string
+  description: string
+  topic: string
+  password?: string
+  //see codec types for explanation
+  codec: number
+  codecQuality: number
+  encrypted?: boolean
+  permanent: boolean
+  semiPermanent: boolean
+  position: string
+  //set to `-1` for unlimited clients
+  maxClients: number
+  //whether the channel is the default channel 
+  default: boolean
+  neededTalkPower: number
+  deleteDelay: number
+  icon: number
 }
 
 export interface DiscordMessageQuery {

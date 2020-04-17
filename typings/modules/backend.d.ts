@@ -1,5 +1,5 @@
 import { Client } from "../interfaces/Client"
-import { Channel, ChannelParams } from "../interfaces/Channel"
+import { Channel, ChannelCreateParams } from "../interfaces/Channel"
 import { ServerGroup } from "../interfaces/ServerGroup"
 import { ChannelGroup } from "../interfaces/ChannelGroup"
 import { Extended } from "../interfaces/Extended"
@@ -105,7 +105,7 @@ export module Backend {
   /**
    * creates a new channel
    */
-  export function createChannel(properties: ChannelParams): Channel
+  export function createChannel(properties: ChannelCreateParams): Channel
   
   /**
    * returns a servergroup by its id if found

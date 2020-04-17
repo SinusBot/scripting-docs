@@ -167,7 +167,7 @@ export module Event {
   /**
    * 
    */
-  export function on(name: "channelDelete", callback: (event: channelEvent) => void): void
+  export function on(name: "channelDelete", callback: (channel: Channel, invoker: Client) => void): void
 
   /**
    * gets fired whenever the bot recognizes a voice command that the script registered
