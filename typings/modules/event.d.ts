@@ -165,9 +165,10 @@ export module Event {
   export function on(name: "channelUpdate", callback: (event: channelEvent) => void): void
 
   /**
-   * 
+   * event which gets fired when a channel gets deleted
+   * invoker might be empty when its a temporary channel
    */
-  export function on(name: "channelDelete", callback: (channel: Channel, invoker: Client) => void): void
+  export function on(name: "channelDelete", callback: (channel: Channel, invoker?: Client) => void): void
 
   /**
    * gets fired whenever the bot recognizes a voice command that the script registered
