@@ -248,7 +248,7 @@ export namespace Command {
      * Adds one or multiple argument to the validation chain
      * @param {...string} args the arguments to use
      */
-    argument(...args: ArgumentInterface[]): GroupArgument
+    addArgument(...args: ArgumentInterface[]): GroupArgument
   }
   
   
