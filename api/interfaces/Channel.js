@@ -6,7 +6,7 @@ class Channel {
    * @returns {string} ID
    */
   id() {}
-  
+
   /**
    * @returns {string} Name
    */
@@ -23,7 +23,7 @@ class Channel {
    * For ts3 this is a numeric value determining the order in which channels are displayed below their parent. To set a new value, please use moveTo.
    */
   position() {}
-  
+
 	/**
 	 * @param {number} pos
 	 */
@@ -106,7 +106,7 @@ class Channel {
   maxClients() {}
 
   /**
-   * @param {boolean} maxClients Set to -1 for unlimited clients
+   * @param {number} maxClients Set to -1 for unlimited clients
    * @since 0.9.16
    */
   setMaxClients(maxClients) {}
@@ -117,7 +117,7 @@ class Channel {
   maxFamilyClients() {}
 
   /**
-   * @param {boolean} maxFamilyClients
+   * @param {number} maxFamilyClients
    * @since 0.9.16
    */
   setMaxFamilyClients(maxFamilyClients) {}
@@ -158,7 +158,7 @@ class Channel {
    * @returns {boolean} Whether channel is password-protected or not
    */
   isPassworded() {}
-  
+
 	/**
 	 * @param {string} password Password
 	 */
@@ -195,7 +195,7 @@ class Channel {
   getClients() {}
 
   /**
-   * @returns {number} Number of clients that are in the channel 
+   * @returns {number} Number of clients that are in the channel
    */
   getClientCount() {}
 
@@ -239,7 +239,7 @@ class Channel {
 	 * @returns {string}
 	 */
 	getURL() {}
-  
+
 	/**
    * Gets the messages of a discord channel.
    * @since 1.0.0-beta.2
