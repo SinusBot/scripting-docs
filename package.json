@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "documentation": "^12.3.0",
-    "jsdoc": "^3.6.4",
+    "jsdoc": "^3.6.5",
     "tsd-jsdoc": "^2.5.0"
   },
   "typings": "./tsd/types.d.ts"
