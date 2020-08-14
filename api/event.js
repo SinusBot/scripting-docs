@@ -324,7 +324,7 @@
 /**
  * @event clientConnectionInfoUpdate
  * @memberof event
- * @type {Client} client - the client which got updated
+ * @param {Client} client - the client which got updated
  * @description gets fired when a client connection info gets updated
  * @since 1.0.0-beta.10
  */
