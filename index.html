@@ -15169,7 +15169,7 @@ backend.chat(<span class="hljs-string">'Part of this message is '</span> + forma
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>toString(input)</span>
+            <span class='code strong strong truncate'>toString(obj)</span>
         </div>
       </div>
       <div class="clearfix display-none toggle-target">
@@ -15179,7 +15179,7 @@ backend.chat(<span class="hljs-string">'Part of this message is '</span> + forma
 
   <p>Gets the string representation of an object</p>
 
-    <div class='pre p1 fill-light mt0'>toString(input: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
+    <div class='pre p1 fill-light mt0'>toString(obj: any): <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></div>
   
   
 
@@ -15197,7 +15197,7 @@ backend.chat(<span class="hljs-string">'Part of this message is '</span> + forma
       
         <div class='space-bottom0'>
           <div>
-            <span class='code bold'>input</span> <code class='quiet'>(any)</code>
+            <span class='code bold'>obj</span> <code class='quiet'>(any)</code>
 	    
           </div>
           
@@ -18068,11 +18068,6 @@ event.on(<span class="hljs-string">'poke'</span>, <span class="hljs-function"><s
 
     <div class='pre p1 fill-light mt0'>clientConnectionInfoUpdate</div>
   
-    <p>
-      Type:
-      <a href="#client">Client</a>
-    </p>
-  
   
 
   
@@ -18082,6 +18077,20 @@ event.on(<span class="hljs-string">'poke'</span>, <span class="hljs-function"><s
   
   <div>Since: 1.0.0-beta.10</div>
 
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>client</span> <code class='quiet'>(<a href="#client">Client</a>)</code>
+	    the client which got updated
+
+          </div>
+          
+        </div>
+      
+    </div>
   
 
   

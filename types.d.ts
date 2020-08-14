@@ -989,7 +989,7 @@ declare module "helpers" {
     /**
      * Gets the string representation of an object
      */
-    function toString(input: any): string;
+    function toString(obj: any): string;
     /**
      * Returns the documentation of an interface
      * @param name - Interface name
