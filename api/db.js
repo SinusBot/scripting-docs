@@ -5,8 +5,9 @@
 class DBConn {
     /**
      * @description
-     * Use this, if you expect a result set;
-     * Note: strings will be returned as byte arrays to be binary safe; to convert to actual strings, please use helpers.toString(column)
+     * Use this, if you expect a result set.
+     * 
+     * NOTE: Strings will be returned as **byte arrays** to be binary safe; to convert to actual strings, please follow this post: https://forum.sinusbot.com/threads/mysql-varchar-returned-as-array-of-ascii-chars.7459/#post-42918
      * @param {string} queryString
      * @param {any} [parameters] - Zero or more parameters; e.g. for mysql, ? in the queryString will be replaced with these parameters
      * @param {dbQueryCallback} callback - Callback is called after the query has finished.
@@ -33,6 +34,7 @@ class DBConn {
  */
 
 /**
+ * @interface
  * @typedef {object} DBParams
  * @since 0.9.16
  * @property {string} driver - Database driver to use, sqlite3 (default; currently in-memory only), mysql or postgres
@@ -53,6 +55,7 @@ class DBConn {
 /**
  * @module db
  * @since 0.9.16.4
+ * @see DBConn
  * @description
  * This module is protected. This means that you need to add `'db'` to `requiredModules` in your script's {@link Manifest} in {@link registerPlugin} in order to use it.
  * 
@@ -61,17 +64,29 @@ class DBConn {
  * var db = require('db');
  * var engine = require('engine');
  * var helpers = require('helpers');
+ * 
+ * // see https://forum.sinusbot.com/threads/mysql-varchar-returned-as-array-of-ascii-chars.7459/#post-42918
+ * function parseString(numberBuffer) {
+ *     if (!Array.isArray(numberBuffer)) return "";
+ *     const bytewriter = helpers.newBytes();
+ *     numberBuffer.forEach(num => bytewriter.append(helpers.bytesFromHex(num.toString(16))));
+ *     return bytewriter.toString();
+ * }
+ * 
  * var dbc = db.connect({ driver: 'mysql', host: '127.0.0.1', username: 'demo', password: 'blah', database: 'foo' }, function(err) {
  *     if (err) {
  *          engine.log(err);
  *     }
  * });
+ * 
  * if (dbc) dbc.exec("INSERT INTO blah (foo, foo2) VALUES (?, ?)", 'bar', 'bar2');
  * if (dbc) dbc.query("SELECT * FROM blah", function(err, res) {
  *     if (!err) {
  *          res.forEach(function(row) {
- *              engine.log(helpers.toString(row.foo));
+ *              engine.log(parseString(row.foo));
  *          });
+ *     } else {
+ *         engine.log(err);
  *     }
  * });
  */
