@@ -1,4 +1,38 @@
 /**
+ * @module event
+ * @example
+ * var event = require('event');
+ * var engine = require('engine');
+ * 
+ * event.on('chat', function(ev) {
+ *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
+ * })
+ */
+module.exports = {
+    /**
+     * @description Registers an event listener
+     * @param {string} eventName - Event to listen to
+     * @param {function} callback - Gets called when the given event is triggered
+     */
+    on: (eventName, callback) => {},
+
+    /**
+     * @description Emits an event to the current instance
+     * @param {string} eventName - Name of the event to be emitted
+     * @param {object} data - A data object to be sent with the event
+     */
+    emit: (eventName, data) => {},
+
+    /**
+     * @description Emits an event to all instances
+     * @param {string} eventName - Name of the event to be emitted
+     * @param {object} data - A data object to be sent with the event
+     */
+    broadcast: (eventName, data) => {},
+}
+
+
+/**
  * @event api:eventName
  * @memberof event
  * @param {ApiEvent} event - API event
@@ -426,37 +460,3 @@
  * @description
  * This event is fired when calling [backend.extended().requestExtendedServerInfo()](#extendedts3requestextendedserverinfo) when the backend is TS3.
  */
-
-
-/**
- * @module event
- * @example
- * var event = require('event');
- * var engine = require('engine');
- * 
- * event.on('chat', function(ev) {
- *     engine.log('Got message "'+ev.text +'" from '+ ev.client.name());
- * })
- */
-module.exports = {
-    /**
-     * @description Registers an event listener
-     * @param {string} eventName - Event to listen to
-     * @param {function} callback - Gets called when the given event is triggered
-     */
-    on: (eventName, callback) => {},
-
-    /**
-     * @description Emits an event to the current instance
-     * @param {string} eventName - Name of the event to be emitted
-     * @param {object} data - A data object to be sent with the event
-     */
-    emit: (eventName, data) => {},
-
-    /**
-     * @description Emits an event to all instances
-     * @param {string} eventName - Name of the event to be emitted
-     * @param {object} data - A data object to be sent with the event
-     */
-    broadcast: (eventName, data) => {},
-}
