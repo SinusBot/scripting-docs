@@ -99,10 +99,10 @@ module.exports = {
     /**
      * @description Gets the string representation of an object
      * @deprecated This function should not be used anymore, if possible.
-     * @param input
+     * @param {*} obj
      * @returns {string}
      */
-    toString: (input)  => {},
+    toString: (obj)  => {},
     
 
     /**
