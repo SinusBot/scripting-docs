@@ -35,14 +35,18 @@ jobs:
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       continue-on-error: true
-    - uses: actions/setup-node@v1
+    - name: Setup Node for GitHub Packages
+      uses: actions/setup-node@v1
       if: github.ref == 'refs/heads/master'
       with:
+        node-version: '14'
         registry-url: 'https://npm.pkg.github.com'
         scope: '@sinusbot'
     - name: Publish to GitHub Packages
       if: github.ref == 'refs/heads/master'
-      run: npm publish
+      run: |
+        sed -i 's/"name":.*,/"name": "@sinusbot\/scripting-docs",/' package.json
+        npm publish
       env:
         NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       continue-on-error: true

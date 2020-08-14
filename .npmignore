@@ -4,7 +4,9 @@
 # ignore other stuff
 .git
 .gitignore
+.github
 .travis.yml
+.vscode
 documentation/
 config.json
 after_building.sed
