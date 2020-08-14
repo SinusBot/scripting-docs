@@ -19686,6 +19686,14 @@ conn.onmessage = <span class="hljs-function"><span class="hljs-keyword">function
   
 
   
+    <div class='py1 quiet mt1 prose-big'>Related</div>
+    
+      
+        DBConn
+
+      
+    
+  
 
   
 
@@ -19696,17 +19704,29 @@ conn.onmessage = <span class="hljs-function"><span class="hljs-keyword">function
       <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">var</span> db = <span class="hljs-built_in">require</span>(<span class="hljs-string">'db'</span>);
 <span class="hljs-keyword">var</span> engine = <span class="hljs-built_in">require</span>(<span class="hljs-string">'engine'</span>);
 <span class="hljs-keyword">var</span> helpers = <span class="hljs-built_in">require</span>(<span class="hljs-string">'helpers'</span>);
+
+<span class="hljs-comment">// see https://forum.sinusbot.com/threads/mysql-varchar-returned-as-array-of-ascii-chars.7459/#post-42918</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">parseString</span>(<span class="hljs-params">numberBuffer</span>) </span>{
+    <span class="hljs-keyword">if</span> (!<span class="hljs-built_in">Array</span>.isArray(numberBuffer)) <span class="hljs-keyword">return</span> <span class="hljs-string">""</span>;
+    <span class="hljs-keyword">const</span> bytewriter = helpers.newBytes();
+    numberBuffer.forEach(<span class="hljs-function"><span class="hljs-params">num</span> =&gt;</span> bytewriter.append(helpers.bytesFromHex(num.toString(<span class="hljs-number">16</span>))));
+    <span class="hljs-keyword">return</span> bytewriter.toString();
+}
+
 <span class="hljs-keyword">var</span> dbc = db.connect({ <span class="hljs-attr">driver</span>: <span class="hljs-string">'mysql'</span>, <span class="hljs-attr">host</span>: <span class="hljs-string">'127.0.0.1'</span>, <span class="hljs-attr">username</span>: <span class="hljs-string">'demo'</span>, <span class="hljs-attr">password</span>: <span class="hljs-string">'blah'</span>, <span class="hljs-attr">database</span>: <span class="hljs-string">'foo'</span> }, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err</span>) </span>{
     <span class="hljs-keyword">if</span> (err) {
          engine.log(err);
     }
 });
+
 <span class="hljs-keyword">if</span> (dbc) dbc.exec(<span class="hljs-string">"INSERT INTO blah (foo, foo2) VALUES (?, ?)"</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'bar2'</span>);
 <span class="hljs-keyword">if</span> (dbc) dbc.query(<span class="hljs-string">"SELECT * FROM blah"</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">err, res</span>) </span>{
     <span class="hljs-keyword">if</span> (!err) {
          res.forEach(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">row</span>) </span>{
-             engine.log(helpers.toString(row.foo));
+             engine.log(parseString(row.foo));
          });
+    } <span class="hljs-keyword">else</span> {
+        engine.log(err);
     }
 });</pre>
     
@@ -34713,8 +34733,8 @@ see <a href="#eventeventapieventname"><code>api:&#x3C;eventName></code></a> or <
 
   
 
-  <p>Use this, if you expect a result set;
-Note: strings will be returned as byte arrays to be binary safe; to convert to actual strings, please use helpers.toString(column)</p>
+  <p>Use this, if you expect a result set.</p>
+<p>NOTE: Strings will be returned as <strong>byte arrays</strong> to be binary safe; to convert to actual strings, please follow this post: <a href="https://forum.sinusbot.com/threads/mysql-varchar-returned-as-array-of-ascii-chars.7459/#post-42918">https://forum.sinusbot.com/threads/mysql-varchar-returned-as-array-of-ascii-chars.7459/#post-42918</a></p>
 
     <div class='pre p1 fill-light mt0'>query(queryString: <a href="https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, parameters: any?, callback: <a href="#dbquerycallback">dbQueryCallback</a>)</div>
   
