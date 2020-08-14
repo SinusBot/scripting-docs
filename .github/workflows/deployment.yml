@@ -1,0 +1,47 @@
+name: build
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+        registry-url: 'https://registry.npmjs.org'
+    - name: Install dependencies
+      run: npm install
+    - name: Generate Docs
+      run: npm run generate-docs
+    - name: Generate TS
+      run: |
+        npm run generate-ts
+        cp tsd/types.d.ts documentation
+    - name: Deploy on Github Pages
+      if: github.ref == 'refs/heads/master'
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: documentation
+    - name: Publish to npm
+      if: github.ref == 'refs/heads/master'
+      run: npm publish --access public
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      continue-on-error: true
+    - uses: actions/setup-node@v1
+      if: github.ref == 'refs/heads/master'
+      with:
+        registry-url: 'https://npm.pkg.github.com'
+    - name: Publish to GitHub Packages
+      if: github.ref == 'refs/heads/master'
+      run: npm publish
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      continue-on-error: true

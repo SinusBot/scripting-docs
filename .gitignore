@@ -3,3 +3,5 @@ documentation
 out
 node_modules
 tsd
+
+.vscode
