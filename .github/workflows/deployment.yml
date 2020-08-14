@@ -39,6 +39,7 @@ jobs:
       if: github.ref == 'refs/heads/master'
       with:
         registry-url: 'https://npm.pkg.github.com'
+        scope: '@sinusbot'
     - name: Publish to GitHub Packages
       if: github.ref == 'refs/heads/master'
       run: npm publish
