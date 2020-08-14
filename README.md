@@ -1,8 +1,8 @@
 # Scripting engine documentation
 
-[![Build Status](https://travis-ci.org/SinusBot/scripting-docs.svg?branch=master)](https://travis-ci.org/SinusBot/scripting-docs)
+[![Status](https://github.com/SinusBot/scripting-docs/workflows/build/badge.svg)](https://github.com/SinusBot/scripting-docs/actions?query=workflow%3Abuild)
 
-This repository contains the [JSDoc](http://usejsdoc.org) based javascript file from which the [scripting engine documentation](https://sinusbot.github.io/scripting-docs/) is generated.
+This repository contains the [JSDoc](http://usejsdoc.org) based JavaScript files from which the [scripting engine documentation](https://sinusbot.github.io/scripting-docs/) is generated.
 
 ## Introduction
 

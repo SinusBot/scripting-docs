@@ -1,0 +1,30 @@
+name: build
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14'
+    - name: Install dependencies
+      run: npm install
+    - name: Generate Docs
+      run: npm run generate-docs
+    - name: Generate TS
+      run: |
+        npm run generate-ts
+        cp tsd/types.d.ts documentation
+    - name: Deploy on Github Pages
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      if: github.ref == 'refs/heads/master'
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: documentation
