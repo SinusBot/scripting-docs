@@ -6,7 +6,7 @@ This repository contains the [JSDoc](http://usejsdoc.org) based JavaScript files
 
 ## Introduction
 
-Check out our guide in the [SinusBot Documentation](https://sinusbot.github.io/docs/scripts/) for explanations on how to get started.
+Please check out our guide in the [SinusBot Documentation](https://sinusbot.github.io/docs/scripts/) for explanations on how to get started.
 
 ## IntelliSense
 
