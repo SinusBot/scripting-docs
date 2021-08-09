@@ -99,12 +99,12 @@ module.exports = {
  * This is similar to [`api:<your event name>`](#eventeventapieventname) with the only difference being
  * that no authentication is required.
  * @example
- * event.on('api:foobar', ev => {
+ * event.on('public:foobar', ev => {
  *     engine.log('Received foobar event from api!');
  *     // JSON data is in: ev.data()
  * });
  * 
- * // This event can be triggered by sending a http `POST` request to `{sinusbot address}/api/v1/b/i/{instanceID}/event/foobar`.
+ * // This event can be triggered by sending a http `POST` request to `{sinusbot address}/api/v1/b/{botId}/i/{instanceID}/event/foobar`.
  * // Data can be passed by sening JSON in the request body.
  */
 /**
