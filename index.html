@@ -15785,12 +15785,12 @@ that no authentication is required.</p>
     <div class='py1 quiet mt1 prose-big'>Example</div>
     
       
-      <pre class='p1 overflow-auto round fill-light'>event.on(<span class="hljs-string">'api:foobar'</span>, ev =&gt; {
+      <pre class='p1 overflow-auto round fill-light'>event.on(<span class="hljs-string">'public:foobar'</span>, ev =&gt; {
     engine.log(<span class="hljs-string">'Received foobar event from api!'</span>);
     <span class="hljs-comment">// JSON data is in: ev.data()</span>
 });
 
-<span class="hljs-comment">// This event can be triggered by sending a http `POST` request to `{sinusbot address}/api/v1/b/i/{instanceID}/event/foobar`.</span>
+<span class="hljs-comment">// This event can be triggered by sending a http `POST` request to `{sinusbot address}/api/v1/b/{botId}/i/{instanceID}/event/foobar`.</span>
 <span class="hljs-comment">// Data can be passed by sening JSON in the request body.</span></pre>
     
   
